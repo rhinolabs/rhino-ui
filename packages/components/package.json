@@ -161,7 +161,7 @@
     "stylelint-config-css-modules": "^2.3.0",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-sass-guidelines": "^10.0.0",
-    "stylelint-webpack-plugin": "^2.5.0",
+    "stylelint-webpack-plugin": "^5.0.0",
     "ts-loader": "^8.4.0",
     "tslib": "^2.6.2",
     "typescript": "^4.9.5",
