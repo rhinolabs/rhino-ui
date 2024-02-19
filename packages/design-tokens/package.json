@@ -34,7 +34,7 @@
     "node-fetch": "^3.3.2",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
-    "semantic-release": "^22.0.12",
+    "semantic-release": "^23.0.2",
     "style-dictionary": "^2.10.0"
   }
 }
