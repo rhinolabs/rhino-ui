@@ -115,7 +115,7 @@
     "css-loader": "^3.6.0",
     "csstype": "^3.0.3",
     "doctoc": "^1.4.0",
-    "dts-cli": "^1.5.0",
+    "dts-cli": "^2.0.4",
     "eslint": "^7.3.1",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-import-resolver-typescript": "^2.3.0",
