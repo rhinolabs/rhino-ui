@@ -130,7 +130,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.8.0",
-    "husky": "^6.0.0",
+    "husky": "^9.0.11",
     "identity-obj-proxy": "^3.0.0",
     "mdx-embed": "^1.1.2",
     "mutationobserver-shim": "^0.3.7",
