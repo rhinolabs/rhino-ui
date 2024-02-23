@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import rhinoUITheme from "./rhinoUITheme";
+import rhinoUITheme from "./rhino-ui-theme";
 
 import '../src/styles/utilities.scss';
 import '../src/styles/variables/index.scss';

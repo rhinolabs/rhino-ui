@@ -1,0 +1,287 @@
+import { useState } from 'react';
+import { action } from '@storybook/addon-actions';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Tabs } from './tabs';
+import { TabPanels } from '../tab-panels/tab-panels';
+import { Box } from '../box/box';
+import { Button } from '../button/button';
+
+<Meta title="Components/Tabs/Overview" component={Tabs} />
+
+# Tabs
+
+The Tabs component allows a user to flip amongst different views within the same page. This helps users navigate related content without having to change context.
+
+<Canvas withSource="open">
+  <Story
+    name="Default"
+    parameters={{
+      design: {
+        type: 'figma',
+        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=277%3A2705',
+      },
+    }}
+  >
+    {() => {
+      const [selectedTab, setSelectedTab] = useState(0);
+      return (
+        <Tabs
+          value={selectedTab}
+          onChange={(event, index) => {
+            setSelectedTab(index);
+          }}
+        >
+          <Tabs.Item>Tab 1</Tabs.Item>
+          <Tabs.Item>Tab 2</Tabs.Item>
+          <Tabs.Item>Tab 3</Tabs.Item>
+          <Tabs.Item isDisabled>Disabled</Tabs.Item>
+        </Tabs>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Tabs} />
+
+## With Panels
+
+Use the TabPanels component to also control the visible content based on the selected tab.
+
+<Canvas isExpanded>
+  <Story name="With Panels">
+    {() => {
+      const [selectedTab, setSelectedTab] = useState(0);
+      return (
+        <>
+          <Tabs
+            value={selectedTab}
+            onChange={(event, index) => {
+              setSelectedTab(index);
+            }}
+          >
+            <Tabs.Item>Tab 1</Tabs.Item>
+            <Tabs.Item>Tab 2</Tabs.Item>
+          </Tabs>
+          <TabPanels value={selectedTab}>
+            <Box padding="lg">Here's the first tab</Box>
+            <Box padding="lg">Here's the second tab</Box>
+          </TabPanels>
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Full Width
+
+Use the `isFullWidth` prop to expand the tabs to the width of its parent, and size each tab evenly.
+
+<Canvas isExpanded>
+  <Story name="Full Width">
+    {() => {
+      const [selectedTab, setSelectedTab] = useState(0);
+      return (
+        <>
+          <Tabs
+            value={selectedTab}
+            onChange={(event, index) => {
+              setSelectedTab(index);
+            }}
+            isFullWidth
+          >
+            <Tabs.Item>Tab 1</Tabs.Item>
+            <Tabs.Item>Tab 2</Tabs.Item>
+          </Tabs>
+          <TabPanels value={selectedTab}>
+            <Box padding="lg">Here's the first tab</Box>
+            <Box padding="lg">Here's the second tab</Box>
+          </TabPanels>
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Centered
+
+<Canvas isExpanded>
+  <Story name="Centered">
+    {() => {
+      const [selectedTab, setSelectedTab] = useState(0);
+      return (
+        <>
+          <Tabs
+            value={selectedTab}
+            onChange={(event, index) => {
+              setSelectedTab(index);
+            }}
+            isCentered
+          >
+            <Tabs.Item>Tab 1</Tabs.Item>
+            <Tabs.Item>Tab 2</Tabs.Item>
+          </Tabs>
+          <TabPanels value={selectedTab}>
+            <Box padding="lg">Here's the first tab</Box>
+            <Box padding="lg">Here's the second tab</Box>
+          </TabPanels>
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Overflow
+
+By default, tabs will overflow when the content is wider than the container. The selected `Tab.Item` will automatically be scrolled into view when the component is first rendered.
+
+<Canvas isExpanded>
+  <Story name="Overflow">
+    {() => {
+      const [selectedTab, setSelectedTab] = useState(8);
+      const tabs = [...new Array(10)];
+      return (
+        <>
+          <Tabs
+            value={selectedTab}
+            onChange={(event, index) => {
+              setSelectedTab(index);
+            }}
+            isCentered
+          >
+            {tabs.map((tab, index) => (
+              <Tabs.Item key={index}>{`Overflowing Tab ${
+                index + 1
+              }`}</Tabs.Item>
+            ))}
+          </Tabs>
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Sizes
+
+The `size` prop allows you to specify the size of the tab, or the size of the tabs at different breakpoints.
+
+<Canvas isExpanded>
+  <Story name="Size">
+    {() => {
+      const [firstSelectedTab, setFirstSelectedTab] = useState(0);
+      const [secondSelectedTab, setSecondSelectedTab] = useState(0);
+      return (
+        <Box gap="md">
+          <Tabs
+            value={firstSelectedTab}
+            onChange={(event, index) => {
+              setFirstSelectedTab(index);
+            }}
+            size="md"
+          >
+            <Tabs.Item>Tab 1</Tabs.Item>
+            <Tabs.Item>Tab 2</Tabs.Item>
+          </Tabs>
+          <Tabs
+            value={secondSelectedTab}
+            onChange={(event, index) => {
+              setSecondSelectedTab(index);
+            }}
+            size="sm"
+          >
+            <Tabs.Item>Tab 1</Tabs.Item>
+            <Tabs.Item>Tab 2</Tabs.Item>
+          </Tabs>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## With Anchor elements
+
+Since each `Tab.Item` is render via a `Box` component you can pass the `as` attribute to render it as a different element than a button.
+The only other likely use case is to render each tab as an anchor. See example markup below.
+
+<Canvas isExpanded>
+  <Story name="Anchor Elements">
+    {() => {
+      const [selectedTab, setSelectedTab] = useState(0);
+      const handleClick = event => {
+        event.preventDefault();
+      };
+      return (
+        <Box gap="md">
+          <Tabs
+            value={selectedTab}
+            onChange={(event, index) => {
+              setSelectedTab(index);
+            }}
+          >
+            <Tabs.Item
+              as="a"
+              href="#firstPanel"
+              id="tabOneAnchor"
+              aria-controls="firstPanel"
+              style={{ textDecoration: 'none' }}
+              onClick={handleClick}
+            >
+              Tab 1
+            </Tabs.Item>
+            <Tabs.Item
+              as="a"
+              href="#secondPanel"
+              id="tabTwoAnchor"
+              aria-controls="secondPanel"
+              style={{ textDecoration: 'none' }}
+              onClick={handleClick}
+            >
+              Tab 2
+            </Tabs.Item>
+          </Tabs>
+          <TabPanels value={selectedTab}>
+            <Box padding="lg" id="firstPanel" aria-labelledby="tabOneAnchor">
+              Here's the first tab
+            </Box>
+            <Box padding="lg" id="secondPanel" aria-labelledby="tabTwoAnchor">
+              Here's the second tab
+            </Box>
+          </TabPanels>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Component Design Tokens
+
+<table>
+  <thead>
+    <tr>
+      <th>token name</th>
+      <th>default value</th>
+    </tr>
+  </thead>
+  <tbody>
+    {(() => {
+      const tokens = {
+        '--tabs-font-weight': '--size-font-weight-bold',
+        '--tabs-font-color-hover': '--color-brand-primary-500',
+        '--tabs-selected-border-color': '--color-brand-primary-500',
+        '--tabs-selected-font-color': '--color-brand-primary-500',
+        '--tabs-selected-font-color-hover': '--color-brand-primary-600',
+      };
+      return Object.entries(tokens).map(([name, entry], i) => (
+        <tr key={i}>
+          <td>
+            <code>{name}</code>
+          </td>
+          <td>
+            <code>{entry}</code>
+          </td>
+        </tr>
+      ));
+    })()}
+  </tbody>
+</table>

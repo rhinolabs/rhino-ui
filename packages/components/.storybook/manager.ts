@@ -1,5 +1,5 @@
 import { addons } from '@storybook/addons';
-import rhinoUITheme from './rhinoUITheme';
+import rhinoUITheme from './rhino-ui-theme';
 
 addons.setConfig({
   theme: rhinoUITheme,

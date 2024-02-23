@@ -1,16 +1,16 @@
 require('dotenv').config();
 const fse = require('fs-extra');
 const StyleDictionary = require('style-dictionary');
-const mapSemanticColors = require('./utils/mapSemanticColors/mapSemanticColors');
+const mapSemanticColors = require('./utils/map-semantic-colors/map-semantic-colors');
 const dictionaryConfig = require('./config');
-const utilityClass = require('./formats/utilityClass/utilityClass');
-const cssVariablesFont = require('./formats/cssVariablesFont/cssVariablesFont');
-const scssVariablesFont = require('./formats/scssVariablesFont/scssVariablesFont');
-const useSizeUnit = require('./transforms/useSizeUnit/useSizeUnit');
-const customKebab = require('./transforms/customKebab/customKebab');
-const createIconComponents = require('./utils/createIconComponents/createIconComponents');
-const createFileHeader = require("./utils/createFileHeader/createFileHeader");
-const jsFormat = require("./formats/jsFormat/jsFormat");
+const utilityClass = require('./formats/utility-class/utility-class');
+const cssVariablesFont = require('./formats/css-variables-font/css-variables-font');
+const scssVariablesFont = require('./formats/scss-fariables-font/scss-fariables-font');
+const useSizeUnit = require('./transforms/use-size-unit/use-size-unit');
+const customKebab = require('./transforms/custom-kebab/custom-kebab');
+const createIconComponents = require('./utils/create-icon-components/create-icon-components');
+const createFileHeader = require("./utils/create-file-header/create-file-header");
+const jsFormat = require("./formats/js-format/js-format");
 
 console.log('Build started...');
 console.log('==============================================');
@@ -72,8 +72,8 @@ try {
     console.log('Loading from Figma is not currently supported...');
   }
 
-  if (fse.pathExistsSync('./localVariables.json')) {
-    const localVariables = require('./localVariables.json');
+  if (fse.pathExistsSync('./local-variables.json')) {
+    const localVariables = require('./local-variables.json');
     properties = { ...properties, ...localVariables };
   }
 
@@ -117,7 +117,7 @@ try {
   // From the built dictionary, generate constants of all token options.
   // File can't be required at the top since build files are a dependency for this function
   // and they do not exist until the style dictionary is built.
-  const generateTokenTypes = require('./utils/generateTokenTypes/generateTokenTypes');
+  const generateTokenTypes = require('./utils/generate-token-types/generate-token-types');
   generateTokenTypes();
   console.log('\n==============================================');
   console.log('\nToken types generated!');

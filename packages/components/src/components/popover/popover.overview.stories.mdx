@@ -1,0 +1,661 @@
+import { useState } from 'react';
+import { BrowserRouter, Link } from 'react-router-dom';
+import { action } from '@storybook/addon-actions';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Popover } from './popover';
+import { Card } from '../card/card';
+import { Button } from '../button/button';
+import { Box } from '../box/box';
+import { Heading } from '../heading/heading';
+import { Icon } from '../icon/icon';
+import { TextInput } from '../text-input/text-input';
+import { TextLink } from '../text-link/text-link';
+import { SelectInput } from '../select-input/select-input';
+import { useOpenClose } from '../../hooks/use-open-close/use-open-close';
+
+<Meta title="Components/Popover/Overview" component={Popover} />
+
+# Popover
+
+Use popovers to show content of any kind behind the context of a specific trigger, some examples
+of uses for a popover include:
+
+1. Dropdowns
+2. Tooltips
+3. Context Menus
+
+<Canvas withSource="open">
+  <Story
+    name="Basic Usage"
+    parameters={{
+      chromatic: { disableSnapshot: true },
+    }}
+  >
+    {() => {
+      const {
+        isOpen: isPopoverOpen,
+        handleToggle: togglePopover,
+        handleClose: closePopover,
+      } = useOpenClose();
+      const popoverContent = <>Hello!</>;
+      return (
+        <>
+          <Popover
+            content={popoverContent}
+            isOpen={isPopoverOpen}
+            placement="right"
+            contentContainerProps={{
+              padding: 'sm',
+            }}
+            onClickOutside={closePopover}
+          >
+            <Button onClick={togglePopover} variant="light">
+              Toggle Popover
+            </Button>
+          </Popover>
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
+The popover requires a `children` node that will act as a trigger, as well as a `content` prop that has the contents of the Popover.
+
+Use the `isOpen` prop to govern the state of the Popover. This is done by attaching a `onClick` event to the trigger element.
+
+By default the Popover will render with placement on the right, as well as a white background and some base padding on the container. All of these
+items, however are fully customizable.
+
+## Props
+
+<ArgsTable of={Popover} />
+
+## Custom Class
+
+You can apply a custom class to your popover with the `className` prop. Here we have added font color to the text in the popover.
+
+<Canvas withSource="open">
+  <Story
+    name="Custom Class"
+    parameters={{
+      chromatic: { disableSnapshot: true },
+    }}
+  >
+    {() => {
+      const {
+        isOpen: isPopoverOpen,
+        handleToggle: togglePopover,
+        handleClose: closePopover,
+      } = useOpenClose();
+      const popoverContent = <>Hello!</>;
+      return (
+        <div>
+          <Popover
+            content={popoverContent}
+            isOpen={isPopoverOpen}
+            placement="right"
+            contentContainerProps={{
+              padding: 'sm',
+            }}
+            className="font-color-danger"
+            onClickOutside={closePopover}
+          >
+            <Button onClick={togglePopover} variant="light">
+              Toggle Popover
+            </Button>
+          </Popover>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Popover Styling
+
+Because the rendered Popover is powered by our `Box` component ([Read More](/?path=/docs/components-box-overview--background)) you
+can use all known box props to style it. The below example includes some of the basics, but is not representative of
+the entire gamut of styling options.
+
+<Canvas withSource="open">
+  <Story
+    name="Styling"
+    parameters={{
+      chromatic: { disableSnapshot: true },
+    }}
+  >
+    {() => {
+      const { isOpen: isPopoverOpen, handleToggle: togglePopover } =
+        useOpenClose();
+      const [popoverBackground, setPopoverBackground] = useState({
+        value: 'white',
+        label: 'White',
+      });
+      const [popoverFontColor, setPopoverFontColor] = useState({
+        value: 'dark',
+        label: 'Dark',
+      });
+      const [popoverRadius, setPopoverRadius] = useState({
+        value: 'sm',
+        label: 'Small',
+      });
+      const backgroundOptions = [
+        { value: 'white', label: 'White' },
+        { value: 'primary', label: 'Primary' },
+        { value: 'secondary', label: 'Secondary' },
+        { value: 'tertiary', label: 'Tertiary' },
+        { value: 'warning', label: 'Warning' },
+        { value: 'grey-light', label: 'Grey Light' },
+        { value: 'grey-dark', label: 'Grey Dark' },
+      ];
+      const fontColorOptions = [
+        { value: 'white', label: 'White' },
+        { value: 'dark', label: 'Dark' },
+      ];
+      const borderRadiusOptions = [
+        { value: 'sm', label: 'Small' },
+        { value: 'md', label: 'Medium' },
+        { value: 'lg', label: 'Large' },
+      ];
+      return (
+        <Box height="400px">
+          <Box direction="row" gap="md" wrap>
+            <Popover
+              content={
+                <>
+                  <p>Hello world!</p>
+                  <p>Style me any way you want</p>
+                </>
+              }
+              isOpen={isPopoverOpen}
+              placement={'right'}
+              contentContainerProps={{
+                padding: 'sm',
+                background: popoverBackground.value,
+                color: popoverFontColor.value,
+                radius: popoverRadius.value,
+              }}
+            >
+              <Button onClick={togglePopover} variant="light">
+                Toggle Popover
+              </Button>
+            </Popover>
+          </Box>
+          <Box direction="row" gap="sm" wrap margin="3xl 0 0 0">
+            <Box width="200px">
+              <SelectInput
+                options={backgroundOptions}
+                onChange={event => {
+                  setPopoverBackground(event.target.value);
+                }}
+                value={popoverBackground}
+                label="Background Color"
+              />
+            </Box>
+            <Box width="200px">
+              <SelectInput
+                options={fontColorOptions}
+                onChange={event => {
+                  setPopoverFontColor(event.target.value);
+                }}
+                value={popoverFontColor}
+                label="Font Color"
+              />
+            </Box>
+            <Box width="200px">
+              <SelectInput
+                options={borderRadiusOptions}
+                onChange={event => {
+                  setPopoverRadius(event.target.value);
+                }}
+                value={popoverRadius}
+                label="Border Radius"
+              />
+            </Box>
+          </Box>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Placement
+
+Based on layout, it is beneficial to place the popover in a variety of positions relative to its trigger element.
+Note that in case where the popover is in danger of overflowing, the component will fallback to `auto` in order to
+prevent the content from getting cut off.
+
+<Canvas withSource="open">
+  <Story
+    name="Placement"
+    parameters={{
+      chromatic: { disableSnapshot: true },
+    }}
+  >
+    {() => {
+      const [isPopoverOpen, setPopoverOpen] = useState({
+        auto: false,
+        'auto-start': false,
+        'auto-end': false,
+        top: false,
+        bottom: false,
+        right: false,
+        left: false,
+        'top-start': false,
+        'top-end': false,
+        'bottom-start': false,
+        'bottom-end': false,
+        'right-start': false,
+        'right-end': false,
+        'left-start': false,
+        'left-end': false,
+      });
+      const handleOpenPopover = key => {
+        setPopoverOpen({ ...isPopoverOpen, [key]: !isPopoverOpen[key] });
+      };
+      const positions = [
+        'auto',
+        'auto-start',
+        'auto-end',
+        'top',
+        'bottom',
+        'right',
+        'left',
+        'top-start',
+        'top-end',
+        'bottom-start',
+        'bottom-end',
+        'right-start',
+        'right-end',
+        'left-start',
+        'left-end',
+      ];
+      return (
+        <Box direction="row" gap="md" wrap>
+          {positions.map(position => (
+            <Box
+              height="100px"
+              padding="5xl"
+              display="inline-block"
+              key={position}
+            >
+              <Popover
+                content={<>{position}</>}
+                isOpen={isPopoverOpen[position]}
+                placement={position}
+                contentContainerProps={{
+                  padding: 'sm',
+                  background: 'secondary',
+                  color: 'white',
+                }}
+              >
+                <Button
+                  onClick={() => handleOpenPopover(position)}
+                  variant="light"
+                >
+                  {position}
+                </Button>
+              </Popover>
+            </Box>
+          ))}
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## With a Portal
+
+Popovers in lots of cases need to break away from the HTML structure of their parent elements
+in order to maintain semantic order on the page. This can also help with z-index conflicts
+and ensure content isn't cut off in certain cases by the popover's parent container.
+
+To render the Popover outside in an element other than its parent container, we
+use a (React Portal)[https://reactjs.org/docs/portals.html].
+
+By default the element is portaled into the document `body` but you can use the `portalTarget` prop
+in order to render the element anywhere on the page.
+
+<Canvas withSource="open">
+  <Story
+    name="With a Portal"
+    parameters={{
+      chromatic: { disableSnapshot: true },
+    }}
+  >
+    {() => {
+      const {
+        isOpen: isPopoverOpen,
+        handleToggle: togglePopover,
+        handleClose: closePopover,
+      } = useOpenClose();
+      const popoverContent = (
+        <>
+          <Heading style={{ marginBottom: '0.5rem' }}>
+            I am living in the body element!
+          </Heading>
+          <p>
+            That's why I can break out of my container without getting cut off
+          </p>
+        </>
+      );
+      return (
+        <Box display="inline-block">
+          <Popover
+            content={popoverContent}
+            isOpen={isPopoverOpen}
+            placement="right-start"
+            contentContainerProps={{
+              padding: 'md',
+              background: 'secondary',
+              color: 'white',
+            }}
+            withPortal
+            portalTarget={document.body}
+            onClickOutside={closePopover}
+          >
+            <Button onClick={togglePopover} variant="light">
+              Toggle Popover
+            </Button>
+          </Popover>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Hover Trigger
+
+In cases where small amounts of additional context are needed for a particular item,
+it might be beneficial to trigger the Popover on hover. Since the component is fully controlled
+this can be done easily by attaching mouse events to the trigger element as show below.
+
+NOTE: this should be use sparingly since context dependent on hover, isn't an optimal experience for mobile users.
+
+<Canvas withSource="open">
+  <Story
+    name="Hover"
+    parameters={{
+      chromatic: { disableSnapshot: true },
+    }}
+  >
+    {() => {
+      const {
+        isOpen: isPopoverOpen,
+        handleClose: closePopover,
+        handleOpen: openPopover,
+      } = useOpenClose();
+      const popoverContent = (
+        <>
+          <Heading style={{ marginBottom: '0.5rem' }}>
+            I just appeared on hover!
+          </Heading>
+          <p>
+            My visibility can easily be managed by attaching listeners to the
+            trigger element
+          </p>
+        </>
+      );
+      return (
+        <Box display="inline-block">
+          <Popover
+            content={popoverContent}
+            isOpen={isPopoverOpen}
+            placement="right-start"
+            contentContainerProps={{
+              padding: 'md',
+              background: 'primary-light',
+            }}
+          >
+            <Button
+              onMouseOver={openPopover}
+              onMouseOut={closePopover}
+              variant="light"
+            >
+              Hover Me
+            </Button>
+          </Popover>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Respond to Outside Clicks
+
+Since Popovers are by nature rendered on top of existing content, it
+is beneficial in most cases to close the Popover when a user clicks any item outside
+the trigger and popover content.
+
+Our component provides a `onClickOutside` prop that fires a callback whenever there is a click
+event outside the Popover content, OR, when the user taps the `Escape` key.
+You can use the callback to set `isOpen` to false.
+
+NOTE: the click event is attached to the `document.body`, but will not bubble up the event
+in cases where the click target includes the Popover trigger or content nodes.
+
+<Canvas withSource="open">
+  <Story
+    name="Outside Clicks"
+    parameters={{
+      chromatic: { disableSnapshot: true },
+    }}
+  >
+    {() => {
+      const {
+        isOpen: isPopoverOpen,
+        handleClose: closePopover,
+        handleToggle: togglePopover,
+      } = useOpenClose();
+      const popoverContent = (
+        <>
+          <Heading style={{ marginBottom: '0.5rem' }}>
+            I will close if you click outside!
+          </Heading>
+          <p>The event listener is attached to the document body.</p>
+        </>
+      );
+      return (
+        <Box display="inline-block">
+          <Popover
+            content={popoverContent}
+            isOpen={isPopoverOpen}
+            placement="right-start"
+            withPortal
+            portalTarget={document.body}
+            onClickOutside={closePopover}
+            contentContainerProps={{
+              padding: 'md',
+              background: 'primary-light',
+            }}
+          >
+            <Button onClick={togglePopover} variant="light">
+              Toggle Popover
+            </Button>
+          </Popover>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Trapping Focus
+
+Trapping focus in a Popover is valuable in many cases to preserve accessibility. It consists
+of constraining the items available for focusing to ONLY the content of the Popover, hence preventing
+users from focusing on elements that might be behind or outside the Popover content.
+
+Use the `trapFocus` prop to constrain focus to popover content elements.
+
+<Canvas withSource="open">
+  <Story
+    name="Trapping Focus"
+    parameters={{
+      chromatic: { disableSnapshot: true },
+    }}
+  >
+    {() => {
+      const [inputValue, setInputValue] = useState('');
+      const {
+        isOpen: isPopoverOpen,
+        handleClose: closePopover,
+        handleToggle: togglePopover,
+      } = useOpenClose();
+      const handleInputChange = event => {
+        setInputValue(event.target.value);
+      };
+      const popoverContent = (
+        <>
+          <Box direction="column" gap="sm">
+            <Heading>
+              Only the elements on this Popover can be tabbed into
+            </Heading>
+            <TextInput onChange={handleInputChange} value={inputValue} />
+            <Button>Submit</Button>
+          </Box>
+        </>
+      );
+      return (
+        <Box display="inline-block">
+          <Popover
+            content={popoverContent}
+            isOpen={isPopoverOpen}
+            placement="right-start"
+            contentContainerProps={{
+              padding: 'md',
+              background: 'grey-lightest',
+            }}
+            withPortal
+            portalTarget={document.body}
+            onClickOutside={closePopover}
+            trapFocus
+          >
+            <Button onClick={togglePopover} variant="light">
+              Toggle Popover
+            </Button>
+          </Popover>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Without An Arrow
+
+Render the popover with no arrow by passing `hasArrow` false.
+
+<Canvas withSource="open">
+  <Story
+    name="Hide Arrow"
+    parameters={{
+      chromatic: { disableSnapshot: true },
+    }}
+  >
+    {() => {
+      const {
+        isOpen: isPopoverOpen,
+        handleToggle: togglePopover,
+        handleClose: closePopover,
+      } = useOpenClose();
+      const popoverContent = (
+        <>
+          <Box direction="column" gap="sm">
+            <Heading>With no arrow</Heading>
+            <p>I am floating in space</p>
+          </Box>
+        </>
+      );
+      return (
+        <>
+          <Popover
+            content={popoverContent}
+            isOpen={isPopoverOpen}
+            placement="right"
+            contentContainerProps={{
+              padding: 'sm',
+            }}
+            onClickOutside={closePopover}
+          >
+            <Button onClick={togglePopover} variant="light">
+              Toggle Popover
+            </Button>
+          </Popover>
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Offset Distance
+
+Place the popover closer or farther from its trigger with the `offsetFromTarget` prop.
+
+<Canvas withSource="open">
+  <Story
+    name="Offset Distance"
+    parameters={{
+      chromatic: { disableSnapshot: true },
+    }}
+  >
+    {() => {
+      const [offset, setOffset] = useState(12);
+      const { isOpen: isPopoverOpen, handleToggle: togglePopover } =
+        useOpenClose();
+      const handleInputChange = event => {
+        setInputValue(event.target.value);
+      };
+      const popoverContent = (
+        <>
+          <Box direction="column" gap="sm">
+            <Heading>Custom Offset</Heading>
+            <p>Near, far, wherever your are...</p>
+          </Box>
+        </>
+      );
+      return (
+        <>
+          <Box display="inline-block">
+            <Popover
+              content={popoverContent}
+              isOpen={isPopoverOpen}
+              placement="right-start"
+              contentContainerProps={{
+                padding: 'md',
+                background: 'grey-lightest',
+              }}
+              withPortal
+              portalTarget={document.body}
+              hasArrow={false}
+              offsetFromTarget={offset}
+            >
+              <Button onClick={togglePopover} variant="light">
+                Toggle Popover
+              </Button>
+            </Popover>
+          </Box>
+          <Box margin="2xl 0 0 0" maxWidth="300px">
+            <label
+              htmlFor="offset"
+              style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}
+            >
+              Offset
+            </label>
+            <input
+              type="range"
+              id="offset"
+              name="offset"
+              min="0"
+              max="24"
+              step="1"
+              value={offset}
+              onChange={event => {
+                setOffset(event.target.value);
+              }}
+              style={{ marginBottom: '0.25rem' }}
+            />
+            <span style={{ display: 'inline' }}>Value: {offset}</span>
+          </Box>
+        </>
+      );
+    }}
+  </Story>
+</Canvas>

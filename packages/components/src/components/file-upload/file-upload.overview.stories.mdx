@@ -1,0 +1,579 @@
+import { useState } from 'react';
+import { action } from '@storybook/addon-actions';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { FileUpload } from './file-upload';
+import { Box } from '../box/box';
+import { Button } from '../button/button';
+
+<Meta
+  title="Components/FileUpload/Overview"
+  component={FileUpload}
+  parameters={{
+    controls: { hideNoControlsWarning: true },
+  }}
+/>
+
+# File Upload
+
+Use FileUpload to capture files for upload in forms or elsewhere.
+
+<Canvas isExpanded>
+  <FileUpload labelText="My File" id="demoFileUpload" />
+</Canvas>
+
+## Props
+
+<ArgsTable of={FileUpload} />
+
+## Default
+
+<Canvas>
+  <Story name="Default">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      return (
+        <FileUpload
+          labelText="My File"
+          id="myFile"
+          onChange={handleChange}
+          files={files}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Custom Button Text
+
+Customize the button text with `buttonText`.
+
+<Canvas>
+  <Story name="Button text">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      return (
+        <FileUpload
+          labelText="My File"
+          id="myFile"
+          onChange={handleChange}
+          files={files}
+          buttonText="Upload Your Power Bill"
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Help Text
+
+Use the `helpText` prop to add clarifying text adjacent to the file upload button.
+
+<Canvas>
+  <Story name="Help Text">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      return (
+        <FileUpload
+          labelText="My File"
+          id="myFile"
+          onChange={handleChange}
+          files={files}
+          helpText="image files only (jpg, png, gif)"
+          accept="image/*"
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Custom Icon
+
+Customize the icon to communicate the button's intended use using `iconName`. For example, using a mobile device, pressing the button will launch the device's built in camera.
+
+<Canvas>
+  <Story name="Custom Icon">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      return (
+        <FileUpload
+          labelText="My File"
+          buttonText="Take Photo"
+          id="myFile"
+          onChange={handleChange}
+          files={files}
+          iconName="camera"
+          accept="images/*"
+          capture="environment"
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Without Icon
+
+Remove the icon on the button with the handy `hasIcon` boolean.
+
+<Canvas>
+  <Story name="Without Icon">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      return (
+        <FileUpload
+          labelText="My File"
+          id="myFile"
+          onChange={handleChange}
+          files={files}
+          hasIcon={false}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Without Button Text
+
+The default button text for `FileUpload` is 'Upload File'. However, you can explicitely pass `null` to the `buttonText` prop to remove all text.
+
+<Canvas>
+  <Story name="Without Button Text">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      return (
+        <FileUpload
+          labelText="My File"
+          id="myFile"
+          onChange={handleChange}
+          files={files}
+          buttonText={null}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Variants
+
+Light, dark, primary and white variations are available.
+
+<Canvas>
+  <Story name="Variants">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const [lightFiles, setLightFiles] = useState(null);
+      const [primaryFiles, setPrimaryFiles] = useState(null);
+      const [whiteFiles, setWhiteFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      const handleLightChange = event => {
+        setLightFiles(event.target.files);
+      };
+      const handlePrimaryChange = event => {
+        setPrimaryFiles(event.target.files);
+      };
+      return (
+        <Box direction="row" gap="md" alignItems="center">
+          <FileUpload
+            buttonText="Dark"
+            labelText="My File"
+            id="darkUpload"
+            onChange={handleChange}
+            files={files}
+            variant="dark"
+          />
+          <FileUpload
+            buttonText="Light"
+            labelText="My File"
+            id="lightUpload"
+            onChange={handleLightChange}
+            files={lightFiles}
+            variant="light"
+          />
+          <FileUpload
+            buttonText="Primary"
+            labelText="My File"
+            id="primaryUpload"
+            onChange={handlePrimaryChange}
+            files={primaryFiles}
+            variant="primary"
+          />
+          <Box background="grey-500" padding="2xs">
+            <FileUpload
+              buttonText="White"
+              labelText="My File"
+              id="whiteUpload"
+              onChange={handlePrimaryChange}
+              files={whiteFiles}
+              variant="white"
+            />
+          </Box>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Outlined
+
+Use `isOutlined` to render an outline button.
+
+<Canvas>
+  <Story name="Outlined">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const [lightFiles, setLightFiles] = useState(null);
+      const [primaryFiles, setPrimaryFiles] = useState(null);
+      const [whiteFiles, setWhiteFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      const handleLightChange = event => {
+        setLightFiles(event.target.files);
+      };
+      const handlePrimaryChange = event => {
+        setPrimaryFiles(event.target.files);
+      };
+      return (
+        <Box direction="row" gap="md" alignItems="center">
+          <FileUpload
+            buttonText="Dark"
+            labelText="My File"
+            id="darkUpload"
+            onChange={handleChange}
+            files={files}
+            variant="dark"
+            isOutlined
+          />
+          <FileUpload
+            buttonText="Light"
+            labelText="My File"
+            id="lightUpload"
+            onChange={handleLightChange}
+            files={lightFiles}
+            variant="light"
+            isOutlined
+          />
+          <FileUpload
+            buttonText="Primary"
+            labelText="My File"
+            id="primaryUpload"
+            onChange={handlePrimaryChange}
+            files={primaryFiles}
+            variant="primary"
+            isOutlined
+          />
+          <Box background="grey-500" padding="2xs">
+            <FileUpload
+              buttonText="White"
+              labelText="My File"
+              id="whiteUpload"
+              onChange={handlePrimaryChange}
+              files={whiteFiles}
+              variant="white"
+              isOutlined
+            />
+          </Box>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Sizes
+
+Set the size of the FileUpload button to `xs`, `sm`, `md` or `lg`. `md` is the default size.
+
+<Canvas>
+  <Story name="Sizes">
+    {() => {
+      const sizes = [
+        { label: 'Extra Small', value: 'xs' },
+        { label: 'Small', value: 'sm' },
+        { label: 'Medium', value: 'md' },
+        { label: 'Large', value: 'lg' },
+      ];
+      const handleChange = event => {
+        alert(`You picked this file: ${event.target.files[0].name}`);
+      };
+      return (
+        <Box gap="lg" direction="row">
+          <Box gap="md">
+            <Box gap="sm">
+              {sizes.map(size => (
+                <FileUpload
+                  key={size.label}
+                  labelText={size.label}
+                  id={size.label}
+                  onChange={handleChange}
+                  size={size.value}
+                  buttonText={size.label}
+                  helpText="helpful text"
+                />
+              ))}
+            </Box>
+          </Box>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Clearing Files
+
+Pass a callback function `onClearFiles` to handle the click event for clearing all files from the input.
+NOTE: since this is a controlled input, the callback itself will not clear any files, it is expected that
+they are cleared at the top level where the `files` prop is emptied.
+
+<Canvas>
+  <Story name="Clear">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      const handleClear = event => {
+        setFiles(null);
+      };
+      return (
+        <Box gap="md" direction="row">
+          <FileUpload
+            labelText="My File"
+            id="myFile"
+            onChange={handleChange}
+            files={files}
+            onClearFiles={handleClear}
+          />
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Multiple Files
+
+Pass the `multiple` prop to let users select multiple files to upload.
+NOTE: just like a native file input, users will be expected to select multiple files in their finder/explorer
+window in one go, if they simply click the button numerous times, the file input will be overwritten every time.
+
+<Canvas>
+  <Story name="Multiple Files">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      return (
+        <FileUpload
+          labelText="My File"
+          id="myFile"
+          onChange={handleChange}
+          files={files}
+          multiple
+          buttonText="Upload Multiple Files"
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Specify File Types
+
+Specify the type of files accepted in the input with the `accept` prop. This is a direct passthrough to the
+input's accept prop so it follows its standard behavor.
+[Read More](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept)
+The example below only accepts image files.
+
+<Canvas>
+  <Story name="File Types">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      return (
+        <FileUpload
+          labelText="My File"
+          id="myFile"
+          onChange={handleChange}
+          files={files}
+          accept="image/*"
+          buttonText="Upload Images"
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Truncate File Name
+
+It is helpful in some UIs to shorten the display of long file names, however, it is
+also good to let the user know what file they are uploading by leaving the file extension intact.
+To accomplish this we simply truncate excess characters in the middle of the file name, based on the
+`fileNameMaxLength` prop. Try it with a long file name, the one below is capped at 16 characters.
+
+<Canvas>
+  <Story name="Truncated File Names">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      return (
+        <FileUpload
+          labelText="My File"
+          id="myFile"
+          onChange={handleChange}
+          files={files}
+          fileNameMaxLength={16}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## FullWidth
+
+Pass the `fullWidth` prop to have your FileUpload button take up the entire width of its container.
+
+<Canvas>
+  <Story name="Full Width">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      return (
+        <FileUpload
+          labelText="My File"
+          id="myFile"
+          onChange={handleChange}
+          files={files}
+          fullWidth
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Disabled
+
+Pass the `isDisabled` prop to render a disabled FileUpload.
+
+<Canvas>
+  <Story name="Disabled">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      return (
+        <FileUpload
+          labelText="My File"
+          id="myFile"
+          onChange={handleChange}
+          files={files}
+          isDisabled
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Required
+
+Pass the `isRequired` prop to make the `input` required. Combine with the `error` prop to
+display a proper error when necessary.
+
+<Canvas>
+  <Story name="Required">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const [error, setError] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+        if (event.target.files.length > 0) {
+          setError(null);
+        }
+      };
+      const handleSubmit = event => {
+        if (!files || files.length === 0) {
+          setError('This field is required');
+        } else {
+          alert('submitted successfully!');
+        }
+      };
+      return (
+        <Box gap="md" direction="row">
+          <FileUpload
+            labelText="My File"
+            id="myFile"
+            onChange={handleChange}
+            files={files}
+            isRequired
+            error={error}
+            fileNameMaxLength={14}
+          />
+          <div>
+            <Button onClick={handleSubmit}>
+              Submit with no files to see error.
+            </Button>
+          </div>
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
+
+You can remove or customize the required indicator using the `requiredIndicator` prop.
+
+<Canvas>
+  <Story name="Custom Required Indicator">
+    {() => {
+      const [files, setFiles] = useState(null);
+      const handleChange = event => {
+        setFiles(event.target.files);
+      };
+      return (
+        <Box gap="md">
+          <FileUpload
+            labelText="My File"
+            id="myFile"
+            onChange={handleChange}
+            files={files}
+            buttonText="Without Indicator"
+            isRequired
+            requiredIndicator={null}
+          />
+          <FileUpload
+            labelText="My File"
+            id="myFile"
+            onChange={handleChange}
+            files={files}
+            buttonText="Custom Indicator"
+            isRequired
+            requiredIndicator={<>&nbsp;(required)</>}
+          />
+        </Box>
+      );
+    }}
+  </Story>
+</Canvas>
