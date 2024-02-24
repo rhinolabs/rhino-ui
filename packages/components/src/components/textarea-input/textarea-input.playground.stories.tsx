@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { TextareaInput, TextareaInputProps } from './textarea-input';
 
 const meta: Meta<typeof TextareaInput> = {
@@ -63,13 +62,14 @@ const meta: Meta<typeof TextareaInput> = {
 
 export default meta;
 
-const Template: StoryFn<TextareaInputProps> = ({ ...args }) => <TextareaInput {...args} />;
+type Story = StoryObj<TextareaInputProps>;
 
-export const Playground = Template.bind({});
-Playground.args = {
-  id: 'playgroundTextareaInput',
-  label: 'Playground TextareaInput',
-  helpText: 'Helpful text',
-  name: 'playgroundTextareaInput',
-  rows: 5,
+export const Playground: Story = {
+  args: {
+    id: 'playgroundTextareaInput',
+    label: 'Playground TextareaInput',
+    helpText: 'Helpful text',
+    name: 'playgroundTextareaInput',
+    rows: 5,
+  },
 };

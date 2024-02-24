@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Pagination, PaginationProps } from './pagination';
 
 const meta: Meta<typeof Pagination> = {
@@ -32,24 +31,26 @@ const meta: Meta<typeof Pagination> = {
 
 export default meta;
 
-const Template: StoryFn<PaginationProps> = ({ ...args }) => (
-  <Pagination {...args} />
-);
-export const Playground = Template.bind({});
-Playground.args = {
-  arePagesVisible: true,
-  activePage: 1,
-};
-Playground.parameters = {
-  controls: {
-    include: [
-      'activePage',
-      'itemsPerPage',
-      'totalItemsCount',
-      'arePagesVisible',
-      'isCompact',
-      'nextPageText',
-      'prevPageText',
-    ],
+type Story = StoryObj<PaginationProps>;
+
+export const Playground: Story = {
+  args: {
+    arePagesVisible: true,
+    activePage: 1,
+    itemsPerPage: 2,
+    totalItemsCount: 5,
+  },
+  parameters: {
+    controls: {
+      include: [
+        'activePage',
+        'itemsPerPage',
+        'totalItemsCount',
+        'arePagesVisible',
+        'isCompact',
+        'nextPageText',
+        'prevPageText',
+      ],
+    },
   },
 };

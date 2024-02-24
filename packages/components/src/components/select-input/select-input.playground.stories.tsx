@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { SelectInput, SelectInputProps } from './select-input';
 
 const meta: Meta<typeof SelectInput> = {
@@ -62,18 +61,19 @@ const meta: Meta<typeof SelectInput> = {
 
 export default meta;
 
-const Template: StoryFn<SelectInputProps> = ({ ...args }) => <SelectInput {...args} />;
+type Story = StoryObj<SelectInputProps>;
 
-export const Playground = Template.bind({});
-Playground.args = {
-  id: 'playgroundSelectInput',
-  label: 'Playground SelectInput',
-  description: 'Helpful text',
-  name: 'playgroundSelectInput',
-  menuPortalTarget: document.body,
-  options: [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
-  ],
+export const Playground: Story = {
+  args: {
+    id: 'playgroundSelectInput',
+    label: 'Playground SelectInput',
+    description: 'Helpful text',
+    name: 'playgroundSelectInput',
+    menuPortalTarget: document.body,
+    options: [
+      { value: 'chocolate', label: 'Chocolate' },
+      { value: 'strawberry', label: 'Strawberry' },
+      { value: 'vanilla', label: 'Vanilla' },
+    ],
+  },
 };

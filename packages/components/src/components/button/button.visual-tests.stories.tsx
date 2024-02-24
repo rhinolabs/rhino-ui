@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { within } from '@storybook/testing-library';
 import { Button, ButtonProps } from './button';
 import { BUTTON_SIZES, BUTTON_VARIANTS } from './button.constants';
@@ -13,183 +13,197 @@ const meta: Meta<typeof Button> = {
 
 export default meta;
 
-const Template: StoryFn<ButtonProps & { showIconButton: boolean; }> = (args, showIconButton) => (
-  <Box gap="xl">
-    {BUTTON_SIZES.map(size => (
-      <Box gap="sm" key={size}>
-        <Box gap="sm" direction="row" alignItems="flex-start">
-          {BUTTON_VARIANTS.map(variant => (
-            <Button {...args} size={size} variant={variant} key={`${size}-${variant}`}>
-              {`${size} ${variant}`}
-            </Button>
-          ))}
-          {showIconButton && (
-            <Button
-              {...args}
-              iconPrefix="circle"
-              iconSuffix="property-agreement"
-              size={size}
-              variant="primary"
-              key={`${size}-icon`}
-            >
-              {`${size} icon`}
-            </Button>
-          )}
+type StoryWithIcon = StoryObj<ButtonProps & { showIconButton: boolean }>;
+type Story = StoryObj<typeof Button>;
+
+const Default: StoryWithIcon = {
+  render: (args: ButtonProps & { showIconButton: boolean }) => (
+    <Box gap="xl">
+      {BUTTON_SIZES.map((size) => (
+        <Box gap="sm" key={size}>
+          <Box gap="sm" direction="row" alignItems="flex-start">
+            {BUTTON_VARIANTS.map((variant) => (
+              <Button
+                {...args}
+                size={size}
+                variant={variant}
+                key={`${size}-${variant}`}
+              >
+                {`${size} ${variant}`}
+              </Button>
+            ))}
+            {args.showIconButton && (
+              <Button
+                {...args}
+                iconPrefix="circle"
+                iconSuffix="property-agreement"
+                size={size}
+                variant="primary"
+                key={`${size}-icon`}
+              >
+                {`${size} icon`}
+              </Button>
+            )}
+          </Box>
+          <Box gap="sm" direction="row" alignItems="flex-start" key={size}>
+            {BUTTON_VARIANTS.map((variant) => (
+              <Button
+                {...args}
+                size={size}
+                variant={variant}
+                isOutlined
+                key={`${size}-${variant}-outline`}
+              >
+                {`${size} ${variant}`}
+              </Button>
+            ))}
+            {args.showIconButton && (
+              <Button
+                {...args}
+                iconPrefix="circle"
+                iconSuffix="property-agreement"
+                size={size}
+                isOutlined
+                variant="primary"
+                key={`${size}-icon`}
+              >
+                {`${size} icon`}
+              </Button>
+            )}
+          </Box>
         </Box>
-        <Box gap="sm" direction="row" alignItems="flex-start" key={size}>
-          {BUTTON_VARIANTS.map(variant => (
-            <Button
-              {...args}
-              size={size}
-              variant={variant}
-              isOutlined
-              key={`${size}-${variant}-outline`}
-            >
-              {`${size} ${variant}`}
-            </Button>
-          ))}
-          {showIconButton && (
-            <Button
-              {...args}
-              iconPrefix="circle"
-              iconSuffix="property-agreement"
-              size={size}
-              isOutlined
-              variant="primary"
-              key={`${size}-icon`}
-            >
-              {`${size} icon`}
-            </Button>
-          )}
-        </Box>
+      ))}
+      <Box gap="sm">
+        <Button {...args}>Full Width</Button>
+        <Button {...args} fullWidth isOutlined>
+          Full Width Outline
+        </Button>
       </Box>
-    ))}
-    <Box gap="sm">
-      <Button {...args}>Full Width</Button>
-      <Button {...args} fullWidth isOutlined>
-        Full Width Outline
-      </Button>
     </Box>
-  </Box>
-);
-
-const SingleButtonTemplate: StoryFn<ButtonProps> = args => (
-  // the div is to add padding so that chromatic captures the box-shadow focus state
-  <div className="p-md">
-    <Button {...args}>label</Button>
-  </div>
-);
-
-export const Sizes = Template.bind({});
-Sizes.args = { showIconButton: true };
-Sizes.parameters = RESPONSIVE_STORY;
-
-export const Loading = Template.bind({});
-Loading.args = { isLoading: true, showIconButton: true };
-
-export const Disabled = Template.bind({});
-Disabled.args = { isDisabled: true, showIconButton: true };
-
-export const WithIcons = Template.bind({});
-WithIcons.args = { iconPrefix: 'mail', iconSuffix: 'chat' };
-
-export const PrimaryFocus = SingleButtonTemplate.bind({});
-
-PrimaryFocus.play = async ({ canvasElement }) => {
-  // Starts querying the component from its root
-  const canvas = within(canvasElement);
-
-  // Looks up the button and interacts with it.
-  canvas.getByRole('button').focus();
+  ),
 };
 
-export const SuccessFocus = SingleButtonTemplate.bind({});
-SuccessFocus.args = { variant: 'success' };
-
-SuccessFocus.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  canvas.getByRole('button').focus();
+const SingleButton: Story = {
+  render: (args) => (
+    // the div is to add padding so that chromatic captures the box-shadow focus state
+    <div className="p-md">
+      <Button {...args}>label</Button>
+    </div>
+  ),
 };
 
-export const DangerFocus = SingleButtonTemplate.bind({});
-DangerFocus.args = { variant: 'danger' };
-
-DangerFocus.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  canvas.getByRole('button').focus();
+export const Sizes: StoryWithIcon = {
+  ...Default,
+  args: {
+    showIconButton: true,
+  },
+  parameters: RESPONSIVE_STORY,
 };
 
-export const LightFocus = SingleButtonTemplate.bind({});
-LightFocus.args = { variant: 'light' };
-
-LightFocus.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  canvas.getByRole('button').focus();
+export const Loading: StoryWithIcon = {
+  ...Default,
+  args: {
+    isLoading: true,
+    showIconButton: true,
+  },
 };
 
-export const DarkFocus = SingleButtonTemplate.bind({});
-DarkFocus.args = { variant: 'dark' };
-
-DarkFocus.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  canvas.getByRole('button').focus();
+export const Disabled: StoryWithIcon = {
+  ...Default,
+  args: {
+    isDisabled: true,
+    showIconButton: true,
+  },
 };
 
-export const WhiteFocus = SingleButtonTemplate.bind({});
-WhiteFocus.args = { variant: 'white' };
-
-WhiteFocus.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  canvas.getByRole('button').focus();
+export const WithIcons: StoryWithIcon = {
+  ...Default,
+  args: {
+    iconPrefix: 'mail',
+    iconSuffix: 'chat',
+  },
 };
 
-export const PrimaryOutlinedFocus = SingleButtonTemplate.bind({});
-PrimaryOutlinedFocus.args = { isOutlined: true };
+export const PrimaryFocus: Story = {
+  ...SingleButton,
+  play: async ({ canvasElement }) => {
+    // Starts querying the component from its root
+    const canvas = within(canvasElement);
 
-PrimaryOutlinedFocus.play = async ({ canvasElement }) => {
-  // Starts querying the component from its root
-  const canvas = within(canvasElement);
-
-  // Looks up the button and interacts with it.
-  canvas.getByRole('button').focus();
+    // Looks up the button and interacts with it.
+    canvas.getByRole('button').focus();
+  },
 };
 
-export const SuccessOutlinedFocus = SingleButtonTemplate.bind({});
-SuccessOutlinedFocus.args = { variant: 'success', isOutlined: true };
-
-SuccessOutlinedFocus.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  canvas.getByRole('button').focus();
+export const SuccessFocus: Story = {
+  ...PrimaryFocus,
+  args: {
+    variant: 'success',
+  },
 };
 
-export const DangerOutlinedFocus = SingleButtonTemplate.bind({});
-DangerOutlinedFocus.args = { variant: 'danger', isOutlined: true };
-
-DangerOutlinedFocus.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  canvas.getByRole('button').focus();
+export const DangerFocus: Story = {
+  ...PrimaryFocus,
+  args: { variant: 'danger' },
 };
 
-export const LightOutlinedFocus = SingleButtonTemplate.bind({});
-LightOutlinedFocus.args = { variant: 'light', isOutlined: true };
-
-LightOutlinedFocus.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  canvas.getByRole('button').focus();
+export const LightFocus: Story = {
+  ...PrimaryFocus,
+  args: {
+    variant: 'light',
+  },
 };
 
-export const DarkOutlinedFocus = SingleButtonTemplate.bind({});
-DarkOutlinedFocus.args = { variant: 'dark', isOutlined: true };
-
-DarkOutlinedFocus.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  canvas.getByRole('button').focus();
+export const DarkFocus: Story = {
+  ...PrimaryFocus,
+  args: {
+    variant: 'dark',
+  },
 };
 
-export const WhiteOutlinedFocus = SingleButtonTemplate.bind({});
-WhiteOutlinedFocus.args = { variant: 'white', isOutlined: true };
+export const WhiteFocus: Story = {
+  ...PrimaryFocus,
+  args: {
+    variant: 'white',
+  },
+};
 
-WhiteOutlinedFocus.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  canvas.getByRole('button').focus();
+export const PrimaryOutlinedFocus: Story = {
+  ...PrimaryFocus,
+  args: {
+    isOutlined: true,
+  },
+};
+
+export const SuccessOutlinedFocus: Story = {
+  ...PrimaryOutlinedFocus,
+  args: { variant: 'success' },
+};
+
+export const DangerOutlinedFocus: Story = {
+  ...PrimaryOutlinedFocus,
+  args: {
+    variant: 'danger',
+  },
+};
+
+export const LightOutlinedFocus: Story = {
+  ...PrimaryOutlinedFocus,
+  args: {
+    variant: 'light',
+  },
+};
+
+export const DarkOutlinedFocus: Story = {
+  ...PrimaryOutlinedFocus,
+  args: {
+    variant: 'dark',
+  },
+};
+
+export const WhiteOutlinedFocus: Story = {
+  ...PrimaryOutlinedFocus,
+  args: {
+    variant: 'white',
+  },
 };

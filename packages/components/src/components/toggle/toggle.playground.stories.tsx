@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Toggle, ToggleProps } from './toggle';
 
 const meta: Meta<typeof Toggle> = {
@@ -44,12 +43,13 @@ const meta: Meta<typeof Toggle> = {
 
 export default meta;
 
-const Template: StoryFn<ToggleProps> = ({ ...args }) => <Toggle {...args} />;
+type Story = StoryObj<ToggleProps>;
 
-export const Playground = Template.bind({});
-Playground.args = {
-  id: 'togglePlayground',
-  size: 'md',
-  label: 'Toggle component playground',
-  helpText: 'Help text',
+export const Playground: Story = {
+  args: {
+    id: 'togglePlayground',
+    size: 'md',
+    label: 'Toggle component playground',
+    helpText: 'Help text',
+  },
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Spinner, SpinnerProps } from './spinner';
 import { Box } from '../box/box';
 import { BRAND_COLOR_NAMES } from '../../lib/tokens';
@@ -12,18 +12,24 @@ const meta: Meta<typeof Spinner> = {
 
 export default meta;
 
-const Template: StoryFn<SpinnerProps> = args => (
-  <Box gap="xl">
-    {SPINNER_SIZES.map(size => (
-      <Box gap="sm" key={size}>
-        <Box gap="sm" direction="row">
-          {BRAND_COLOR_NAMES.map(variant => (
-            <Spinner {...args} variant={variant} size={size} key={`${size}-${variant}`} />
-          ))}
+type Story = StoryObj<SpinnerProps>;
+export const VariantsAndSizes: Story = {
+  render: (args) => (
+    <Box gap="xl">
+      {SPINNER_SIZES.map((size) => (
+        <Box gap="sm" key={size}>
+          <Box gap="sm" direction="row">
+            {BRAND_COLOR_NAMES.map((variant) => (
+              <Spinner
+                {...args}
+                variant={variant}
+                size={size}
+                key={`${size}-${variant}`}
+              />
+            ))}
+          </Box>
         </Box>
-      </Box>
-    ))}
-  </Box>
-);
-
-export const VariantsAndSizes = Template.bind({});
+      ))}
+    </Box>
+  ),
+};

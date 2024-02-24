@@ -1,18 +1,22 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ToastContainer, toast } from '.';
 
 const meta: Meta<typeof ToastContainer> = {
   title: 'Components/Toast/Visual Regression Tests',
   component: ToastContainer,
   parameters: {
-    chromatic: { delay: 500, pauseAnimationAtEnd: true, viewports: [320, 700, 1012, 1300] },
+    chromatic: {
+      delay: 500,
+      pauseAnimationAtEnd: true,
+      viewports: [320, 700, 1012, 1300],
+    },
   },
   decorators: [
-    storyFn => (
+    (Story) => (
       <div>
         <ToastContainer />
-        {storyFn()}
+        {Story}
       </div>
     ),
   ],
@@ -20,93 +24,118 @@ const meta: Meta<typeof ToastContainer> = {
 
 export default meta;
 
-export const Default = (): React.ReactNode => {
-  setTimeout(() => {
-    toast('default toast');
-  }, 1);
-  return <></>;
+type Story = StoryObj<typeof toast>;
+export const Default: Story = {
+  render: () => {
+    setTimeout(() => {
+      toast('default toast');
+    }, 1);
+    return <></>;
+  },
 };
 
-export const Dismissable = (): React.ReactNode => {
-  setTimeout(() => {
-    toast('dismissable toast', { canDismiss: true });
-  }, 1);
-  return <></>;
+export const Dismissable: Story = {
+  render: () => {
+    setTimeout(() => {
+      toast('dismissable toast', { canDismiss: true });
+    }, 1);
+    return <></>;
+  },
+};
+export const Success: Story = {
+  render: () => {
+    setTimeout(() => {
+      toast.success('success toast');
+    }, 1);
+    return <></>;
+  },
+};
+export const Error: Story = {
+  render: () => {
+    setTimeout(() => {
+      toast.error('error toast');
+    }, 1);
+    return <></>;
+  },
 };
 
-export const Success = (): React.ReactNode => {
-  setTimeout(() => {
-    toast.success('success toast');
-  }, 1);
-  return <></>;
+export const Loading: Story = {
+  render: () => {
+    setTimeout(() => {
+      toast.loading('loading toast');
+    }, 1);
+    return <></>;
+  },
 };
 
-export const Error = (): React.ReactNode => {
-  setTimeout(() => {
-    toast.error('error toast');
-  }, 1);
-  return <></>;
+export const Compact: Story = {
+  render: () => {
+    setTimeout(() => {
+      toast('compact toast', { isCompact: true });
+    }, 1);
+    return <></>;
+  },
 };
 
-export const Loading = (): React.ReactNode => {
-  setTimeout(() => {
-    toast.loading('loading toast');
-  }, 1);
-  return <></>;
+export const CannotDismiss: Story = {
+  render: () => {
+    setTimeout(() => {
+      toast('cannot dismiss toast', { canDismiss: false });
+    }, 1);
+    return <></>;
+  },
 };
 
-export const Compact = (): React.ReactNode => {
-  setTimeout(() => {
-    toast('compact toast', { isCompact: true });
-  }, 1);
-  return <></>;
+export const TopLeft: Story = {
+  render: () => {
+    setTimeout(() => {
+      toast('top left', { position: 'top-left' });
+    }, 1);
+    return <></>;
+  },
 };
 
-export const CannotDismiss = (): React.ReactNode => {
-  setTimeout(() => {
-    toast('cannot dismiss toast', { canDismiss: false });
-  }, 1);
-  return <></>;
+export const TopCenter: Story = {
+  render: () => {
+    setTimeout(() => {
+      toast('top center', { position: 'top-center' });
+    }, 1);
+    return <></>;
+  },
 };
 
-export const TopLeft = (): React.ReactNode => {
-  setTimeout(() => {
-    toast('top left', { position: 'top-left' });
-  }, 1);
-  return <></>;
+export const TopRight: Story = {
+  render: () => {
+    setTimeout(() => {
+      toast('top right', { position: 'top-right' });
+    }, 1);
+    return <></>;
+  },
 };
 
-export const TopCenter = (): React.ReactNode => {
-  setTimeout(() => {
-    toast('top center', { position: 'top-center' });
-  }, 1);
-  return <></>;
+export const BottomLeft: Story = {
+  render: () => {
+    setTimeout(() => {
+      toast('bottom left', { position: 'bottom-left' });
+    }, 1);
+    return <></>;
+  },
 };
 
-export const TopRight = (): React.ReactNode => {
-  setTimeout(() => {
-    toast('top right', { position: 'top-right' });
-  }, 1);
-  return <></>;
+export const BottomCenter: Story = {
+  render: () => {
+    setTimeout(() => {
+      toast('bottom center', { position: 'bottom-center' });
+    }, 1);
+    return <></>;
+  },
 };
 
-export const BottomLeft = (): React.ReactNode => {
-  setTimeout(() => {
-    toast('bottom left', { position: 'bottom-left' });
-  }, 1);
-  return <></>;
-};
-
-export const BottomCenter = (): React.ReactNode => {
-  setTimeout(() => {
-    toast('bottom center', { position: 'bottom-center' });
-  }, 1);
-  return <></>;
-};
-
-export const BottomRight = (): React.ReactNode => {
-  setTimeout(() => {
-    toast('bottom-right', { position: 'bottom-right' });
-  }, 1);
-  return <></>;
+export const BottomRight: Story = {
+  render: () => {
+    setTimeout(() => {
+      toast('bottom-right', { position: 'bottom-right' });
+    }, 1);
+    return <></>;
+  },
 };

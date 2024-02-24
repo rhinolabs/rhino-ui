@@ -1,7 +1,10 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Icon, IconProps } from './icon';
-import { FONT_SIZE_OPTIONS, FONT_COLOR_OPTIONS, ICON_NAMES } from '../../lib/tokens';
+import {
+  FONT_SIZE_OPTIONS,
+  FONT_COLOR_OPTIONS,
+  ICON_NAMES,
+} from '../../lib/tokens';
 
 const meta: Meta<typeof Icon> = {
   title: 'Components/Icon/Playground',
@@ -30,11 +33,11 @@ const meta: Meta<typeof Icon> = {
 
 export default meta;
 
-const Template: StoryFn<IconProps> = ({ ...args }) => <Icon {...args} />;
-
-export const Playground = Template.bind({});
-Playground.args = {
-  name: 'home',
-  size: '5xl',
-  color: 'grey-600',
+type Story = StoryObj<IconProps>;
+export const Playground: Story = {
+  args: {
+    name: 'home',
+    size: '5xl',
+    color: 'grey-600',
+  },
 };

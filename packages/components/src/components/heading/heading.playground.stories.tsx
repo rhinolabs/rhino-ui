@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { FONT_COLOR_OPTIONS, FONT_SIZE_OPTIONS } from '../../lib/tokens';
 import { HEADING_LEVELS } from './heading.constants';
 import { Heading, HeadingProps } from './heading';
@@ -37,12 +36,13 @@ const meta: Meta<typeof Heading> = {
 
 export default meta;
 
-const Template: StoryFn<HeadingProps> = ({ ...args }) => <Heading {...args} />;
+type Story = StoryObj<HeadingProps>;
 
-export const Playground = Template.bind({});
-Playground.args = {
-  as: 'h4',
-  children: 'Lead the world towards a clean energy future',
-  variant: 'grey-darker',
-  size: 'base',
+export const Playground: Story = {
+  args: {
+    as: 'h4',
+    children: 'Lead the world towards a clean energy future',
+    variant: 'grey-darker',
+    size: 'base',
+  },
 };

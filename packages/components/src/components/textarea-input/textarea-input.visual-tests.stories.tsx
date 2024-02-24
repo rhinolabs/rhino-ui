@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { TextareaInput, TextareaInputProps } from './textarea-input';
 import { RESPONSIVE_STORY } from '../../docs/constants';
 
@@ -10,22 +10,27 @@ const meta: Meta<typeof TextareaInput> = {
 
 export default meta;
 
-const Template: StoryFn<TextareaInputProps> = args => (
-  <TextareaInput
-    {...args}
-    onChange={() => {}} // eslint-disable-line
-  />
-);
-
-export const ResponsiveSize = Template.bind({});
-ResponsiveSize.args = {
-  size: {
-    base: 'sm',
-    tablet: 'md',
-    desktop: 'lg',
-    hd: 'sm',
-  },
-  value: 'Responsive size',
-  label: 'Textarea Input Visual Test',
+type Story = StoryObj<TextareaInputProps>;
+const Default: Story = {
+  render: (args) => (
+    <TextareaInput
+      {...args}
+      onChange={() => {}} // eslint-disable-line
+    />
+  ),
 };
-ResponsiveSize.parameters = RESPONSIVE_STORY;
+
+export const ResponsiveSize: Story = {
+  ...Default,
+  args: {
+    size: {
+      base: 'sm',
+      tablet: 'md',
+      desktop: 'lg',
+      hd: 'sm',
+    },
+    value: 'Responsive size',
+    label: 'Textarea Input Visual Test',
+  },
+  parameters: RESPONSIVE_STORY,
+};

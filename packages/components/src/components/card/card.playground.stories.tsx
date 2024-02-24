@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Card, CardProps } from './card';
 
 const meta: Meta<typeof Card> = {
@@ -25,44 +25,34 @@ const meta: Meta<typeof Card> = {
 
 export default meta;
 
-const Template: StoryFn<CardProps> = ({
-  cardTitle,
-  footerContent,
-  sectionTitle,
-  sectionContent,
-  renderFooter,
-  sectionCount,
-  ...args
-}) => {
-  const sections = [];
+type Story = StoryObj<CardProps>;
 
-  for (let i = 0; i < sectionCount; i += 1) {
-    sections.push(
-      <Card.Section title={sectionTitle} key={i}>
-        {sectionContent}
-      </Card.Section>,
+export const Playground: Story = {
+  render: (args) => {
+    const sections = [];
+
+    for (let i = 0; i < args.sectionCount; i += 1) {
+      sections.push(
+        <Card.Section title={args.sectionTitle} key={i}>
+          {args.sectionContent}
+        </Card.Section>
+      );
+    }
+
+    return (
+      <Card {...args}>
+        <Card.Header title={args.cardTitle} />
+        {sections}
+        {args.renderFooter && <Card.Footer>{args.footerContent}</Card.Footer>}
+      </Card>
     );
-  }
-
-  return (
-    <Card {...args}>
-      <Card.Header title={cardTitle} />
-      {sections}
-      {renderFooter && <Card.Footer>{footerContent}</Card.Footer>}
-    </Card>
-  );
-};
-
-/**
- * Use the playground to see different results
- */
-
-export const Playground = Template.bind({});
-Playground.args = {
-  cardTitle: 'Title',
-  sectionContent: 'Section content',
-  sectionTitle: 'Section title',
-  renderFooter: true,
-  sectionCount: 3,
-  footerContent: 'Footer content',
+  },
+  args: {
+    cardTitle: 'Title',
+    sectionContent: 'Section content',
+    sectionTitle: 'Section title',
+    renderFooter: true,
+    sectionCount: 3,
+    footerContent: 'Footer content',
+  },
 };

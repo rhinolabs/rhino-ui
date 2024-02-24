@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { RadioGroup, RadioGroupProps } from './radio-group';
 
 const meta: Meta<typeof RadioGroup> = {
@@ -48,30 +47,31 @@ const meta: Meta<typeof RadioGroup> = {
 
 export default meta;
 
-const Template: StoryFn<RadioGroupProps> = ({ ...args }) => <RadioGroup {...args} />;
+type Story = StoryObj<RadioGroupProps>;
 
-export const Playground = Template.bind({});
-Playground.args = {
-  title: 'Playground Radiogroup',
-  description: 'Choose your favorite flavor',
-  name: 'playgroundRadioGroup',
-  direction: 'row',
-  value: 'chocolate',
-  options: [
-    {
-      id: 'chocolate',
-      value: 'chocolate',
-      label: 'Chocolate',
-    },
-    {
-      id: 'strawberry',
-      value: 'strawberry',
-      label: 'Strawberry',
-    },
-    {
-      id: 'vanilla',
-      value: 'vanilla',
-      label: 'Vanilla',
-    },
-  ],
+export const Playground: Story = {
+  args: {
+    title: 'Playground Radiogroup',
+    description: 'Choose your favorite flavor',
+    name: 'playgroundRadioGroup',
+    direction: 'row',
+    value: 'chocolate',
+    options: [
+      {
+        id: 'chocolate',
+        value: 'chocolate',
+        label: 'Chocolate',
+      },
+      {
+        id: 'strawberry',
+        value: 'strawberry',
+        label: 'Strawberry',
+      },
+      {
+        id: 'vanilla',
+        value: 'vanilla',
+        label: 'Vanilla',
+      },
+    ],
+  },
 };

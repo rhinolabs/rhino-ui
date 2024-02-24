@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { FileUpload, FileUploadProps } from './file-upload';
 import { ICON_NAMES } from '../../lib/tokens';
 import { BUTTON_SIZES } from '../button/button.constants';
@@ -73,14 +72,13 @@ const meta: Meta<typeof FileUpload> = {
 
 export default meta;
 
-const Template: StoryFn<FileUploadProps> = ({ ...args }) => (
-  <FileUpload {...args} />
-);
+type Story = StoryObj<FileUploadProps>;
 
-export const Playground = Template.bind({});
-Playground.args = {
-  id: 'playGroundFileUpload',
-  buttonText: 'Playground FileUpload',
-  labelText: 'Upload a file',
-  helpText: 'Helpful text',
+export const Playground: Story = {
+  args: {
+    id: 'playGroundFileUpload',
+    buttonText: 'Playground FileUpload',
+    labelText: 'Upload a file',
+    helpText: 'Helpful text',
+  },
 };

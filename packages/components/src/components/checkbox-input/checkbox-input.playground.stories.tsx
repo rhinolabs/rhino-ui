@@ -1,8 +1,7 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { CheckboxInput, CheckboxInputProps } from './checkbox-input';
 
-const meta: Meta<typeof CheckboxInput> =  {
+const meta: Meta<typeof CheckboxInput> = {
   title: 'Components/CheckboxInput/Playground',
   component: CheckboxInput,
   argTypes: {
@@ -45,12 +44,13 @@ const meta: Meta<typeof CheckboxInput> =  {
 
 export default meta;
 
-const Template: StoryFn<CheckboxInputProps> = ({ ...args }) => <CheckboxInput {...args} />;
+type Story = StoryObj<CheckboxInputProps>;
 
-export const Playground = Template.bind({});
-Playground.args = {
-  id: 'playGroundCheckbox',
-  label: 'Playground Checkbox',
-  helpText: 'Helpful text',
-  isChecked: true,
+export const Playground: Story = {
+  args: {
+    id: 'playGroundCheckbox',
+    label: 'Playground Checkbox',
+    helpText: 'Helpful text',
+    isChecked: true,
+  },
 };

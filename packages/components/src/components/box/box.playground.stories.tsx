@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Box, BoxProps } from './box';
 import {
   BORDER_SIZE_OPTIONS,
@@ -85,7 +85,14 @@ const meta: Meta<typeof Box> = {
     alignItems: {
       control: {
         type: 'select',
-        options: [null, 'flex-start', 'flex-end', 'center', 'baseline', 'stretch'],
+        options: [
+          null,
+          'flex-start',
+          'flex-end',
+          'center',
+          'baseline',
+          'stretch',
+        ],
       },
     },
     justifyContent: {
@@ -384,77 +391,62 @@ const meta: Meta<typeof Box> = {
 
 export default meta;
 
-const Template: StoryFn<BoxProps> = ({
-  childCount,
-  childBackground,
-  childWidth,
-  childHeight,
-  childTextAlign,
-  hoverBackground,
-  hoverBorderColor,
-  hoverBorderWidth,
-  hoverShadowSize,
-  hoverFontColor,
-  hoverFontSize,
-  focusBackground,
-  focusBorderColor,
-  focusBorderWidth,
-  focusShadowSize,
-  focusFontColor,
-  ...args
-}) => {
-  const childBoxes = [];
+type Story = StoryObj<BoxProps>;
 
-  for (let i = 0; i < childCount; i += 1) {
-    childBoxes.push(
+export const Playground: Story = {
+  render: (args) => {
+    const childBoxes = [];
+
+    for (let i = 0; i < args.childCount; i += 1) {
+      childBoxes.push(
+        <Box
+          width={args.childWidth}
+          height={args.childHeight}
+          textAlign={args.childTextAlign}
+          justifyContent="center"
+          background={args.childBackground}
+          radius="md"
+          key={i}
+          padding="sm"
+        >
+          {i + 1}
+        </Box>
+      );
+    }
+
+    return (
       <Box
-        width={childWidth}
-        height={childHeight}
-        textAlign={childTextAlign}
-        justifyContent="center"
-        background={childBackground}
-        radius="md"
-        key={i}
-        padding="sm"
+        {...args}
+        hover={{
+          background: args.hoverBackground,
+          borderColor: args.hoverBorderColor,
+          borderWidth: args.hoverBorderWidth,
+          shadow: args.hoverShadowSize,
+          fontSize: args.hoverFontSize,
+          color: args.hoverFontColor,
+        }}
+        focus={{
+          background: args.focusBackground,
+          borderColor: args.focusBorderColor,
+          borderWidth: args.focusBorderWidth,
+          shadow: args.focusShadowSize,
+          color: args.focusFontColor,
+        }}
+        tabIndex="0"
       >
-        {i + 1}
-      </Box>,
+        {childBoxes}
+      </Box>
     );
-  }
+  },
 
-  return (
-    <Box
-      {...args}
-      hover={{
-        background: hoverBackground,
-        borderColor: hoverBorderColor,
-        borderWidth: hoverBorderWidth,
-        shadow: hoverShadowSize,
-        fontSize: hoverFontSize,
-        color: hoverFontColor,
-      }}
-      focus={{
-        background: focusBackground,
-        borderColor: focusBorderColor,
-        borderWidth: focusBorderWidth,
-        shadow: focusShadowSize,
-        color: focusFontColor,
-      }}
-      tabIndex="0"
-    >
-      {childBoxes}
-    </Box>
-  );
-};
-
-export const Playground = Template.bind({});
-Playground.args = {
-  background: 'info-300',
-  direction: 'row',
-  childWidth: 'lg',
-  childHeight: 'lg',
-  gap: 'sm',
-  padding: 'lg',
-  width: '100',
-  childBackground: 'white',
+  args: {
+    background: 'info-300',
+    direction: 'row',
+    childWidth: 'lg',
+    childHeight: 'lg',
+    gap: 'sm',
+    padding: 'lg',
+    width: '100',
+    childBackground: 'white',
+  },
 };

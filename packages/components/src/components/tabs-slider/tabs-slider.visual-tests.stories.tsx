@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { TabsSlider, TabsSliderProps } from './tabs-slider';
 import { RESPONSIVE_STORY } from '../../docs/constants';
 
@@ -10,23 +10,28 @@ const meta: Meta<typeof TabsSlider> = {
 
 export default meta;
 
-const Template: StoryFn<TabsSliderProps> = ({ ...args }) => (
-  <TabsSlider {...args}>
-    <TabsSlider.Item>Tab 1</TabsSlider.Item>
-    <TabsSlider.Item>Tab 2</TabsSlider.Item>
-    <TabsSlider.Item>Tab 3</TabsSlider.Item>
-    <TabsSlider.Item isDisabled>Disabled</TabsSlider.Item>
-  </TabsSlider>
-);
-
-export const ResponsiveSize = Template.bind({});
-ResponsiveSize.args = {
-  value: 0,
-  size: {
-    base: 'sm',
-    tablet: 'md',
-    desktop: 'lg',
-    hd: 'lg',
-  },
+type Story = StoryObj<TabsSliderProps>;
+const Default: Story = {
+  render: (args) => (
+    <TabsSlider {...args}>
+      <TabsSlider.Item>Tab 1</TabsSlider.Item>
+      <TabsSlider.Item>Tab 2</TabsSlider.Item>
+      <TabsSlider.Item>Tab 3</TabsSlider.Item>
+      <TabsSlider.Item isDisabled>Disabled</TabsSlider.Item>
+    </TabsSlider>
+  ),
 };
-ResponsiveSize.parameters = RESPONSIVE_STORY;
+
+export const ResponsiveSize: Story = {
+  ...Default,
+  args: {
+    value: 0,
+    size: {
+      base: 'sm',
+      tablet: 'md',
+      desktop: 'lg',
+      hd: 'lg',
+    },
+  },
+  parameters: RESPONSIVE_STORY,
+};

@@ -1,7 +1,9 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { boxPropsKeys } from '../box/box';
-import { SelectInputNative, SelectInputNativeProps } from './select-input-native';
+import {
+  SelectInputNative,
+  SelectInputNativeProps,
+} from './select-input-native';
 
 const meta: Meta<typeof SelectInputNative> = {
   title: 'Components/SelectInputNative/Playground',
@@ -52,22 +54,26 @@ const meta: Meta<typeof SelectInputNative> = {
     options: {
       control: 'object',
     },
-    ...boxPropsKeys.reduce((acc, curr) => ({ ...acc, [curr]: { table: { disable: true } } }), {}),
+    ...boxPropsKeys.reduce(
+      (acc, curr) => ({ ...acc, [curr]: { table: { disable: true } } }),
+      {}
+    ),
   },
 };
 
 export default meta;
 
-const Template: StoryFn<SelectInputNativeProps> = ({ ...args }) => <SelectInputNative {...args} />;
+type Story = StoryObj<SelectInputNativeProps>;
 
-export const Playground = Template.bind({});
-Playground.args = {
-  id: 'playgroundSelectInputNative',
-  label: 'Playground SelectInputNative',
-  name: 'playgroundSelectInputNative',
-  options: [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
-  ],
+export const Playground: Story = {
+  args: {
+    id: 'playgroundSelectInputNative',
+    label: 'Playground SelectInputNative',
+    name: 'playgroundSelectInputNative',
+    options: [
+      { value: 'chocolate', label: 'Chocolate' },
+      { value: 'strawberry', label: 'Strawberry' },
+      { value: 'vanilla', label: 'Vanilla' },
+    ],
+  },
 };

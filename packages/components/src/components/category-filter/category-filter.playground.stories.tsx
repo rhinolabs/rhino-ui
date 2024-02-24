@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { CategoryFilter, CategoryFilterProps } from './category-filter';
 
 const meta: Meta<typeof CategoryFilter> = {
@@ -21,11 +21,12 @@ const meta: Meta<typeof CategoryFilter> = {
 
 export default meta;
 
-const Template: StoryFn<CategoryFilterProps> = ({ ...args }) => <CategoryFilter {...args}>My Category</CategoryFilter>;
-
-export const Playground = Template.bind({});
-Playground.args = {
-  isSelected: false,
-  isDisabled: false,
-  size: 'md',
+type Story = StoryObj<CategoryFilterProps>;
+export const Playground: Story = {
+  render: (args) => <CategoryFilter {...args}>My Category</CategoryFilter>,
+  args: {
+    isSelected: false,
+    isDisabled: false,
+    size: 'md',
+  },
 };

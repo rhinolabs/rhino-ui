@@ -1,10 +1,9 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ICON_NAMES } from '../../lib/tokens';
 import { Button, ButtonProps } from './button';
 import { BUTTON_SIZES, BUTTON_VARIANTS } from './button.constants';
 
-const meta: Meta<typeof Button> =  {
+const meta: Meta<typeof Button> = {
   title: 'Components/Button/Playground',
   component: Button,
   argTypes: {
@@ -79,10 +78,11 @@ const meta: Meta<typeof Button> =  {
 
 export default meta;
 
-const Template: StoryFn<ButtonProps> = ({ ...args }) => <Button {...args} />;
+type Story = StoryObj<ButtonProps>;
 
-export const Playground = Template.bind({});
-Playground.args = {
-  variant: 'primary',
-  children: 'Playground Button',
+export const Playground: Story = {
+  args: {
+    variant: 'primary',
+    children: 'Playground Button',
+  },
 };

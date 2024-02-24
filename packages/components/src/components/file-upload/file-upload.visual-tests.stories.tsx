@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { RESPONSIVE_STORY } from '../../docs/constants';
 import { FileUpload, FileUploadProps } from './file-upload';
 
@@ -10,13 +10,16 @@ const meta: Meta<typeof FileUpload> = {
 
 export default meta;
 
-const Template: StoryFn<FileUploadProps> = ({ ...args }) => (
-  <FileUpload {...args}>category filter</FileUpload> // eslint-disable-line @typescript-eslint/no-empty-function
-);
-
-export const ResponsiveHelpText = Template.bind({});
-ResponsiveHelpText.args = {
-  helpText: 'image files only (jpg, png, gif)',
-  accept: 'image/*',
+type Story = StoryObj<FileUploadProps>;
+export const Default: Story = {
+  render: (args) => <FileUpload {...args}>File Uploader</FileUpload>,
 };
-ResponsiveHelpText.parameters = RESPONSIVE_STORY;
+
+export const ResponsiveHelpText: Story = {
+  ...Default,
+  args: {
+    helpText: 'image files only (jpg, png, gif)',
+    accept: 'image/*',
+  },
+  parameters: RESPONSIVE_STORY,
+};

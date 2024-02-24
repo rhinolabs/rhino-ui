@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Badge, BadgeProps } from './badge';
 import { BADGE_SIZES, BADGE_VARIANTS } from './badge.constants';
 
@@ -30,14 +29,11 @@ const meta: Meta<typeof Badge> = {
 
 export default meta;
 
-const Template: StoryFn<BadgeProps> = ({ ...args }) => <Badge {...args} />;
+type Story = StoryObj<BadgeProps>;
 
-/**
- * Use the playground to see different results
- */
-
-export const Playground = Template.bind({});
-Playground.args = {
-  variant: 'primary',
-  message: 'install ready',
+export const Playground: Story = {
+  args: {
+    variant: 'primary',
+    message: 'install ready',
+  },
 };

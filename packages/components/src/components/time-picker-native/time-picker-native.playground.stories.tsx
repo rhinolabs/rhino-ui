@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { TimePickerNative, TimePickerNativeProps } from './time-picker-native';
 
 const meta: Meta<typeof TimePickerNative> = {
@@ -83,12 +82,12 @@ const meta: Meta<typeof TimePickerNative> = {
 
 export default meta;
 
-const Template: StoryFn<TimePickerNativeProps> = ({ ...args }) => <TimePickerNative {...args} />;
-
-export const Playground = Template.bind({});
-Playground.args = {
-  id: 'playgroundTimePickerNative',
-  label: 'Playground TimePickerNative',
-  name: 'playgroundTimePickerNative',
-  menuPortalTarget: document.body,
+type Story = StoryObj<TimePickerNativeProps>;
+export const Playground: Story = {
+  args: {
+    id: 'playgroundTimePickerNative',
+    label: 'Playground TimePickerNative',
+    name: 'playgroundTimePickerNative',
+    menuPortalTarget: document.body,
+  },
 };

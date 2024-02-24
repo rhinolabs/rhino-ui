@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Spinner, SpinnerProps } from './spinner';
 import { BRAND_COLOR_NAMES } from '../../lib/tokens';
 import { SPINNER_SIZES } from './spinner.constants';
@@ -28,9 +27,10 @@ const meta: Meta<typeof Spinner> = {
 
 export default meta;
 
-const Template: StoryFn<SpinnerProps> = ({ ...args }) => <Spinner {...args} />;
+type Story = StoryObj<SpinnerProps>;
 
-export const Playground = Template.bind({});
-Playground.args = {
-  variant: 'primary',
+export const Playground: Story = {
+  args: {
+    variant: 'primary',
+  },
 };

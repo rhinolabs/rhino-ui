@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { within } from '@storybook/testing-library';
 import { RESPONSIVE_STORY } from '../../docs/constants';
 import { RadioGroup, RadioGroupProps } from './radio-group';
@@ -42,234 +42,250 @@ const options = [
   },
 ];
 
-const Template: StoryFn<RadioGroupProps> = ({ ...args }) => (
-  <Box gap="xl">
-    {sizes.map(size => (
-      <Box gap="md" key={`${args.id}-${size}`}>
-        {/* eslint-disable-next-line */}
-        {/* @ts-ignore */}
-        <RadioGroup size={size} options={options} {...args} />
-      </Box>
-    ))}
-  </Box>
-);
+type Story = StoryObj<RadioGroupProps>;
 
-export const AllSizes = Template.bind({});
-AllSizes.args = { id: 'AllSizes' };
-
-export const AllSizesChecked = Template.bind({});
-AllSizesChecked.args = {
-  id: 'AllSizesChecked',
-  isRequired: true,
-  title: 'title required',
-  value: 'one',
-};
-AllSizesChecked.parameters = RESPONSIVE_STORY;
-
-export const AllSizesError = Template.bind({});
-AllSizesError.args = { id: 'AllSizesError', error: 'Agreement is required' };
-
-export const AllSizesDisabled = Template.bind({});
-AllSizesDisabled.args = { id: 'AllSizesDisabled', isDisabled: true };
-
-export const AllSizesDisabledChecked = Template.bind({});
-AllSizesDisabledChecked.args = {
-  id: 'AllSizesDisabledChecked',
-  isDisabled: true,
-  value: 'one',
+const Default: Story = {
+  render: (args) => (
+    <Box gap="xl">
+      {sizes.map((size) => (
+        <Box gap="md" key={`${args.id}-${size}`}>
+          {/* eslint-disable-next-line */}
+          {/* @ts-ignore */}
+          <RadioGroup size={size} options={options} {...args} />
+        </Box>
+      ))}
+    </Box>
+  ),
 };
 
-export const AllSizesTitle = Template.bind({});
-AllSizesTitle.args = { id: 'AllSizesTitle', title: 'title' };
-
-export const AllSizesTitleDisabled = Template.bind({});
-AllSizesTitleDisabled.args = {
-  id: 'AllSizesTitleDisabled',
-  title: 'title',
-  isDisabled: true,
+export const AllSizes: Story = {
+  ...Default,
+  args: {
+    id: 'AllSizes',
+  },
 };
 
-export const AllSizesTitleDisabledError = Template.bind({});
-AllSizesTitleDisabledError.args = {
-  id: 'AllSizesTitleDisabledError',
-  title: 'title',
-  isDisabled: true,
-  error: 'this is required',
+export const AllSizesChecked: Story = {
+  ...Default,
+  args: {
+    id: 'AllSizesChecked',
+    value: 'one',
+  },
+  parameters: RESPONSIVE_STORY,
 };
 
-export const AllSizesTitleDisabledErrorChecked = Template.bind({});
-AllSizesTitleDisabledErrorChecked.args = {
-  id: 'AllSizesTitleDisabledErrorChecked',
-  title: 'title',
-  isDisabled: true,
-  error: 'this is required',
-  value: 'one',
+export const AllSizesError: Story = {
+  ...Default,
+  args: {
+    id: 'AllSizesError',
+    error: 'Agreement is required',
+  },
 };
 
-export const AllSizesTitleDisabledOption = Template.bind({});
-AllSizesTitleDisabledOption.args = {
-  id: 'AllSizesTitleDisabledOption',
-  title: 'title',
-  value: 'one',
-  options: [
-    ...options,
-    {
-      value: 'disabled',
-      id: 'disabled',
-      label: 'disabled',
-      disabled: true,
-    },
-  ],
+export const AllSizesDisabled: Story = {
+  ...Default,
+  args: {
+    id: 'AllSizesDisabled',
+    isDisabled: true,
+  },
 };
 
-export const AllSizesTitleDisabledOptionSelected = Template.bind({});
-AllSizesTitleDisabledOptionSelected.args = {
-  id: 'AllSizesTitleDisabledOptionSelected',
-  title: 'title',
-  value: 'disabled',
-  options: [
-    ...options,
-    {
-      value: 'disabled',
-      id: 'disabled',
-      label: 'disabled',
-      disabled: true,
-    },
-  ],
+export const AllSizesDisabledChecked: Story = {
+  ...Default,
+  args: {
+    ...AllSizesChecked.args,
+    ...AllSizesDisabled.args,
+    id: 'AllSizesDisabledChecked',
+  },
 };
 
-export const AllSizesHorizontal = Template.bind({});
-AllSizesHorizontal.args = { id: 'AllSizesHorizontal', direction: 'row' };
-
-export const AllSizesHorizontalChecked = Template.bind({});
-AllSizesHorizontalChecked.args = {
-  id: 'AllSizesHorizontalRequired',
-  isRequired: true,
-  title: 'title required',
-  value: 'one',
-  direction: 'row',
+export const AllSizesTitle: Story = {
+  ...Default,
+  args: {
+    ...AllSizes.args,
+    title: 'title',
+  },
 };
 
-export const AllSizesHorizontalError = Template.bind({});
-AllSizesHorizontalError.args = {
-  id: 'AllSizesHorizontalError',
-  error: 'Agreement is required',
-  direction: 'row',
+export const AllSizesTitleDisabled: Story = {
+  ...Default,
+  args: {
+    ...AllSizesTitle.args,
+    ...AllSizesDisabled.args,
+    id: 'AllSizesTitleDisabled',
+  },
 };
 
-export const AllSizesHorizontalDisabled = Template.bind({});
-AllSizesHorizontalDisabled.args = {
-  id: 'AllSizesHorizontalDisabled',
-  isDisabled: true,
-  direction: 'row',
+export const AllSizesTitleDisabledError: Story = {
+  ...Default,
+  args: {
+    ...AllSizesTitleDisabled.args,
+    ...AllSizesError.args,
+    id: 'AllSizesTitleDisabledError',
+  },
 };
 
-export const AllSizesHorizontalDisabledChecked = Template.bind({});
-AllSizesHorizontalDisabledChecked.args = {
-  id: 'AllSizesHorizontalDisabled',
-  isDisabled: true,
-  value: 'one',
-  direction: 'row',
+export const AllSizesTitleDisabledErrorChecked: Story = {
+  ...Default,
+  args: {
+    ...AllSizesTitleDisabledError.args,
+    ...AllSizesChecked.args,
+    id: 'AllSizesTitleDisabledErrorChecked',
+  },
 };
 
-export const AllSizesHorizontalTitle = Template.bind({});
-AllSizesHorizontalTitle.args = {
-  id: 'AllSizesHorizontalTitle',
-  title: 'title',
-  direction: 'row',
+export const AllSizesTitleDisabledOption: Story = {
+  ...Default,
+  args: {
+    ...AllSizesTitleDisabled.args,
+    id: 'AllSizesTitleDisabledOption',
+    options: [
+      ...options,
+      {
+        value: 'disabled',
+        id: 'disabled',
+        label: 'disabled',
+        disabled: true,
+      },
+    ],
+  },
 };
 
-export const AllSizesHorizontalTitleDisabled = Template.bind({});
-AllSizesHorizontalTitleDisabled.args = {
-  id: 'AllSizesHorizontalTitleDisabled',
-  title: 'title',
-  isDisabled: true,
-  direction: 'row',
+export const AllSizesTitleDisabledOptionSelected: Story = {
+  ...Default,
+  args: {
+    ...AllSizesTitleDisabledOption.args,
+    id: 'AllSizesTitleDisabledOptionSelected',
+    value: 'disabled',
+  },
 };
 
-export const AllSizesHorizontalTitleDisabledError = Template.bind({});
-AllSizesHorizontalTitleDisabledError.args = {
-  id: 'AllSizesHorizontalTitleDisabledError',
-  title: 'title',
-  isDisabled: true,
-  error: 'this is required',
-  direction: 'row',
+export const AllSizesHorizontal: Story = {
+  ...Default,
+  args: {
+    ...AllSizes.args,
+    id: 'AllSizesHorizontal',
+    direction: 'row',
+  },
 };
 
-export const AllSizesHorizontalTitleDisabledErrorChecked = Template.bind({});
-AllSizesHorizontalTitleDisabledErrorChecked.args = {
-  id: 'AllSizesHorizontalTitleDisabledErrorChecked',
-  title: 'title',
-  isDisabled: true,
-  error: 'this is required',
-  value: 'one',
-  direction: 'row',
+export const AllSizesHorizontalChecked: Story = {
+  ...Default,
+  args: {
+    ...AllSizesChecked.args,
+    ...AllSizesHorizontal.args,
+    id: 'AllSizesHorizontalRequired',
+  },
 };
 
-export const AllSizesHorizontalTitleDisabledOption = Template.bind({});
-AllSizesHorizontalTitleDisabledOption.args = {
-  id: 'AllSizesHorizontalTitleDisabledOption',
-  title: 'title',
-  value: 'one',
-  options: [
-    ...options,
-    {
-      value: 'disabled',
-      id: 'disabled',
-      label: 'disabled',
-      disabled: true,
-    },
-  ],
-  direction: 'row',
+export const AllSizesHorizontalError: Story = {
+  ...Default,
+  args: {
+    ...AllSizesHorizontal.args,
+    ...AllSizesError.args,
+    id: 'AllSizesHorizontalError',
+  },
 };
 
-export const AllSizesHorizontalTitleDisabledOptionSelected = Template.bind({});
-AllSizesHorizontalTitleDisabledOptionSelected.args = {
-  id: 'AllSizesHorizontalTitleDisabledOptionSelected',
-  title: 'title',
-  value: 'disabled',
-  options: [
-    ...options,
-    {
-      value: 'disabled',
-      id: 'disabled',
-      label: 'disabled',
-      disabled: true,
-    },
-  ],
-  direction: 'row',
+export const AllSizesHorizontalDisabled: Story = {
+  ...Default,
+  args: {
+    ...AllSizesHorizontal.args,
+    ...AllSizesDisabled.args,
+    id: 'AllSizesHorizontalDisabled',
+  },
 };
 
-const SimpleTemplate: StoryFn<RadioGroupProps> = ({ ...args }) => (
-  <RadioGroup {...args} options={options} />
-);
-
-export const FocusSelected = SimpleTemplate.bind({});
-FocusSelected.args = {
-  id: 'FocusSelected',
-  isRequired: true,
-  title: 'title required',
-  value: 'one',
-};
-FocusSelected.parameters = {};
-
-FocusSelected.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  const radios = canvas.queryAllByRole('radio');
-  radios[0].focus();
+export const AllSizesHorizontalDisabledChecked: Story = {
+  ...Default,
+  args: {
+    ...AllSizesHorizontalDisabled.args,
+    ...AllSizesChecked.args,
+    id: 'AllSizesHorizontalDisabled',
+  },
 };
 
-export const FocusUnselected = SimpleTemplate.bind({});
-FocusUnselected.args = {
-  id: 'AllSizesChecked',
-  isRequired: true,
-  title: 'title required',
-  value: 'two',
+export const AllSizesHorizontalTitle: Story = {
+  ...Default,
+  args: {
+    ...AllSizesHorizontal.args,
+    ...AllSizesTitle.args,
+    id: 'AllSizesHorizontalTitle',
+  },
 };
-FocusUnselected.parameters = {};
 
-FocusUnselected.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  const radios = canvas.queryAllByRole('radio');
-  radios[0].focus();
+export const AllSizesHorizontalTitleDisabled: Story = {
+  ...Default,
+  args: {
+    ...AllSizesHorizontalTitle.args,
+    ...AllSizesDisabled.args,
+    id: 'AllSizesHorizontalTitleDisabled',
+  },
+};
+
+export const AllSizesHorizontalTitleDisabledError: Story = {
+  ...Default,
+  args: {
+    ...AllSizesHorizontal.args,
+    ...AllSizesTitleDisabledError.args,
+    id: 'AllSizesHorizontalTitleDisabledError',
+  },
+};
+
+export const AllSizesHorizontalTitleDisabledErrorChecked: Story = {
+  ...Default,
+  args: {
+    ...AllSizesHorizontal.args,
+    ...AllSizesTitleDisabledErrorChecked.args,
+    id: 'AllSizesHorizontalTitleDisabledErrorChecked',
+  },
+};
+
+export const AllSizesHorizontalTitleDisabledOption: Story = {
+  ...Default,
+  args: {
+    ...AllSizesTitleDisabledOption.args,
+    ...AllSizesHorizontal.args,
+    id: 'AllSizesHorizontalTitleDisabledOption',
+  },
+};
+
+export const AllSizesHorizontalTitleDisabledOptionSelected: Story = {
+  ...Default,
+  args: {
+    ...AllSizesHorizontal.args,
+    ...AllSizesTitleDisabledOptionSelected.args,
+    id: 'AllSizesHorizontalTitleDisabledOptionSelected',
+  },
+};
+
+const Focus: Story = {
+  render: (args) => <RadioGroup {...args} options={options} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const radios = canvas.queryAllByRole('radio');
+    radios[0].focus();
+  },
+  args: {
+    isRequired: true,
+    title: 'title required',
+  },
+};
+
+export const FocusSelected: Story = {
+  ...Focus,
+  args: {
+    ...Focus.args,
+    id: 'FocusSelected',
+    value: 'one',
+  },
+};
+
+export const FocusUnselected: Story = {
+  ...Focus,
+  args: {
+    ...Focus.args,
+    id: 'FocusUnselected',
+    value: 'two',
+  },
 };
