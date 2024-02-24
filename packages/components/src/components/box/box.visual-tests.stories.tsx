@@ -515,8 +515,12 @@ const Default: Story = {
   },
 };
 
-export const ResponsiveFontSize: Story = {
+const Responsive: Story = {
   ...Default,
+  parameters: RESPONSIVE_STORY,
+};
+export const ResponsiveFontSize: Story = {
+  ...Responsive,
   args: {
     propertyName: 'fontSize',
     fontSize: {
@@ -527,11 +531,10 @@ export const ResponsiveFontSize: Story = {
     },
     padding: 'sm',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveRadius: Story = {
-  ...Default,
+  ...Responsive,
   args: {
     propertyName: 'radius',
     radius: {
@@ -543,11 +546,10 @@ export const ResponsiveRadius: Story = {
     background: 'info-100',
     padding: 'sm',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveShadow: Story = {
-  ...Default,
+  ...Responsive,
   args: {
     propertyName: 'shadow',
     shadow: {
@@ -559,11 +561,10 @@ export const ResponsiveShadow: Story = {
     padding: 'sm',
     background: 'white',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveTextAlign: Story = {
-  ...Default,
+  ...Responsive,
   args: {
     propertyName: 'textAlign',
     textAlign: {
@@ -574,11 +575,10 @@ export const ResponsiveTextAlign: Story = {
     padding: 'sm',
     background: 'info-100',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveBorderWidth: Story = {
-  ...Default,
+  ...Responsive,
   args: {
     propertyName: 'borderWidth',
     borderWidth: {
@@ -590,11 +590,10 @@ export const ResponsiveBorderWidth: Story = {
     borderColor: 'secondary-500',
     padding: 'sm',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveWidth: Story = {
-  ...Default,
+  ...Responsive,
   args: {
     propertyName: 'width',
     width: {
@@ -607,11 +606,10 @@ export const ResponsiveWidth: Story = {
     background: 'info-100',
     padding: 'sm',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveMaxWidth: Story = {
-  ...Default,
+  ...Responsive,
   args: {
     propertyName: 'maxWidth',
     maxWidth: {
@@ -625,11 +623,10 @@ export const ResponsiveMaxWidth: Story = {
     padding: 'sm',
     display: 'block',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveMinWidth: Story = {
-  ...Default,
+  ...Responsive,
   args: {
     propertyName: 'minWidth',
     minWidth: {
@@ -644,11 +641,10 @@ export const ResponsiveMinWidth: Story = {
     display: 'inline-block',
     alignSelf: 'flex-start',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveHeight: Story = {
-  ...Default,
+  ...Responsive,
   args: {
     propertyName: 'height',
     height: {
@@ -661,11 +657,10 @@ export const ResponsiveHeight: Story = {
     background: 'info-100',
     padding: 'sm',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveMaxHeight: Story = {
-  ...Default,
+  ...Responsive,
   args: {
     propertyName: 'maxHeight',
     maxHeight: {
@@ -679,11 +674,10 @@ export const ResponsiveMaxHeight: Story = {
     background: 'info-100',
     padding: 'sm',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveMinHeight: Story = {
-  ...Default,
+  ...Responsive,
   args: {
     propertyName: 'minHeight',
     minHeight: {
@@ -697,11 +691,10 @@ export const ResponsiveMinHeight: Story = {
     padding: 'sm',
     alignSelf: 'flex-start',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveMargin: Story = {
-  ...Default,
+  ...Responsive,
   args: {
     propertyName: 'margin',
     margin: {
@@ -713,11 +706,10 @@ export const ResponsiveMargin: Story = {
     width: '3xl',
     background: 'info-100',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsivePadding: Story = {
-  ...Default,
+  ...Responsive,
   args: {
     propertyName: 'padding',
     padding: {
@@ -729,10 +721,9 @@ export const ResponsivePadding: Story = {
     width: '3xl',
     background: 'info-100',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
-const BoxChildren: Story = {
+const ResponsiveBoxChildren: Story = {
   render: (args) => {
     const Template: React.FC<Record<string, unknown>> = () => {
       const { activeBreakpoint } = useBreakpoint();
@@ -787,10 +778,11 @@ const BoxChildren: Story = {
       </ResponsiveProvider>
     );
   },
+  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveDirection: Story = {
-  ...BoxChildren,
+  ...ResponsiveBoxChildren,
   args: {
     propertyName: 'direction',
     direction: {
@@ -800,11 +792,10 @@ export const ResponsiveDirection: Story = {
       hd: 'row-reverse',
     },
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveChildGap: Story = {
-  ...BoxChildren,
+  ...ResponsiveBoxChildren,
   args: {
     propertyName: 'childGap',
     childGap: {
@@ -814,11 +805,10 @@ export const ResponsiveChildGap: Story = {
       hd: '5xl',
     },
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveGap: Story = {
-  ...BoxChildren,
+  ...ResponsiveBoxChildren,
   args: {
     propertyName: 'gap',
     gap: {
@@ -828,11 +818,10 @@ export const ResponsiveGap: Story = {
       hd: '5xl',
     },
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveRowGap: Story = {
-  ...BoxChildren,
+  ...ResponsiveBoxChildren,
   args: {
     propertyName: 'rowGap',
     rowGap: {
@@ -842,11 +831,10 @@ export const ResponsiveRowGap: Story = {
       hd: '5xl',
     },
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const ResponsiveColumnGap: Story = {
-  ...BoxChildren,
+  ...ResponsiveBoxChildren,
   args: {
     propertyName: 'columnGap',
     columnGap: {
@@ -857,7 +845,6 @@ export const ResponsiveColumnGap: Story = {
     },
     direction: 'row',
   },
-  parameters: RESPONSIVE_STORY,
 };
 
 export const AllCursorOptions: Story = {
@@ -1022,7 +1009,7 @@ export const AllPositionOptions: Story = {
 };
 
 export const ResponsivePosition: Story = {
-  ...BoxChildren,
+  ...ResponsiveBoxChildren,
   args: {
     propertyName: 'position',
     position: {
@@ -1032,5 +1019,4 @@ export const ResponsivePosition: Story = {
       hd: 'relative',
     },
   },
-  parameters: RESPONSIVE_STORY,
 };

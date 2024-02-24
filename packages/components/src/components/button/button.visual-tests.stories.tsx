@@ -124,7 +124,7 @@ export const WithIcons: StoryWithIcon = {
   },
 };
 
-export const PrimaryFocus: Story = {
+const Focus: Story = {
   ...SingleButton,
   play: async ({ canvasElement }) => {
     // Starts querying the component from its root
@@ -135,75 +135,98 @@ export const PrimaryFocus: Story = {
   },
 };
 
+export const PrimaryFocus: Story = {
+  ...Focus,
+  args: {
+    variant: 'primary',
+  },
+};
+
 export const SuccessFocus: Story = {
-  ...PrimaryFocus,
+  ...Focus,
   args: {
     variant: 'success',
   },
 };
 
 export const DangerFocus: Story = {
-  ...PrimaryFocus,
-  args: { variant: 'danger' },
+  ...Focus,
+  args: {
+    variant: 'danger',
+  },
 };
 
 export const LightFocus: Story = {
-  ...PrimaryFocus,
+  ...Focus,
   args: {
     variant: 'light',
   },
 };
 
 export const DarkFocus: Story = {
-  ...PrimaryFocus,
+  ...Focus,
   args: {
     variant: 'dark',
   },
 };
 
 export const WhiteFocus: Story = {
-  ...PrimaryFocus,
+  ...Focus,
   args: {
     variant: 'white',
   },
 };
 
-export const PrimaryOutlinedFocus: Story = {
-  ...PrimaryFocus,
+const OutlinedFocus: Story = {
+  ...Focus,
   args: {
     isOutlined: true,
   },
 };
+export const PrimaryOutlinedFocus: Story = {
+  ...Focus,
+  args: {
+    ...OutlinedFocus.args,
+    variant: 'primary',
+  },
+};
 
 export const SuccessOutlinedFocus: Story = {
-  ...PrimaryOutlinedFocus,
-  args: { variant: 'success' },
+  ...Focus,
+  args: {
+    ...OutlinedFocus.args,
+    variant: 'success',
+  },
 };
 
 export const DangerOutlinedFocus: Story = {
-  ...PrimaryOutlinedFocus,
+  ...Focus,
   args: {
+    ...OutlinedFocus.args,
     variant: 'danger',
   },
 };
 
 export const LightOutlinedFocus: Story = {
-  ...PrimaryOutlinedFocus,
+  ...Focus,
   args: {
+    ...OutlinedFocus.args,
     variant: 'light',
   },
 };
 
 export const DarkOutlinedFocus: Story = {
-  ...PrimaryOutlinedFocus,
+  ...Focus,
   args: {
+    ...OutlinedFocus.args,
     variant: 'dark',
   },
 };
 
 export const WhiteOutlinedFocus: Story = {
-  ...PrimaryOutlinedFocus,
+  ...Focus,
   args: {
+    ...OutlinedFocus.args,
     variant: 'white',
   },
 };
