@@ -1,11 +1,9 @@
-import React, {
-  FC, Key, KeyboardEvent, MouseEvent, ReactNode,
-} from 'react';
-import classNames from 'classnames';
-import { Box } from '../../../box/box';
-import { Icon } from '../../../icon/icon';
-import { Column, EventWithColumnKey } from '../../../../types';
-import styles from './table-header-cell.module.scss';
+import React, { FC, Key, KeyboardEvent, MouseEvent, ReactNode } from "react";
+import classNames from "classnames";
+import { Box } from "../../../box/box";
+import { Icon } from "../../../icon/icon";
+import { Column, EventWithColumnKey } from "../../../../types";
+import styles from "./table-header-cell.module.scss";
 
 export interface TableHeaderCellProps {
   /**
@@ -16,7 +14,7 @@ export interface TableHeaderCellProps {
    * Text alignment for all table cells. Can be superseded by passing the same prop into the `Column` object
    * for a specific column.
    */
-  align?: 'left' | 'right' | 'center';
+  align?: "left" | "right" | "center";
   /**
    * Custom class to apply to the `<th>` element.
    */
@@ -54,12 +52,12 @@ export interface TableHeaderCellProps {
    */
   sortedColumn?: {
     dataKey: string | undefined;
-    sortDirection: 'none' | 'ascending' | 'descending' | undefined;
+    sortDirection: "none" | "ascending" | "descending" | undefined;
   };
   /**
    * Will stick to either the left or right side of a table during horizontal scroll.
    */
-  sticky?: 'left' | 'right';
+  sticky?: "left" | "right";
   /**
    * Whether the text should be cut off with ellipsis if it exceeds the width of the column.
    */
@@ -73,7 +71,7 @@ export interface TableHeaderCellProps {
 // eslint-disable-line import/prefer-default-export
 export const TableHeaderCell: FC<TableHeaderCellProps> = ({
   column,
-  align = 'left',
+  align = "left",
   className = undefined,
   dataKey = undefined,
   isBorderless = false,
@@ -86,20 +84,18 @@ export const TableHeaderCell: FC<TableHeaderCellProps> = ({
   truncateOverflow = false,
   width = undefined,
 }) => {
-  const isColumnSorted = (columnDataKey: Key | undefined): boolean => (
-    !!sortedColumn && sortedColumn.dataKey === columnDataKey
-  );
+  const isColumnSorted = (columnDataKey: Key | undefined): boolean =>
+    !!sortedColumn && sortedColumn.dataKey === columnDataKey;
 
-  const getSortDirection = (): 'ascending' | 'descending' | 'none' | undefined => (
-    sortedColumn && isColumnSorted(column.dataKey) ? sortedColumn.sortDirection : 'none'
-  );
+  const getSortDirection = (): "ascending" | "descending" | "none" | undefined =>
+    sortedColumn && isColumnSorted(column.dataKey) ? sortedColumn.sortDirection : "none";
 
   const renderIcon = (): ReactNode => {
     const renderArrows = (): ReactNode => {
-      if (getSortDirection() === 'ascending') {
+      if (getSortDirection() === "ascending") {
         return <Icon name="caret-sm-up" data-testid="tableHeaderCellSortAsc-testid" />;
       }
-      if (getSortDirection() === 'descending') {
+      if (getSortDirection() === "descending") {
         return <Icon name="caret-sm-down" data-testid="tableHeaderCellSortDesc-testid" />;
       }
 
@@ -114,7 +110,7 @@ export const TableHeaderCell: FC<TableHeaderCellProps> = ({
       );
     };
 
-    return <span className={styles['sort-icon']}>{renderArrows()}</span>;
+    return <span className={styles["sort-icon"]}>{renderArrows()}</span>;
   };
 
   const handleKeyPress = (event: KeyboardEvent<HTMLTableHeaderCellElement>): void => {
@@ -137,19 +133,19 @@ export const TableHeaderCell: FC<TableHeaderCellProps> = ({
   };
 
   const tableHeaderClasses = classNames(
-    'rhinolabs-components__variables__table',
-    styles['table-header-cell'],
+    "rhinolabs-components__variables__table",
+    styles["table-header-cell"],
     {
       [styles.sortable]: isSortable,
       [styles.compact]: isCompact,
       [styles.truncated]: truncateOverflow,
       [styles.borderless]: isBorderless,
-      [styles['sticky-header']]: hasStickyHeader,
-      [styles['sticky-column']]: sticky === 'left' || sticky === 'right',
-      [styles['sticky-column-left']]: sticky === 'left',
-      [styles['sticky-column-right']]: sticky === 'right',
-      [styles['align-right']]: align === 'right',
-      [styles['align-center']]: align === 'center',
+      [styles["sticky-header"]]: hasStickyHeader,
+      [styles["sticky-column"]]: sticky === "left" || sticky === "right",
+      [styles["sticky-column-left"]]: sticky === "left",
+      [styles["sticky-column-right"]]: sticky === "right",
+      [styles["align-right"]]: align === "right",
+      [styles["align-center"]]: align === "center",
     },
     className,
   );
@@ -160,9 +156,7 @@ export const TableHeaderCell: FC<TableHeaderCellProps> = ({
       display="table-cell"
       className={tableHeaderClasses}
       width={`${width}px`}
-      aria-sort={
-        sortedColumn && isColumnSorted(column.dataKey) ? sortedColumn.sortDirection : 'none'
-      }
+      aria-sort={sortedColumn && isColumnSorted(column.dataKey) ? sortedColumn.sortDirection : "none"}
       tabIndex={isSortable ? 0 : undefined}
       onClick={handleSort}
       onKeyDown={handleKeyPress}

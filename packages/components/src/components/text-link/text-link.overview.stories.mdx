@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { TextLink } from './text-link';
+import { useState } from "react";
+import { BrowserRouter, Link } from "react-router-dom";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { TextLink } from "./text-link";
 
 <Meta title="Components/TextLink/Overview" component={TextLink} />
 
@@ -43,7 +43,7 @@ simply use React Router's `component` prop on the `Link` component. All Link pro
   <Story
     name="With React Router"
     decorators={[
-      Story => (
+      (Story) => (
         <BrowserRouter>
           <Story />
         </BrowserRouter>
@@ -81,7 +81,7 @@ APIs for each option
   <Story
     name="With Link props"
     decorators={[
-      Story => (
+      (Story) => (
         <BrowserRouter>
           <Story />
         </BrowserRouter>
@@ -108,9 +108,8 @@ You can use our text link in this manner as well.
     {() => {
       return (
         <p>
-          This is a longish paragraph. Even though it says nothing of value, it does contain a link
-          so that's exciting! Can you find{' '}
-          <TextLink href="https://ux.rhinolabs.agency">the link</TextLink> that's in here?
+          This is a longish paragraph. Even though it says nothing of value, it does contain a link so that's exciting!
+          Can you find <TextLink href="https://ux.rhinolabs.agency">the link</TextLink> that's in here?
         </p>
       );
     }}
@@ -124,10 +123,9 @@ The font size is inherited by its parent.
     {() => {
       return (
         <p className="font-size-sm">
-          The link component will inherit your container's font size so you can place it anywhere
-          and it should fit in just fine. Here is{' '}
-          <TextLink href="https://ux.rhinolabs.agency">that link</TextLink> again but inheriting a small
-          font-size.
+          The link component will inherit your container's font size so you can place it anywhere and it should fit in
+          just fine. Here is <TextLink href="https://ux.rhinolabs.agency">that link</TextLink> again but inheriting a
+          small font-size.
         </p>
       );
     }}
@@ -144,13 +142,11 @@ to render en either of these.
     {() => {
       return (
         <p>
-          We've got two variations if you want to communicate that a certain link may do something
-          harmful, use the{' '}
+          We've got two variations if you want to communicate that a certain link may do something harmful, use the{" "}
           <TextLink href="https://ux.rhinolabs.agency" variant="danger">
             danger
-          </TextLink>{' '}
-          style. Otherwise go with the default{' '}
-          <TextLink href="https://ux.rhinolabs.agency">primary</TextLink>.
+          </TextLink>{" "}
+          style. Otherwise go with the default <TextLink href="https://ux.rhinolabs.agency">primary</TextLink>.
         </p>
       );
     }}

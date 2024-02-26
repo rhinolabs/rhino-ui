@@ -1,39 +1,31 @@
 @font-face {
   font-family: Nexa;
-  src:
-    url('../fonts/NexaRegular.otf') format('opentype'),
-    url('../fonts/NexaRegular.woff') format('woff'),
-    url('../fonts/NexaRegular.woff2') format('woff2');
+  src: url("../fonts/NexaRegular.otf") format("opentype"), url("../fonts/NexaRegular.woff") format("woff"),
+    url("../fonts/NexaRegular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: Nexa;
-  src:
-    url('../fonts/NexaLight.otf') format('opentype'),
-    url('../fonts/NexaLight.woff') format('woff'),
-    url('../fonts/NexaLight.woff2') format('woff2');
+  src: url("../fonts/NexaLight.otf") format("opentype"), url("../fonts/NexaLight.woff") format("woff"),
+    url("../fonts/NexaLight.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: Nexa;
-  src:
-    url('../fonts/NexaBold.otf') format('opentype'),
-    url('../fonts/NexaBold.woff') format('woff'),
-    url('../fonts/NexaBold.woff2') format('woff2');
+  src: url("../fonts/NexaBold.otf") format("opentype"), url("../fonts/NexaBold.woff") format("woff"),
+    url("../fonts/NexaBold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: Nexa;
-  src:
-    url('../fonts/NexaHeavy.otf') format('opentype'),
-    url('../fonts/NexaHeavy.woff') format('woff'),
-    url('../fonts/NexaHeavy.woff2') format('woff2');
+  src: url("../fonts/NexaHeavy.otf") format("opentype"), url("../fonts/NexaHeavy.woff") format("woff"),
+    url("../fonts/NexaHeavy.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
 }

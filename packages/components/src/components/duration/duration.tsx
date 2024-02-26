@@ -1,6 +1,6 @@
-import { FC, createElement } from 'react';
-import classNames from 'classnames';
-import { getElementType } from '../../lib/get-element-type';
+import { FC, createElement } from "react";
+import classNames from "classnames";
+import { getElementType } from "../../lib/get-element-type";
 
 export interface DurationLabelConfiguration {
   day: string;
@@ -64,27 +64,27 @@ export const Duration: FC<DurationProps> = ({
   milliseconds = 0,
   seconds = 0,
   minutes = 0,
-  as = 'span',
+  as = "span",
   displayMinutes = 60000, // 1 minute
   displayHours = 3600000, // 1 hours
   displayDays = 86400000, // 24 hours
   roundUp = true,
   className,
   labels = {
-    day: 'day',
-    days: 'days',
-    hour: 'hour',
-    hours: 'hours',
-    minute: 'minute',
-    minutes: 'minutes',
-    second: 'second',
-    seconds: 'seconds',
+    day: "day",
+    days: "days",
+    hour: "hour",
+    hours: "hours",
+    minute: "minute",
+    minutes: "minutes",
+    second: "second",
+    seconds: "seconds",
   },
   ...restProps
 }) => {
   const totalMilliseconds = milliseconds + seconds * 1000 + minutes * 60000;
   let number = 1;
-  let label = '';
+  let label = "";
 
   const rounding = roundUp ? Math.ceil : Math.floor;
 

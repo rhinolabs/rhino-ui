@@ -1,78 +1,78 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { TextInput, TextInputProps } from './text-input';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { TextInput, TextInputProps } from "./text-input";
 
 const meta: Meta<typeof TextInput> = {
-  title: 'Components/TextInput/Playground',
+  title: "Components/TextInput/Playground",
   component: TextInput,
   argTypes: {
     autoComplete: {
-      control: 'boolean',
+      control: "boolean",
     },
     id: {
-      control: 'text',
+      control: "text",
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     name: {
-      control: 'text',
+      control: "text",
     },
     value: {
-      control: 'text',
+      control: "text",
     },
     autoFocus: {
-      control: 'boolean',
+      control: "boolean",
     },
     error: {
-      control: 'text',
+      control: "text",
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     hideLabel: {
-      control: 'boolean',
+      control: "boolean",
     },
     isClearable: {
-      control: 'boolean',
+      control: "boolean",
     },
     isDisabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     isRequired: {
-      control: 'boolean',
+      control: "boolean",
     },
     className: {
-      control: 'text',
+      control: "text",
     },
     placeholder: {
-      control: 'text',
+      control: "text",
     },
     prefix: {
-      control: 'text',
+      control: "text",
     },
     suffix: {
-      control: 'text',
+      control: "text",
     },
     maxLength: {
-      control: 'number',
+      control: "number",
     },
     size: {
       control: {
-        type: 'radio',
-        options: ['sm', 'md', 'lg'],
+        type: "radio",
+        options: ["sm", "md", "lg"],
       },
     },
     inputMask: {
       control: {
-        type: 'radio',
-        options: ['', 'phone', 'creditCard'],
+        type: "radio",
+        options: ["", "phone", "creditCard"],
       },
     },
     type: {
       control: {
-        type: 'select',
-        options: ['text', 'password', 'email', 'tel', 'url', 'search'],
+        type: "select",
+        options: ["text", "password", "email", "tel", "url", "search"],
       },
     },
   },
@@ -84,8 +84,8 @@ const Template: StoryFn<TextInputProps> = ({ ...args }) => <TextInput {...args} 
 
 export const Playground = Template.bind({});
 Playground.args = {
-  id: 'playgroundTextInput',
-  label: 'Playground TextInput',
-  helpText: 'Helpful text',
-  name: 'playgroundTextInput',
+  id: "playgroundTextInput",
+  label: "Playground TextInput",
+  helpText: "Helpful text",
+  name: "playgroundTextInput",
 };

@@ -1,11 +1,11 @@
 const nestInsideMediaQuery = (css, breakpoint) => {
-  let output = '';
+  let output = "";
 
   output += `@media (min-width: ${breakpoint.value}) {\n`;
   output += css;
   output += `}\n\n`;
 
-  return output
-}
+  return output;
+};
 
 module.exports = nestInsideMediaQuery;

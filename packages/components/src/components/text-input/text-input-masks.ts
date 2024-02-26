@@ -1,4 +1,4 @@
-import { InputMaskType } from './text-input'; // eslint-disable-line import/no-cycle
+import { InputMaskType } from "./text-input"; // eslint-disable-line import/no-cycle
 
 export type PhoneMask = {
   numericOnly: boolean;
@@ -19,7 +19,7 @@ export type DateMask = {
 export const phoneMask: PhoneMask = {
   numericOnly: true,
   blocks: [0, 3, 0, 3, 4],
-  delimiters: ['(', ')', ' ', '-'],
+  delimiters: ["(", ")", " ", "-"],
 };
 
 export const creditCardMask: CreditCardMask = {
@@ -28,8 +28,8 @@ export const creditCardMask: CreditCardMask = {
 
 export const dateMask: DateMask = {
   date: true,
-  delimiter: '-',
-  datePattern: ['m', 'd', 'Y'],
+  delimiter: "-",
+  datePattern: ["m", "d", "Y"],
 };
 
 const availableInputMaskTypes = {
@@ -38,10 +38,11 @@ const availableInputMaskTypes = {
   date: dateMask,
 };
 
-export const getInputMaskType: PhoneMask | CreditCardMask | DateMask | { [key: string]: any; } = ( // eslint-disable-line
+export const getInputMaskType: PhoneMask | CreditCardMask | DateMask | { [key: string]: any } = (
+  // eslint-disable-line
   mask: InputMaskType,
 ) => {
-  if (typeof mask === 'string') {
+  if (typeof mask === "string") {
     return availableInputMaskTypes[mask];
   }
 

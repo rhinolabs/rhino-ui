@@ -8,21 +8,21 @@ import React, {
   ReactNode,
   HTMLProps,
   InputHTMLAttributes,
-} from 'react';
-import classNames from 'classnames';
-import Cleave from 'cleave.js/react';
-import { ChangeEvent as CleaveChangeEvent } from 'cleave.js/react/props';
-import { ResponsiveProp, UnknownPropertiesObjType } from '../../types';
-import { generateResponsiveClasses } from '../../lib/generate-responsive-classes';
-import { getInputMaskType } from './text-input-masks'; // eslint-disable-line import/no-cycle
-import { Box, BoxProps } from '../box/box';
-import { Icon } from '../icon/icon';
-import { FormControl } from '../form-control/form-control';
-import { getAutoCompleteValue } from '../../lib/get-auto-complete-value';
-import styles from './text-input.module.scss';
+} from "react";
+import classNames from "classnames";
+import Cleave from "cleave.js/react";
+import { ChangeEvent as CleaveChangeEvent } from "cleave.js/react/props";
+import { ResponsiveProp, UnknownPropertiesObjType } from "../../types";
+import { generateResponsiveClasses } from "../../lib/generate-responsive-classes";
+import { getInputMaskType } from "./text-input-masks"; // eslint-disable-line import/no-cycle
+import { Box, BoxProps } from "../box/box";
+import { Icon } from "../icon/icon";
+import { FormControl } from "../form-control/form-control";
+import { getAutoCompleteValue } from "../../lib/get-auto-complete-value";
+import styles from "./text-input.module.scss";
 
-export type InputMaskType = ('phone' | 'creditCard' | 'date') | UnknownPropertiesObjType;
-export type TextInputSize = 'sm' | 'md' | 'lg';
+export type InputMaskType = ("phone" | "creditCard" | "date") | UnknownPropertiesObjType;
+export type TextInputSize = "sm" | "md" | "lg";
 export interface TextInputProps {
   /**
    * The input's id attribute. Used to programmatically tie the input with its label.
@@ -39,7 +39,7 @@ export interface TextInputProps {
   /**
    * The text value of the input. Required since our Input is a controlled component.
    */
-  value: InputHTMLAttributes<HTMLInputElement>['value'];
+  value: InputHTMLAttributes<HTMLInputElement>["value"];
   /**
    * Automatically focus the input when the page is loaded.
    */
@@ -124,7 +124,7 @@ export interface TextInputProps {
   /**
    * The input 'type' value. Defaults to type 'text'.
    */
-  type?: InputHTMLAttributes<HTMLInputElement>['type'];
+  type?: InputHTMLAttributes<HTMLInputElement>["type"];
   /**
    * Additional props to be spread to rendered element
    */
@@ -148,34 +148,34 @@ export const TextInput: ForwardRefExoticComponent<TextInputProps> = forwardRef<H
       isDisabled = false,
       isRequired = false,
       maxLength = undefined,
-      name = '',
+      name = "",
       onBlur = undefined,
       onClear = undefined,
       onFocus = undefined,
       prefix = undefined,
-      placeholder = '',
-      requiredIndicator = ' *',
+      placeholder = "",
+      requiredIndicator = " *",
       suffix = undefined,
-      size = 'md',
-      type = 'text',
+      size = "md",
+      type = "text",
       ...restProps
     },
     ref,
   ) => {
-    const responsiveClasses = generateResponsiveClasses('size', size);
+    const responsiveClasses = generateResponsiveClasses("size", size);
 
     const inputWrapperClasses = classNames(
-      'rhinolabs-components__variables__form-control',
-      styles['text-input-wrapper'],
-      ...responsiveClasses.map(c => (styles[c])),
+      "rhinolabs-components__variables__form-control",
+      styles["text-input-wrapper"],
+      ...responsiveClasses.map((c) => styles[c]),
       {
         [styles.error]: error,
         [styles.disabled]: isDisabled,
-        [styles['is-clearable']]: onClear,
+        [styles["is-clearable"]]: onClear,
       },
     );
 
-    const clearBtnClasses = classNames(styles['clear-button'], styles.md);
+    const clearBtnClasses = classNames(styles["clear-button"], styles.md);
 
     const renderClearIcon = (): ReactNode => {
       const handleKeyPress = (event: KeyboardEvent<HTMLButtonElement>): void => {
@@ -196,12 +196,12 @@ export const TextInput: ForwardRefExoticComponent<TextInputProps> = forwardRef<H
       );
     };
 
-    const computedInputProps: TextInputProps['inputProps'] = {
+    const computedInputProps: TextInputProps["inputProps"] = {
       ...inputProps, // These are spread first so that we don't have top level props overwritten by the user.
-      'aria-required': isRequired,
-      'aria-invalid': !!error,
-      'aria-label': label,
-      'aria-labelledby': label && !hideLabel ? `${id}Label` : undefined,
+      "aria-required": isRequired,
+      "aria-invalid": !!error,
+      "aria-label": label,
+      "aria-labelledby": label && !hideLabel ? `${id}Label` : undefined,
       autoComplete: getAutoCompleteValue(autoComplete),
       autoFocus,
       disabled: isDisabled,
@@ -215,14 +215,11 @@ export const TextInput: ForwardRefExoticComponent<TextInputProps> = forwardRef<H
       required: isRequired,
       type,
       value,
-      className: classNames(
-        inputProps.className,
-        {
-          'p-left-xs p-left-xs-tablet p-left-xs-desktop p-left-xs-hd': prefix,
-          'p-right-xs p-right-xs-tablet p-right-xs-desktop p-right-xs-hd': suffix,
-          'p-h-0': !suffix && !prefix,
-        },
-      ),
+      className: classNames(inputProps.className, {
+        "p-left-xs p-left-xs-tablet p-left-xs-desktop p-left-xs-hd": prefix,
+        "p-right-xs p-right-xs-tablet p-right-xs-desktop p-right-xs-hd": suffix,
+        "p-h-0": !suffix && !prefix,
+      }),
     };
 
     return (
@@ -238,15 +235,9 @@ export const TextInput: ForwardRefExoticComponent<TextInputProps> = forwardRef<H
         ref={ref}
         {...restProps}
       >
-        <Box
-          direction="row"
-          className={inputWrapperClasses}
-        >
+        <Box direction="row" className={inputWrapperClasses}>
           {prefix && (
-            <Box
-              color="grey-400"
-              className={classNames(styles.prefix, 'ws-nowrap')}
-            >
+            <Box color="grey-400" className={classNames(styles.prefix, "ws-nowrap")}>
               {prefix}
             </Box>
           )}
@@ -259,10 +250,7 @@ export const TextInput: ForwardRefExoticComponent<TextInputProps> = forwardRef<H
           )}
           {!!onClear && !!value && renderClearIcon()}
           {suffix && (
-            <Box
-              color="grey-400"
-              className={classNames(styles.suffix, 'ws-nowrap')}
-            >
+            <Box color="grey-400" className={classNames(styles.suffix, "ws-nowrap")}>
               {suffix}
             </Box>
           )}

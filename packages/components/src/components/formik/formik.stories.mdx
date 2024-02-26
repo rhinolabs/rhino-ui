@@ -1,18 +1,18 @@
-import { action } from '@storybook/addon-actions';
-import { Field, Form, Formik } from 'formik';
-import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import { FormikTextInput } from './formik-text-input/formik-text-input';
-import { FormikCheckboxInput } from './formik-checkbox-input/formik-checkbox-input';
-import { FormikSelectInput } from './formik-select-input/formik-select-input';
-import { FormikSelectInputNative } from './formik-select-input-native/formik-select-input-native';
-import { FormikRadioGroup } from './formik-radio-group/formik-radio-group';
-import { FormikTextareaInput } from './formik-text-area-input/formik-text-area-input';
-import { FormikTimePicker } from './formik-time-picker/formik-time-picker';
-import { DateInput } from '../date-input/date-input';
-import { FormikToggle } from './formik-toggle/formik-toggle';
-import { Button } from '../button/button';
-import { Box } from '../box/box';
-import { FormikTimePickerNative } from './formik-time-picker-native/formik-time-picker-native';
+import { action } from "@storybook/addon-actions";
+import { Field, Form, Formik } from "formik";
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { FormikTextInput } from "./formik-text-input/formik-text-input";
+import { FormikCheckboxInput } from "./formik-checkbox-input/formik-checkbox-input";
+import { FormikSelectInput } from "./formik-select-input/formik-select-input";
+import { FormikSelectInputNative } from "./formik-select-input-native/formik-select-input-native";
+import { FormikRadioGroup } from "./formik-radio-group/formik-radio-group";
+import { FormikTextareaInput } from "./formik-text-area-input/formik-text-area-input";
+import { FormikTimePicker } from "./formik-time-picker/formik-time-picker";
+import { DateInput } from "../date-input/date-input";
+import { FormikToggle } from "./formik-toggle/formik-toggle";
+import { Button } from "../button/button";
+import { Box } from "../box/box";
+import { FormikTimePickerNative } from "./formik-time-picker-native/formik-time-picker-native";
 
 <Meta title="Patterns/Formik Form" />
 
@@ -24,56 +24,54 @@ Formik Form demonstrates a pattern for integrating the input elements found in R
   <Story name="Form">
     {() => {
       const flavorOptions = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const colorOptions = [
-        { value: 'red', label: 'red' },
-        { value: 'orange', label: 'orange' },
-        { value: 'yellow', label: 'yellow' },
-        { value: 'green', label: 'green' },
-        { value: 'blue', label: 'blue' },
-        { value: 'indigo', label: 'indigo' },
-        { value: 'violet', label: 'violet' },
+        { value: "red", label: "red" },
+        { value: "orange", label: "orange" },
+        { value: "yellow", label: "yellow" },
+        { value: "green", label: "green" },
+        { value: "blue", label: "blue" },
+        { value: "indigo", label: "indigo" },
+        { value: "violet", label: "violet" },
       ];
       const sizeOptions = [
-        { id: 'small', value: 'small', label: 'Small' },
-        { id: 'medium', value: 'medium', label: 'Medium' },
-        { id: 'large', value: 'large', label: 'Large' },
+        { id: "small", value: "small", label: "Small" },
+        { id: "medium", value: "medium", label: "Medium" },
+        { id: "large", value: "large", label: "Large" },
       ];
-      const handleValidation = values => {
+      const handleValidation = (values) => {
         const errors = {};
         if (!values.firstName) {
-          errors.firstName = 'required';
+          errors.firstName = "required";
         }
         if (!values.lastName) {
-          errors.lastName = 'required';
+          errors.lastName = "required";
         }
         if (!values.areTermsChecked) {
-          errors.areTermsChecked = 'required';
+          errors.areTermsChecked = "required";
         }
         if (!values.areTermsChecked2) {
-          errors.areTermsChecked2 = 'required';
+          errors.areTermsChecked2 = "required";
         }
         if (!values.email) {
-          errors.email = 'required';
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address';
+          errors.email = "required";
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+          errors.email = "Invalid email address";
         }
         if (!values.flavor) {
-          errors.flavor = 'required';
+          errors.flavor = "required";
         }
         if (!values.sizes) {
-          errors.sizes = 'required';
+          errors.sizes = "required";
         }
         if (!values.timePicker) {
-          errors.timePicker = 'required';
+          errors.timePicker = "required";
         }
         if (!values.dateInput) {
-          errors.dateInput = 'required';
+          errors.dateInput = "required";
         }
         return errors;
       };
@@ -94,11 +92,11 @@ Formik Form demonstrates a pattern for integrating the input elements found in R
         <Box maxWidth="500px" margin="lg auto">
           <Formik
             initialValues={{
-              firstName: '',
-              lastName: '',
-              email: '',
-              phoneInputMask: '',
-              phoneInputMaskWithUnformattedValue: '',
+              firstName: "",
+              lastName: "",
+              email: "",
+              phoneInputMask: "",
+              phoneInputMaskWithUnformattedValue: "",
               areTermsChecked: false,
               areTermsChecked2: false,
               flavor: null,
@@ -107,7 +105,7 @@ Formik Form demonstrates a pattern for integrating the input elements found in R
               sizes: null,
               timePicker: null,
               timePickerNative: null,
-              dateInput: '',
+              dateInput: "",
             }}
             validate={handleValidation}
             validateOnChange={false}
@@ -124,8 +122,8 @@ Formik Form demonstrates a pattern for integrating the input elements found in R
                     component={FormikTextInput}
                     // With a custom onChange.
                     // We preserve Formik's convention and relegate state form management back to the user.
-                    onChange={event => {
-                      setFieldValue('firstName', event.target.value);
+                    onChange={(event) => {
+                      setFieldValue("firstName", event.target.value);
                     }}
                     isRequired
                   />
@@ -137,13 +135,7 @@ Formik Form demonstrates a pattern for integrating the input elements found in R
                     component={FormikTextInput}
                     isRequired
                   />
-                  <Field
-                    label="Email"
-                    name="email"
-                    id="email"
-                    component={FormikTextInput}
-                    isRequired
-                  />
+                  <Field label="Email" name="email" id="email" component={FormikTextInput} isRequired />
                   <Field
                     label="Phone Input Mask Returning a Formatted Value"
                     name="phoneInputMask"
@@ -159,11 +151,8 @@ Formik Form demonstrates a pattern for integrating the input elements found in R
                     component={FormikTextInput}
                     inputMask="phone"
                     type="tel"
-                    onChange={event => {
-                      setFieldValue(
-                        'phoneInputMaskWithUnformattedValue',
-                        event.target.rawValue,
-                      );
+                    onChange={(event) => {
+                      setFieldValue("phoneInputMaskWithUnformattedValue", event.target.rawValue);
                     }}
                   />
                   <Field
@@ -174,8 +163,8 @@ Formik Form demonstrates a pattern for integrating the input elements found in R
                     component={FormikSelectInputNative}
                     // With a custom onChange.
                     // We preserve Formik's convention and relegate form state management back to the user.
-                    onChange={event => {
-                      setFieldValue('flavor', event.target.value);
+                    onChange={(event) => {
+                      setFieldValue("flavor", event.target.value);
                     }}
                     isRequired
                   />
@@ -194,12 +183,7 @@ Formik Form demonstrates a pattern for integrating the input elements found in R
                     options={colorOptions}
                     component={FormikSelectInput}
                   />
-                  <Field
-                    label="Describe your perfect meal"
-                    name="meal"
-                    id="meal"
-                    component={FormikTextareaInput}
-                  />
+                  <Field label="Describe your perfect meal" name="meal" id="meal" component={FormikTextareaInput} />
                   <Field
                     title="Sizes"
                     name="sizes"
@@ -231,40 +215,28 @@ Formik Form demonstrates a pattern for integrating the input elements found in R
                   />
                   <DateInput
                     datePickerProps={{
-                      onChange: date => {
-                        setFieldValue('dateInput', date);
+                      onChange: (date) => {
+                        setFieldValue("dateInput", date);
                       },
                       selected: values.dateInput,
                     }}
                     textInputProps={{
-                      label: 'Date Input',
-                      name: 'dateInput',
-                      id: 'dateInput',
+                      label: "Date Input",
+                      name: "dateInput",
+                      id: "dateInput",
                       error: errors.dateInput,
                       isRequired: true,
                       onClear: () => {
-                        setFieldValue('dateInput', null);
+                        setFieldValue("dateInput", null);
                       },
                       onBlur: handleBlur,
                     }}
                   />
-                  <Button
-                    type="submit"
-                    className="m-bottom-md"
-                    isLoading={isSubmitting}
-                  >
+                  <Button type="submit" className="m-bottom-md" isLoading={isSubmitting}>
                     Submit
                   </Button>
-                  <pre>
-                    {JSON.stringify(
-                      formatOutput(values, isSubmitting),
-                      undefined,
-                      2,
-                    )}
-                  </pre>
-                  <pre>
-                    {JSON.stringify(formatOutput(errors), undefined, 2)}
-                  </pre>
+                  <pre>{JSON.stringify(formatOutput(values, isSubmitting), undefined, 2)}</pre>
+                  <pre>{JSON.stringify(formatOutput(errors), undefined, 2)}</pre>
                 </Box>
               </Form>
             )}

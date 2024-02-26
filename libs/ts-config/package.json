@@ -4,11 +4,10 @@
   "version": "1.0.0",
   "private": true,
   "description": "Typescript configuration for Rhino UI",
-  "main": "src/base.json",
+  "main": "src/index.js",
   "scripts": {
-    "eslint": "eslint src --fix",
-    "format": "prettier --write **/src/** --cache "
+    "eslint": "eslint src/ --fix",
+    "format": "prettier --write src/* --cache "
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

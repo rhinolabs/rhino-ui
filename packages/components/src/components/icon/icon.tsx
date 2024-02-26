@@ -1,11 +1,9 @@
-import React, { FC, forwardRef } from 'react';
-import icons from '@rhino-ui/design-tokens/build/icons/react';
-import classNames from 'classnames';
-import { generateResponsiveClasses } from '../../lib/generate-responsive-classes';
-import {
-  FontColor, FontSize, IconName, ResponsiveProp,
-} from '../../types';
-import { Box } from '../box/box';
+import React, { FC, forwardRef } from "react";
+import icons from "@rhino-ui/design-tokens/build/icons/react";
+import classNames from "classnames";
+import { generateResponsiveClasses } from "../../lib/generate-responsive-classes";
+import { FontColor, FontSize, IconName, ResponsiveProp } from "../../types";
+import { Box } from "../box/box";
 
 export interface IconProps {
   className?: string;
@@ -28,35 +26,21 @@ export interface IconProps {
 }
 
 export const Icon: FC<IconProps> = forwardRef<SVGSVGElement, IconProps>(
-  ({
-    className = undefined, name, color, size, ...restProps
-  }, ref) => {
+  ({ className = undefined, name, color, size, ...restProps }, ref) => {
     const IconComponent = icons[name];
 
     if (!IconComponent) console.error(`Icon '${name}' not found`); // eslint-disable-line no-console
 
     const iconClasses = classNames(
       className,
-      generateResponsiveClasses('font-color', color),
-      generateResponsiveClasses('font-size', size),
+      generateResponsiveClasses("font-color", color),
+      generateResponsiveClasses("font-size", size),
     );
 
     return IconComponent ? (
-      <IconComponent
-        className={iconClasses || null}
-        ref={ref}
-        data-testid={`icon-testid--${name}`}
-        {...restProps}
-      />
+      <IconComponent className={iconClasses || null} ref={ref} data-testid={`icon-testid--${name}`} {...restProps} />
     ) : (
-      <Box
-        fontWeight="bold"
-        background="danger"
-        color="white"
-        padding="2xs"
-        fontSize="sm"
-        display="inline"
-      >
+      <Box fontWeight="bold" background="danger" color="white" padding="2xs" fontSize="sm" display="inline">
         ???
       </Box>
     );

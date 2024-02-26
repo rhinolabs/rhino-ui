@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Components/Heading/Codesandbox" />
 
@@ -9,8 +9,8 @@ The `Heading` component allows you to specify an appropriate semantic element (h
 If no size is specified, a default size will be applied.
 
 ```js codesandbox=rhinolabs-components
-import React from 'react';
-import { Heading } from '@rhino-ui/components';
+import React from "react";
+import { Heading } from "@rhino-ui/components";
 
 export default () => <Heading as="h1">Lead the world towards a clean energy future</Heading>;
 ```
@@ -20,8 +20,8 @@ export default () => <Heading as="h1">Lead the world towards a clean energy futu
 Each Heading level has a default size.
 
 ```js codesandbox=rhinolabs-components
-import React from 'react';
-import { Heading } from '@rhino-ui/components';
+import React from "react";
+import { Heading } from "@rhino-ui/components";
 
 export default () => (
   <>
@@ -40,12 +40,12 @@ export default () => (
 The default size of the Heading can overridden as xs-5xl so that it's appropriate for its surrounding context.
 
 ```js codesandbox=rhinolabs-components
-import React from 'react';
-import { Heading, FONT_SIZE_OPTIONS } from '@rhino-ui/components';
+import React from "react";
+import { Heading, FONT_SIZE_OPTIONS } from "@rhino-ui/components";
 
 export default () => (
   <>
-    {[...FONT_SIZE_OPTIONS].reverse().map(fontSize => (
+    {[...FONT_SIZE_OPTIONS].reverse().map((fontSize) => (
       <Heading as="h3" size={fontSize} key={fontSize}>
         {`Size ${fontSize}`}
       </Heading>
@@ -57,11 +57,11 @@ export default () => (
 The `size` prop accepts an object where the properties correspond to [breakpoint tokens](?path=/story/design-tokens-design-tokens--page#breakpoints).
 
 ```js codesandbox=rhinolabs-components
-import React from 'react';
-import { Heading } from '@rhino-ui/components';
+import React from "react";
+import { Heading } from "@rhino-ui/components";
 
 export default () => (
-  <Heading as="h3" size={{ base: 'sm', tablet: 'lg', desktop: 'xl', hd: '3xl' }}>
+  <Heading as="h3" size={{ base: "sm", tablet: "lg", desktop: "xl", hd: "3xl" }}>
     Leading the world towards a clean energy future
   </Heading>
 );
@@ -72,12 +72,12 @@ export default () => (
 The variant of the heading is inherited from its parent, but can be set to brand variant as well.
 
 ```js codesandbox=rhinolabs-components
-import React from 'react';
-import { Heading, FONT_COLOR_OPTIONS } from '@rhino-ui/components';
+import React from "react";
+import { Heading, FONT_COLOR_OPTIONS } from "@rhino-ui/components";
 
 export default () => (
   <>
-    {FONT_COLOR_OPTIONS.map(variant => (
+    {FONT_COLOR_OPTIONS.map((variant) => (
       <Heading as="h3" variant={variant} key={variant}>
         {variant}
       </Heading>

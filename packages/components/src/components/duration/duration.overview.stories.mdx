@@ -1,17 +1,17 @@
-import { Duration } from  './duration';
-import { Box } from '../box/box';
-import { Badge } from '../badge/badge';
-import { Alert } from '../alert/alert';
-import { Popover } from '../popover/popover';
-import { Button } from '../button/button';
-import { useState, useEffect } from 'react';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Duration } from "./duration";
+import { Box } from "../box/box";
+import { Badge } from "../badge/badge";
+import { Alert } from "../alert/alert";
+import { Popover } from "../popover/popover";
+import { Button } from "../button/button";
+import { useState, useEffect } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
 
 <Meta title="Components/Duration/Overview" component={Duration} />
 
 # Duration
 
-Use 'Duration' to display a time span in a friendly human readable format. The `Duration` component handles converting 
+Use 'Duration' to display a time span in a friendly human readable format. The `Duration` component handles converting
 between different time units at defined intervals, including rounding, and displaying the result with an appropriate label.
 
 <Canvas withSource="open">
@@ -31,17 +31,17 @@ between different time units at defined intervals, including rounding, and displ
 
 ## Switching Units
 
-The intervals at which the `Duration` component switches between time units can be configured using the 
+The intervals at which the `Duration` component switches between time units can be configured using the
 `displayMinutes`, `displayHours`, and `displayDays` properties.
 
 <Canvas withSource="open">
   <Story name="Switching Units">
     <Box gap="xs">
       <Duration milliseconds={3600000} displayHours={7200000} />
-      <Duration milliseconds={3600000} displayHours={3600000} /> 
+      <Duration milliseconds={3600000} displayHours={3600000} />
     </Box>
   </Story>
-</Canvas>  
+</Canvas>{" "}
 
 ## Rounding
 
@@ -51,11 +51,15 @@ By default the `Duration` component will round up the time span to the nearest w
 <Canvas withSource="open">
   <Story name="Rounding">
     <Box gap="xs">
-      <p>Up: <Duration milliseconds={60001} roundUp={true} /> </p>
-      <p>Down: <Duration milliseconds={60001} roundUp={false} /> </p>
+      <p>
+        Up: <Duration milliseconds={60001} roundUp={true} />{" "}
+      </p>
+      <p>
+        Down: <Duration milliseconds={60001} roundUp={false} />{" "}
+      </p>
     </Box>
   </Story>
-</Canvas> 
+</Canvas>{" "}
 
 ## With Other Components
 
@@ -64,12 +68,12 @@ Use the `Duration` component with other stylized components to display a time sp
 <Canvas withSource="open">
   <Story name="Composition">
     <Box direction="row" gap="sm">
-      <Badge message={<Duration milliseconds={60001} />} variant="default"/>
+      <Badge message={<Duration milliseconds={60001} />} variant="default" />
       <Badge message={<Duration milliseconds={3600000} />} variant="warning" />
-      <Badge message={<Duration milliseconds={86500000} />} variant="danger"/>
+      <Badge message={<Duration milliseconds={86500000} />} variant="danger" />
     </Box>
   </Story>
-</Canvas> 
+</Canvas>{" "}
 
 <Canvas>
   <Story name="Hover" withSource="open">
@@ -78,7 +82,9 @@ Use the `Duration` component with other stylized components to display a time sp
       const popoverContent = (
         <>
           <p>
-            <Duration milliseconds={86500000} displayMinutes={10000000000} /> or <Duration milliseconds={86500000} displayHours={10000000000} /> or <Duration milliseconds={86500000} displayDays={10000000000}/>
+            <Duration milliseconds={86500000} displayMinutes={10000000000} /> or{" "}
+            <Duration milliseconds={86500000} displayHours={10000000000} /> or{" "}
+            <Duration milliseconds={86500000} displayDays={10000000000} />
           </p>
         </>
       );
@@ -92,14 +98,20 @@ Use the `Duration` component with other stylized components to display a time sp
             isOpen={isPopoverOpen}
             placement="right-start"
             contentContainerProps={{
-              background: 'secondary',
-              color: 'white',
+              background: "secondary",
+              color: "white",
             }}
             withPortal
             portalTarget={document.body}
           >
             <Box padding="sm">
-              <Badge display="" onMouseOver={() => setPopoverOpen(true)} onMouseOut={() => setPopoverOpen(false)} message={<Duration milliseconds={86500000} />} variant="default"/>
+              <Badge
+                display=""
+                onMouseOver={() => setPopoverOpen(true)}
+                onMouseOut={() => setPopoverOpen(false)}
+                message={<Duration milliseconds={86500000} />}
+                variant="default"
+              />
             </Box>
           </Popover>
         </Box>
@@ -107,4 +119,3 @@ Use the `Duration` component with other stylized components to display a time sp
     }}
   </Story>
 </Canvas>
-

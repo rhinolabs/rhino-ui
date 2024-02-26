@@ -1,7 +1,7 @@
-import { StylesAndClasses, FlexProperty, ResponsiveProp } from '../types';
-import { doesStringIncludeCssUnit } from './does-string-include-css-unit';
+import { StylesAndClasses, FlexProperty, ResponsiveProp } from "../types";
+import { doesStringIncludeCssUnit } from "./does-string-include-css-unit";
 
-const flexValues = ['initial', 'auto', 'unset', 'none', 'inherit'];
+const flexValues = ["initial", "auto", "unset", "none", "inherit"];
 
 export function parsePropertyValue(value: string): string | number {
   return Number.isNaN(Number(value)) ? value : Number(value);
@@ -13,14 +13,14 @@ export function getFlexStyles(value?: string): FlexProperty | undefined {
   const styles: FlexProperty = {};
 
   // Single value
-  if (!value.includes(' ') && !flexValues.includes(value)) {
+  if (!value.includes(" ") && !flexValues.includes(value)) {
     styles.flex = value;
     return styles;
   }
 
   // CSS shorthand
-  if (value.includes(' ')) {
-    const flexProps = value.split(' ');
+  if (value.includes(" ")) {
+    const flexProps = value.split(" ");
     styles.flexGrow = parsePropertyValue(flexProps[0]);
 
     if (flexProps.length === 2) {
@@ -39,10 +39,10 @@ export function getFlexStyles(value?: string): FlexProperty | undefined {
 }
 
 export function getFlexClasses(value?: string): string[] | undefined {
-  if (value === undefined || value.split(' ').length > 1) return [];
+  if (value === undefined || value.split(" ").length > 1) return [];
 
   const classes = [];
-  if (typeof value === 'string' && !doesStringIncludeCssUnit(value) && Number.isNaN(Number(value))) {
+  if (typeof value === "string" && !doesStringIncludeCssUnit(value) && Number.isNaN(Number(value))) {
     classes.push(`flex-${value}`);
   }
 
@@ -54,8 +54,8 @@ export function getFlexClasses(value?: string): string[] | undefined {
  * @param {string} [value] spacing token value
  */
 export function getFlexCss(value?: ResponsiveProp<FlexProperty> | string): StylesAndClasses<FlexProperty> {
-  return ({
+  return {
     styles: getFlexStyles(value as string),
     classes: getFlexClasses(value as string),
-  });
+  };
 }

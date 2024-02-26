@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import classNames from 'classnames';
-import { Column, EventWithColumnKey } from '../../../types';
-import { TableRow } from '../common/table-row/table-row';
+import React, { FC } from "react";
+import classNames from "classnames";
+import { Column, EventWithColumnKey } from "../../../types";
+import { TableRow } from "../common/table-row/table-row";
 
 export interface TableHeadProps {
   /**
@@ -12,7 +12,7 @@ export interface TableHeadProps {
    * Text alignment for all table cells. Can be superseded by passing the same prop into the `Column` object
    * for a specific column.
    */
-  align?: 'left' | 'right' | 'center';
+  align?: "left" | "right" | "center";
   /**
    * Custom class to be applied to the `<thead>` element.
    */
@@ -38,7 +38,7 @@ export interface TableHeadProps {
    */
   sortedColumn?: {
     dataKey: string | undefined;
-    sortDirection: 'none' | 'ascending' | 'descending' | undefined;
+    sortDirection: "none" | "ascending" | "descending" | undefined;
   };
   /**
    * Truncate overflow inside column based on column width. Can be overwritten on specific columns,
@@ -49,8 +49,8 @@ export interface TableHeadProps {
 
 export const TableHead: FC<TableHeadProps> = ({
   columns,
-  align = 'left',
-  className = '',
+  align = "left",
+  className = "",
   isBorderless = false,
   isCompact = false,
   hasStickyHeader = false,

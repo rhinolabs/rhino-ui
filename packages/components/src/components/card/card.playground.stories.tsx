@@ -1,24 +1,24 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { Card, CardProps } from './card';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { Card, CardProps } from "./card";
 
 const meta: Meta<typeof Card> = {
-  title: 'Components/Card/Playground',
+  title: "Components/Card/Playground",
   component: Card,
   argTypes: {
     subdued: {
-      control: 'boolean',
+      control: "boolean",
     },
     sectionCount: {
       control: {
-        type: 'range',
+        type: "range",
         min: 0,
         max: 6,
         step: 1,
       },
     },
     renderFooter: {
-      control: 'boolean',
+      control: "boolean",
     },
   },
 };
@@ -59,10 +59,10 @@ const Template: StoryFn<CardProps> = ({
 
 export const Playground = Template.bind({});
 Playground.args = {
-  cardTitle: 'Title',
-  sectionContent: 'Section content',
-  sectionTitle: 'Section title',
+  cardTitle: "Title",
+  sectionContent: "Section content",
+  sectionTitle: "Section title",
   renderFooter: true,
   sectionCount: 3,
-  footerContent: 'Footer content',
+  footerContent: "Footer content",
 };

@@ -1,10 +1,10 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { RESPONSIVE_STORY } from '../../docs/constants';
-import { OptionTileGroup, OptionTileGroupProps } from './option-tile-group';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { RESPONSIVE_STORY } from "../../docs/constants";
+import { OptionTileGroup, OptionTileGroupProps } from "./option-tile-group";
 
 const meta: Meta<typeof OptionTileGroup> = {
-  title: 'Components/OptionTileGroup/Visual Regression Tests',
+  title: "Components/OptionTileGroup/Visual Regression Tests",
   component: OptionTileGroup,
 };
 
@@ -12,23 +12,23 @@ export default meta;
 
 const options = [
   {
-    id: 'chocolate_default',
-    value: 'chocolate',
-    label: 'Chocolate',
+    id: "chocolate_default",
+    value: "chocolate",
+    label: "Chocolate",
   },
   {
-    id: 'strawberry_default',
-    value: 'strawberry',
-    label: 'Strawberry',
+    id: "strawberry_default",
+    value: "strawberry",
+    label: "Strawberry",
   },
   {
-    id: 'vanilla_default',
-    value: 'vanilla',
-    label: 'Vanilla',
+    id: "vanilla_default",
+    value: "vanilla",
+    label: "Vanilla",
   },
 ];
 
-const Template: StoryFn<OptionTileGroupProps> = args => (
+const Template: StoryFn<OptionTileGroupProps> = (args) => (
   <OptionTileGroup
     {...args}
     onChange={() => {}} // eslint-disable-line
@@ -38,37 +38,37 @@ const Template: StoryFn<OptionTileGroupProps> = args => (
 export const DefaultRadio = Template.bind({});
 DefaultRadio.args = {
   options,
-  name: 'default',
+  name: "default",
 };
 
 export const RadioOptionSelected = Template.bind({});
 RadioOptionSelected.args = {
   options,
-  value: 'chocolate',
-  name: 'optionSelected',
+  value: "chocolate",
+  name: "optionSelected",
 };
 
 export const MultipleOptionsNoneSelected = Template.bind({});
 MultipleOptionsNoneSelected.args = {
   options,
-  name: 'multiNone',
+  name: "multiNone",
   isMulti: true,
 };
 
 export const MultipleOptionsOneSelected = Template.bind({});
 MultipleOptionsOneSelected.args = {
   options,
-  name: 'multiOne',
+  name: "multiOne",
   isMulti: true,
-  value: ['chocolate'],
+  value: ["chocolate"],
 };
 
 export const MultipleOptionsAllSelected = Template.bind({});
 MultipleOptionsAllSelected.args = {
   options,
-  name: 'multiAll',
+  name: "multiAll",
   isMulti: true,
-  value: ['chocolate', 'vanilla', 'strawberry'],
+  value: ["chocolate", "vanilla", "strawberry"],
 };
 
 export const RadioWithDisabledOption = Template.bind({});
@@ -76,13 +76,13 @@ RadioWithDisabledOption.args = {
   options: [
     ...options,
     {
-      label: 'Cookies and Cream',
-      value: 'cookies',
-      id: 'cookies',
+      label: "Cookies and Cream",
+      value: "cookies",
+      id: "cookies",
       disabled: true,
     },
   ],
-  name: 'radioOneDisabled',
+  name: "radioOneDisabled",
 };
 
 export const RadioWithDisabledOptionSelected = Template.bind({});
@@ -90,14 +90,14 @@ RadioWithDisabledOptionSelected.args = {
   options: [
     ...options,
     {
-      label: 'Cookies and Cream',
-      value: 'cookies',
-      id: 'cookies',
+      label: "Cookies and Cream",
+      value: "cookies",
+      id: "cookies",
       disabled: true,
     },
   ],
-  name: 'radioOneDisabledSelected',
-  value: 'cookies',
+  name: "radioOneDisabledSelected",
+  value: "cookies",
 };
 
 export const CheckboxWithDisabledOption = Template.bind({});
@@ -105,13 +105,13 @@ CheckboxWithDisabledOption.args = {
   options: [
     ...options,
     {
-      label: 'Cookies and Cream',
-      value: 'cookies',
-      id: 'cookies',
+      label: "Cookies and Cream",
+      value: "cookies",
+      id: "cookies",
       disabled: true,
     },
   ],
-  name: 'checkboxWithDisabledOption',
+  name: "checkboxWithDisabledOption",
   isMulti: true,
 };
 
@@ -120,158 +120,130 @@ CheckboxWithDisabledOptionSelected.args = {
   options: [
     ...options,
     {
-      label: 'Cookies and Cream',
-      value: 'cookies',
-      id: 'cookies',
+      label: "Cookies and Cream",
+      value: "cookies",
+      id: "cookies",
       disabled: true,
     },
   ],
-  name: 'checkboxWithDisabledOptionSelected',
-  value: ['cookies'],
+  name: "checkboxWithDisabledOptionSelected",
+  value: ["cookies"],
   isMulti: true,
 };
 
 export const RadioWithTitle = Template.bind({});
 RadioWithTitle.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioWithTitle',
-  title: 'Ice cream flavors',
+  options: [...options],
+  name: "radioWithTitle",
+  title: "Ice cream flavors",
 };
 
 export const RadioWithTitleRequired = Template.bind({});
 RadioWithTitleRequired.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioWithTitleRequired',
-  title: 'Ice cream flavors',
+  options: [...options],
+  name: "radioWithTitleRequired",
+  title: "Ice cream flavors",
   isRequired: true,
 };
 
 export const RadioWithTitleAndDescription = Template.bind({});
 RadioWithTitleAndDescription.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioOneWithTitleAndDescription',
-  title: 'Ice cream flavors',
-  description: 'Only if you finish your dinner',
+  options: [...options],
+  name: "radioOneWithTitleAndDescription",
+  title: "Ice cream flavors",
+  description: "Only if you finish your dinner",
 };
 
 export const RadioWithDescriptionOnly = Template.bind({});
 RadioWithDescriptionOnly.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioOneWithDescriptionOnly',
-  description: 'Only if you finish your dinner',
+  options: [...options],
+  name: "radioOneWithDescriptionOnly",
+  description: "Only if you finish your dinner",
 };
 
 export const CheckboxWithTitle = Template.bind({});
 CheckboxWithTitle.args = {
-  options: [
-    ...options,
-  ],
-  name: 'checkboxWithTitle',
-  title: 'Ice cream flavors',
+  options: [...options],
+  name: "checkboxWithTitle",
+  title: "Ice cream flavors",
   isMulti: true,
 };
 
 export const CheckboxWithTitleAndDescription = Template.bind({});
 CheckboxWithTitleAndDescription.args = {
-  options: [
-    ...options,
-  ],
-  name: 'checkboxOneWithTitleAndDescription',
-  title: 'Ice cream flavors',
-  description: 'Only if you finish your dinner',
+  options: [...options],
+  name: "checkboxOneWithTitleAndDescription",
+  title: "Ice cream flavors",
+  description: "Only if you finish your dinner",
   isMulti: true,
 };
 
 export const CheckboxWithDescriptionOnly = Template.bind({});
 CheckboxWithDescriptionOnly.args = {
-  options: [
-    ...options,
-  ],
-  name: 'checkboxOneWithDescriptionOnly',
-  description: 'Only if you finish your dinner',
+  options: [...options],
+  name: "checkboxOneWithDescriptionOnly",
+  description: "Only if you finish your dinner",
   isMulti: true,
 };
 
 export const RadioWithError = Template.bind({});
 RadioWithError.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioWithError',
+  options: [...options],
+  name: "radioWithError",
   error: true,
 };
 
 export const RadioWithErrorTitleAndDescription = Template.bind({});
 RadioWithErrorTitleAndDescription.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioWithErrorTitleAndDescription',
+  options: [...options],
+  name: "radioWithErrorTitleAndDescription",
   error: true,
-  title: 'Ice Cream Flavors',
-  description: 'Only if you finish your dinner',
+  title: "Ice Cream Flavors",
+  description: "Only if you finish your dinner",
 };
 
 export const RadioRequiredWithErrorTitleAndDescription = Template.bind({});
 RadioRequiredWithErrorTitleAndDescription.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioWithErrorTitleAndDescription',
+  options: [...options],
+  name: "radioWithErrorTitleAndDescription",
   error: true,
-  title: 'Ice Cream Flavors',
-  description: 'Only if you finish your dinner',
+  title: "Ice Cream Flavors",
+  description: "Only if you finish your dinner",
   isRequired: true,
 };
 
 export const RadioWithErrorMessage = Template.bind({});
 RadioWithErrorMessage.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioWithErrorMessage',
-  error: 'something is wrong',
+  options: [...options],
+  name: "radioWithErrorMessage",
+  error: "something is wrong",
 };
 
 export const RadioWithErrorMessageTitleAndDescription = Template.bind({});
 RadioWithErrorMessageTitleAndDescription.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioWithErrorMessageTitleAndDescription',
-  title: 'Ice Cream Flavors',
-  description: 'Only if you finish your dinner',
-  error: 'something is wrong',
+  options: [...options],
+  name: "radioWithErrorMessageTitleAndDescription",
+  title: "Ice Cream Flavors",
+  description: "Only if you finish your dinner",
+  error: "something is wrong",
 };
 
 export const RadioRequiredWithErrorMessageTitleAndDescription = Template.bind({});
 RadioRequiredWithErrorMessageTitleAndDescription.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioWithErrorMessageTitleAndDescription',
-  title: 'Ice Cream Flavors',
-  description: 'Only if you finish your dinner',
+  options: [...options],
+  name: "radioWithErrorMessageTitleAndDescription",
+  title: "Ice Cream Flavors",
+  description: "Only if you finish your dinner",
   isRequired: true,
-  error: 'something is wrong',
+  error: "something is wrong",
 };
 
 export const RadioWithErrorAndSelectedOption = Template.bind({});
 RadioWithErrorAndSelectedOption.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioWithErrorAndSelectedOption',
+  options: [...options],
+  name: "radioWithErrorAndSelectedOption",
   error: true,
-  value: 'chocolate',
+  value: "chocolate",
 };
 
 export const RadioWithErrorAndSelectedDisabledOption = Template.bind({});
@@ -279,25 +251,23 @@ RadioWithErrorAndSelectedDisabledOption.args = {
   options: [
     ...options,
     {
-      label: 'Cookies and Cream',
-      value: 'cookies',
-      id: 'cookies',
+      label: "Cookies and Cream",
+      value: "cookies",
+      id: "cookies",
       disabled: true,
     },
   ],
-  name: 'radioWithErrorAndSelectedDisabledOption',
+  name: "radioWithErrorAndSelectedDisabledOption",
   error: true,
-  value: 'cookies',
+  value: "cookies",
 };
 
 export const CheckboxWithErrorAndSelectedOption = Template.bind({});
 CheckboxWithErrorAndSelectedOption.args = {
-  options: [
-    ...options,
-  ],
-  name: 'checkboxWithErrorAndSelectedOption',
+  options: [...options],
+  name: "checkboxWithErrorAndSelectedOption",
   error: true,
-  value: ['chocolate'],
+  value: ["chocolate"],
   isMulti: true,
 };
 
@@ -306,44 +276,38 @@ CheckboxWithErrorAndSelectedDisabledOption.args = {
   options: [
     ...options,
     {
-      label: 'Cookies and Cream',
-      value: 'cookies',
-      id: 'cookies',
+      label: "Cookies and Cream",
+      value: "cookies",
+      id: "cookies",
       disabled: true,
     },
   ],
-  name: 'checkboxWithErrorAndSelectedOption',
+  name: "checkboxWithErrorAndSelectedOption",
   error: true,
   isMulti: true,
-  value: ['cookies'],
+  value: ["cookies"],
 };
 
 export const RadioWithHorizontalDirection = Template.bind({});
 RadioWithHorizontalDirection.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioWithHorizontalDirection',
-  direction: 'row',
+  options: [...options],
+  name: "radioWithHorizontalDirection",
+  direction: "row",
 };
 
 export const RadioWithContentWidthVertical = Template.bind({});
 RadioWithContentWidthVertical.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioWithContentWidthVertical',
+  options: [...options],
+  name: "radioWithContentWidthVertical",
   isFullWidth: false,
 };
 
 export const RadioWithContentWidthHorizontal = Template.bind({});
 RadioWithContentWidthHorizontal.args = {
-  options: [
-    ...options,
-  ],
-  name: 'radioWithContentWidthHorizontal',
+  options: [...options],
+  name: "radioWithContentWidthHorizontal",
   isFullWidth: false,
-  direction: 'row',
+  direction: "row",
 };
 
 export const RadioWithCustomContent = Template.bind({});
@@ -351,13 +315,13 @@ RadioWithCustomContent.args = {
   options: [
     ...options,
     {
-      label: 'custom',
-      value: 'custom',
-      id: 'custom',
+      label: "custom",
+      value: "custom",
+      id: "custom",
       render: () => <div>hello world, I am a custom node!</div>,
     },
   ],
-  name: 'radioWithCustomContent',
+  name: "radioWithCustomContent",
 };
 
 export const CheckboxWithCustomContent = Template.bind({});
@@ -365,46 +329,40 @@ CheckboxWithCustomContent.args = {
   options: [
     ...options,
     {
-      label: 'custom',
-      value: 'custom',
-      id: 'custom',
+      label: "custom",
+      value: "custom",
+      id: "custom",
       render: () => <div>hello world, I am a custom node!</div>,
     },
   ],
-  name: 'checkboxWithCustomContent',
+  name: "checkboxWithCustomContent",
   isMulti: true,
 };
 
 export const RadioWithHiddenRadio = Template.bind({});
 RadioWithHiddenRadio.args = {
-  options: [
-    ...options,
-  ],
+  options: [...options],
   hideInput: true,
-  name: 'radioWithHiddenRadio',
+  name: "radioWithHiddenRadio",
 };
 
 export const CheckboxWithHiddenCheckbox = Template.bind({});
 CheckboxWithHiddenCheckbox.args = {
-  options: [
-    ...options,
-  ],
+  options: [...options],
   hideInput: true,
-  name: 'checkboxWithHiddenCheckbox',
+  name: "checkboxWithHiddenCheckbox",
   isMulti: true,
 };
 
 export const ResponsiveDirection = Template.bind({});
 ResponsiveDirection.args = {
-  options: [
-    ...options,
-  ],
+  options: [...options],
   direction: {
-    base: 'column',
-    tablet: 'row',
-    desktop: 'column',
-    hd: 'row',
+    base: "column",
+    tablet: "row",
+    desktop: "column",
+    hd: "row",
   },
-  name: 'radioWithResponsiveDirection',
+  name: "radioWithResponsiveDirection",
 };
 ResponsiveDirection.parameters = RESPONSIVE_STORY;

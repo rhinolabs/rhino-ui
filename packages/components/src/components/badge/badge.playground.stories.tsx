@@ -1,29 +1,29 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { Badge, BadgeProps } from './badge';
-import { BADGE_SIZES, BADGE_VARIANTS } from './badge.constants';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { Badge, BadgeProps } from "./badge";
+import { BADGE_SIZES, BADGE_VARIANTS } from "./badge.constants";
 
 const meta: Meta<typeof Badge> = {
-  title: 'Components/Badge/Playground',
+  title: "Components/Badge/Playground",
   component: Badge,
   argTypes: {
     variant: {
       control: {
-        type: 'select',
+        type: "select",
         options: BADGE_VARIANTS,
       },
     },
     size: {
       control: {
-        type: 'select',
+        type: "select",
         options: BADGE_SIZES,
       },
     },
     message: {
-      control: 'text',
+      control: "text",
     },
     className: {
-      control: 'text',
+      control: "text",
     },
   },
 };
@@ -38,6 +38,6 @@ const Template: StoryFn<BadgeProps> = ({ ...args }) => <Badge {...args} />;
 
 export const Playground = Template.bind({});
 Playground.args = {
-  variant: 'primary',
-  message: 'install ready',
+  variant: "primary",
+  message: "install ready",
 };

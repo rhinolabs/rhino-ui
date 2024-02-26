@@ -1,5 +1,5 @@
-import { ValueOrFunction } from '../types';
-import { isFunction } from './is-function';
+import { ValueOrFunction } from "../types";
+import { isFunction } from "./is-function";
 
 export const resolveValue = <TValue, TArg>( // eslint-disable-line import/prefer-default-export
   valOrFunction: ValueOrFunction<TValue, TArg>,

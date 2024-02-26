@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Box } from '../box/box';
-import { RadioGroup } from './radio-group';
+import { useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Box } from "../box/box";
+import { RadioGroup } from "./radio-group";
 
 <Meta
   title="Components/RadioGroup/Overview"
@@ -27,29 +27,29 @@ All that is required to render a basic version of the RadioGroup is the group's 
 <Canvas isExpanded>
   <Story name="Default">
     {() => {
-      const [value, setValue] = useState('chocolate');
+      const [value, setValue] = useState("chocolate");
       const options = [
         {
-          id: 'chocolate',
-          value: 'chocolate',
-          label: 'Chocolate',
+          id: "chocolate",
+          value: "chocolate",
+          label: "Chocolate",
         },
         {
-          id: 'strawberry',
-          value: 'strawberry',
-          label: 'Strawberry',
+          id: "strawberry",
+          value: "strawberry",
+          label: "Strawberry",
         },
         {
-          id: 'vanilla',
-          value: 'vanilla',
-          label: 'Vanilla',
+          id: "vanilla",
+          value: "vanilla",
+          label: "Vanilla",
         },
       ];
       return (
         <RadioGroup
           name="noTitleOrDescription"
           value={value}
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           options={options}
         />
       );
@@ -64,29 +64,29 @@ Use the `title` prop to add a title.
 <Canvas>
   <Story name="Title">
     {() => {
-      const [value, setValue] = useState('purple');
+      const [value, setValue] = useState("purple");
       const options = [
         {
-          id: 'purple',
-          value: 'purple',
-          label: 'Purple',
+          id: "purple",
+          value: "purple",
+          label: "Purple",
         },
         {
-          id: 'green',
-          value: 'green',
-          label: 'Green',
+          id: "green",
+          value: "green",
+          label: "Green",
         },
         {
-          id: 'blue',
-          value: 'blue',
-          label: 'Blue',
+          id: "blue",
+          value: "blue",
+          label: "Blue",
         },
       ];
       return (
         <RadioGroup
           title="Title"
           name="withTitle"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           value={value}
           options={options}
         />
@@ -102,17 +102,17 @@ Use the `title` and `description` props to add a title and description.
 <Canvas>
   <Story name="Title and Description">
     {() => {
-      const [value, setValue] = useState('light');
+      const [value, setValue] = useState("light");
       const options = [
         {
-          id: 'light',
-          value: 'light',
-          label: 'Light',
+          id: "light",
+          value: "light",
+          label: "Light",
         },
         {
-          id: 'dark',
-          value: 'dark',
-          label: 'Dark',
+          id: "dark",
+          value: "dark",
+          label: "Dark",
         },
       ];
       return (
@@ -120,7 +120,7 @@ Use the `title` and `description` props to add a title and description.
           title="Title"
           description="Description"
           name="withTitleAndDescription"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           value={value}
           options={options}
         />
@@ -136,24 +136,24 @@ Use the `isRequired` prop to mark the group as requiring at least one selection.
 <Canvas>
   <Story name="Required">
     {() => {
-      const [value, setValue] = useState('cat');
+      const [value, setValue] = useState("cat");
       const options = [
         {
-          id: 'cat',
-          value: 'cat',
-          label: 'Cat',
+          id: "cat",
+          value: "cat",
+          label: "Cat",
         },
         {
-          id: 'dog',
-          value: 'dog',
-          label: 'Dog',
+          id: "dog",
+          value: "dog",
+          label: "Dog",
         },
       ];
       return (
         <RadioGroup
           title="Title"
           name="required"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           value={value}
           isRequired
           options={options}
@@ -172,14 +172,14 @@ You can remove or customize the required indicator using the `requiredIndicator`
       const [value2, setValue2] = useState(false);
       const options = [
         {
-          id: 'cat',
-          value: 'cat',
-          label: 'Cat',
+          id: "cat",
+          value: "cat",
+          label: "Cat",
         },
         {
-          id: 'dog',
-          value: 'dog',
-          label: 'Dog',
+          id: "dog",
+          value: "dog",
+          label: "Dog",
         },
       ];
       return (
@@ -187,7 +187,7 @@ You can remove or customize the required indicator using the `requiredIndicator`
           <RadioGroup
             title="Required Without Indicator"
             name="withoutIndicator"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             value={value}
             isRequired
             options={options}
@@ -196,7 +196,7 @@ You can remove or customize the required indicator using the `requiredIndicator`
           <RadioGroup
             title="Required Custom Indicator"
             name="customIndicator"
-            onChange={event => setValue2(event.target.value)}
+            onChange={(event) => setValue2(event.target.value)}
             value={value2}
             isRequired
             options={options}
@@ -208,7 +208,6 @@ You can remove or customize the required indicator using the `requiredIndicator`
   </Story>
 </Canvas>
 
-
 ## Pre-Selected Option
 
 Use the `value` prop to pre-select an option.
@@ -218,19 +217,19 @@ Use the `value` prop to pre-select an option.
     {() => {
       const options = [
         {
-          id: 'car',
-          value: 'car',
-          label: 'Car',
+          id: "car",
+          value: "car",
+          label: "Car",
         },
         {
-          id: 'truck',
-          value: 'truck',
-          label: 'Truck',
+          id: "truck",
+          value: "truck",
+          label: "Truck",
         },
         {
-          id: 'motorcycle',
-          value: 'motorcycle',
-          label: 'Motorcycle',
+          id: "motorcycle",
+          value: "motorcycle",
+          label: "Motorcycle",
         },
       ];
       const [value, setValue] = useState(options[1].value);
@@ -238,7 +237,7 @@ Use the `value` prop to pre-select an option.
         <RadioGroup
           title="Title"
           name="prevalue"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           value={value}
           options={options}
         />
@@ -254,22 +253,22 @@ An individual option, or multiple options can be disabled by marking them as dis
 <Canvas>
   <Story name="Disabled Option">
     {() => {
-      const [value, setValue] = useState('short');
+      const [value, setValue] = useState("short");
       const options = [
         {
-          id: 'short',
-          value: 'short',
-          label: 'Short',
+          id: "short",
+          value: "short",
+          label: "Short",
         },
         {
-          id: 'tall',
-          value: 'tall',
-          label: 'Tall',
+          id: "tall",
+          value: "tall",
+          label: "Tall",
         },
         {
-          id: 'gigantic',
-          value: 'gigantic',
-          label: 'Gigantic',
+          id: "gigantic",
+          value: "gigantic",
+          label: "Gigantic",
           disabled: true,
         },
       ];
@@ -277,7 +276,7 @@ An individual option, or multiple options can be disabled by marking them as dis
         <RadioGroup
           title="Title"
           name="disabledOption"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           value={value}
           options={options}
         />
@@ -293,22 +292,22 @@ A group can be fully disabled by using the `isDisabled` prop.
 <Canvas>
   <Story name="Disabled Group">
     {() => {
-      const [value, setValue] = useState('react');
+      const [value, setValue] = useState("react");
       const options = [
         {
-          id: 'react',
-          value: 'react',
-          label: 'React',
+          id: "react",
+          value: "react",
+          label: "React",
         },
         {
-          id: 'angular',
-          value: 'angular',
-          label: 'Angular',
+          id: "angular",
+          value: "angular",
+          label: "Angular",
         },
         {
-          id: 'vue',
-          value: 'vue',
-          label: 'Vue',
+          id: "vue",
+          value: "vue",
+          label: "Vue",
           disabled: true,
         },
       ];
@@ -316,7 +315,7 @@ A group can be fully disabled by using the `isDisabled` prop.
         <RadioGroup
           title="Title"
           name="disabledGroup"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           value={value}
           isDisabled
           options={options}
@@ -333,22 +332,22 @@ Use the `error` prop to mark the input as invalid. `error` accepts a `boolean`, 
 <Canvas>
   <Story name="Error">
     {() => {
-      const [value, setValue] = useState('apple');
+      const [value, setValue] = useState("apple");
       const options = [
         {
-          id: 'apple',
-          value: 'apple',
-          label: 'Apple',
+          id: "apple",
+          value: "apple",
+          label: "Apple",
         },
         {
-          id: 'orange',
-          value: 'orange',
-          label: 'Orange',
+          id: "orange",
+          value: "orange",
+          label: "Orange",
         },
         {
-          id: 'banana',
-          value: 'banana',
-          label: 'Banana',
+          id: "banana",
+          value: "banana",
+          label: "Banana",
           disabled: true,
         },
       ];
@@ -356,7 +355,7 @@ Use the `error` prop to mark the input as invalid. `error` accepts a `boolean`, 
         <RadioGroup
           title="Title"
           name="error"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           value={value}
           options={options}
           isRequired
@@ -380,47 +379,47 @@ Use the `size` prop to render differently sized radio icons.
         lg: null,
         responsive: null,
       });
-      const options = id => [
-        { id: `purple__${id}`, value: 'purple', label: 'Purple' },
-        { id: `green__${id}`, value: 'green', label: 'Green' },
+      const options = (id) => [
+        { id: `purple__${id}`, value: "purple", label: "Purple" },
+        { id: `green__${id}`, value: "green", label: "Green" },
       ];
       const handleChange = (event, key) => {
         const value = event.target.value;
-        setState(prevState => ({ ...prevState, [key]: value }));
+        setState((prevState) => ({ ...prevState, [key]: value }));
       };
       return (
         <Box gap="lg">
           <RadioGroup
             title="Small"
             name="smallRadio"
-            onChange={event => handleChange(event, 'sm')}
+            onChange={(event) => handleChange(event, "sm")}
             value={state.sm}
-            options={options('sm')}
+            options={options("sm")}
             size="sm"
           />
           <RadioGroup
             title="Medium"
             name="mediumRadio"
-            onChange={event => handleChange(event, 'md')}
+            onChange={(event) => handleChange(event, "md")}
             value={state.md}
-            options={options('md')}
+            options={options("md")}
             size="md"
           />
           <RadioGroup
             title="Large"
             name="largeRadio"
-            onChange={event => handleChange(event, 'lg')}
+            onChange={(event) => handleChange(event, "lg")}
             value={state.lg}
-            options={options('lg')}
+            options={options("lg")}
             size="lg"
           />
           <RadioGroup
             title="Responsive"
             name="responsiveRadio"
-            onChange={event => handleChange(event, 'responsive')}
+            onChange={(event) => handleChange(event, "responsive")}
             value={state.responsive}
-            options={options('responsive')}
-            size={{ base: 'sm', tablet: 'md', desktop: 'lg', hd: 'sm' }}
+            options={options("responsive")}
+            size={{ base: "sm", tablet: "md", desktop: "lg", hd: "sm" }}
           />
         </Box>
       );
@@ -435,22 +434,22 @@ Use the `direction` prop change the alignment of the radio inputs.
 <Canvas>
   <Story name="Row">
     {() => {
-      const [value, setValue] = useState('one');
+      const [value, setValue] = useState("one");
       const options = [
         {
-          id: 'one',
-          value: 'one',
-          label: 'One',
+          id: "one",
+          value: "one",
+          label: "One",
         },
         {
-          id: 'two',
-          value: 'two',
-          label: 'Two',
+          id: "two",
+          value: "two",
+          label: "Two",
         },
         {
-          id: 'three',
-          value: 'three',
-          label: 'Three',
+          id: "three",
+          value: "three",
+          label: "Three",
         },
       ];
       return (
@@ -458,7 +457,7 @@ Use the `direction` prop change the alignment of the radio inputs.
           title="Horizontal"
           direction="row"
           name="horizontal"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           value={value}
           options={options}
           isRequired

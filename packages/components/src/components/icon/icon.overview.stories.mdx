@@ -1,14 +1,10 @@
-import { Icon } from './icon';
-import { Heading } from '../heading/heading';
-import { Box } from '../box/box';
-import { Button } from '../button/button';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import {
-  FONT_SIZE_OPTIONS,
-  FONT_COLOR_OPTIONS,
-  ICON_NAMES,
-} from '../../lib/tokens';
+import { Icon } from "./icon";
+import { Heading } from "../heading/heading";
+import { Box } from "../box/box";
+import { Button } from "../button/button";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { FONT_SIZE_OPTIONS, FONT_COLOR_OPTIONS, ICON_NAMES } from "../../lib/tokens";
 
 <Meta
   title="Components/Icon/Overview"
@@ -83,8 +79,8 @@ If a given icon name is not found in the dictionary, a red box with question mar
     name="all icons"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=972%3A15875',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=972%3A15875",
       },
     }}
   >
@@ -92,21 +88,14 @@ If a given icon name is not found in the dictionary, a red box with question mar
       return (
         <Box
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill,minmax(6rem,1fr))',
-            gridAutoRows: '6rem',
-            gap: '1rem',
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill,minmax(6rem,1fr))",
+            gridAutoRows: "6rem",
+            gap: "1rem",
           }}
         >
-          {ICON_NAMES.map(name => (
-            <Box
-              key={name}
-              fontSize="lg"
-              textAlign="center"
-              alignItems="center"
-              justifyContent="center"
-              gap="sm"
-            >
+          {ICON_NAMES.map((name) => (
+            <Box key={name} fontSize="lg" textAlign="center" alignItems="center" justifyContent="center" gap="sm">
               <Icon className="neutral-500" name={name} />
               <Box as="p" color="grey-500" fontSize="sm">
                 {name}

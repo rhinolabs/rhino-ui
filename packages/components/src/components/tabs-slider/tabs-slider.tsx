@@ -1,47 +1,44 @@
-import React, {
-  useEffect,
-  useState,
-  useCallback,
-  useRef,
-} from 'react';
-import mergeRefs from 'react-merge-refs';
-import classNames from 'classnames';
-import { Box, BoxProps } from '../box/box';
-import { TabItem } from '../tabs/tab-item';
-import { ResponsiveProp } from '../../types';
-import styles from './tabs-slider.module.scss';
+import React, { useEffect, useState, useCallback, useRef } from "react";
+import mergeRefs from "react-merge-refs";
+import classNames from "classnames";
+import { Box, BoxProps } from "../box/box";
+import { TabItem } from "../tabs/tab-item";
+import { ResponsiveProp } from "../../types";
+import styles from "./tabs-slider.module.scss";
 
-export const tabsSliderSizes = ['sm', 'md', 'lg'] as const;
-export type TabsSliderSize = typeof tabsSliderSizes[number];
+export const tabsSliderSizes = ["sm", "md", "lg"] as const;
+export type TabsSliderSize = (typeof tabsSliderSizes)[number];
 
 export const tabsSliderFontSizeMap = {
-  sm: 'sm',
-  md: 'md',
-  lg: 'lg',
+  sm: "sm",
+  md: "md",
+  lg: "lg",
 };
 
 export const tabsSliderBorderWidthMap = {
-  sm: 'sm',
-  md: 'sm',
-  lg: 'md',
+  sm: "sm",
+  md: "sm",
+  lg: "md",
 };
 
 export const tabsSliderPaddingMap = {
-  sm: 'xs 0',
-  md: 'sm 0',
-  lg: 'md 0',
+  sm: "xs 0",
+  md: "sm 0",
+  lg: "md 0",
 };
 
-type TabsMeta = {
-  clientWidth: number;
-  scrollLeft: number;
-  scrollTop: number;
-  scrollWidth: number;
-  top: number;
-  bottom: number;
-  left: number;
-  right: number;
-} | undefined;
+type TabsMeta =
+  | {
+      clientWidth: number;
+      scrollLeft: number;
+      scrollTop: number;
+      scrollWidth: number;
+      top: number;
+      bottom: number;
+      left: number;
+      right: number;
+    }
+  | undefined;
 
 export interface TabsSliderProps extends BoxProps {
   /**
@@ -59,168 +56,158 @@ export interface TabsSliderProps extends BoxProps {
   /**
    * NOTE: This prop is locked to a value  of 'grey-100' and will not be passed down to the underlying Box
    */
-  background?: BoxProps['background'];
+  background?: BoxProps["background"];
   /**
    * NOTE: This prop is locked to a value based on the 'size' prop and will not be passed down to the underlying Box.
    */
-  radius?: BoxProps['radius'];
+  radius?: BoxProps["radius"];
   /**
    * NOTE: This prop is locked to a value of 'auto' and will not be passed down to the underlying Box.
    */
-  overflow?: BoxProps['overflow'];
+  overflow?: BoxProps["overflow"];
 }
 
-const TabsSliderBaseComponent: React.FC<TabsSliderProps> = React.forwardRef<HTMLElement, TabsSliderProps>((
-  {
-    as = 'nav',
-    className,
-    children,
-    onChange,
-    size = 'md',
-    value,
-    ...restProps
-  },
-  ref,
-) => {
-  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
-  const tabsRef = useRef<HTMLElement>();
-  const tabListRef = useRef<HTMLUListElement>();
+const TabsSliderBaseComponent: React.FC<TabsSliderProps> = React.forwardRef<HTMLElement, TabsSliderProps>(
+  ({ as = "nav", className, children, onChange, size = "md", value, ...restProps }, ref) => {
+    const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+    const tabsRef = useRef<HTMLElement>();
+    const tabListRef = useRef<HTMLUListElement>();
 
-  const getTabsMeta = useCallback((): { tabsMeta: TabsMeta; tabMeta: DOMRect | undefined | null; } => {
-    const tabsNode = tabsRef.current;
+    const getTabsMeta = useCallback((): { tabsMeta: TabsMeta; tabMeta: DOMRect | undefined | null } => {
+      const tabsNode = tabsRef.current;
 
-    let tabsMeta;
-    if (tabsNode) {
-      const rect = tabsNode.getBoundingClientRect();
+      let tabsMeta;
+      if (tabsNode) {
+        const rect = tabsNode.getBoundingClientRect();
 
-      tabsMeta = {
-        clientWidth: tabsNode.clientWidth,
-        scrollLeft: tabsNode.scrollLeft,
-        scrollTop: tabsNode.scrollTop,
-        scrollWidth: tabsNode.scrollWidth,
-        top: rect.top,
-        bottom: rect.bottom,
-        left: rect.left,
-        right: rect.right,
-      };
-    }
-
-    let tabMeta;
-    if (tabsNode) {
-      const tabsChildren = tabListRef?.current?.children;
-
-      if (tabsChildren && tabsChildren.length > 0) {
-        const tab = tabsChildren[value];
-
-        tabMeta = tab ? tab.getBoundingClientRect() : null;
+        tabsMeta = {
+          clientWidth: tabsNode.clientWidth,
+          scrollLeft: tabsNode.scrollLeft,
+          scrollTop: tabsNode.scrollTop,
+          scrollWidth: tabsNode.scrollWidth,
+          top: rect.top,
+          bottom: rect.bottom,
+          left: rect.left,
+          right: rect.right,
+        };
       }
-    }
 
-    return { tabsMeta, tabMeta };
-  }, [value]);
+      let tabMeta;
+      if (tabsNode) {
+        const tabsChildren = tabListRef?.current?.children;
 
-  const updateIndicatorState = useCallback((): void => {
-    const { tabsMeta, tabMeta } = getTabsMeta();
-    let startValue = 0;
+        if (tabsChildren && tabsChildren.length > 0) {
+          const tab = tabsChildren[value];
 
-    if (tabMeta && tabsMeta) {
-      const correction = tabsMeta.scrollLeft;
-      startValue = (tabMeta?.left ?? 0) - (tabsMeta?.left ?? 0) + (correction ?? 0);
-    }
+          tabMeta = tab ? tab.getBoundingClientRect() : null;
+        }
+      }
 
-    const newIndicatorStyle = {
-      left: startValue,
-      width: tabMeta ? tabMeta.width : 0,
-    };
+      return { tabsMeta, tabMeta };
+    }, [value]);
 
-    const dStart = Math.abs(indicatorStyle.left - newIndicatorStyle.left);
-    const dSize = Math.abs(indicatorStyle.width - newIndicatorStyle.width);
+    const updateIndicatorState = useCallback((): void => {
+      const { tabsMeta, tabMeta } = getTabsMeta();
+      let startValue = 0;
 
-    if (dStart >= 1 || dSize >= 1) {
-      setIndicatorStyle({ ...newIndicatorStyle });
-    }
-  }, [getTabsMeta, indicatorStyle.left, indicatorStyle.width]);
+      if (tabMeta && tabsMeta) {
+        const correction = tabsMeta.scrollLeft;
+        startValue = (tabMeta?.left ?? 0) - (tabsMeta?.left ?? 0) + (correction ?? 0);
+      }
 
-  const observer = useRef<ResizeObserver | null >(null);
+      const newIndicatorStyle = {
+        left: startValue,
+        width: tabMeta ? tabMeta.width : 0,
+      };
 
-  const createResizeObserver = useCallback(() => {
-    observer.current = new ResizeObserver(() => {
-      updateIndicatorState();
-    });
-  }, [updateIndicatorState]);
+      const dStart = Math.abs(indicatorStyle.left - newIndicatorStyle.left);
+      const dSize = Math.abs(indicatorStyle.width - newIndicatorStyle.width);
 
-  const attachResizeObserver = useCallback(() => {
-    const currentNode = tabsRef.current;
-    const currentObserver = observer.current;
+      if (dStart >= 1 || dSize >= 1) {
+        setIndicatorStyle({ ...newIndicatorStyle });
+      }
+    }, [getTabsMeta, indicatorStyle.left, indicatorStyle.width]);
 
-    if (currentNode && currentObserver) {
-      currentObserver.observe(currentNode);
-    }
+    const observer = useRef<ResizeObserver | null>(null);
 
-    return () => {
+    const createResizeObserver = useCallback(() => {
+      observer.current = new ResizeObserver(() => {
+        updateIndicatorState();
+      });
+    }, [updateIndicatorState]);
+
+    const attachResizeObserver = useCallback(() => {
+      const currentNode = tabsRef.current;
+      const currentObserver = observer.current;
+
       if (currentNode && currentObserver) {
-        currentObserver.unobserve(currentNode);
+        currentObserver.observe(currentNode);
       }
-    };
-  }, [tabsRef, observer]);
 
-  useEffect(createResizeObserver, [createResizeObserver]);
-
-  useEffect(attachResizeObserver, [attachResizeObserver]);
-
-  useEffect(updateIndicatorState, [value, children, updateIndicatorState]);
-
-  const generateSize = (
-    sizeProp: TabsSliderProps['size'],
-    propertyMap: { sm: string; md: string; lg: string; },
-  ): string | ResponsiveProp<string> => {
-    let propertySize: string | ResponsiveProp<string> = 'md';
-
-    if (typeof sizeProp === 'string') {
-      propertySize = propertyMap[sizeProp];
-    } else if (sizeProp !== null && typeof sizeProp === 'object') {
-      propertySize = Object.entries(sizeProp)
-        .reduce((acc, [key, sizeValue]) => ({ ...acc, [key]: propertyMap[sizeValue ?? 'md'] }), {});
-    }
-
-    return propertySize;
-  };
-
-  const tabFontSize = (): string | ResponsiveProp<string> => generateSize(size, tabsSliderFontSizeMap);
-
-  const tabPadding = (): string | ResponsiveProp<string> => generateSize(size, tabsSliderPaddingMap);
-
-  const tabBorderWidth = (): string | ResponsiveProp<string> => generateSize(size, tabsSliderBorderWidthMap);
-
-  const decoratedChildren = React.Children.map(children, (child, index) => {
-    let childToReturn = child;
-    if (React.isValidElement(child)) {
-      /**
-       * Merging any existing onClick handlers with our onChange handler.
-       */
-      const onClickHandler = (event: React.MouseEvent<HTMLLIElement>) => {
-        if (child.props.onClick) {
-          (child.props.onClick(event));
-        }
-
-        if (!child.props.isDisabled && onChange) {
-          onChange(event, index);
+      return () => {
+        if (currentNode && currentObserver) {
+          currentObserver.unobserve(currentNode);
         }
       };
+    }, [tabsRef, observer]);
 
-      /**
-       * Merge our custom styling with existing className in child
-       */
-      const classes = classNames(
-        child.props.className,
-        styles['tab-item'],
-        { [styles.disabled]: child.props.isDisabled },
-        { [styles['tab-item--selected']]: value === index },
-      );
+    useEffect(createResizeObserver, [createResizeObserver]);
 
-      childToReturn = React.cloneElement(
-        child,
-        {
+    useEffect(attachResizeObserver, [attachResizeObserver]);
+
+    useEffect(updateIndicatorState, [value, children, updateIndicatorState]);
+
+    const generateSize = (
+      sizeProp: TabsSliderProps["size"],
+      propertyMap: { sm: string; md: string; lg: string },
+    ): string | ResponsiveProp<string> => {
+      let propertySize: string | ResponsiveProp<string> = "md";
+
+      if (typeof sizeProp === "string") {
+        propertySize = propertyMap[sizeProp];
+      } else if (sizeProp !== null && typeof sizeProp === "object") {
+        propertySize = Object.entries(sizeProp).reduce(
+          (acc, [key, sizeValue]) => ({ ...acc, [key]: propertyMap[sizeValue ?? "md"] }),
+          {},
+        );
+      }
+
+      return propertySize;
+    };
+
+    const tabFontSize = (): string | ResponsiveProp<string> => generateSize(size, tabsSliderFontSizeMap);
+
+    const tabPadding = (): string | ResponsiveProp<string> => generateSize(size, tabsSliderPaddingMap);
+
+    const tabBorderWidth = (): string | ResponsiveProp<string> => generateSize(size, tabsSliderBorderWidthMap);
+
+    const decoratedChildren = React.Children.map(children, (child, index) => {
+      let childToReturn = child;
+      if (React.isValidElement(child)) {
+        /**
+         * Merging any existing onClick handlers with our onChange handler.
+         */
+        const onClickHandler = (event: React.MouseEvent<HTMLLIElement>) => {
+          if (child.props.onClick) {
+            child.props.onClick(event);
+          }
+
+          if (!child.props.isDisabled && onChange) {
+            onChange(event, index);
+          }
+        };
+
+        /**
+         * Merge our custom styling with existing className in child
+         */
+        const classes = classNames(
+          child.props.className,
+          styles["tab-item"],
+          { [styles.disabled]: child.props.isDisabled },
+          { [styles["tab-item--selected"]]: value === index },
+        );
+
+        childToReturn = React.cloneElement(child, {
           ...child.props,
           className: classes,
           onClick: onClickHandler,
@@ -228,50 +215,44 @@ const TabsSliderBaseComponent: React.FC<TabsSliderProps> = React.forwardRef<HTML
           padding: tabPadding(),
           key: child.key,
           style: { ...child.props.style, flex: 1 },
-          'aria-posinset': index + 1,
-          'aria-setsize': React.Children.count(children),
-          'aria-selected': value === index,
-        },
-      );
-    }
+          "aria-posinset": index + 1,
+          "aria-setsize": React.Children.count(children),
+          "aria-selected": value === index,
+        });
+      }
 
-    return childToReturn;
-  });
+      return childToReturn;
+    });
 
-  const containerClasses = classNames(className, styles['tabs-slider-container']);
+    const containerClasses = classNames(className, styles["tabs-slider-container"]);
 
-  return (
-    <Box
-      {...restProps}
-      className={containerClasses}
-      as={as}
-      overflow="auto"
-      background="grey-100"
-      radius="md"
-      ref={mergeRefs([tabsRef, ref])}
-    >
+    return (
       <Box
-        direction="row"
-        role="tablist"
-        style={{ paddingInlineStart: '0' }}
-        position="relative"
-        ref={tabListRef}
+        {...restProps}
+        className={containerClasses}
+        as={as}
+        overflow="auto"
+        background="grey-100"
+        radius="md"
+        ref={mergeRefs([tabsRef, ref])}
       >
-        {decoratedChildren}
-        <Box
-          radius="md"
-          background="white"
-          height="100"
-          position="absolute"
-          borderWidth={tabBorderWidth()}
-          borderColor="grey-100"
-          style={{ ...indicatorStyle }}
-          className={styles['tabs-slider-indicator']}
-        />
+        <Box direction="row" role="tablist" style={{ paddingInlineStart: "0" }} position="relative" ref={tabListRef}>
+          {decoratedChildren}
+          <Box
+            radius="md"
+            background="white"
+            height="100"
+            position="absolute"
+            borderWidth={tabBorderWidth()}
+            borderColor="grey-100"
+            style={{ ...indicatorStyle }}
+            className={styles["tabs-slider-indicator"]}
+          />
+        </Box>
       </Box>
-    </Box>
-  );
-});
+    );
+  },
+);
 
 export interface TabsSliderStatic {
   Item: typeof TabItem;

@@ -1,12 +1,12 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { RESPONSIVE_STORY } from '../../docs/constants';
-import { Toggle, ToggleProps } from './toggle';
-import TOGGLE_SIZES from './toggle.constants';
-import { Box } from '../box/box';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { RESPONSIVE_STORY } from "../../docs/constants";
+import { Toggle, ToggleProps } from "./toggle";
+import TOGGLE_SIZES from "./toggle.constants";
+import { Box } from "../box/box";
 
 const meta: Meta<typeof Toggle> = {
-  title: 'Components/Toggle/Visual Regression Tests',
+  title: "Components/Toggle/Visual Regression Tests",
   component: Toggle,
   parameters: RESPONSIVE_STORY,
 };
@@ -15,7 +15,7 @@ export default meta;
 
 const Template: StoryFn<ToggleProps> = ({ ...args }) => (
   <Box gap="xl">
-    {TOGGLE_SIZES.map(size => (
+    {TOGGLE_SIZES.map((size) => (
       <Box gap="md" key={`${args.id}-${size}`}>
         <Toggle
           {...args}
@@ -41,10 +41,10 @@ const Template: StoryFn<ToggleProps> = ({ ...args }) => (
         label="I agree to the Terms and Conditions and Privacy Policy"
         isChecked
         size={{
-          base: 'sm',
-          tablet: 'md',
-          desktop: 'lg',
-          hd: 'sm',
+          base: "sm",
+          tablet: "md",
+          desktop: "lg",
+          hd: "sm",
         }}
         onChange={() => {}} // eslint-disable-line
       />
@@ -53,10 +53,10 @@ const Template: StoryFn<ToggleProps> = ({ ...args }) => (
         id={`${args.id}-responsive-unchecked`}
         label="I agree to the Terms and Conditions and Privacy Policy"
         size={{
-          base: 'sm',
-          tablet: 'md',
-          desktop: 'lg',
-          hd: 'sm',
+          base: "sm",
+          tablet: "md",
+          desktop: "lg",
+          hd: "sm",
         }}
         onChange={() => {}} // eslint-disable-line
       />
@@ -65,44 +65,44 @@ const Template: StoryFn<ToggleProps> = ({ ...args }) => (
 );
 
 export const AllSizes = Template.bind({});
-AllSizes.args = { id: 'AllSizes' };
+AllSizes.args = { id: "AllSizes" };
 
 export const AllSizesRequired = Template.bind({});
-AllSizesRequired.args = { id: 'AllSizesRequired', isRequired: true };
+AllSizesRequired.args = { id: "AllSizesRequired", isRequired: true };
 
 export const AllSizesError = Template.bind({});
-AllSizesError.args = { id: 'AllSizesError', error: 'Agreement is required' };
+AllSizesError.args = { id: "AllSizesError", error: "Agreement is required" };
 
 export const AllSizesDisabled = Template.bind({});
-AllSizesDisabled.args = { id: 'AllSizesDisabled', isDisabled: true };
+AllSizesDisabled.args = { id: "AllSizesDisabled", isDisabled: true };
 
 export const AllSizesHideLabel = Template.bind({});
-AllSizesHideLabel.args = { id: 'AllSizesHideLabel', hideLabel: true };
+AllSizesHideLabel.args = { id: "AllSizesHideLabel", hideLabel: true };
 
 export const AllSizesHideLabelError = Template.bind({});
 AllSizesHideLabelError.args = {
-  id: 'AllSizesHideLabelError',
+  id: "AllSizesHideLabelError",
   hideLabel: true,
-  error: 'Agreement is required',
+  error: "Agreement is required",
 };
 
 export const AllSizesWithHelpText = Template.bind({});
 AllSizesWithHelpText.args = {
-  id: 'AllSizesWithHelpText',
-  helpText: 'This is helpful text',
+  id: "AllSizesWithHelpText",
+  helpText: "This is helpful text",
 };
 
 export const AllSizesWithHelpTextRequired = Template.bind({});
 AllSizesWithHelpTextRequired.args = {
-  id: 'AllSizesWithHelpTextRequired',
-  helpText: 'This is helpful text',
+  id: "AllSizesWithHelpTextRequired",
+  helpText: "This is helpful text",
   isRequired: true,
 };
 
 export const AllSizesWithHelpTextRequiredError = Template.bind({});
 AllSizesWithHelpTextRequiredError.args = {
-  id: 'AllSizesWithHelpTextRequired',
-  helpText: 'This is helpful text',
+  id: "AllSizesWithHelpTextRequired",
+  helpText: "This is helpful text",
   isRequired: true,
-  error: 'Agreement is required',
+  error: "Agreement is required",
 };

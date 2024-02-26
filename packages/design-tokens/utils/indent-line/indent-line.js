@@ -3,7 +3,7 @@ const indentLine = (string, indentationLevel) => {
     return string;
   }
 
-  return `${' '.repeat(indentationLevel)}${string}`;
-}
+  return `${" ".repeat(indentationLevel)}${string}`;
+};
 
 module.exports = indentLine;

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React, { ReactNode } from 'react';
-import { Box, Icon } from '../components';
+import React, { ReactNode } from "react";
+import { Box, Icon } from "../components";
 
 export interface DoDontProps {
   children?: ReactNode;
@@ -12,27 +12,20 @@ export interface DoDontProps {
   dontExample?: ReactNode;
 }
 
-const DoDont: React.FC<DoDontProps> = ({
-  children,
-  className,
-  doTitle,
-  doExample,
-  dontTitle,
-  dontExample,
-}) => (
+const DoDont: React.FC<DoDontProps> = ({ children, className, doTitle, doExample, dontTitle, dontExample }) => (
   <Box
-    direction={{ base: 'column', tablet: 'row' }}
-    childGap={{ base: 'md', tablet: '2xl' }}
+    direction={{ base: "column", tablet: "row" }}
+    childGap={{ base: "md", tablet: "2xl" }}
     className={className}
     margin="0 0 4xl 0"
   >
     {children && (
-      <Box display="block" width={{ base: '100', tablet: '40' }}>
+      <Box display="block" width={{ base: "100", tablet: "40" }}>
         {children}
       </Box>
     )}
 
-    <Box display="block" width={{ base: '100', tablet: '60' }} childGap="lg">
+    <Box display="block" width={{ base: "100", tablet: "60" }} childGap="lg">
       <Box background="primary-50" padding="md" childGap="xs" direction="row" radius="md">
         <Box style={{ flexShrink: 0 }}>
           <Icon name="c-check" color="primary-500" size="xl" />

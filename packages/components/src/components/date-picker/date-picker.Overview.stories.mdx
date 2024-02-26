@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { DatePicker } from './date-picker';
-import { Box } from '../box/box';
-import { Heading } from '../heading/heading';
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { DatePicker } from "./date-picker";
+import { Box } from "../box/box";
+import { Heading } from "../heading/heading";
 
 <Meta title="Components/DatePicker/Overview" component={DatePicker} />
 
@@ -50,18 +50,8 @@ It is also used in combination with an input and popover by the [DateInput compo
       };
       return (
         <Box gap="md">
-          <DatePicker
-            onChange={setDate}
-            selected={startDate}
-            startDate={startDate}
-            endDate={endDate}
-            selectsRange
-          />
-          <p>
-            {`Selected Date Range: ${startDate && startDate.toISOString()} - ${
-              endDate && endDate.toISOString()
-            }`}
-          </p>
+          <DatePicker onChange={setDate} selected={startDate} startDate={startDate} endDate={endDate} selectsRange />
+          <p>{`Selected Date Range: ${startDate && startDate.toISOString()} - ${endDate && endDate.toISOString()}`}</p>
         </Box>
       );
     }}
@@ -165,12 +155,12 @@ It is also used in combination with an input and popover by the [DateInput compo
 <Canvas>
   <Story name="With Time Picker">
     {() => {
-      const [startDate, setStartDate] = useState(new Date('1993/09/28'));
+      const [startDate, setStartDate] = useState(new Date("1993/09/28"));
       return (
         <Box gap="md">
           <DatePicker
             selected={startDate}
-            onChange={date => setStartDate(date)}
+            onChange={(date) => setStartDate(date)}
             showTimeSelect
             timeIntervals={15}
             timeCaption="Time"
@@ -187,14 +177,10 @@ It is also used in combination with an input and popover by the [DateInput compo
 <Canvas>
   <Story name="Open on Date">
     {() => {
-      const [startDate, setStartDate] = useState(new Date('1993/09/28'));
+      const [startDate, setStartDate] = useState(new Date("1993/09/28"));
       return (
         <Box gap="md">
-          <DatePicker
-            onChange={setStartDate}
-            selected={startDate}
-            openToDate={new Date('1993/09/28')}
-          />
+          <DatePicker onChange={setStartDate} selected={startDate} openToDate={new Date("1993/09/28")} />
           <p>Selected Date: {startDate && startDate.toISOString()}</p>
         </Box>
       );
@@ -211,7 +197,7 @@ It is also used in combination with an input and popover by the [DateInput compo
       return (
         <Box gap="md">
           <DatePicker onChange={setSelectedDate} selected={selectedDate}>
-            <Box display="block" style={{ textAlign: 'center' }} color="primary">
+            <Box display="block" style={{ textAlign: "center" }} color="primary">
               It will be sunny out today!
             </Box>
           </DatePicker>
@@ -233,7 +219,7 @@ It is also used in combination with an input and popover by the [DateInput compo
           <DatePicker
             onChange={setSelectedDate}
             selected={selectedDate}
-            dayClassName={date => (date.getDay() < 3 ? 'font-color-danger' : undefined)}
+            dayClassName={(date) => (date.getDay() < 3 ? "font-color-danger" : undefined)}
           />
           <p>Selected Date: {selectedDate.toISOString()}</p>
         </Box>
@@ -241,7 +227,6 @@ It is also used in combination with an input and popover by the [DateInput compo
     }}
   </Story>
 </Canvas>
-
 
 ## Custom Theme
 
@@ -266,31 +251,35 @@ The DatePicker component can be themed by base tokens, or component specific tok
         <Box gap="md">
           <div
             style={{
-              '--color-brand-primary-50': '#CFC5E9',
-              '--color-brand-primary-400': '#785CC0',
-              '--color-brand-primary-500': '#603FB5',
-              '--color-brand-primary-600': '#5839AE',
+              "--color-brand-primary-50": "#CFC5E9",
+              "--color-brand-primary-400": "#785CC0",
+              "--color-brand-primary-500": "#603FB5",
+              "--color-brand-primary-600": "#5839AE",
             }}
           >
-            <Box margin="md 0" fontWeight="bold">Here we've overwritten base token values so that the DatePicker inherits new values.</Box>
+            <Box margin="md 0" fontWeight="bold">
+              Here we've overwritten base token values so that the DatePicker inherits new values.
+            </Box>
             <DatePicker onChange={setSelectedDate} selected={selectedDate} />
           </div>
           <div
             style={{
-              '--date-picker-font-color': 'var(--color-brand-white-500)',
-              '--date-picker-background-color': 'var(--color-brand-grey-800)',
-              '--date-picker-border-radius': 'var(--size-border-radius-lg)',
-              '--date-picker-item-background-color-selected': '#603FB5',
-              '--date-picker-item-background-color-selected-hover': '#4E31A5',
-              '--date-picker-item-background-color-hover': '#785CC0',
-              '--date-picker-navigation-icon-color': 'var(--color-brand-white-500)',
-              '--date-picker-navigation-icon-color-hover': 'var(--color-brand-grey-300)',
-              '--date-picker-item-border-radius': '0',
-              '--date-picker-item-background-color-in-range': '#785CC0',
-              '--date-picker-item-font-color-disabled': 'var(--color-brand-grey-500)',
+              "--date-picker-font-color": "var(--color-brand-white-500)",
+              "--date-picker-background-color": "var(--color-brand-grey-800)",
+              "--date-picker-border-radius": "var(--size-border-radius-lg)",
+              "--date-picker-item-background-color-selected": "#603FB5",
+              "--date-picker-item-background-color-selected-hover": "#4E31A5",
+              "--date-picker-item-background-color-hover": "#785CC0",
+              "--date-picker-navigation-icon-color": "var(--color-brand-white-500)",
+              "--date-picker-navigation-icon-color-hover": "var(--color-brand-grey-300)",
+              "--date-picker-item-border-radius": "0",
+              "--date-picker-item-background-color-in-range": "#785CC0",
+              "--date-picker-item-font-color-disabled": "var(--color-brand-grey-500)",
             }}
           >
-            <Box margin="md 0" fontWeight="bold">Here we've overwritten ONLY the values for the DatePicker component</Box>
+            <Box margin="md 0" fontWeight="bold">
+              Here we've overwritten ONLY the values for the DatePicker component
+            </Box>
             <Box direction="row" gap="md" wrap>
               <DatePicker onChange={setSelectedDate} selected={selectedDate} />
               <DatePicker
@@ -322,19 +311,19 @@ The DatePicker component can be themed by base tokens, or component specific tok
   <tbody>
     {(() => {
       const tokens = {
-        '--date-picker-font-color': '--color-brand-dark-500',
-        '--date-picker-font-size': '--size-font-sm',
-        '--date-picker-background-color': '--color-brand-white-500',
-        '--date-picker-border-radius': '--size-border-radius-sm',
-        '--date-picker-item-background-color-selected': '--color-brand-primary-500',
-        '--date-picker-item-background-color-selected-hover': '--color-brand-primary-600',
-        '--date-picker-item-background-color-hover': '--color-brand-primary-50',
-        '--date-picker-navigation-icon-color': '--color-brand-grey-300',
-        '--date-picker-navigation-icon-color-hover': '--color-brand-grey-500',
-        '--date-picker-navigation-icon-color-disabled-hover': '--color-brand-grey-50',
-        '--date-picker-item-border-radius': '--size-border-radius-lg',
-        '--date-picker-item-background-color-in-range': '--color-brand-primary-500',
-        '--date-picker-item-font-color-disabled': '--color-brand-grey-100',
+        "--date-picker-font-color": "--color-brand-dark-500",
+        "--date-picker-font-size": "--size-font-sm",
+        "--date-picker-background-color": "--color-brand-white-500",
+        "--date-picker-border-radius": "--size-border-radius-sm",
+        "--date-picker-item-background-color-selected": "--color-brand-primary-500",
+        "--date-picker-item-background-color-selected-hover": "--color-brand-primary-600",
+        "--date-picker-item-background-color-hover": "--color-brand-primary-50",
+        "--date-picker-navigation-icon-color": "--color-brand-grey-300",
+        "--date-picker-navigation-icon-color-hover": "--color-brand-grey-500",
+        "--date-picker-navigation-icon-color-disabled-hover": "--color-brand-grey-50",
+        "--date-picker-item-border-radius": "--size-border-radius-lg",
+        "--date-picker-item-background-color-in-range": "--color-brand-primary-500",
+        "--date-picker-item-font-color-disabled": "--color-brand-grey-100",
       };
       return Object.entries(tokens).map(([name, entry], i) => (
         <tr key={i}>

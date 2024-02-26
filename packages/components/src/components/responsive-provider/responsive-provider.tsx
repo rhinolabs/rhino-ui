@@ -1,5 +1,5 @@
-import React, { useState, createContext } from 'react';
-import { useIsomorphicLayoutEffect } from '../../hooks/use-isomorphic-layout-effect/use-isomorphic-layout-effect';
+import React, { useState, createContext } from "react";
+import { useIsomorphicLayoutEffect } from "../../hooks/use-isomorphic-layout-effect/use-isomorphic-layout-effect";
 
 export interface ResponsiveContextShape {
   isCreated: boolean;
@@ -32,8 +32,9 @@ export const ResponsiveProvider: React.FC<ResponsiveProviderProps> = ({ children
     setOuterHeight(window?.outerHeight ?? 0);
   };
 
-  useIsomorphicLayoutEffect(() => { // eslint-disable-line consistent-return
-    if (typeof window !== 'undefined') {
+  useIsomorphicLayoutEffect(() => {
+    // eslint-disable-line consistent-return
+    if (typeof window !== "undefined") {
       // Set values on render if window wasn't available for useState initialization.
       handleWindowResize();
 
@@ -45,9 +46,9 @@ export const ResponsiveProvider: React.FC<ResponsiveProviderProps> = ({ children
         timeoutId = setTimeout(handleWindowResize, throttle);
       };
 
-      window.addEventListener('resize', throttledResize);
+      window.addEventListener("resize", throttledResize);
 
-      return () => window.removeEventListener('resize', throttledResize);
+      return () => window.removeEventListener("resize", throttledResize);
     }
   }, [throttle]);
 

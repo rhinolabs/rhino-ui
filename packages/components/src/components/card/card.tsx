@@ -1,11 +1,9 @@
-import React, { ReactNode } from 'react';
-import classNames from 'classnames';
-import { Box, BoxProps } from '../box/box';
-import {
-  BorderRadiusSize, BoxShadowSize, BrandColor, ResponsiveProp,
-} from '../../types';
-import { CardFooter, CardHeader, CardSection } from './components';
-import styles from './card.module.scss';
+import React, { ReactNode } from "react";
+import classNames from "classnames";
+import { Box, BoxProps } from "../box/box";
+import { BorderRadiusSize, BoxShadowSize, BrandColor, ResponsiveProp } from "../../types";
+import { CardFooter, CardHeader, CardSection } from "./components";
+import styles from "./card.module.scss";
 
 export interface CardProps extends BoxProps {
   /**
@@ -40,21 +38,21 @@ const CardBaseComponent: React.FC<CardProps> = React.forwardRef(
       children,
       subdued,
       className = undefined,
-      overflow = 'hidden',
-      display = 'block',
+      overflow = "hidden",
+      display = "block",
       radius = undefined,
       shadow = undefined,
-      width = '100',
+      width = "100",
       ...restProps
     },
     ref,
   ) => {
     const classes = classNames(
       {
-        [styles['card-background']]: background === undefined && !subdued,
-        [styles['card-radius']]: radius === undefined,
-        [styles['card-shadow']]: shadow === undefined && !subdued,
-        [styles['card-subdued']]: subdued,
+        [styles["card-background"]]: background === undefined && !subdued,
+        [styles["card-radius"]]: radius === undefined,
+        [styles["card-shadow"]]: shadow === undefined && !subdued,
+        [styles["card-subdued"]]: subdued,
       },
       className,
     );

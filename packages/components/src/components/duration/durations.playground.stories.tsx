@@ -1,40 +1,40 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { Duration, DurationProps } from './duration';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { Duration, DurationProps } from "./duration";
 
 const meta: Meta<typeof Duration> = {
-  title: 'Components/Duration/Playground',
+  title: "Components/Duration/Playground",
   component: Duration,
   argTypes: {
     milliseconds: {
-      control: 'number',
+      control: "number",
     },
     seconds: {
-      control: 'number',
+      control: "number",
     },
     minutes: {
-      control: 'number',
+      control: "number",
     },
     roundUp: {
-      control: 'boolean',
+      control: "boolean",
     },
     displayMinutes: {
-      control: 'number',
+      control: "number",
     },
     displayHours: {
-      control: 'number',
+      control: "number",
     },
     displayDays: {
-      control: 'number',
+      control: "number",
     },
     as: {
       control: {
-        type: 'select',
-        options: ['span', 'p'],
+        type: "select",
+        options: ["span", "p"],
       },
     },
     className: {
-      control: 'text',
+      control: "text",
     },
   },
 };

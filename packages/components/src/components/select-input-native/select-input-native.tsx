@@ -1,17 +1,17 @@
-import React from 'react';
-import classNames from 'classnames';
-import { generateResponsiveClasses } from '../../lib/generate-responsive-classes';
-import { ResponsiveProp } from '../../types';
-import { Box, BoxProps } from '../box/box';
-import { FormControl, FormControlProps } from '../form-control/form-control';
-import styles from './select-input-native.module.scss';
+import React from "react";
+import classNames from "classnames";
+import { generateResponsiveClasses } from "../../lib/generate-responsive-classes";
+import { ResponsiveProp } from "../../types";
+import { Box, BoxProps } from "../box/box";
+import { FormControl, FormControlProps } from "../form-control/form-control";
+import styles from "./select-input-native.module.scss";
 
-export type SelectInputNativeSize = 'sm' | 'md' | 'lg';
+export type SelectInputNativeSize = "sm" | "md" | "lg";
 export interface SelectInputNativeProps extends BoxProps, FormControlProps {
   /**
    * List of options for the select input.
    */
-  options: { value: string | number; label: string | number; }[];
+  options: { value: string | number; label: string | number }[];
   /**
    * onChange callback from select element.
    */
@@ -35,7 +35,7 @@ export interface SelectInputNativeProps extends BoxProps, FormControlProps {
   /**
    * Whether the input is autofocused on initial render.
    */
-  autoFocus?: HTMLSelectElement['autofocus'];
+  autoFocus?: HTMLSelectElement["autofocus"];
   /**
    * Additional props to be spread.
    */
@@ -55,23 +55,20 @@ export const SelectInputNative: React.FC<SelectInputNativeProps> = ({
   value,
   options,
   onChange,
-  placeholder = 'Select...',
-  requiredIndicator = ' *',
-  size = 'md',
+  placeholder = "Select...",
+  requiredIndicator = " *",
+  size = "md",
   ...restProps
 }) => {
-  const placeholderOption = { value: '', label: placeholder };
-  const optionsWithPlaceholder = [
-    { ...placeholderOption },
-    ...options,
-  ];
+  const placeholderOption = { value: "", label: placeholder };
+  const optionsWithPlaceholder = [{ ...placeholderOption }, ...options];
 
-  const responsiveClasses = generateResponsiveClasses('size', size);
+  const responsiveClasses = generateResponsiveClasses("size", size);
 
   const selectWrapperClasses = classNames(
-    'rhinolabs-components__variables__form-control',
-    styles['select-input-native-wrapper'],
-    ...responsiveClasses.map(className => (styles[className])),
+    "rhinolabs-components__variables__form-control",
+    styles["select-input-native-wrapper"],
+    ...responsiveClasses.map((className) => styles[className]),
     {
       [styles.disabled]: isDisabled,
       [styles.error]: error,
@@ -90,31 +87,29 @@ export const SelectInputNative: React.FC<SelectInputNativeProps> = ({
       requiredIndicator={requiredIndicator}
       {...restProps}
     >
-      <Box
-        className={selectWrapperClasses}
-      >
+      <Box className={selectWrapperClasses}>
         <Box
           as="select"
           aria-label={label}
           aria-labelledby={label && !hideLabel ? `${id}Label` : undefined}
           aria-required={isRequired}
-          value={value ?? ''}
+          value={value ?? ""}
           onChange={onChange}
-          color={!value ? 'grey-light' : 'dark'}
+          color={!value ? "grey-light" : "dark"}
           autoFocus={autoFocus}
           disabled={isDisabled}
           name={name}
           id={id}
           required={isRequired}
         >
-          {optionsWithPlaceholder.map(option => (
+          {optionsWithPlaceholder.map((option) => (
             <Box
               as="option"
               key={option.value}
               value={option.value}
-              disabled={option.value === ''}
-              hidden={option.value === ''}
-              color={option.value === '' ? 'grey-light' : 'dark'}
+              disabled={option.value === ""}
+              hidden={option.value === ""}
+              color={option.value === "" ? "grey-light" : "dark"}
             >
               {option.label}
             </Box>

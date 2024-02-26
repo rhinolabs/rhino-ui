@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Components/Popover/Codesandbox" />
 
@@ -12,15 +12,8 @@ of uses for a popover include:
 3. Context Menus
 
 ```js codesandbox=rhinolabs-components
-import React, { useState } from 'react';
-import {
-  Popover,
-  Box,
-  Button,
-  Heading,
-  Icon,
-  useOpenClose,
-} from '@rhino-ui/components';
+import React, { useState } from "react";
+import { Popover, Box, Button, Heading, Icon, useOpenClose } from "@rhino-ui/components";
 
 export default () => {
   const { isOpen: isPopoverOpen, handleToggle: togglePopover } = useOpenClose();
@@ -53,8 +46,8 @@ export default () => {
         className="main-nav"
         background="white"
         padding={{
-          base: '3xl 0 0 0',
-          desktop: '0',
+          base: "3xl 0 0 0",
+          desktop: "0",
         }}
         style={{
           flexShrink: 0,
@@ -62,13 +55,7 @@ export default () => {
       >
         <Box as="ul" childGap="xs" padding="md md sm md">
           <Box direction="row" childGap="sm" alignItems="center">
-            <Box
-              fontSize="xs"
-              color="white"
-              radius="sm"
-              background="primary-light"
-              padding="2xs"
-            >
+            <Box fontSize="xs" color="white" radius="sm" background="primary-light" padding="2xs">
               JC
             </Box>
             <Box display="block" className="truncate">
@@ -112,7 +99,7 @@ export default () => {
             padding="lg 0 0 0"
             borderWidth="xs 0 0 0"
             borderColor="grey-lighter"
-            style={{ flex: '1 0 auto' }}
+            style={{ flex: "1 0 auto" }}
           >
             <Box as="ul" childGap="sm" padding="0">
               <NavItem iconName="c-question">Feedback</NavItem>
@@ -130,8 +117,8 @@ export default () => {
         isOpen={isPopoverOpen}
         placement="bottom-start"
         contentContainerProps={{
-          padding: 'md',
-          direction: 'column',
+          padding: "md",
+          direction: "column",
         }}
         withPortal
         portalTarget={document.body}

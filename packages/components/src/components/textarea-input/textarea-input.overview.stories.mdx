@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { TextareaInput } from './textarea-input';
-import { Box } from '../box/box';
+import { useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { TextareaInput } from "./textarea-input";
+import { Box } from "../box/box";
 
 <Meta
   title="Components/TextareaInput/Overview"
@@ -32,13 +32,13 @@ The input is vertically resizable by default.
 <Canvas>
   <Story name="Default">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextareaInput
           id="default"
           value={value}
           label="TextareaInput"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
         />
       );
     }}
@@ -52,13 +52,13 @@ Use the `isRequired` prop to set the `required` and `aria-required` on the under
 <Canvas>
   <Story name="Required">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextareaInput
           id="required"
           value={value}
           label="Required TextareaInput"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           isRequired
         />
       );
@@ -71,15 +71,15 @@ You can remove or customize the required indicator using the `requiredIndicator`
 <Canvas>
   <Story name="Custom Required Indicator">
     {() => {
-      const [value, setValue] = useState('');
-      const [value2, setValue2] = useState('');
+      const [value, setValue] = useState("");
+      const [value2, setValue2] = useState("");
       return (
         <Box gap="md">
           <TextareaInput
             id="requiredWithoutIndicator"
             label="Required Without Indicator"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             isRequired
             requiredIndicator={null}
           />
@@ -87,7 +87,7 @@ You can remove or customize the required indicator using the `requiredIndicator`
             id="requiredCustomIndicator"
             label="Required Custom Indicator"
             value={value2}
-            onChange={event => setValue2(event.target.value)}
+            onChange={(event) => setValue2(event.target.value)}
             isRequired
             requiredIndicator=" (required)"
           />
@@ -104,14 +104,14 @@ Use the `helpText` prop to add clarifying text beneath the input label.
 <Canvas>
   <Story name="Help Text">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextareaInput
           id="helpText"
           value={value}
           label="Design Notes"
           helpText="Add any design requirements or aesthetic choices that the solar system designer should know"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
         />
       );
     }}
@@ -125,22 +125,22 @@ The `resize` prop accepts `horizontal`, `vertical`, `both` or `none` to control 
 <Canvas>
   <Story name="Resize">
     {() => {
-      const [value1, setValue1] = useState('');
-      const [value2, setValue2] = useState('');
+      const [value1, setValue1] = useState("");
+      const [value2, setValue2] = useState("");
       return (
         <Box gap="md">
           <TextareaInput
             id="resizeBoth"
             value={value1}
             label="Resize Me Vertically and Horizontally"
-            onChange={event => setValue1(event.target.value)}
+            onChange={(event) => setValue1(event.target.value)}
             resize="both"
           />
           <TextareaInput
             id="resizeNone"
             value={value2}
             label="Can't resize me"
-            onChange={event => setValue2(event.target.value)}
+            onChange={(event) => setValue2(event.target.value)}
             resize="none"
           />
         </Box>
@@ -156,39 +156,39 @@ Set the `size` of the input to `sm`, `md` or `lg`. The `size` prop is also a `Re
 <Canvas>
   <Story name="Sizes">
     {() => {
-      const [valueSm, setValueSm] = useState('');
-      const [valueMd, setValueMd] = useState('');
-      const [valueLg, setValueLg] = useState('');
-      const [valueResponsive, setValueResponsive] = useState('');
+      const [valueSm, setValueSm] = useState("");
+      const [valueMd, setValueMd] = useState("");
+      const [valueLg, setValueLg] = useState("");
+      const [valueResponsive, setValueResponsive] = useState("");
       return (
         <Box gap="md">
           <TextareaInput
             id="Small"
             value={valueSm}
             label="Small"
-            onChange={event => setValueSm(event.target.value)}
+            onChange={(event) => setValueSm(event.target.value)}
             size="sm"
           />
           <TextareaInput
             id="Medium"
             value={valueMd}
             label="Medium"
-            onChange={event => setValueMd(event.target.value)}
+            onChange={(event) => setValueMd(event.target.value)}
             size="md"
           />
           <TextareaInput
             id="Large"
             value={valueLg}
             label="Large"
-            onChange={event => setValueLg(event.target.value)}
+            onChange={(event) => setValueLg(event.target.value)}
             size="lg"
           />
           <TextareaInput
             id="Responsive"
             value={valueResponsive}
             label="Responsive"
-            onChange={event => setValueResponsive(event.target.value)}
-            size={{ base: 'sm', tablet: 'md', desktop: 'lg', hd: 'sm' }}
+            onChange={(event) => setValueResponsive(event.target.value)}
+            size={{ base: "sm", tablet: "md", desktop: "lg", hd: "sm" }}
           />
         </Box>
       );
@@ -203,13 +203,13 @@ Use the `placeholder` prop to add a custom placeholder.
 <Canvas>
   <Story name="Placeholder">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextareaInput
           id="placeholder"
           value={value}
           label="Placholder TextareaInput"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           placeholder="Custom placeholder..."
         />
       );
@@ -224,13 +224,13 @@ Use the `autoFocus` prop to autofocus the input.
 <Canvas>
   <Story name="Autofocus">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextareaInput
           id="autofocus"
           value={value}
           label="Autofocus TextareaInput"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           autoFocus
         />
       );
@@ -245,13 +245,13 @@ Use the `hideLabel` prop to not render the label.
 <Canvas>
   <Story name="Hidden Label">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextareaInput
           id="hiddenLabel"
           value={value}
           label="Hidden TextareaInput"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           hideLabel
         />
       );
@@ -266,13 +266,13 @@ Use the `isDisabled` prop to mark the input as disabled.
 <Canvas>
   <Story name="Disabled">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextareaInput
           id="disabled"
           value={value}
           label="Disabled TextareaInput"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           isDisabled
         />
       );
@@ -287,13 +287,13 @@ Use the `isDisabled` prop to mark the input as disabled. Disabled inputs can hav
 <Canvas>
   <Story name="Disabled with Value">
     {() => {
-      const [value, setValue] = useState('Preset value');
+      const [value, setValue] = useState("Preset value");
       return (
         <TextareaInput
           id="disabledWithValue"
           value={value}
           label="Disabled TextareaInput With Value"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           isDisabled
         />
       );
@@ -308,13 +308,13 @@ Use the `isDisabled` prop to mark the input as disabled. Disabled inputs can hav
 <Canvas>
   <Story name="Disabled with Placeholder">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextareaInput
           id="disabledWithPlaceholder"
           value={value}
           label="Disabled TextareaInput With Placeholder"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           isDisabled
           placeholder="Useful placeholder..."
         />
@@ -330,14 +330,14 @@ Use the `maxLength` prop to limit the number of characters that can be entered i
 <Canvas>
   <Story name="Max Length">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextareaInput
           id="maxLength"
           value={value}
           label="TextareaInput Label"
           maxLength="5"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           placeholder="Can't enter more than 5 characters..."
         />
       );
@@ -352,13 +352,13 @@ Use the `error` prop to mark the input as invalid. `error` accepts a `boolean`, 
 <Canvas>
   <Story name="Required with Error">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextareaInput
           id="requiredWithError"
           value={value}
           label="TextareaInput Label"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           error={true}
           isRequired
         />
@@ -374,13 +374,13 @@ Pass a `string` or `node` to the `error` prop to render a validation message.
 <Canvas>
   <Story name="Required with Error and Validation Message">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextareaInput
           id="requiredWithValidationMessage"
           value={value}
           label="TextareaInput Label"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           isRequired
           error="Helpful validation message"
         />
@@ -396,13 +396,13 @@ An input does not need to be marked as required to render a validation message.
 <Canvas>
   <Story name="Not Required with Error and Validation Message">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextareaInput
           id="notRequiredWithValidationMessage"
           value={value}
           label="TextareaInput Label"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           error="Helpful validation message"
         />
       );
@@ -415,14 +415,14 @@ An input does not need to be marked as required to render a validation message.
 <Canvas>
   <Story name="Error with Hidden Label">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextareaInput
           id="errorWithHiddenLabel"
           value={value}
           label="TextareaInput Label"
           hideLabel
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           error="Helpful validation message"
         />
       );

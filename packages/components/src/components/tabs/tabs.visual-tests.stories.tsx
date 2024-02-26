@@ -1,10 +1,10 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { Tabs, TabsProps } from './tabs';
-import { RESPONSIVE_STORY } from '../../docs/constants';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { Tabs, TabsProps } from "./tabs";
+import { RESPONSIVE_STORY } from "../../docs/constants";
 
 const meta: Meta<typeof Tabs> = {
-  title: 'Components/Tabs/Visual Regression Tests',
+  title: "Components/Tabs/Visual Regression Tests",
   component: Tabs,
 };
 

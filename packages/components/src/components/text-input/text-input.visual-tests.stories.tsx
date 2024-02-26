@@ -1,19 +1,19 @@
-import React, { ReactElement, useState } from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { within } from '@storybook/testing-library';
-import { TextInput, TextInputProps } from './text-input';
-import { Icon } from '../icon/icon';
-import { Box } from '../box/box';
-import { RESPONSIVE_STORY } from '../../docs/constants';
+import React, { ReactElement, useState } from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { within } from "@storybook/testing-library";
+import { TextInput, TextInputProps } from "./text-input";
+import { Icon } from "../icon/icon";
+import { Box } from "../box/box";
+import { RESPONSIVE_STORY } from "../../docs/constants";
 
 const meta: Meta<typeof TextInput> = {
-  title: 'Components/TextInput/Visual Regression Tests',
+  title: "Components/TextInput/Visual Regression Tests",
   component: TextInput,
 };
 
 export default meta;
 
-const Template: StoryFn<TextInputProps> = args => (
+const Template: StoryFn<TextInputProps> = (args) => (
   <TextInput
     {...args}
     onChange={() => {}} // eslint-disable-line
@@ -21,10 +21,10 @@ const Template: StoryFn<TextInputProps> = args => (
 );
 
 export const PrefixSuffixSizes: React.FC = (): ReactElement => {
-  const [prefixValue, setPrefixValue] = useState('rhinolabssolar');
-  const [prefixValue2, setPrefixValue2] = useState('49');
-  const [prefixValue3, setPrefixValue3] = useState('');
-  const [prefixValue4, setPrefixValue4] = useState('Pre-populated Value');
+  const [prefixValue, setPrefixValue] = useState("rhinolabssolar");
+  const [prefixValue2, setPrefixValue2] = useState("49");
+  const [prefixValue3, setPrefixValue3] = useState("");
+  const [prefixValue4, setPrefixValue4] = useState("Pre-populated Value");
   return (
     <Box gap="xl" direction="row">
       <Box gap="md" width="33">
@@ -60,7 +60,7 @@ export const PrefixSuffixSizes: React.FC = (): ReactElement => {
           label="Suffix with Clear"
           placeholder="Contact name"
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => setPrefixValue4(event.target.value)}
-          onClear={() => setPrefixValue4('')}
+          onClear={() => setPrefixValue4("")}
           suffix={<Icon name="search" />}
           size="sm"
         />
@@ -95,7 +95,7 @@ export const PrefixSuffixSizes: React.FC = (): ReactElement => {
           label="Suffix with Clear"
           placeholder="Contact name"
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => setPrefixValue4(event.target.value)}
-          onClear={() => setPrefixValue4('')}
+          onClear={() => setPrefixValue4("")}
           suffix={<Icon name="search" />}
         />
       </Box>
@@ -132,7 +132,7 @@ export const PrefixSuffixSizes: React.FC = (): ReactElement => {
           label="Suffix with Clear"
           placeholder="Contact name"
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => setPrefixValue4(event.target.value)}
-          onClear={() => setPrefixValue4('')}
+          onClear={() => setPrefixValue4("")}
           suffix={<Icon name="search" />}
           size="lg"
         />
@@ -144,75 +144,75 @@ export const PrefixSuffixSizes: React.FC = (): ReactElement => {
 export const ResponsiveSize = Template.bind({});
 ResponsiveSize.args = {
   size: {
-    base: 'sm',
-    tablet: 'md',
-    desktop: 'lg',
-    hd: 'sm',
+    base: "sm",
+    tablet: "md",
+    desktop: "lg",
+    hd: "sm",
   },
-  value: 'responsive',
-  suffix: '00',
-  prefix: '$',
+  value: "responsive",
+  suffix: "00",
+  prefix: "$",
 };
 ResponsiveSize.parameters = RESPONSIVE_STORY;
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  label: 'Disabled TextInput',
+  label: "Disabled TextInput",
   isDisabled: true,
 };
 
 export const DisabledPlaceholder = Template.bind({});
 DisabledPlaceholder.args = {
-  label: 'Disabled TextInput',
+  label: "Disabled TextInput",
   isDisabled: true,
-  placeholder: 'placeholder text',
+  placeholder: "placeholder text",
 };
 
 export const Error = Template.bind({});
 Error.args = {
-  label: 'Error TextInput',
+  label: "Error TextInput",
   error: true,
 };
 
 export const ErrorValidationMessageRequired = Template.bind({});
 ErrorValidationMessageRequired.args = {
-  label: 'Error TextInput',
+  label: "Error TextInput",
   isRequired: true,
-  error: 'Helpful validation message',
+  error: "Helpful validation message",
 };
 
 export const ErrorValidationMessage = Template.bind({});
 ErrorValidationMessage.args = {
-  label: 'Error TextInput',
-  error: 'Helpful validation message',
+  label: "Error TextInput",
+  error: "Helpful validation message",
 };
 
 export const ErrorHiddenLabelValidationMessage = Template.bind({});
 ErrorHiddenLabelValidationMessage.args = {
-  label: 'Error TextInput',
+  label: "Error TextInput",
   hideLabel: true,
-  error: 'Helpful validation message',
+  error: "Helpful validation message",
 };
 
 export const DefaultFocus = Template.bind({});
 
 DefaultFocus.args = {
-  label: 'Default Focus',
+  label: "Default Focus",
 };
 
 DefaultFocus.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  canvas.getByLabelText('Default Focus').focus();
+  canvas.getByLabelText("Default Focus").focus();
 };
 
 export const ErrorFocus = Template.bind({});
 
 ErrorFocus.args = {
-  label: 'Error Focus',
-  error: 'validation message',
+  label: "Error Focus",
+  error: "validation message",
 };
 
 ErrorFocus.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  canvas.getByLabelText('Error Focus').focus();
+  canvas.getByLabelText("Error Focus").focus();
 };

@@ -1,40 +1,38 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { Pagination, PaginationProps } from './pagination';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { Pagination, PaginationProps } from "./pagination";
 
 const meta: Meta<typeof Pagination> = {
-  title: 'Components/Pagination/Playground',
+  title: "Components/Pagination/Playground",
   component: Pagination,
   argTypes: {
     activePage: {
-      control: 'number',
+      control: "number",
     },
     itemsPerPage: {
-      control: 'number',
+      control: "number",
     },
     totalItemsCount: {
-      control: 'number',
+      control: "number",
     },
     arePagesVisible: {
-      control: 'boolean',
+      control: "boolean",
     },
     isCompact: {
-      control: 'boolean',
+      control: "boolean",
     },
     nextPageText: {
-      control: 'text',
+      control: "text",
     },
     prevPageText: {
-      control: 'text',
+      control: "text",
     },
   },
 };
 
 export default meta;
 
-const Template: StoryFn<PaginationProps> = ({ ...args }) => (
-  <Pagination {...args} />
-);
+const Template: StoryFn<PaginationProps> = ({ ...args }) => <Pagination {...args} />;
 export const Playground = Template.bind({});
 Playground.args = {
   arePagesVisible: true,
@@ -43,13 +41,13 @@ Playground.args = {
 Playground.parameters = {
   controls: {
     include: [
-      'activePage',
-      'itemsPerPage',
-      'totalItemsCount',
-      'arePagesVisible',
-      'isCompact',
-      'nextPageText',
-      'prevPageText',
+      "activePage",
+      "itemsPerPage",
+      "totalItemsCount",
+      "arePagesVisible",
+      "isCompact",
+      "nextPageText",
+      "prevPageText",
     ],
   },
 };

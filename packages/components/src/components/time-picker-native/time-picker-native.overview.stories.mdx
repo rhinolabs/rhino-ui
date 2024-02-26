@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { TimePickerNative } from './time-picker-native';
-import { Box } from '../box/box';
+import { useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { TimePickerNative } from "./time-picker-native";
+import { Box } from "../box/box";
 
 <Meta
   title="Components/TimePickerNative/Overview"
@@ -36,7 +36,7 @@ _ABOUT TIME FORMAT:_ The value returned will always be a JS ISO date string, lik
           <TimePickerNative
             id="defaultTimePickerNative"
             name="defaultTimePickerNative"
-            onChange={event => {
+            onChange={(event) => {
               console.log(event.target.value);
               setValue(event.target.value);
             }}
@@ -63,7 +63,7 @@ The example below uses `3600` --> 1 Hour Intervals
           <TimePickerNative
             id="intervalTimePickerNative"
             name="intervalTimePickerNative"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             value={value}
             label="Pick a Time"
             interval={3600}
@@ -94,7 +94,7 @@ See example below where we want to show 15 minute increments starting at 9:00AM 
           <TimePickerNative
             id="startEnd"
             name="startEnd"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             value={value}
             label="Pick a Time"
             startTime={{ hour: 9, minute: 0 }}
@@ -124,12 +124,12 @@ The example below is shown in military (24-hour) time.
           <TimePickerNative
             id="customDate"
             name="customDate"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             value={value}
             label="Pick a Time"
             startTime={{ hour: 9, minute: 0 }}
             endTime={{ hour: 15, minute: 31 }}
-            dateDisplayOptions={{ hour12: false, hour: '2-digit', minute: '2-digit' }}
+            dateDisplayOptions={{ hour12: false, hour: "2-digit", minute: "2-digit" }}
           />
         </Box>
       );
@@ -148,7 +148,7 @@ The example below is shown in military (24-hour) time.
           <TimePickerNative
             id="helpText"
             name="helpText"
-            onChange={event => {
+            onChange={(event) => {
               setValue(event.target.value);
             }}
             label="Pick a Time"
@@ -176,7 +176,7 @@ Set the size of the input to `sm`, `md` or `lg`. `md` is the default size.
           <TimePickerNative
             id="smTimePickerNative"
             name="smTimePickerNative"
-            onChange={event => {
+            onChange={(event) => {
               setValue(event.target.value);
             }}
             label="Small"
@@ -186,7 +186,7 @@ Set the size of the input to `sm`, `md` or `lg`. `md` is the default size.
           <TimePickerNative
             id="mdTimePickerNative"
             name="mdTimePickerNative"
-            onChange={event => {
+            onChange={(event) => {
               setValue1(event.target.value);
             }}
             label="Medium"
@@ -196,7 +196,7 @@ Set the size of the input to `sm`, `md` or `lg`. `md` is the default size.
           <TimePickerNative
             id="lgTimePickerNative"
             name="lgTimePickerNative"
-            onChange={event => {
+            onChange={(event) => {
               setValue2(event.target.value);
             }}
             label="Large"

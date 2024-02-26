@@ -1,4 +1,4 @@
-@import '@rhino-ui/design-tokens/build/scss/variables-size';
+@import "@rhino-ui/design-tokens/build/scss/variables-size";
 // The following styles required the :global tag since they need to be applied to react-select elements for which we do not own the markup
 
 @mixin react-select-icon {
@@ -169,13 +169,16 @@
       :global(.react-select__clear-indicator) {
         @extend .react-select-icon;
 
-        margin-right: var(--form-control-select-clear-icon-margin, var(--INTERNAL_form-control-select-clear-icon-margin));
+        margin-right: var(
+          --form-control-select-clear-icon-margin,
+          var(--INTERNAL_form-control-select-clear-icon-margin)
+        );
       }
 
       &:global(.react-select__control--is-focused) {
         border-color: var(--form-control-border-color-focus, var(--INTERNAL_form-control-border-color-focus));
         box-shadow: var(--form-control-box-shadow, var(--INTERNAL_form-control-box-shadow-focus)),
-        inset 0 0 0 1px var(--form-control-border-color-focus, var(--INTERNAL_form-control-border-color-focus));
+          inset 0 0 0 1px var(--form-control-border-color-focus, var(--INTERNAL_form-control-border-color-focus));
       }
 
       &:global(.react-select__control--is-disabled) {
@@ -192,7 +195,10 @@
     &.error {
       :global(.react-select__control) {
         border-color: var(--form-control-border-color-error, var(--INTERNAL_form-control-border-color-error));
-        background-color: var(--form-control-background-color-error, var(--INTERNAL_form-control-background-color-error));
+        background-color: var(
+          --form-control-background-color-error,
+          var(--INTERNAL_form-control-background-color-error)
+        );
 
         &:global(.react-select__control--is-focused) {
           outline: none;
@@ -251,7 +257,10 @@
 
   &.disabled {
     :global(.react-select__control--is-disabled) {
-      background-color: var(--form-control-background-color-disabled, var(--INTERNAL_form-control-background-color-disabled));
+      background-color: var(
+        --form-control-background-color-disabled,
+        var(--INTERNAL_form-control-background-color-disabled)
+      );
     }
   }
 }

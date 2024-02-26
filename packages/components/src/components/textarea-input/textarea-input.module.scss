@@ -1,4 +1,4 @@
-@import '@rhino-ui/design-tokens/build/scss/variables-size';
+@import "@rhino-ui/design-tokens/build/scss/variables-size";
 
 @mixin size-sm {
   border-radius: var(--form-control-size-sm-border-radius, var(--INTERNAL_form-control-size-sm-border-radius));
@@ -55,7 +55,10 @@
 }
 
 %disabled-base {
-  background-color: var(--form-control-background-color-disabled, var(--INTERNAL_form-control-background-color-disabled));
+  background-color: var(
+    --form-control-background-color-disabled,
+    var(--INTERNAL_form-control-background-color-disabled)
+  );
   color: var(--form-control-font-color-disabled, var(--INTERNAL_form-control-font-color-disabled));
 
   &:hover {

@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Components/CheckboxInput/Codesandbox" />
 
@@ -7,8 +7,8 @@ import { Meta } from '@storybook/addon-docs';
 Use a CheckboxInput to allow users to make a range of selections (zero, one or many).
 
 ```js codesandbox=rhinolabs-components
-import React, { useState } from 'react';
-import { CheckboxInput } from '@rhino-ui/components';
+import React, { useState } from "react";
+import { CheckboxInput } from "@rhino-ui/components";
 
 export default () => {
   const [value, setValue] = useState(null);
@@ -17,7 +17,7 @@ export default () => {
     <CheckboxInput
       id="defaultStateIsUnchecked"
       label="Label"
-      onChange={event => setValue(event.target.checked)}
+      onChange={(event) => setValue(event.target.checked)}
       isChecked={value}
     />
   );

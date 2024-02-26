@@ -1,11 +1,6 @@
-import React, {
-  createContext,
-  useState,
-  useEffect,
-  useRef,
-} from 'react';
+import React, { createContext, useState, useEffect, useRef } from "react";
 
-export type Theme = 'light' | 'dark';
+export type Theme = "light" | "dark";
 
 export interface ThemeContextShape {
   theme: Theme;
@@ -14,28 +9,28 @@ export interface ThemeContextShape {
 }
 
 export const ThemeContext = createContext<ThemeContextShape>({
-  theme: 'light',
+  theme: "light",
   setTheme: (_theme) => {}, // eslint-disable-line
-  systemPreference: 'light',
+  systemPreference: "light",
 });
-ThemeContext.displayName = 'ThemeContext';
+ThemeContext.displayName = "ThemeContext";
 
 export interface ThemeProviderProps {
   children?: React.ReactNode;
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children = null }) => {
-  const [theme, setTheme] = useState<Theme>('light');
-  const [systemPreference, setSystemPreference] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>("light");
+  const [systemPreference, setSystemPreference] = useState<Theme>("light");
 
-  const prefersDark = useRef(window?.matchMedia('(prefers-color-scheme: dark)'));
+  const prefersDark = useRef(window?.matchMedia("(prefers-color-scheme: dark)"));
 
   const handleThemePreferenceChange = (mediaQuery: MediaQueryListEvent | MediaQueryList) => {
     let preference: Theme;
     if (mediaQuery.matches) {
-      preference = 'dark';
+      preference = "dark";
     } else {
-      preference = 'light';
+      preference = "light";
     }
 
     setSystemPreference(preference);
@@ -44,17 +39,13 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children = null })
   useEffect(() => {
     const currentMediaQuery = prefersDark.current;
 
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       handleThemePreferenceChange(currentMediaQuery);
-      currentMediaQuery.addEventListener('change', handleThemePreferenceChange);
+      currentMediaQuery.addEventListener("change", handleThemePreferenceChange);
     }
 
-    return () => currentMediaQuery.removeEventListener('change', handleThemePreferenceChange);
+    return () => currentMediaQuery.removeEventListener("change", handleThemePreferenceChange);
   }, [prefersDark]);
 
-  return (
-    <ThemeContext.Provider value={{ theme, setTheme, systemPreference }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme, setTheme, systemPreference }}>{children}</ThemeContext.Provider>;
 };

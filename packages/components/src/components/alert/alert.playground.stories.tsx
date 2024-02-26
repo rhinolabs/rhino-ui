@@ -1,38 +1,38 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { Alert, AlertProps } from './alert';
-import { ALERT_VARIANTS } from './alert.constants';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { Alert, AlertProps } from "./alert";
+import { ALERT_VARIANTS } from "./alert.constants";
 
 const meta: Meta<typeof Alert> = {
-  title: 'Components/Alert/Playground',
+  title: "Components/Alert/Playground",
   component: Alert,
   argTypes: {
     variant: {
       control: {
-        type: 'select',
+        type: "select",
         options: ALERT_VARIANTS,
       },
     },
     message: {
-      control: 'text',
+      control: "text",
     },
     className: {
-      control: 'text',
+      control: "text",
     },
     closeText: {
-      control: 'text',
+      control: "text",
     },
     hasIcon: {
-      control: 'boolean',
+      control: "boolean",
     },
     isCompact: {
-      control: 'boolean',
+      control: "boolean",
     },
     isClosable: {
-      control: 'boolean',
+      control: "boolean",
     },
     title: {
-      control: 'text',
+      control: "text",
     },
   },
 };
@@ -43,12 +43,12 @@ const Template: StoryFn<AlertProps> = ({ ...args }) => <Alert {...args} />;
 
 export const Playground = Template.bind({});
 Playground.args = {
-  variant: 'default',
-  message: 'default',
-  className: '',
-  closeText: '',
+  variant: "default",
+  message: "default",
+  className: "",
+  closeText: "",
   hasIcon: false,
   isCompact: false,
   isClosable: false,
-  title: '',
+  title: "",
 };

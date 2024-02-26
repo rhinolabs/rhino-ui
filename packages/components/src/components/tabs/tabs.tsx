@@ -1,11 +1,11 @@
-import React, { ReactNode, RefObject } from 'react';
-import classNames from 'classnames';
-import mergeRefs from 'react-merge-refs';
-import { ResponsiveProp } from '../../types';
-import { ButtonVariant } from '../button/button';
-import { Box, BoxProps } from '../box/box';
-import { TabItem } from './tab-item';
-import styles from './tabs.module.scss';
+import React, { ReactNode, RefObject } from "react";
+import classNames from "classnames";
+import mergeRefs from "react-merge-refs";
+import { ResponsiveProp } from "../../types";
+import { ButtonVariant } from "../button/button";
+import { Box, BoxProps } from "../box/box";
+import { TabItem } from "./tab-item";
+import styles from "./tabs.module.scss";
 
 export type TabsVariant = ButtonVariant;
 
@@ -14,21 +14,21 @@ export interface TabsProps extends BoxProps {
   onChange: (event: React.MouseEvent<HTMLLIElement>, index: number) => void;
   isFullWidth?: boolean;
   isCentered?: boolean;
-  size?: 'sm' | 'md' | ResponsiveProp<'sm' | 'md'>;
+  size?: "sm" | "md" | ResponsiveProp<"sm" | "md">;
 }
 
 const TabsBaseComponent: React.FC<TabsProps> = React.forwardRef(
   (
     {
-      as = 'nav',
-      borderWidth = '0 0 xs 0',
-      borderColor = 'grey-100',
+      as = "nav",
+      borderWidth = "0 0 xs 0",
+      borderColor = "grey-100",
       children,
       isCentered = false,
       isFullWidth = false,
       onChange,
-      overflow = 'auto',
-      size = 'md',
+      overflow = "auto",
+      size = "md",
       value,
       ...restProps
     },
@@ -56,9 +56,9 @@ const TabsBaseComponent: React.FC<TabsProps> = React.forwardRef(
          */
         const classes = classNames(
           child.props.className,
-          styles['tab-item'],
+          styles["tab-item"],
           { [styles.disabled]: child.props.isDisabled },
-          { [styles['tab-item--selected']]: value === index },
+          { [styles["tab-item--selected"]]: value === index },
         );
 
         return React.cloneElement(child, {
@@ -69,12 +69,12 @@ const TabsBaseComponent: React.FC<TabsProps> = React.forwardRef(
           padding: size,
           key: child.key,
           style: { ...child.props.style, ...(isFullWidth && { flex: 1 }) },
-          'aria-posinset': index + 1,
-          'aria-setsize': React.Children.toArray(children).length,
-          'aria-selected': value === index,
+          "aria-posinset": index + 1,
+          "aria-setsize": React.Children.toArray(children).length,
+          "aria-selected": value === index,
           ref: mergeRefs([
             value === index ? activeTabRef : null,
-            (child as ReactNode & { ref: RefObject<HTMLElement>; }).ref,
+            (child as ReactNode & { ref: RefObject<HTMLElement> }).ref,
           ]),
         });
       }
@@ -85,20 +85,13 @@ const TabsBaseComponent: React.FC<TabsProps> = React.forwardRef(
     React.useEffect(() => {
       if (activeTabRef.current) {
         activeTabRef.current.scrollIntoView({
-          behavior: 'smooth',
+          behavior: "smooth",
         });
       }
     }, []);
 
     return (
-      <Box
-        as={as}
-        borderWidth={borderWidth}
-        borderColor={borderColor}
-        overflow={overflow}
-        ref={ref}
-        {...restProps}
-      >
+      <Box as={as} borderWidth={borderWidth} borderColor={borderColor} overflow={overflow} ref={ref} {...restProps}>
         <Box
           direction="row"
           role="tablist"
@@ -107,8 +100,8 @@ const TabsBaseComponent: React.FC<TabsProps> = React.forwardRef(
            * See this for details:
            * https://stackoverflow.com/questions/33454533/cant-scroll-to-top-of-flex-item-that-is-overflowing-container
            * */
-          margin={isCentered ? '0 auto' : undefined}
-          style={{ paddingInlineStart: '0' }}
+          margin={isCentered ? "0 auto" : undefined}
+          style={{ paddingInlineStart: "0" }}
         >
           {decoratedChildren}
         </Box>

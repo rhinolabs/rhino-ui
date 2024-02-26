@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { SelectInputNative, SelectInputNativeProps } from '../select-input-native/select-input-native';
+import React, { FC } from "react";
+import { SelectInputNative, SelectInputNativeProps } from "../select-input-native/select-input-native";
 
-export interface TimePickerNativeProps extends Omit<SelectInputNativeProps, 'options'> {
+export interface TimePickerNativeProps extends Omit<SelectInputNativeProps, "options"> {
   /**
    * Options to govern the display of the option labels in the select.
    * This is a direct passthrough to the second argument of JS `toLocaleTimeString`.
@@ -11,7 +11,7 @@ export interface TimePickerNativeProps extends Omit<SelectInputNativeProps, 'opt
   /**
    * End hour and minute
    */
-  endTime?: { hour: number; minute: number; };
+  endTime?: { hour: number; minute: number };
   /**
    * Interval of displayed times (in seconds). Defaults to 900 seconds (15 minutes).
    */
@@ -25,11 +25,11 @@ export interface TimePickerNativeProps extends Omit<SelectInputNativeProps, 'opt
   /**
    * Start hour and minute
    */
-  startTime?: { hour: number; minute: number; };
+  startTime?: { hour: number; minute: number };
   /**
    *  Should be ISO timestamp as returned by `onChange`, and matching value of option object.
    */
-  value: SelectInputNativeProps['value'];
+  value: SelectInputNativeProps["value"];
 }
 
 export const TimePickerNative: FC<TimePickerNativeProps> = ({
@@ -38,11 +38,11 @@ export const TimePickerNative: FC<TimePickerNativeProps> = ({
   label,
   onChange,
   value,
-  dateDisplayOptions = { hour: '2-digit', minute: '2-digit' },
+  dateDisplayOptions = { hour: "2-digit", minute: "2-digit" },
   endTime = undefined,
   interval = 900,
-  locales = 'en-US',
-  placeholder = 'HH:MM',
+  locales = "en-US",
+  placeholder = "HH:MM",
   startTime = undefined,
   ...restProps
 }) => {

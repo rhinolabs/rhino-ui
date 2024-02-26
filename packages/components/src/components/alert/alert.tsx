@@ -1,13 +1,11 @@
-import React, {
-  FC, ReactNode, MouseEvent, KeyboardEvent,
-} from 'react';
-import classNames from 'classnames';
-import { Heading } from '../heading/heading';
-import { Box } from '../box/box';
-import { Icon } from '../icon/icon';
-import styles from './alert.module.scss';
-import { AlertVariant } from './alert.types';
-import { ALERT_ICONS_MAP } from './alert.constants';
+import React, { FC, ReactNode, MouseEvent, KeyboardEvent } from "react";
+import classNames from "classnames";
+import { Heading } from "../heading/heading";
+import { Box } from "../box/box";
+import { Icon } from "../icon/icon";
+import styles from "./alert.module.scss";
+import { AlertVariant } from "./alert.types";
+import { ALERT_ICONS_MAP } from "./alert.constants";
 
 export interface AlertProps {
   /**
@@ -52,27 +50,25 @@ export interface AlertProps {
    * The type/color of the alert to show.
    */
   variant?: AlertVariant;
-    /**
+  /**
    * Additional props to be spread to rendered element
    */
   [x: string]: any; // eslint-disable-line
 }
 export const Alert: FC<AlertProps> = ({
-  className = '',
-  closeText = '',
+  className = "",
+  closeText = "",
   hasIcon = false,
   isCompact = false,
   isClosable = false,
-  message = '',
+  message = "",
   onClose = undefined,
   render = undefined,
-  title = '',
-  variant = 'default',
+  title = "",
+  variant = "default",
   ...restProps
 }) => {
-  const handleClose = (
-    event: MouseEvent<HTMLOrSVGElement> | KeyboardEvent<HTMLSpanElement>,
-  ): void => {
+  const handleClose = (event: MouseEvent<HTMLOrSVGElement> | KeyboardEvent<HTMLSpanElement>): void => {
     if (!onClose) return;
 
     onClose(event);
@@ -80,10 +76,7 @@ export const Alert: FC<AlertProps> = ({
 
   const renderAlertIcon = (): ReactNode => (
     <Box fontSize="lg" className={styles[`alert__icon__${variant}`]}>
-      <Icon
-        name={ALERT_ICONS_MAP[variant].icon}
-        data-testid={`alert-icon-${variant}-test-id`}
-      />
+      <Icon name={ALERT_ICONS_MAP[variant].icon} data-testid={`alert-icon-${variant}-test-id`} />
     </Box>
   );
 
@@ -93,7 +86,7 @@ export const Alert: FC<AlertProps> = ({
     };
 
     return (
-      <Box margin="0 0 0 auto" color="grey-500" className={styles['close-icon']}>
+      <Box margin="0 0 0 auto" color="grey-500" className={styles["close-icon"]}>
         <button type="button" onClick={handleClose} onKeyUp={handleCloseKeyPress}>
           {closeText || <Icon name="remove" data-testid="alert-close-icon-test-id" />}
         </button>
@@ -101,11 +94,7 @@ export const Alert: FC<AlertProps> = ({
     );
   };
 
-  const alertContainerClasses: string = classNames(
-    styles[`alert__${variant}`],
-    styles.alert,
-    className,
-  );
+  const alertContainerClasses: string = classNames(styles[`alert__${variant}`], styles.alert, className);
 
   return (
     <Box
@@ -113,7 +102,7 @@ export const Alert: FC<AlertProps> = ({
       gap="sm"
       className={alertContainerClasses}
       direction="row"
-      padding={isCompact ? 'xs' : 'md'}
+      padding={isCompact ? "xs" : "md"}
       radius="md"
       role="alert"
       fontSize="sm"
@@ -124,13 +113,13 @@ export const Alert: FC<AlertProps> = ({
         {render ? (
           render()
         ) : (
-          <Box display="block" childGap={message && title ? '2xs' : undefined}>
+          <Box display="block" childGap={message && title ? "2xs" : undefined}>
             {title && (
               <Heading as="h4" size="md">
                 {title}
               </Heading>
             )}
-            {message && (typeof message === 'string' ? <p>{message}</p> : message)}
+            {message && (typeof message === "string" ? <p>{message}</p> : message)}
           </Box>
         )}
       </div>

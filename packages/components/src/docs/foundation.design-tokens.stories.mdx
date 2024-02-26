@@ -1,8 +1,8 @@
-import { ColorPalette, ColorItem, Meta } from '@storybook/addon-docs';
-import { color } from '@rhino-ui/design-tokens/build/json/variables-color.json';
-import { size } from '@rhino-ui/design-tokens/build/js/variables-size';
-import { asset } from '@rhino-ui/design-tokens/build/js/variables-asset';
-import { Canvas } from '@storybook/addon-docs';
+import { ColorPalette, ColorItem, Meta } from "@storybook/addon-docs";
+import { color } from "@rhino-ui/design-tokens/build/json/variables-color.json";
+import { size } from "@rhino-ui/design-tokens/build/js/variables-size";
+import { asset } from "@rhino-ui/design-tokens/build/js/variables-asset";
+import { Canvas } from "@storybook/addon-docs";
 
 <Meta title="Foundation/Design Tokens" />
 
@@ -60,7 +60,7 @@ Use these tokens for `border-radius`. They are defined in `rem`, which means the
     </tr>
   </thead>
   <tbody>
-    {Object.entries(size['border-radius']).map(([name, entry], i) => (
+    {Object.entries(size["border-radius"]).map(([name, entry], i) => (
       <tr key={i}>
         <td>
           <code>{`size-border-radius-${name}`}</code>
@@ -69,7 +69,7 @@ Use these tokens for `border-radius`. They are defined in `rem`, which means the
           <code>{name}</code>
         </td>
         <td>{entry.value}</td>
-        <td>{name !== 'circle' ? entry.original.value * 16 : ''}</td>
+        <td>{name !== "circle" ? entry.original.value * 16 : ""}</td>
       </tr>
     ))}
   </tbody>
@@ -88,7 +88,7 @@ Use these tokens for `border-width`.
     </tr>
   </thead>
   <tbody>
-    {Object.entries(size['border']).map(([name, entry], i) => (
+    {Object.entries(size["border"]).map(([name, entry], i) => (
       <tr key={i}>
         <td>
           <code>{`size-border-${name}`}</code>
@@ -115,7 +115,7 @@ Used these tokens to set the outer shadow of an element.
     </tr>
   </thead>
   <tbody>
-    {Object.entries(size['box-shadow']).map(([name, entry], i) => (
+    {Object.entries(size["box-shadow"]).map(([name, entry], i) => (
       <tr key={i}>
         <td>
           <code>{`size-box-shadow-${name}`}</code>
@@ -168,7 +168,7 @@ The following breakpoints are used in utility classes, but you can use them to m
   title="color-brand-white"
   subtitle="All whites"
   colors={Object.keys(color.brand.white).reduce((acc, item, i) => {
-    acc[item] = Object.keys(color.brand.white).map(g => color.brand.white[g].value)[i];
+    acc[item] = Object.keys(color.brand.white).map((g) => color.brand.white[g].value)[i];
     return acc;
   }, {})}
 />
@@ -177,7 +177,7 @@ The following breakpoints are used in utility classes, but you can use them to m
   title="color-brand-black"
   subtitle="Black"
   colors={Object.keys(color.brand.black).reduce((acc, item, i) => {
-    acc[item] = Object.keys(color.brand.black).map(g => color.brand.black[g].value)[i];
+    acc[item] = Object.keys(color.brand.black).map((g) => color.brand.black[g].value)[i];
     return acc;
   }, {})}
 />
@@ -186,7 +186,7 @@ The following breakpoints are used in utility classes, but you can use them to m
   title="color-brand-light"
   subtitle="Light"
   colors={Object.keys(color.brand.light).reduce((acc, item, i) => {
-    acc[item] = Object.keys(color.brand.light).map(g => color.brand.light[g].value)[i];
+    acc[item] = Object.keys(color.brand.light).map((g) => color.brand.light[g].value)[i];
     return acc;
   }, {})}
 />
@@ -195,7 +195,7 @@ The following breakpoints are used in utility classes, but you can use them to m
   title="color-brand-dark"
   subtitle="Dark"
   colors={Object.keys(color.brand.dark).reduce((acc, item, i) => {
-    acc[item] = Object.keys(color.brand.dark).map(g => color.brand.dark[g].value)[i];
+    acc[item] = Object.keys(color.brand.dark).map((g) => color.brand.dark[g].value)[i];
     return acc;
   }, {})}
 />
@@ -308,7 +308,7 @@ Use these tokens for `font-size`. They are defined in `rem`, which means they wi
           <code>{name}</code>
         </td>
         <td>{entry.value}</td>
-        <td>{name === 'base' ? '16' : name === 'inherit' ? '' : entry.original.value * 16}</td>
+        <td>{name === "base" ? "16" : name === "inherit" ? "" : entry.original.value * 16}</td>
       </tr>
     ))}
   </tbody>
@@ -327,7 +327,7 @@ Use these tokens for `font-weight`.
     </tr>
   </thead>
   <tbody>
-    {Object.entries(size['font-weight']).map(([name, entry], i) => (
+    {Object.entries(size["font-weight"]).map(([name, entry], i) => (
       <tr key={i}>
         <td>
           <code>{`size-font-weight-${name}`}</code>
@@ -355,7 +355,7 @@ Usually, the line-height is already set by the parent.
     </tr>
   </thead>
   <tbody>
-    {Object.entries(size['line-height']).map(([name, entry], i) => (
+    {Object.entries(size["line-height"]).map(([name, entry], i) => (
       <tr key={i}>
         <td>
           <code>{`size-line-height-${name}`}</code>
@@ -392,13 +392,7 @@ Spacing tokens are intended for use with `margin` and `padding` properties. They
           <code>{name}</code>
         </td>
         <td>{entry.value}</td>
-        <td>
-          {name === 'base'
-            ? '16'
-            : ['inherit', 'auto'].includes(name)
-            ? ''
-            : entry.original.value * 16}
-        </td>
+        <td>{name === "base" ? "16" : ["inherit", "auto"].includes(name) ? "" : entry.original.value * 16}</td>
       </tr>
     ))}
   </tbody>
@@ -430,10 +424,10 @@ Rem based values will scale when adjusting the root font size. Pixel values are 
         </td>
         <td>{entry.value}</td>
         <td>
-          {name === 'base'
-            ? '16'
-            : entry.value.includes('%') || ['inherit', 'auto'].includes(name)
-            ? ''
+          {name === "base"
+            ? "16"
+            : entry.value.includes("%") || ["inherit", "auto"].includes(name)
+            ? ""
             : entry.original.value * 16}
         </td>
       </tr>
@@ -467,10 +461,10 @@ Rem based values will scale when adjusting the root font size. Pixel values are 
         </td>
         <td>{entry.value}</td>
         <td>
-          {name === 'base'
-            ? '16'
-            : entry.value.includes('%') || ['auto', 'inherit'].includes(name)
-            ? ''
+          {name === "base"
+            ? "16"
+            : entry.value.includes("%") || ["auto", "inherit"].includes(name)
+            ? ""
             : entry.original.value * 16}
         </td>
       </tr>
@@ -490,7 +484,7 @@ Used these tokens to set the z-index order of layering elements.
     </tr>
   </thead>
   <tbody>
-    {Object.entries(size['z-index']).map(([name, entry], i) => (
+    {Object.entries(size["z-index"]).map(([name, entry], i) => (
       <tr key={i}>
         <td>
           <code>{`size-z-index-${name}`}</code>

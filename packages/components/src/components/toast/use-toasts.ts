@@ -1,10 +1,11 @@
-import { useEffect, useMemo } from 'react';
-import { ExtendedToastOptions, Toast, ToastPosition } from './toast.types';
-import { useToastStore, dispatch, ToastStoreActionType } from './toast.store';
-import { toast } from './toast';
+import { useEffect, useMemo } from "react";
+import { ExtendedToastOptions, Toast, ToastPosition } from "./toast.types";
+import { useToastStore, dispatch, ToastStoreActionType } from "./toast.store";
+import { toast } from "./toast";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const useToasts = (toastOptions?: ExtendedToastOptions) => { // eslint-disable-line import/prefer-default-export
+export const useToasts = (toastOptions?: ExtendedToastOptions) => {
+  // eslint-disable-line import/prefer-default-export
   const { toasts, pausedAt } = useToastStore(toastOptions);
 
   useEffect(() => {
@@ -13,7 +14,7 @@ export const useToasts = (toastOptions?: ExtendedToastOptions) => { // eslint-di
     }
 
     const now = Date.now();
-    const timeouts = toasts.map(t => {
+    const timeouts = toasts.map((t) => {
       if (t.duration === Infinity) {
         return;
       }
@@ -29,8 +30,9 @@ export const useToasts = (toastOptions?: ExtendedToastOptions) => { // eslint-di
       return setTimeout(() => toast.dismiss(t.id), durationLeft); // eslint-disable-line consistent-return
     });
 
-    return () => { // eslint-disable-line consistent-return
-      timeouts.forEach(timeout => timeout && clearTimeout(timeout));
+    return () => {
+      // eslint-disable-line consistent-return
+      timeouts.forEach((timeout) => timeout && clearTimeout(timeout));
     };
   }, [toasts, pausedAt]);
 
@@ -51,7 +53,7 @@ export const useToasts = (toastOptions?: ExtendedToastOptions) => { // eslint-di
         }
       },
       updateHeight: (toastId: string, height: number) => {
-        if (toasts.find(t => t.id === toastId)?.height === height) {
+        if (toasts.find((t) => t.id === toastId)?.height === height) {
           return;
         }
         dispatch({
@@ -69,15 +71,14 @@ export const useToasts = (toastOptions?: ExtendedToastOptions) => { // eslint-di
       ) => {
         const { reverseOrder, gutter, defaultPosition } = opts || {};
 
-        const relevantToasts = toasts
-          .filter(t => (t.position || defaultPosition) === (currentToast.position || defaultPosition) && t.height);
-        const toastIndex = relevantToasts.findIndex(t => t.id === currentToast.id);
-        const toastsBefore = relevantToasts.filter(
-          (t, i) => i < toastIndex && t.visible,
-        ).length;
+        const relevantToasts = toasts.filter(
+          (t) => (t.position || defaultPosition) === (currentToast.position || defaultPosition) && t.height,
+        );
+        const toastIndex = relevantToasts.findIndex((t) => t.id === currentToast.id);
+        const toastsBefore = relevantToasts.filter((t, i) => i < toastIndex && t.visible).length;
 
         const offset = relevantToasts
-          .filter(t => t.visible)
+          .filter((t) => t.visible)
           .slice(...(reverseOrder ? [toastsBefore + 1] : [0, toastsBefore]))
           .reduce((acc, t) => acc + (t.height || 0) + gutter, 0);
 

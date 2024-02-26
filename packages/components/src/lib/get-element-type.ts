@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 /**
  * Returns a createElement() type based on the props of the Component.
  * Useful for calculating what type a component should render as.
@@ -10,7 +10,7 @@ import React from 'react';
  */
 export function getElementType( // eslint-disable-line import/prefer-default-export
   Component: React.Component | React.FC,
-  props: { [key: string]: unknown; },
+  props: { [key: string]: unknown },
   getDefault?: () => string,
 ): string {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -33,10 +33,10 @@ export function getElementType( // eslint-disable-line import/prefer-default-exp
   // ----------------------------------------
   // infer anchor links
 
-  if (props.href) return 'a';
+  if (props.href) return "a";
 
   // ----------------------------------------
   // use defaultProp or 'div'
 
-  return defaultProps.as || 'div';
+  return defaultProps.as || "div";
 }

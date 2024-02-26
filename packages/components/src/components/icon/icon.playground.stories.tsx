@@ -1,27 +1,27 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { Icon, IconProps } from './icon';
-import { FONT_SIZE_OPTIONS, FONT_COLOR_OPTIONS, ICON_NAMES } from '../../lib/tokens';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { Icon, IconProps } from "./icon";
+import { FONT_SIZE_OPTIONS, FONT_COLOR_OPTIONS, ICON_NAMES } from "../../lib/tokens";
 
 const meta: Meta<typeof Icon> = {
-  title: 'Components/Icon/Playground',
+  title: "Components/Icon/Playground",
   component: Icon,
   argTypes: {
     name: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...ICON_NAMES],
       },
     },
     color: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...FONT_COLOR_OPTIONS],
       },
     },
     size: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...FONT_SIZE_OPTIONS],
       },
     },
@@ -34,7 +34,7 @@ const Template: StoryFn<IconProps> = ({ ...args }) => <Icon {...args} />;
 
 export const Playground = Template.bind({});
 Playground.args = {
-  name: 'home',
-  size: '5xl',
-  color: 'grey-600',
+  name: "home",
+  size: "5xl",
+  color: "grey-600",
 };

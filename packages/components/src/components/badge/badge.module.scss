@@ -1,4 +1,4 @@
-@import '@rhino-ui/design-tokens/build/scss/variables-size';
+@import "@rhino-ui/design-tokens/build/scss/variables-size";
 
 @mixin size-sm {
   font-size: var(--badge-size-sm-font-size, var(--size-font-2xs));
@@ -6,8 +6,13 @@
     var(--badge-size-sm-padding-horizontal, var(--size-spacing-2xs));
 }
 
-%size-sm { @include size-sm; }
-.size-sm { @extend %size-sm; }
+%size-sm {
+  @include size-sm;
+}
+
+.size-sm {
+  @extend %size-sm;
+}
 
 @mixin size-md {
   font-size: var(--badge-size-md-font-size, var(--size-font-xs));
@@ -15,8 +20,13 @@
     var(--badge-size-md-padding-horizontal, var(--size-spacing-xs));
 }
 
-%size-md { @include size-md; }
-.size-md { @extend %size-md; }
+%size-md {
+  @include size-md;
+}
+
+.size-md {
+  @extend %size-md;
+}
 
 @mixin size-lg {
   font-size: var(--badge-size-lg-font-size, var(--size-font-sm));
@@ -24,8 +34,13 @@
     var(--badge-size-lg-padding-horizontal, var(--size-spacing-xs));
 }
 
-%size-lg { @include size-lg; }
-.size-lg { @extend %size-lg; }
+%size-lg {
+  @include size-lg;
+}
+
+.size-lg {
+  @extend %size-lg;
+}
 
 @mixin size-xl {
   font-size: var(--badge-size-xl-font-size, var(--size-font-md));
@@ -33,8 +48,13 @@
     var(--badge-size-xl-padding-horizontal, var(--size-spacing-sm));
 }
 
-%size-xl { @include size-xl; }
-.size-xl { @extend %size-xl; }
+%size-xl {
+  @include size-xl;
+}
+
+.size-xl {
+  @extend %size-xl;
+}
 
 .badge {
   border-radius: var(--badge-border-radius, var(--size-border-radius-sm));

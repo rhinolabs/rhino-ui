@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Providers/ThemeProvider/Codesandbox" />
 
@@ -15,45 +15,50 @@ Once your app is wrapped in the provider, you will have access to the shared con
 
 1. `theme` -- the current theme -- `'light' | 'dark'`
 2. `systemPreference` -- whether the user prefers a light or dark them in their system preferences -- `light | dark`. Note that this is separate from the
-current theme so that you can manage either use the system preference as the basis for your app theme, or perhaps only use it as a default with the ability to
-override it as needed. The provider attaches a listener to the prefers-color-scheme: dark media query, so the value will update automatically if a user changes their
-system preference.
+   current theme so that you can manage either use the system preference as the basis for your app theme, or perhaps only use it as a default with the ability to
+   override it as needed. The provider attaches a listener to the prefers-color-scheme: dark media query, so the value will update automatically if a user changes their
+   system preference.
 3. `setTheme` -- A function that takes a new theme value as an argument and changes the them accordingly -- `(theme: 'light' | 'dark') => void`
 
 The example below utilizes the `theme` and `setTheme` values for a basic theme switcher.
 
 ```js codesandbox=rhinolabs-components
-import React, { useContext } from 'react';
-import { ThemeProvider, ThemeContext, Box, Toggle } from '@rhino-ui/components';
+import React, { useContext } from "react";
+import { ThemeProvider, ThemeContext, Box, Toggle } from "@rhino-ui/components";
 
 export default () => {
   const App = () => {
     const { theme, setTheme } = useContext(ThemeContext);
     const handleChangeTheme = (event) => {
-      const { target: { checked } } = event;
-      const newTheme = checked ? 'dark' : 'light';
+      const {
+        target: { checked },
+      } = event;
+      const newTheme = checked ? "dark" : "light";
       setTheme(newTheme);
     };
 
     return (
       <>
         <Box direction="row" childGap="xs" alignItems="center" margin="0 0 md 0">
-          <Box fontWeight="bold" display="inline">light</Box>
-          <Toggle
-            isChecked={theme === 'dark'}
-            onChange={handleChangeTheme}
-            label="dark"
-          />
+          <Box fontWeight="bold" display="inline">
+            light
+          </Box>
+          <Toggle isChecked={theme === "dark"} onChange={handleChangeTheme} label="dark" />
         </Box>
         <Box
           padding="lg"
-          color={theme === 'light' ? 'grey-dark' : 'grey-lighter'}
-          background={theme === 'light' ? 'white' : 'grey-darker'}
+          color={theme === "light" ? "grey-dark" : "grey-lighter"}
+          background={theme === "light" ? "white" : "grey-darker"}
           radius="md"
           borderWidth="xs"
-          borderColor={theme === 'light' ? 'grey-lighter' : 'grey-darker'}
+          borderColor={theme === "light" ? "grey-lighter" : "grey-darker"}
         >
-          <Box as="span" direction="row">Theme is:&nbsp;<Box fontWeight="bold" as="span">{theme}</Box></Box>
+          <Box as="span" direction="row">
+            Theme is:&nbsp;
+            <Box fontWeight="bold" as="span">
+              {theme}
+            </Box>
+          </Box>
         </Box>
       </>
     );
@@ -67,15 +72,14 @@ export default () => {
 };
 ```
 
-
 ## Using the System Preference
 
 The example below using the user's system preference exclusively for determining the theme. To try this out,
 change your system (light/dark) preference to see it in action.
 
 ```js codesandbox=rhinolabs-components
-import React, { useContext } from 'react';
-import { ThemeProvider, ThemeContext, Box } from '@rhino-ui/components';
+import React, { useContext } from "react";
+import { ThemeProvider, ThemeContext, Box } from "@rhino-ui/components";
 
 export default () => {
   const App = () => {
@@ -85,15 +89,15 @@ export default () => {
       <>
         <Box
           padding="lg"
-          color={systemPreference === 'light' ? 'grey-dark' : 'grey-lighter'}
-          background={systemPreference === 'light' ? 'white' : 'grey-darker'}
+          color={systemPreference === "light" ? "grey-dark" : "grey-lighter"}
+          background={systemPreference === "light" ? "white" : "grey-darker"}
           radius="md"
           borderWidth="xs"
-          borderColor={systemPreference === 'light' ? 'grey-lighter' : 'grey-darker'}
+          borderColor={systemPreference === "light" ? "grey-lighter" : "grey-darker"}
         >
           <Box as="span" direction="row">
             System Preference:&nbsp;
-            <Box fontWeight="bold" as="span" style={{ color: 'inherit' }}>
+            <Box fontWeight="bold" as="span" style={{ color: "inherit" }}>
               {systemPreference}
             </Box>
           </Box>
@@ -118,37 +122,39 @@ here is an example that puts these concepts together for a more holistic approac
 In the example below -- the user can decide to either use their system preference, or hardcode a setting for the app, specifically
 
 ```js codesandbox=rhinolabs-components
-import React, { useContext, useEffect, useState } from 'react';
-import { ThemeProvider, ThemeContext, Box, RadioGroup } from '@rhino-ui/components';
+import React, { useContext, useEffect, useState } from "react";
+import { ThemeProvider, ThemeContext, Box, RadioGroup } from "@rhino-ui/components";
 
 export default () => {
   const App = () => {
     const { theme, setTheme, systemPreference } = useContext(ThemeContext);
-    const [userThemeSetting, setUserThemeSetting] = useState('light');
+    const [userThemeSetting, setUserThemeSetting] = useState("light");
 
     const options = [
       {
-        id: 'light',
-        value: 'light',
-        label: 'Light'
-      }, {
-        id: 'dark',
-        value: 'dark',
-        label: 'Dark'
-      }, {
-        id: 'systemPreference',
-        value: 'systemPreference',
-        label: 'Use System Preference'
-      }
+        id: "light",
+        value: "light",
+        label: "Light",
+      },
+      {
+        id: "dark",
+        value: "dark",
+        label: "Dark",
+      },
+      {
+        id: "systemPreference",
+        value: "systemPreference",
+        label: "Use System Preference",
+      },
     ];
 
     useEffect(() => {
-      if (userThemeSetting !== 'systemPreference') {
+      if (userThemeSetting !== "systemPreference") {
         setTheme(userThemeSetting);
       }
     }, [userThemeSetting]);
 
-    const activeTheme = userThemeSetting === 'systemPreference' ? systemPreference : theme;
+    const activeTheme = userThemeSetting === "systemPreference" ? systemPreference : theme;
 
     return (
       <>
@@ -156,28 +162,28 @@ export default () => {
           <RadioGroup
             name="userThemeSetting"
             value={userThemeSetting}
-            onChange={event => setUserThemeSetting(event.target.value)}
+            onChange={(event) => setUserThemeSetting(event.target.value)}
             options={options}
           />
         </Box>
         <Box
           padding="lg"
-          color={activeTheme === 'light' ? 'grey-dark' : 'grey-lighter'}
-          background={activeTheme === 'light' ? 'white' : 'grey-darker'}
+          color={activeTheme === "light" ? "grey-dark" : "grey-lighter"}
+          background={activeTheme === "light" ? "white" : "grey-darker"}
           radius="md"
           borderWidth="xs"
-          borderColor={activeTheme === 'light' ? 'grey-lighter' : 'grey-darker'}
+          borderColor={activeTheme === "light" ? "grey-lighter" : "grey-darker"}
         >
           <Box childGap="sm">
             <Box as="span" direction="row">
               Active Theme:&nbsp;
-              <Box fontWeight="bold" as="span" style={{ color: 'inherit' }}>
+              <Box fontWeight="bold" as="span" style={{ color: "inherit" }}>
                 {activeTheme}
               </Box>
             </Box>
             <Box as="span" direction="row">
               System Preference:&nbsp;
-              <Box fontWeight="bold" as="span" style={{ color: 'inherit' }}>
+              <Box fontWeight="bold" as="span" style={{ color: "inherit" }}>
                 {systemPreference}
               </Box>
             </Box>

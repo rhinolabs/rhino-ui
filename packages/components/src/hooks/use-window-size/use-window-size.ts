@@ -1,5 +1,5 @@
-import React from 'react';
-import { ResponsiveContext } from '../../components/responsive-provider/responsive-provider';
+import React from "react";
+import { ResponsiveContext } from "../../components/responsive-provider/responsive-provider";
 
 export interface HookWindowSize {
   innerWidth?: number;
@@ -8,13 +8,7 @@ export interface HookWindowSize {
   outerHeight?: number;
 }
 export const useWindowSize = (): HookWindowSize => {
-  const {
-    innerWidth,
-    innerHeight,
-    outerHeight,
-    outerWidth,
-    isCreated,
-  } = React.useContext(ResponsiveContext);
+  const { innerWidth, innerHeight, outerHeight, outerWidth, isCreated } = React.useContext(ResponsiveContext);
 
   if (isCreated) {
     return {

@@ -1,42 +1,42 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { Toggle, ToggleProps } from './toggle';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { Toggle, ToggleProps } from "./toggle";
 
 const meta: Meta<typeof Toggle> = {
-  title: 'Components/Toggle/Playground',
+  title: "Components/Toggle/Playground",
   component: Toggle,
   argTypes: {
     id: {
-      control: 'text',
+      control: "text",
     },
     isChecked: {
-      control: 'boolean',
+      control: "boolean",
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     error: {
-      control: 'text',
+      control: "text",
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     hideLabel: {
-      control: 'boolean',
+      control: "boolean",
     },
     isDisabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     isRequired: {
-      control: 'boolean',
+      control: "boolean",
     },
     className: {
-      control: 'text',
+      control: "text",
     },
     size: {
       control: {
-        type: 'radio',
-        options: ['sm', 'md', 'lg'],
+        type: "radio",
+        options: ["sm", "md", "lg"],
       },
     },
   },
@@ -48,8 +48,8 @@ const Template: StoryFn<ToggleProps> = ({ ...args }) => <Toggle {...args} />;
 
 export const Playground = Template.bind({});
 Playground.args = {
-  id: 'togglePlayground',
-  size: 'md',
-  label: 'Toggle component playground',
-  helpText: 'Help text',
+  id: "togglePlayground",
+  size: "md",
+  label: "Toggle component playground",
+  helpText: "Help text",
 };

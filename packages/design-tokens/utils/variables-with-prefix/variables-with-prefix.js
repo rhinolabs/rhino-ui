@@ -1,19 +1,22 @@
 function variablesWithPrefix(prefix, properties, commentStyle) {
-  return properties.map(function(prop) {
-      var to_ret_prop = prefix + prop.name + ': ' + prop.value + ';';
+  return properties
+    .map(function (prop) {
+      let toRetProp = `${prefix + prop.name}: ${prop.value};`;
 
       if (prop.comment) {
-        if (commentStyle === 'short') {
-          to_ret_prop = to_ret_prop.concat(' // ' + prop.comment);
+        if (commentStyle === "short") {
+          toRetProp = toRetProp.concat(` // ${prop.comment}`);
         } else {
-          to_ret_prop = to_ret_prop.concat(' /* ' + prop.comment + ' */');
+          toRetProp = toRetProp.concat(` /* ${prop.comment} */`);
         }
       }
 
-      return to_ret_prop;
+      return toRetProp;
     })
-    .filter(function(strVal) { return !!strVal })
-    .join('\n');
+    .filter(function (strVal) {
+      return !!strVal;
+    })
+    .join("\n");
 }
 
 module.exports = variablesWithPrefix;

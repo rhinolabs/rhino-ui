@@ -1,70 +1,70 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { FileUpload, FileUploadProps } from './file-upload';
-import { ICON_NAMES } from '../../lib/tokens';
-import { BUTTON_SIZES } from '../button/button.constants';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { FileUpload, FileUploadProps } from "./file-upload";
+import { ICON_NAMES } from "../../lib/tokens";
+import { BUTTON_SIZES } from "../button/button.constants";
 
 const meta: Meta<typeof FileUpload> = {
-  title: 'Components/FileUpload/Playground',
+  title: "Components/FileUpload/Playground",
   component: FileUpload,
   argTypes: {
     accept: {
-      control: 'text',
+      control: "text",
     },
     id: {
-      control: 'text',
+      control: "text",
     },
     buttonText: {
-      control: 'text',
+      control: "text",
     },
     error: {
-      control: 'text',
+      control: "text",
     },
     fullWidth: {
-      control: 'boolean',
+      control: "boolean",
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     hasIcon: {
-      control: 'boolean',
+      control: "boolean",
     },
     iconName: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...ICON_NAMES],
       },
     },
     isDisabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     isOutlined: {
-      control: 'boolean',
+      control: "boolean",
     },
     isRequired: {
-      control: 'boolean',
+      control: "boolean",
     },
     multiple: {
-      control: 'boolean',
+      control: "boolean",
     },
     name: {
-      control: 'text',
+      control: "text",
     },
     className: {
-      control: 'text',
+      control: "text",
     },
     labelText: {
-      control: 'text',
+      control: "text",
     },
     variant: {
       control: {
-        type: 'radio',
-        options: ['light', 'dark', 'primary', 'white'],
+        type: "radio",
+        options: ["light", "dark", "primary", "white"],
       },
     },
     size: {
       control: {
-        type: 'select',
+        type: "select",
         options: BUTTON_SIZES,
       },
     },
@@ -73,14 +73,12 @@ const meta: Meta<typeof FileUpload> = {
 
 export default meta;
 
-const Template: StoryFn<FileUploadProps> = ({ ...args }) => (
-  <FileUpload {...args} />
-);
+const Template: StoryFn<FileUploadProps> = ({ ...args }) => <FileUpload {...args} />;
 
 export const Playground = Template.bind({});
 Playground.args = {
-  id: 'playGroundFileUpload',
-  buttonText: 'Playground FileUpload',
-  labelText: 'Upload a file',
-  helpText: 'Helpful text',
+  id: "playGroundFileUpload",
+  buttonText: "Playground FileUpload",
+  labelText: "Upload a file",
+  helpText: "Helpful text",
 };

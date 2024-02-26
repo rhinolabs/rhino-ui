@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { OptionTileGroup } from './option-tile-group';
-import { Heading } from '../heading/heading';
-import { Box } from '../box/box';
+import { useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { OptionTileGroup } from "./option-tile-group";
+import { Heading } from "../heading/heading";
+import { Box } from "../box/box";
 
 <Meta
   title="Components/OptionTileGroup/Overview"
@@ -21,29 +21,29 @@ If there are more than five options, use the [SelectInput](?path=/docs/component
 <Canvas isExpanded>
   <Story name="Default">
     {() => {
-      const [value, setValue] = useState('chocolate');
+      const [value, setValue] = useState("chocolate");
       const options = [
         {
-          id: 'chocolate_default',
-          value: 'chocolate',
-          label: 'Chocolate',
+          id: "chocolate_default",
+          value: "chocolate",
+          label: "Chocolate",
         },
         {
-          id: 'strawberry_default',
-          value: 'strawberry',
-          label: 'Strawberry',
+          id: "strawberry_default",
+          value: "strawberry",
+          label: "Strawberry",
         },
         {
-          id: 'vanilla_default',
-          value: 'vanilla',
-          label: 'Vanilla',
+          id: "vanilla_default",
+          value: "vanilla",
+          label: "Vanilla",
         },
       ];
       return (
         <OptionTileGroup
           name="default"
           value={value}
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           options={options}
         />
       );
@@ -64,40 +64,32 @@ now being an array of values.
   <Story name="MultiSelect">
     {() => {
       const [value, setValue] = useState([]);
-      const handleSetValue = event => {
+      const handleSetValue = (event) => {
         const selectedValue = event.target.value;
         if (value.includes(selectedValue)) {
-          setValue([...value].filter(v => v !== selectedValue));
+          setValue([...value].filter((v) => v !== selectedValue));
         } else {
           setValue([...value, selectedValue]);
         }
       };
       const options = [
         {
-          id: 'chocolate_multi',
-          value: 'chocolate',
-          label: 'Chocolate',
+          id: "chocolate_multi",
+          value: "chocolate",
+          label: "Chocolate",
         },
         {
-          id: 'strawberry_multi',
-          value: 'strawberry',
-          label: 'Strawberry',
+          id: "strawberry_multi",
+          value: "strawberry",
+          label: "Strawberry",
         },
         {
-          id: 'vanilla_multi',
-          value: 'vanilla',
-          label: 'Vanilla',
+          id: "vanilla_multi",
+          value: "vanilla",
+          label: "Vanilla",
         },
       ];
-      return (
-        <OptionTileGroup
-          name="multi"
-          value={value}
-          onChange={handleSetValue}
-          options={options}
-          isMulti
-        />
-      );
+      return <OptionTileGroup name="multi" value={value} onChange={handleSetValue} options={options} isMulti />;
     }}
   </Story>
 </Canvas>
@@ -110,29 +102,29 @@ to the selected states on the tile itself. This is likely best when paired with 
 <Canvas isExpanded>
   <Story name="Hidden Input">
     {() => {
-      const [value, setValue] = useState('chocolate');
+      const [value, setValue] = useState("chocolate");
       const options = [
         {
-          id: 'chocolate_hidden',
-          value: 'chocolate',
-          label: 'Chocolate',
+          id: "chocolate_hidden",
+          value: "chocolate",
+          label: "Chocolate",
         },
         {
-          id: 'strawberry_hidden',
-          value: 'strawberry',
-          label: 'Strawberry',
+          id: "strawberry_hidden",
+          value: "strawberry",
+          label: "Strawberry",
         },
         {
-          id: 'vanilla_hidden',
-          value: 'vanilla',
-          label: 'Vanilla',
+          id: "vanilla_hidden",
+          value: "vanilla",
+          label: "Vanilla",
         },
       ];
       return (
         <OptionTileGroup
           name="hidden"
           value={value}
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           options={options}
           hideInput
         />
@@ -148,22 +140,22 @@ Set the direction (flex) of the tiles. It can be one of `row` or `column` but wi
 <Canvas isExpanded>
   <Story name="Direction">
     {() => {
-      const [valueVertical, setValueVertical] = useState('chocolate');
+      const [valueVertical, setValueVertical] = useState("chocolate");
       const optionsVertical = [
         {
-          id: 'chocolate_direction',
-          value: 'chocolate',
-          label: 'Chocolate',
+          id: "chocolate_direction",
+          value: "chocolate",
+          label: "Chocolate",
         },
         {
-          id: 'strawberry_direction',
-          value: 'strawberry',
-          label: 'Strawberry',
+          id: "strawberry_direction",
+          value: "strawberry",
+          label: "Strawberry",
         },
         {
-          id: 'vanilla_direction',
-          value: 'vanilla',
-          label: 'Vanilla',
+          id: "vanilla_direction",
+          value: "vanilla",
+          label: "Vanilla",
         },
       ];
       return (
@@ -174,9 +166,9 @@ Set the direction (flex) of the tiles. It can be one of `row` or `column` but wi
           <OptionTileGroup
             name="directionVertical"
             value={valueVertical}
-            onChange={event => setValueVertical(event.target.value)}
+            onChange={(event) => setValueVertical(event.target.value)}
             options={optionsVertical}
-            direction={{ base: 'column', tablet: 'row' }}
+            direction={{ base: "column", tablet: "row" }}
           />
         </>
       );
@@ -191,22 +183,22 @@ Acting as the fieldset legend.
 <Canvas isExpanded>
   <Story name="Title and Description">
     {() => {
-      const [value, setValue] = useState('chocolate');
+      const [value, setValue] = useState("chocolate");
       const options = [
         {
-          id: 'chocolate_title',
-          value: 'chocolate',
-          label: 'Chocolate',
+          id: "chocolate_title",
+          value: "chocolate",
+          label: "Chocolate",
         },
         {
-          id: 'strawberry_title',
-          value: 'strawberry',
-          label: 'Strawberry',
+          id: "strawberry_title",
+          value: "strawberry",
+          label: "Strawberry",
         },
         {
-          id: 'vanilla_title',
-          value: 'vanilla',
-          label: 'Vanilla',
+          id: "vanilla_title",
+          value: "vanilla",
+          label: "Vanilla",
         },
       ];
       return (
@@ -215,7 +207,7 @@ Acting as the fieldset legend.
           title="Ice cream flavors"
           description="Only if you eat all your dinner"
           value={value}
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           options={options}
         />
       );
@@ -230,22 +222,22 @@ Sets the required and aria-required attributes on the options in the group. To a
 <Canvas isExpanded>
   <Story name="Required">
     {() => {
-      const [value, setValue] = useState('chocolate');
+      const [value, setValue] = useState("chocolate");
       const options = [
         {
-          id: 'chocolate_required',
-          value: 'chocolate',
-          label: 'Chocolate',
+          id: "chocolate_required",
+          value: "chocolate",
+          label: "Chocolate",
         },
         {
-          id: 'strawberry_required',
-          value: 'strawberry',
-          label: 'Strawberry',
+          id: "strawberry_required",
+          value: "strawberry",
+          label: "Strawberry",
         },
         {
-          id: 'vanilla_required',
-          value: 'vanilla',
-          label: 'Vanilla',
+          id: "vanilla_required",
+          value: "vanilla",
+          label: "Vanilla",
         },
       ];
       return (
@@ -254,7 +246,7 @@ Sets the required and aria-required attributes on the options in the group. To a
           title="Ice cream flavors"
           isRequired
           value={value}
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           options={options}
         />
       );
@@ -271,47 +263,47 @@ A `disabled` attribute can be passed inside the `Option` object to disable any p
     {() => {
       const [value, setValue] = useState();
       const [valueMulti, setValueMulti] = useState([]);
-      const handleSetValueMulti = event => {
+      const handleSetValueMulti = (event) => {
         const selectedValue = event.target.value;
         if (valueMulti.includes(selectedValue)) {
-          setValueMulti([...valueMulti].filter(v => v !== selectedValue));
+          setValueMulti([...valueMulti].filter((v) => v !== selectedValue));
         } else {
           setValueMulti([...valueMulti, selectedValue]);
         }
       };
       const options = [
         {
-          id: 'chocolate_disabled',
-          value: 'chocolate',
-          label: 'Chocolate',
+          id: "chocolate_disabled",
+          value: "chocolate",
+          label: "Chocolate",
         },
         {
-          id: 'strawberry_disabled',
-          value: 'strawberry',
-          label: 'Strawberry',
+          id: "strawberry_disabled",
+          value: "strawberry",
+          label: "Strawberry",
         },
         {
-          id: 'vanilla_disabled',
-          value: 'vanilla',
-          label: 'Vanilla',
+          id: "vanilla_disabled",
+          value: "vanilla",
+          label: "Vanilla",
           disabled: true,
         },
       ];
       const optionsMulti = [
         {
-          id: 'chocolate_disabled_multi',
-          value: 'chocolate',
-          label: 'Chocolate',
+          id: "chocolate_disabled_multi",
+          value: "chocolate",
+          label: "Chocolate",
         },
         {
-          id: 'strawberry_disabled_multi',
-          value: 'strawberry',
-          label: 'Strawberry',
+          id: "strawberry_disabled_multi",
+          value: "strawberry",
+          label: "Strawberry",
         },
         {
-          id: 'vanilla_disabled_multi',
-          value: 'vanilla',
-          label: 'Vanilla',
+          id: "vanilla_disabled_multi",
+          value: "vanilla",
+          label: "Vanilla",
           disabled: true,
         },
       ];
@@ -320,7 +312,7 @@ A `disabled` attribute can be passed inside the `Option` object to disable any p
           <OptionTileGroup
             name="disabled"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             margin="0 0 lg 0"
           />
@@ -347,19 +339,19 @@ Pass an error (or boolean with no message) to notify a user when something isn't
       const [value, setValue] = useState([]);
       const options = [
         {
-          id: 'chocolate_error',
-          value: 'chocolate',
-          label: 'Chocolate',
+          id: "chocolate_error",
+          value: "chocolate",
+          label: "Chocolate",
         },
         {
-          id: 'strawberry_error',
-          value: 'strawberry',
-          label: 'Strawberry',
+          id: "strawberry_error",
+          value: "strawberry",
+          label: "Strawberry",
         },
         {
-          id: 'vanilla_error',
-          value: 'vanilla',
-          label: 'Vanilla',
+          id: "vanilla_error",
+          value: "vanilla",
+          label: "Vanilla",
           disabled: true,
         },
       ];
@@ -370,7 +362,7 @@ Pass an error (or boolean with no message) to notify a user when something isn't
           description="Only if you eat all your dinner"
           isRequired
           value={value}
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           options={options}
           error="You should really select an ice cream flavor!"
         />
@@ -384,23 +376,23 @@ Pass an `error` to an individual option to indicate that something about that sp
 <Canvas isExpanded>
   <Story name="Single Error">
     {() => {
-      const [value, setValue] = useState('strawberry');
+      const [value, setValue] = useState("strawberry");
       const options = [
         {
-          id: 'chocolate_error2',
-          value: 'chocolate',
-          label: 'Chocolate',
+          id: "chocolate_error2",
+          value: "chocolate",
+          label: "Chocolate",
         },
         {
-          id: 'strawberry_error2',
-          value: 'strawberry',
-          label: 'Strawberry',
-          error: 'single error',
+          id: "strawberry_error2",
+          value: "strawberry",
+          label: "Strawberry",
+          error: "single error",
         },
         {
-          id: 'vanilla_error2',
-          value: 'vanilla',
-          label: 'Vanilla',
+          id: "vanilla_error2",
+          value: "vanilla",
+          label: "Vanilla",
         },
       ];
       return (
@@ -410,7 +402,7 @@ Pass an `error` to an individual option to indicate that something about that sp
           description="Only if you eat all your dinner"
           isRequired
           value={value}
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           options={options}
         />
       );
@@ -429,36 +421,36 @@ The OptionsTile component has fullWidth (100%) enabled by default but it can be 
       const [valueVertical, setValueVertical] = useState([]);
       const optionsVertical = [
         {
-          id: 'chocolate_fullwidth_vertical',
-          value: 'chocolate',
-          label: 'Chocolate',
+          id: "chocolate_fullwidth_vertical",
+          value: "chocolate",
+          label: "Chocolate",
         },
         {
-          id: 'strawberry_fullwidth_vertical',
-          value: 'strawberry',
-          label: 'Strawberry',
+          id: "strawberry_fullwidth_vertical",
+          value: "strawberry",
+          label: "Strawberry",
         },
         {
-          id: 'vanilla_fullwidth_vertical',
-          value: 'vanilla',
-          label: 'Vanilla',
+          id: "vanilla_fullwidth_vertical",
+          value: "vanilla",
+          label: "Vanilla",
         },
       ];
       const optionsHorizontal = [
         {
-          id: 'chocolate_fullwidth_horizontal',
-          value: 'chocolate',
-          label: 'Chocolate',
+          id: "chocolate_fullwidth_horizontal",
+          value: "chocolate",
+          label: "Chocolate",
         },
         {
-          id: 'strawberry_fullwidth_horizontal',
-          value: 'strawberry',
-          label: 'Strawberry',
+          id: "strawberry_fullwidth_horizontal",
+          value: "strawberry",
+          label: "Strawberry",
         },
         {
-          id: 'vanilla_fullwidth_horizontal',
-          value: 'vanilla',
-          label: 'Vanilla',
+          id: "vanilla_fullwidth_horizontal",
+          value: "vanilla",
+          label: "Vanilla",
         },
       ];
       return (
@@ -467,7 +459,7 @@ The OptionsTile component has fullWidth (100%) enabled by default but it can be 
           <OptionTileGroup
             name="fullWidthVertical"
             value={valueVertical}
-            onChange={event => setValueVertical(event.target.value)}
+            onChange={(event) => setValueVertical(event.target.value)}
             options={optionsVertical}
             direction="column"
             isFullWidth={false}
@@ -476,7 +468,7 @@ The OptionsTile component has fullWidth (100%) enabled by default but it can be 
           <OptionTileGroup
             name="fullWidthHorizontal"
             value={valueHorizontal}
-            onChange={event => setValueHorizontal(event.target.value)}
+            onChange={(event) => setValueHorizontal(event.target.value)}
             options={optionsHorizontal}
             direction="row"
             isFullWidth={false}
@@ -497,10 +489,10 @@ The tiles can render custom content with a `render` function passed in the optio
       const [value, setValue] = useState([]);
       const options = [
         {
-          id: 'chocolate_custom',
-          value: 'chocolate',
-          label: 'Chocolate',
-          render: option => (
+          id: "chocolate_custom",
+          value: "chocolate",
+          label: "Chocolate",
+          render: (option) => (
             <Box>
               <Heading as="h3" size="lg" className="m-bottom-sm">
                 {option.label}
@@ -517,10 +509,10 @@ The tiles can render custom content with a `render` function passed in the optio
           ),
         },
         {
-          id: 'strawberry_custom',
-          value: 'strawberry',
-          label: 'Strawberry',
-          render: option => (
+          id: "strawberry_custom",
+          value: "strawberry",
+          label: "Strawberry",
+          render: (option) => (
             <Box>
               <Heading as="h3" size="lg" className="m-bottom-sm">
                 {option.label}
@@ -537,10 +529,10 @@ The tiles can render custom content with a `render` function passed in the optio
           ),
         },
         {
-          id: 'vanilla_custom',
-          value: 'vanilla',
-          label: 'Vanilla',
-          render: option => (
+          id: "vanilla_custom",
+          value: "vanilla",
+          label: "Vanilla",
+          render: (option) => (
             <Box>
               <Heading as="h3" size="lg" className="m-bottom-sm">
                 {option.label}
@@ -561,9 +553,9 @@ The tiles can render custom content with a `render` function passed in the optio
         <OptionTileGroup
           name="customContent"
           value={value}
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           options={options}
-          direction={{ base: 'column', tablet: 'row' }}
+          direction={{ base: "column", tablet: "row" }}
         />
       );
     }}

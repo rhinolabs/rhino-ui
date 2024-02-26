@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Toggle } from './toggle';
-import { Box } from '../box/box';
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Toggle } from "./toggle";
+import { Box } from "../box/box";
 
 <Meta title="Components/Toggle/Overview" component={Toggle} />
 
@@ -25,8 +25,8 @@ Toggles should provide immediate results and should not require the user to Save
     name="Default"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=488%3A3785',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=488%3A3785",
       },
     }}
   >
@@ -36,7 +36,7 @@ Toggles should provide immediate results and should not require the user to Save
         <Toggle
           id="defaultStateIsUnchecked"
           label="toggle label"
-          onChange={event => setValue(event.target.checked)}
+          onChange={(event) => setValue(event.target.checked)}
           isChecked={value}
         />
       );
@@ -53,8 +53,8 @@ Use the `helpText` prop to add clarifying text beneath the toggle label.
     name="With Help Text"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=488%3A3785',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=488%3A3785",
       },
     }}
   >
@@ -65,7 +65,7 @@ Use the `helpText` prop to add clarifying text beneath the toggle label.
           id="helpText"
           label="toggle label"
           helpText="descriptive help text"
-          onChange={event => setValue(event.target.checked)}
+          onChange={(event) => setValue(event.target.checked)}
           isChecked={value}
         />
       );
@@ -82,8 +82,8 @@ Use the `hideLabel` prop to not render the label, however a `label` is still req
     name="Hidden Label"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=488%3A3785',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=488%3A3785",
       },
     }}
   >
@@ -95,7 +95,7 @@ Use the `hideLabel` prop to not render the label, however a `label` is still req
           label="Hidden Label"
           helpText="hidden help text too"
           hideLabel
-          onChange={event => setValue(event.target.checked)}
+          onChange={(event) => setValue(event.target.checked)}
           isChecked={value}
         />
       );
@@ -113,8 +113,8 @@ The `size` prop is also a `ResponsiveProp`, so it can be sized differently at ea
     name="Size"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=488%3A3785',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=488%3A3785",
       },
     }}
   >
@@ -125,30 +125,30 @@ The `size` prop is also a `ResponsiveProp`, so it can be sized differently at ea
           <Toggle
             id="smToggle"
             label="small toggle"
-            onChange={event => setValue(event.target.checked)}
+            onChange={(event) => setValue(event.target.checked)}
             isChecked={value}
             size="sm"
           />
           <Toggle
             id="mediumToggle"
             label="medium toggle"
-            onChange={event => setValue(event.target.checked)}
+            onChange={(event) => setValue(event.target.checked)}
             isChecked={value}
             size="md"
           />
           <Toggle
             id="largeToggle"
             label="large toggle"
-            onChange={event => setValue(event.target.checked)}
+            onChange={(event) => setValue(event.target.checked)}
             isChecked={value}
             size="lg"
           />
           <Toggle
             id="responsiveToggle"
             label="responsive toggle"
-            onChange={event => setValue(event.target.checked)}
+            onChange={(event) => setValue(event.target.checked)}
             isChecked={value}
-            size={{ base: 'sm', tablet: 'md', desktop: 'lg', hd: 'sm' }}
+            size={{ base: "sm", tablet: "md", desktop: "lg", hd: "sm" }}
           />
         </Box>
       );
@@ -165,8 +165,8 @@ Disable the toggle by setting the `isDisabled` prop.
     name="Disabled"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=488%3A3785',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=488%3A3785",
       },
     }}
   >
@@ -176,7 +176,7 @@ Disable the toggle by setting the `isDisabled` prop.
         <Toggle
           id="disabledToggle"
           label="Label"
-          onChange={event => setValue(event.target.checked)}
+          onChange={(event) => setValue(event.target.checked)}
           isChecked={value}
           isDisabled
         />
@@ -194,8 +194,8 @@ Use the `error` prop to mark the input as invalid. `error` accepts a `boolean`, 
     name="Error"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=488%3A3785',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=488%3A3785",
       },
     }}
   >
@@ -208,7 +208,7 @@ Use the `error` prop to mark the input as invalid. `error` accepts a `boolean`, 
             id="invalidToggle"
             label="Agree to Terms and Conditions"
             isChecked={value}
-            onChange={value => setValue(event.target.checked)}
+            onChange={(value) => setValue(event.target.checked)}
             isRequired
             error="You must accept the Terms and Conditions"
           />
@@ -216,7 +216,7 @@ Use the `error` prop to mark the input as invalid. `error` accepts a `boolean`, 
             id="invalidToggle2"
             label="Roof Replacement"
             isChecked={value2}
-            onChange={value2 => setValue2(event.target.checked)}
+            onChange={(value2) => setValue2(event.target.checked)}
             error="Site Improvements can not be present with PPA"
           />
         </Box>
@@ -237,9 +237,9 @@ Use the `error` prop to mark the input as invalid. `error` accepts a `boolean`, 
   <tbody>
     {(() => {
       const tokens = {
-        '--toggle-background-color': '--color-brand-grey-200',
-        '--toggle-background-color-checked': '--color-brand-primary-500',
-        '--toggle-background-color-error': '--color-brand-danger-500',
+        "--toggle-background-color": "--color-brand-grey-200",
+        "--toggle-background-color-checked": "--color-brand-primary-500",
+        "--toggle-background-color-error": "--color-brand-danger-500",
       };
       return Object.entries(tokens).map(([name, entry], i) => (
         <tr key={i}>

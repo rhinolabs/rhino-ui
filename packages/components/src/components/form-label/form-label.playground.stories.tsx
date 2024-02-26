@@ -1,25 +1,25 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { FormLabel, FormLabelProps } from './form-label';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { FormLabel, FormLabelProps } from "./form-label";
 
-const meta: Meta<typeof FormLabel> =  {
-  title: 'Components/FormLabel/Playground',
+const meta: Meta<typeof FormLabel> = {
+  title: "Components/FormLabel/Playground",
   component: FormLabel,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     isDisabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     isRadioInputLabel: {
-      control: 'boolean',
+      control: "boolean",
     },
     className: {
-      control: 'text',
+      control: "text",
     },
   },
 };
@@ -30,7 +30,7 @@ const Template: StoryFn<FormLabelProps> = ({ ...args }) => <FormLabel {...args} 
 
 export const Playground = Template.bind({});
 Playground.args = {
-  inputId: 'playgroundInput',
-  children: 'Playground Form Label',
-  helpText: 'Helpful text',
+  inputId: "playgroundInput",
+  children: "Playground Form Label",
+  helpText: "Helpful text",
 };

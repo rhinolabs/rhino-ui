@@ -1,17 +1,15 @@
-import React, {
-  FC, ChangeEvent, FocusEvent, ReactNode,
-} from 'react';
-import classNames from 'classnames';
-import { ResponsiveProp } from '../../types';
-import { Box, BoxProps } from '../box/box';
-import { FormLabel } from '../form-label/form-label';
-import { InputValidationMessage } from '../input-validation-message/input-validation-message';
-import { getAutoCompleteValue } from '../../lib/get-auto-complete-value';
-import { generateResponsiveClasses } from '../../lib/generate-responsive-classes';
-import styles from './textarea-input.module.scss';
+import React, { FC, ChangeEvent, FocusEvent, ReactNode } from "react";
+import classNames from "classnames";
+import { ResponsiveProp } from "../../types";
+import { Box, BoxProps } from "../box/box";
+import { FormLabel } from "../form-label/form-label";
+import { InputValidationMessage } from "../input-validation-message/input-validation-message";
+import { getAutoCompleteValue } from "../../lib/get-auto-complete-value";
+import { generateResponsiveClasses } from "../../lib/generate-responsive-classes";
+import styles from "./textarea-input.module.scss";
 
-export type TextareaInputSize = 'sm' | 'md' | 'lg';
-export interface TextareaInputProps extends Omit<BoxProps, 'as' | 'width'> {
+export type TextareaInputSize = "sm" | "md" | "lg";
+export interface TextareaInputProps extends Omit<BoxProps, "as" | "width"> {
   /**
    * The input's id attribute. Used to programmatically tie the input with its label.
    */
@@ -89,7 +87,7 @@ export interface TextareaInputProps extends Omit<BoxProps, 'as' | 'width'> {
   /**
    * Textarea resize behavior
    */
-  resize?: 'vertical' | 'horizontal' | 'none' | 'both';
+  resize?: "vertical" | "horizontal" | "none" | "both";
   /**
    * number of visible text lines for the control.
    */
@@ -121,19 +119,19 @@ export const TextareaInput: FC<TextareaInputProps> = ({
   name = undefined,
   onBlur = undefined,
   onFocus = undefined,
-  placeholder = '',
-  requiredIndicator = ' *',
-  resize = 'vertical',
+  placeholder = "",
+  requiredIndicator = " *",
+  resize = "vertical",
   rows = 3,
-  size = 'md',
+  size = "md",
   ...restProps
 }) => {
-  const responsiveClasses = generateResponsiveClasses('size', size);
+  const responsiveClasses = generateResponsiveClasses("size", size);
 
   const inputWrapperClasses = classNames(
-    'rhinolabs-components__variables__form-control',
-    styles['textarea-input-wrapper'],
-    ...responsiveClasses.map(c => (styles[c])),
+    "rhinolabs-components__variables__form-control",
+    styles["textarea-input-wrapper"],
+    ...responsiveClasses.map((c) => styles[c]),
     {
       [styles.error]: error,
       [styles.disabled]: isDisabled,
@@ -141,10 +139,10 @@ export const TextareaInput: FC<TextareaInputProps> = ({
   );
 
   const inputProps = {
-    'aria-required': isRequired,
-    'aria-invalid': !!error,
-    'aria-label': label,
-    'aria-labelledby': label && !hideLabel ? `${id}Label` : undefined,
+    "aria-required": isRequired,
+    "aria-invalid": !!error,
+    "aria-label": label,
+    "aria-labelledby": label && !hideLabel ? `${id}Label` : undefined,
     autoComplete: getAutoCompleteValue(autoComplete),
     autoFocus,
     className: classNames(styles[`textarea-resize-${resize}`]),
@@ -164,7 +162,7 @@ export const TextareaInput: FC<TextareaInputProps> = ({
   const labelProps = {
     inputId: id,
     helpText,
-    className: styles['textarea-input-label'],
+    className: styles["textarea-input-label"],
     isDisabled,
     isFieldRequired: isRequired,
     requiredIndicator,
@@ -173,10 +171,7 @@ export const TextareaInput: FC<TextareaInputProps> = ({
   return (
     <Box width="100%" className={className} {...restProps}>
       {label && !hideLabel && <FormLabel {...labelProps}>{label}</FormLabel>}
-      <Box
-        display="block"
-        className={inputWrapperClasses}
-      >
+      <Box display="block" className={inputWrapperClasses}>
         <Box as="textarea" {...inputProps} />
       </Box>
       {error && error !== true && <InputValidationMessage>{error}</InputValidationMessage>}

@@ -1,10 +1,10 @@
-import React, { FC, ReactNode } from 'react';
-import classNames from 'classnames';
-import styles from './table-row.module.scss';
-import { Column, EventWithColumnKey, Row } from '../../../../types';
-import { getColumnKeys } from '../../../../lib/get-column-keys';
-import TableBodyCell from '../../table-body/table-body-cell/table-body-cell';
-import { TableHeaderCell } from '../../table-head/table-header-cell/table-header-cell';
+import React, { FC, ReactNode } from "react";
+import classNames from "classnames";
+import styles from "./table-row.module.scss";
+import { Column, EventWithColumnKey, Row } from "../../../../types";
+import { getColumnKeys } from "../../../../lib/get-column-keys";
+import TableBodyCell from "../../table-body/table-body-cell/table-body-cell";
+import { TableHeaderCell } from "../../table-head/table-header-cell/table-header-cell";
 
 export interface TableRowProps {
   /**
@@ -15,7 +15,7 @@ export interface TableRowProps {
    * Text alignment for all table cells. Can be superseded by passing the same prop into the `Column` object
    * for a specific column.
    */
-  align?: 'left' | 'right' | 'center';
+  align?: "left" | "right" | "center";
   /**
    * Custom class to be applied to `<tr>` element.
    */
@@ -45,7 +45,7 @@ export interface TableRowProps {
    * Whether the row is inside the table head (thead).
    */
   isTableHead?: boolean;
-   /**
+  /**
    * Callback function to fire on sorting one of the table headers.
    */
   onSort?: (event: EventWithColumnKey) => void;
@@ -62,7 +62,7 @@ export interface TableRowProps {
    */
   sortedColumn?: {
     dataKey: string | undefined;
-    sortDirection: 'none' | 'ascending' | 'descending' | undefined;
+    sortDirection: "none" | "ascending" | "descending" | undefined;
   };
   /**
    * Truncate overflow inside column based on column width. Can be overwritten on specific columns,
@@ -73,9 +73,9 @@ export interface TableRowProps {
 
 export const TableRow: FC<TableRowProps> = ({
   columns,
-  align = 'left',
-  className = '',
-  emptyCellPlaceholder = '',
+  align = "left",
+  className = "",
+  emptyCellPlaceholder = "",
   isBorderless = false,
   isCompact = false,
   hasStickyHeader = false,
@@ -87,13 +87,9 @@ export const TableRow: FC<TableRowProps> = ({
   rowIndex = undefined,
   truncateOverflow = false,
 }) => {
-  const tableRowClasses = classNames(
-    styles['table-row'],
-    { [styles.hoverable]: isHoverable },
-    className,
-  );
+  const tableRowClasses = classNames(styles["table-row"], { [styles.hoverable]: isHoverable }, className);
 
-  const renderCellContent = (column: Column):ReactNode => {
+  const renderCellContent = (column: Column): ReactNode => {
     if (column.render) {
       const cellValue = column.dataKey && row ? row[column.dataKey] : undefined;
       return column.render(cellValue, row, rowIndex);
@@ -102,9 +98,9 @@ export const TableRow: FC<TableRowProps> = ({
     return column.dataKey && row ? row[column.dataKey] : null;
   };
 
-  const getCellClassName = (column: Column):string|undefined => {
+  const getCellClassName = (column: Column): string | undefined => {
     if (column.cellClassName) {
-      if (typeof column.cellClassName === 'function') {
+      if (typeof column.cellClassName === "function") {
         return column.cellClassName(column, row, rowIndex);
       }
       return column.cellClassName;
@@ -114,7 +110,7 @@ export const TableRow: FC<TableRowProps> = ({
 
   return (
     <tr className={tableRowClasses}>
-      {Object.values(columns).map((column, columnIndex) => (
+      {Object.values(columns).map((column, columnIndex) =>
         isTableHead ? (
           <TableHeaderCell
             column={column}
@@ -146,8 +142,8 @@ export const TableRow: FC<TableRowProps> = ({
           >
             {renderCellContent(column)}
           </TableBodyCell>
-        )
-      ))}
+        ),
+      )}
     </tr>
   );
 };

@@ -1,9 +1,9 @@
-import React from 'react';
-import { Box, BoxProps } from '../../box/box';
-import { Icon } from '../../icon/icon';
-import { FontColor } from '../../../types';
-import { RadioInputProps } from './radio-input'; // eslint-disable-line import/no-cycle
-import { RadioGroupProps } from '../radio-group'; // eslint-disable-line import/no-cycle
+import React from "react";
+import { Box, BoxProps } from "../../box/box";
+import { Icon } from "../../icon/icon";
+import { FontColor } from "../../../types";
+import { RadioInputProps } from "./radio-input"; // eslint-disable-line import/no-cycle
+import { RadioGroupProps } from "../radio-group"; // eslint-disable-line import/no-cycle
 
 export interface RadioIconProps extends BoxProps {
   /**
@@ -13,15 +13,15 @@ export interface RadioIconProps extends BoxProps {
   /**
    * Whether the input is in an error state. The icon will visually change accordingly.
    */
-  error?: RadioGroupProps['error'];
+  error?: RadioGroupProps["error"];
   /**
    * Whether the radio is selected.
    */
-  isSelected?: RadioInputProps['isSelected'];
+  isSelected?: RadioInputProps["isSelected"];
   /**
    * If the input should be disabled and not focusable.
    */
-  isDisabled?: RadioInputProps['isDisabled'];
+  isDisabled?: RadioInputProps["isDisabled"];
   /**
    * Additional props to be spread to rendered element
    */
@@ -35,21 +35,21 @@ export const RadioInputIcon: React.FC<RadioIconProps> = ({
   error = null,
   ...restProps
 }) => {
-  let color: FontColor = 'grey-500';
-  let name: 'radio-btn-unchecked' | 'radio-btn-checked' = 'radio-btn-unchecked';
+  let color: FontColor = "grey-500";
+  let name: "radio-btn-unchecked" | "radio-btn-checked" = "radio-btn-unchecked";
 
   if (isSelected && isDisabled) {
-    color = 'primary-200';
-    name = 'radio-btn-checked';
+    color = "primary-200";
+    name = "radio-btn-checked";
   } else if (isSelected && !isDisabled) {
-    color = 'primary-500';
-    name = 'radio-btn-checked';
+    color = "primary-500";
+    name = "radio-btn-checked";
   } else if (isDisabled) {
-    color = 'grey-200';
+    color = "grey-200";
   }
 
-  if (error) color = 'danger-500';
-  if (isDisabled && error) color = 'danger-200';
+  if (error) color = "danger-500";
+  if (isDisabled && error) color = "danger-200";
 
   return (
     <Box className={className} {...restProps}>

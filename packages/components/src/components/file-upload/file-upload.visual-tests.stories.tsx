@@ -1,10 +1,10 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { RESPONSIVE_STORY } from '../../docs/constants';
-import { FileUpload, FileUploadProps } from './file-upload';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { RESPONSIVE_STORY } from "../../docs/constants";
+import { FileUpload, FileUploadProps } from "./file-upload";
 
 const meta: Meta<typeof FileUpload> = {
-  title: 'Components/FileUpload/Visual Regression Tests',
+  title: "Components/FileUpload/Visual Regression Tests",
   component: FileUpload,
 };
 
@@ -16,7 +16,7 @@ const Template: StoryFn<FileUploadProps> = ({ ...args }) => (
 
 export const ResponsiveHelpText = Template.bind({});
 ResponsiveHelpText.args = {
-  helpText: 'image files only (jpg, png, gif)',
-  accept: 'image/*',
+  helpText: "image files only (jpg, png, gif)",
+  accept: "image/*",
 };
 ResponsiveHelpText.parameters = RESPONSIVE_STORY;

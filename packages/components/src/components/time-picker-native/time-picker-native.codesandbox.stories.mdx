@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Components/TimePickerNative/Codesandbox" />
 
@@ -13,8 +13,8 @@ _ABOUT TIME FORMAT:_ While the `value` prop technically returns `{ label: string
 be a JS ISO date string, like this: `2016-07-13T18:46:01.933Z`.
 
 ```js codesandbox=rhinolabs-components
-import React, { useState } from 'react';
-import { TimePickerNative, Box } from '@rhino-ui/components';
+import React, { useState } from "react";
+import { TimePickerNative, Box } from "@rhino-ui/components";
 
 export default () => {
   const [value, setValue] = useState(null);
@@ -24,7 +24,7 @@ export default () => {
       <TimePickerNative
         id="defaultTimePickerNative"
         name="defaultTimePickerNative"
-        onChange={event => {
+        onChange={(event) => {
           setValue(event.target.value);
         }}
         label="Pick a Time"
@@ -41,8 +41,8 @@ Pass an `interval` (seconds) value to determine how many times get generated as 
 The example below uses `3600` --> 1 Hour Intervals
 
 ```js codesandbox=rhinolabs-components
-import React, { useState } from 'react';
-import { TimePickerNative, Box } from '@rhino-ui/components';
+import React, { useState } from "react";
+import { TimePickerNative, Box } from "@rhino-ui/components";
 
 export default () => {
   const [value, setValue] = useState(null);
@@ -52,7 +52,7 @@ export default () => {
       <TimePickerNative
         id="intervalTimePickerNative"
         name="intervalTimePickerNative"
-        onChange={event => {
+        onChange={(event) => {
           setValue(event.target.value);
         }}
         label="Pick a Time"
@@ -76,8 +76,8 @@ the options showing the startTime twice when using a 24-hour cycle.
 See example below where we want to show 15 minute increments starting at 9:00AM and ending at 3:30PM.
 
 ```js codesandbox=rhinolabs-components
-import React, { useState } from 'react';
-import { TimePickerNative, Box } from '@rhino-ui/components';
+import React, { useState } from "react";
+import { TimePickerNative, Box } from "@rhino-ui/components";
 
 export default () => {
   const [value, setValue] = useState(null);
@@ -87,7 +87,7 @@ export default () => {
       <TimePickerNative
         id="startEnd"
         name="startEnd"
-        onChange={event => {
+        onChange={(event) => {
           setValue(event.target.value);
         }}
         label="Pick a Time"
@@ -110,8 +110,8 @@ NOTE: that the option values are always returned as ISO strings regardless of th
 The example below is shown in military (24-hour) time.
 
 ```js codesandbox=rhinolabs-components
-import React, { useState } from 'react';
-import { TimePickerNative, Box } from '@rhino-ui/components';
+import React, { useState } from "react";
+import { TimePickerNative, Box } from "@rhino-ui/components";
 
 export default () => {
   const [value, setValue] = useState(null);
@@ -121,13 +121,13 @@ export default () => {
       <TimePickerNative
         id="customDate"
         name="customDate"
-        onChange={event => {
+        onChange={(event) => {
           setValue(event.target.value);
         }}
         label="Pick a Time"
         startTime={{ hour: 9, minute: 0 }}
         endTime={{ hour: 15, minute: 31 }}
-        dateDisplayOptions={{ hour12: false, hour: '2-digit', minute: '2-digit' }}
+        dateDisplayOptions={{ hour12: false, hour: "2-digit", minute: "2-digit" }}
         value={value}
       />
     </Box>

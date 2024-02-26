@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Box } from '../box/box';
-import { Card } from '../card/card';
-import { SelectInput } from './select-input';
+import { useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Box } from "../box/box";
+import { Card } from "../card/card";
+import { SelectInput } from "./select-input";
 
 <Meta
   title="Components/SelectInput/Overview"
@@ -33,16 +33,16 @@ All that is required to render a basic version of the SelectInput is a unique `i
     {() => {
       const [value, setValue] = useState(null);
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       return (
-        <div style={{ height: '200px' }}>
+        <div style={{ height: "200px" }}>
           <SelectInput
             id="singleSelectWithLabel"
             label="Label"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             value={value}
           />
@@ -60,17 +60,17 @@ Pre-select an option by passing its value to the `value` prop.
   <Story name="Pre-Selected">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState(options[1]);
       return (
-        <div style={{ height: '200px' }}>
+        <div style={{ height: "200px" }}>
           <SelectInput
             id="preSelected"
             label="Label"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             value={value}
           />
@@ -89,17 +89,17 @@ Use the `helpText` prop to add clarifying text beneath the input label.
     {() => {
       const [value, setValue] = useState(null);
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       return (
-        <div style={{ height: '200px' }}>
+        <div style={{ height: "200px" }}>
           <SelectInput
             id="helpText"
             label="Flavor"
             helpText="Choose your favorite flavor"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             value={value}
             placeholder="Custom placeholder..."
@@ -119,16 +119,16 @@ Use the `placeholder` prop to add a custom placeholder.
     {() => {
       const [value, setValue] = useState(null);
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       return (
-        <div style={{ height: '200px' }}>
+        <div style={{ height: "200px" }}>
           <SelectInput
             id="customPlaceholder"
             label="Label"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             value={value}
             placeholder="Custom placeholder..."
@@ -148,16 +148,16 @@ Use the `hideLabel` prop to not render the label.
     {() => {
       const [value, setValue] = useState(null);
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       return (
-        <div style={{ height: '175px' }}>
+        <div style={{ height: "175px" }}>
           <SelectInput
             id="labelHidden"
             label="My label is hidden"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             value={value}
             hideLabel
@@ -177,17 +177,17 @@ Use the `isMulti` prop to allow the selection of multiple options.
     {() => {
       const [value, setValue] = useState(null);
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       return (
-        <div style={{ height: '200px' }}>
+        <div style={{ height: "200px" }}>
           <SelectInput
             id="multiSelect"
             label="Label"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             isMulti
           />
@@ -205,18 +205,18 @@ Use the `isMulti` prop combined with passing one or more options in an array to 
   <Story name="Multi-Select and Pre-Selected">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState([options[0], options[2]]);
       return (
-        <div style={{ height: '200px' }}>
+        <div style={{ height: "200px" }}>
           <SelectInput
             id="preSelectMultiSelect"
             label="Label"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             isMulti
           />
@@ -234,18 +234,18 @@ Use the `autoFocus` prop to autofocus a SelectInput.
   <Story name="Autofocus">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState(null);
       return (
-        <div style={{ height: '200px' }}>
+        <div style={{ height: "200px" }}>
           <SelectInput
             id="autoFocus"
             label="Label"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             autoFocus
           />
@@ -263,18 +263,18 @@ Use the `isRequired` prop to mark the input as required.
   <Story name="Required">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState(null);
       return (
-        <div style={{ height: '200px' }}>
+        <div style={{ height: "200px" }}>
           <SelectInput
             id="required"
             label="Label"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             isRequired
           />
@@ -292,18 +292,18 @@ Use the `isDisabled` prop to mark the input as disabled.
   <Story name="Disabled">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState(null);
       return (
-        <div style={{ height: '85px' }}>
+        <div style={{ height: "85px" }}>
           <SelectInput
             id="disabled"
             label="Label"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             isDisabled
           />
@@ -322,19 +322,19 @@ to the `onChange` handler.
   <Story name="Clearable">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState(options[0]);
       return (
-        <div style={{ height: '200px' }}>
+        <div style={{ height: "200px" }}>
           <SelectInput
             id="clearable"
             label="Label"
             value={value}
             name="myClearableSelect"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             isClearable
           />
@@ -352,18 +352,18 @@ Use the `error` prop to mark the input as invalid. `error` accepts a `boolean`, 
   <Story name="Error">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState(null);
       return (
-        <div style={{ height: '200px' }}>
+        <div style={{ height: "200px" }}>
           <SelectInput
             id="error"
             label="Label"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             isRequired
             error="Helpful validation message"
@@ -382,21 +382,21 @@ The `size` prop is also a `ResponsiveProp`, so it can be sized differently at ea
 <Canvas>
   <Story name="Size">
     {() => {
-      const [value, setValue] = useState('');
-      const [value1, setValue1] = useState('');
-      const [value2, setValue2] = useState('');
-      const [value3, setValue3] = useState('');
+      const [value, setValue] = useState("");
+      const [value1, setValue1] = useState("");
+      const [value2, setValue2] = useState("");
+      const [value3, setValue3] = useState("");
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       return (
         <Box gap="md" height="360px">
           <SelectInput
             id="smallSelect"
             label="Small"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             value={value}
             size="sm"
@@ -404,7 +404,7 @@ The `size` prop is also a `ResponsiveProp`, so it can be sized differently at ea
           <SelectInput
             id="mediumSelect"
             label="Medium"
-            onChange={event => setValue1(event.target.value)}
+            onChange={(event) => setValue1(event.target.value)}
             options={options}
             value={value1}
             size="md"
@@ -412,7 +412,7 @@ The `size` prop is also a `ResponsiveProp`, so it can be sized differently at ea
           <SelectInput
             id="largeSelect"
             label="Large"
-            onChange={event => setValue2(event.target.value)}
+            onChange={(event) => setValue2(event.target.value)}
             options={options}
             value={value2}
             size="lg"
@@ -420,10 +420,10 @@ The `size` prop is also a `ResponsiveProp`, so it can be sized differently at ea
           <SelectInput
             id="responsiveSelect"
             label="Responsive"
-            onChange={event => setValue3(event.target.value)}
+            onChange={(event) => setValue3(event.target.value)}
             options={options}
             value={value3}
-            size={{ base: 'sm', tablet: 'md', desktop: 'lg', hd: 'sm' }}
+            size={{ base: "sm", tablet: "md", desktop: "lg", hd: "sm" }}
           />
         </Box>
       );
@@ -442,9 +442,9 @@ if we did not portal it to the body element.
   <Story name="Portal">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState(null);
       return (
@@ -452,7 +452,7 @@ if we did not portal it to the body element.
           id="portal"
           label="Flavors"
           value={value}
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           options={options}
           menuPortalTarget={document.body}
         />
@@ -469,18 +469,18 @@ Use the `className` prop to add a custom class, or classes to an input.
   <Story name="Custom Classes">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState(null);
       return (
-        <div style={{ height: '200px' }}>
+        <div style={{ height: "200px" }}>
           <SelectInput
             id="customClasses"
             label="Label"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             className="background-color-primary"
           />

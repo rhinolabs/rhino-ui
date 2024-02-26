@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Components/Spinner/Codesandbox" />
 
@@ -9,8 +9,8 @@ They may be used in buttons, forms, containers, pages,
 and anywhere else a loading state is necessary.
 
 ```js codesandbox=rhinolabs-components
-import React from 'react';
-import { Spinner } from '@rhino-ui/components';
+import React from "react";
+import { Spinner } from "@rhino-ui/components";
 
 export default () => <Spinner />;
 ```
@@ -20,12 +20,12 @@ export default () => <Spinner />;
 Set the color variations of the spinner
 
 ```js codesandbox=rhinolabs-components
-import React from 'react';
-import { Spinner, BRAND_COLOR_NAMES, Box } from '@rhino-ui/components';
+import React from "react";
+import { Spinner, BRAND_COLOR_NAMES, Box } from "@rhino-ui/components";
 
 export default () => (
   <Box display="block" childGap="md">
-    {BRAND_COLOR_NAMES.map(color => (
+    {BRAND_COLOR_NAMES.map((color) => (
       <Box direction="row" childGap="sm">
         <Spinner variant={color} />
         <div>{color}</div>
@@ -40,8 +40,8 @@ export default () => (
 Use the `size` prop on your Spinner based on what's a best fit for your layout
 
 ```js codesandbox=rhinolabs-components
-import React from 'react';
-import { Spinner, Box } from '@rhino-ui/components';
+import React from "react";
+import { Spinner, Box } from "@rhino-ui/components";
 
 export default () => (
   <Box direction="row" childGap="md">

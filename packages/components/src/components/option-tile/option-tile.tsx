@@ -1,11 +1,11 @@
-import React, { forwardRef, ForwardRefExoticComponent } from 'react';
-import classNames from 'classnames';
-import { Box, BoxProps } from '../box/box';
-import { RadioInput } from '../radio-group/radio-input/radio-input';
-import { Checkbox } from '../checkbox-input/components/checkbox';
-import { CheckboxIcon } from '../checkbox-input/components/checkbox-icon';
-import { RadioInputIcon } from '../radio-group/radio-input/radio-input-icon';
-import styles from './option-tile.module.scss';
+import React, { forwardRef, ForwardRefExoticComponent } from "react";
+import classNames from "classnames";
+import { Box, BoxProps } from "../box/box";
+import { RadioInput } from "../radio-group/radio-input/radio-input";
+import { Checkbox } from "../checkbox-input/components/checkbox";
+import { CheckboxIcon } from "../checkbox-input/components/checkbox-icon";
+import { RadioInputIcon } from "../radio-group/radio-input/radio-input-icon";
+import styles from "./option-tile.module.scss";
 
 export interface OptionTileProps extends BoxProps {
   /**
@@ -53,130 +53,118 @@ export interface OptionTileProps extends BoxProps {
   /**
    * The required and aria-required attributes on each option
    */
-   isRequired?: boolean;
+  isRequired?: boolean;
   /**
    * Whether to render a radio or a checkbox input.
    */
-  inputType?: 'radio' | 'checkbox';
+  inputType?: "radio" | "checkbox";
 }
 
-export const OptionTile: ForwardRefExoticComponent<OptionTileProps> = forwardRef<HTMLDivElement, OptionTileProps>((
-  {
-    children,
-    id,
-    isSelected,
-    label,
-    name,
-    onChange,
-    value,
-    borderWidth = 'xs',
-    className = '',
-    childGap = undefined,
-    cursor = 'pointer',
-    direction = 'row',
-    disabled = false,
-    error = false,
-    flex = 'auto',
-    hideInput = false,
-    inputType = 'radio',
-    isRequired = false,
-    onClick = undefined,
-    padding = 'md',
-    shadow = '2xs',
-    ...restProps
-  },
-  ref,
-) => {
-  const inputRef = React.useRef<HTMLInputElement>(null);
-
-  const classes = classNames(
-    'rhinolabs-components__variables__form-control',
-    styles['option-tile'],
-    className,
+export const OptionTile: ForwardRefExoticComponent<OptionTileProps> = forwardRef<HTMLDivElement, OptionTileProps>(
+  (
     {
+      children,
+      id,
+      isSelected,
+      label,
+      name,
+      onChange,
+      value,
+      borderWidth = "xs",
+      className = "",
+      childGap = undefined,
+      cursor = "pointer",
+      direction = "row",
+      disabled = false,
+      error = false,
+      flex = "auto",
+      hideInput = false,
+      inputType = "radio",
+      isRequired = false,
+      onClick = undefined,
+      padding = "md",
+      shadow = "2xs",
+      ...restProps
+    },
+    ref,
+  ) => {
+    const inputRef = React.useRef<HTMLInputElement>(null);
+
+    const classes = classNames("rhinolabs-components__variables__form-control", styles["option-tile"], className, {
       [styles.selected]: isSelected,
       [styles.disabled]: disabled,
       [styles.error]: error,
-    },
-  );
+    });
 
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (onClick) {
-      onClick(event);
-    }
-
-    if (!disabled) {
-      const element = inputRef.current?.children[0];
-
-      if (element) {
-        event.target = element; // eslint-disable-line no-param-reassign
+    const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+      if (onClick) {
+        onClick(event);
       }
 
-      onChange(event);
-    }
-  };
+      if (!disabled) {
+        const element = inputRef.current?.children[0];
 
-  return (
-    <Box
-      borderWidth={borderWidth}
-      childGap={childGap}
-      className={classes}
-      cursor={cursor}
-      direction={direction}
-      flex={flex}
-      padding={padding}
-      ref={ref}
-      shadow={shadow}
-      {...restProps}
-      onClick={handleClick}
-    >
-      {!hideInput && (inputType === 'checkbox' ? (
-        <CheckboxIcon
-          isChecked={isSelected}
-          isDisabled={disabled}
-          error={error}
-          margin="0 md 0 0"
-        />
-      ) : (
-        <RadioInputIcon
-          isSelected={isSelected}
-          isDisabled={disabled}
-          error={error}
-          margin="0 md 0 0"
-        />
-      ))}
-      {inputType === 'checkbox' ? (
-        <Checkbox
-          id={id}
-          name={name}
-          onChange={onChange}
-          isChecked={isSelected}
-          label={label}
-          value={value}
-          isHidden
-          isDisabled={disabled}
-          isRequired={isRequired}
-          ref={inputRef}
-        />
-      ) : (
-        <RadioInput
-          name={name}
-          onChange={onChange}
-          option={{
-            id,
-            disabled,
-            value,
-            label,
-          }}
-          isDisabled={disabled}
-          isRequired={isRequired}
-          isSelected={isSelected}
-          isHidden
-          ref={inputRef}
-          size="md"
-        />
-      )}
-      {children}
-    </Box>
-  );
-});
+        if (element) {
+          event.target = element; // eslint-disable-line no-param-reassign
+        }
+
+        onChange(event);
+      }
+    };
+
+    return (
+      <Box
+        borderWidth={borderWidth}
+        childGap={childGap}
+        className={classes}
+        cursor={cursor}
+        direction={direction}
+        flex={flex}
+        padding={padding}
+        ref={ref}
+        shadow={shadow}
+        {...restProps}
+        onClick={handleClick}
+      >
+        {!hideInput &&
+          (inputType === "checkbox" ? (
+            <CheckboxIcon isChecked={isSelected} isDisabled={disabled} error={error} margin="0 md 0 0" />
+          ) : (
+            <RadioInputIcon isSelected={isSelected} isDisabled={disabled} error={error} margin="0 md 0 0" />
+          ))}
+        {inputType === "checkbox" ? (
+          <Checkbox
+            id={id}
+            name={name}
+            onChange={onChange}
+            isChecked={isSelected}
+            label={label}
+            value={value}
+            isHidden
+            isDisabled={disabled}
+            isRequired={isRequired}
+            ref={inputRef}
+          />
+        ) : (
+          <RadioInput
+            name={name}
+            onChange={onChange}
+            option={{
+              id,
+              disabled,
+              value,
+              label,
+            }}
+            isDisabled={disabled}
+            isRequired={isRequired}
+            isSelected={isSelected}
+            isHidden
+            ref={inputRef}
+            size="md"
+          />
+        )}
+        {children}
+      </Box>
+    );
+  },
+);

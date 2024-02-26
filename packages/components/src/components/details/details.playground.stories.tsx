@@ -1,15 +1,15 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { Button } from '../button/button';
-import { Box, boxPropsKeys } from '../box/box';
-import { Details, DetailsProps } from './details';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { Button } from "../button/button";
+import { Box, boxPropsKeys } from "../box/box";
+import { Details, DetailsProps } from "./details";
 
 const meta: Meta<typeof Details> = {
-  title: 'Components/Details/Playground',
+  title: "Components/Details/Playground",
   component: Details,
   argTypes: {
     isOpen: {
-      control: 'boolean',
+      control: "boolean",
     },
     ...boxPropsKeys.reduce((acc, curr) => ({ ...acc, [curr]: { table: { disable: true } } }), {}),
   },
@@ -17,12 +17,7 @@ const meta: Meta<typeof Details> = {
 
 export default meta;
 
-const Template: StoryFn<DetailsProps> = ({
-  isOpen,
-  summaryText,
-  detailsText,
-  ...args
-}) => (
+const Template: StoryFn<DetailsProps> = ({ isOpen, summaryText, detailsText, ...args }) => (
   <Details isOpen={isOpen} {...args}>
     <Details.Summary isDetailsOpen={isOpen}>
       <Button>{summaryText}</Button>
@@ -40,6 +35,6 @@ export const Playground = Template.bind({});
 
 Playground.args = {
   isOpen: false,
-  summaryText: 'Summary',
-  detailsText: 'Details go here!',
+  summaryText: "Summary",
+  detailsText: "Details go here!",
 };

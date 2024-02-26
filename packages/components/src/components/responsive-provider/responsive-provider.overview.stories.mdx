@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { ResponsiveProvider } from './responsive-provider';
-import { Box } from '../box/box';
-import { useWindowSize } from '../../hooks/use-window-size/use-window-size';
-import { useBreakpoint } from '../../hooks/use-breakpoint/use-breakpoint';
+import { useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { ResponsiveProvider } from "./responsive-provider";
+import { Box } from "../box/box";
+import { useWindowSize } from "../../hooks/use-window-size/use-window-size";
+import { useBreakpoint } from "../../hooks/use-breakpoint/use-breakpoint";
 
 <Meta
   title="Providers/ResponsiveProvider/Overview"
@@ -71,10 +71,10 @@ these to any component nested under a `ResponsiveProvider`
         const { isPhone, isTablet, isDesktop, isHd } = useBreakpoint();
         return (
           <Box gap="md">
-            <p>phone: {isPhone ? '✅' : '❌'}</p>
-            <p>tablet: {isTablet ? '✅' : '❌'}</p>
-            <p>desktop: {isDesktop ? '✅' : '❌'}</p>
-            <p>hd: {isHd ? '✅' : '❌'}</p>
+            <p>phone: {isPhone ? "✅" : "❌"}</p>
+            <p>tablet: {isTablet ? "✅" : "❌"}</p>
+            <p>desktop: {isDesktop ? "✅" : "❌"}</p>
+            <p>hd: {isHd ? "✅" : "❌"}</p>
           </Box>
         );
       };

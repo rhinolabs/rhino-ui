@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Box } from '../box/box';
-import { Card } from '../card/card';
-import { SelectInputNative } from './select-input-native';
+import { useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Box } from "../box/box";
+import { Card } from "../card/card";
+import { SelectInputNative } from "./select-input-native";
 
 <Meta
   title="Components/SelectInputNative/Overview"
@@ -33,24 +33,24 @@ All that is required to render a basic version of the SelectInputNative is a uni
     name="Default"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=130%3A3463',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=130%3A3463",
       },
     }}
   >
     {() => {
       const [value, setValue] = useState(null);
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       return (
         <div>
           <SelectInputNative
             id="default Select"
             label="Label"
-            onChange={event => {
+            onChange={(event) => {
               setValue(event.target.value);
             }}
             options={options}
@@ -70,9 +70,9 @@ Pre-select an option by passing its value to the `value` prop.
   <Story name="Pre-Selected">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState(options[1].value);
       return (
@@ -80,7 +80,7 @@ Pre-select an option by passing its value to the `value` prop.
           <SelectInputNative
             id="preSelected"
             label="Label"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             value={value}
           />
@@ -99,9 +99,9 @@ Use the `helpText` prop to add clarifying text beneath the input label.
     {() => {
       const [value, setValue] = useState(null);
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       return (
         <div>
@@ -109,7 +109,7 @@ Use the `helpText` prop to add clarifying text beneath the input label.
             id="helpText"
             label="Flavor"
             helpText="Choose your favorite flavor"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             value={value}
           />
@@ -130,16 +130,16 @@ one of the real options.
     {() => {
       const [value, setValue] = useState(null);
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       return (
         <div>
           <SelectInputNative
             id="customPlaceholder"
             label="Label"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             value={value}
             placeholder="Custom placeholder..."
@@ -159,16 +159,16 @@ Use the `hideLabel` prop to not render the label.
     {() => {
       const [value, setValue] = useState(null);
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       return (
         <div>
           <SelectInputNative
             id="labelHidden"
             label="My label is hidden"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             value={value}
             hideLabel
@@ -187,9 +187,9 @@ Use the `autoFocus` prop to autofocus a SelectInput.
   <Story name="Autofocus">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState(null);
       return (
@@ -198,7 +198,7 @@ Use the `autoFocus` prop to autofocus a SelectInput.
             id="autoFocus"
             label="Label"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             autoFocus
           />
@@ -216,9 +216,9 @@ Use the `isRequired` prop to set the `required` and `aria-required` on the under
   <Story name="Required">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState(null);
       return (
@@ -226,7 +226,7 @@ Use the `isRequired` prop to set the `required` and `aria-required` on the under
           id="required"
           label="Required Input"
           value={value}
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           options={options}
           isRequired
         />
@@ -241,19 +241,19 @@ You can remove or customize the required indicator using the `requiredIndicator`
   <Story name="Custom Required Indicator">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
-      const [value, setValue] = useState('');
-      const [value2, setValue2] = useState('');
+      const [value, setValue] = useState("");
+      const [value2, setValue2] = useState("");
       return (
         <Box gap="md">
           <SelectInputNative
             id="withouRequiredIndicator"
             label="Required Without Indicator"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             isRequired
             requiredIndicator={null}
@@ -262,7 +262,7 @@ You can remove or customize the required indicator using the `requiredIndicator`
             id="customRequiredIndicator"
             label="Required Custom Indicator"
             value={value2}
-            onChange={event => setValue2(event.target.value)}
+            onChange={(event) => setValue2(event.target.value)}
             options={options}
             isRequired
             requiredIndicator=" (required)"
@@ -281,18 +281,18 @@ Use the `isDisabled` prop to mark the input as disabled.
   <Story name="Disabled">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState(null);
       return (
-        <div style={{ height: '85px' }}>
+        <div style={{ height: "85px" }}>
           <SelectInputNative
             id="disabled"
             label="Label"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             isDisabled
           />
@@ -310,18 +310,18 @@ Use the `error` prop to mark the input as invalid. `error` accepts a `boolean`, 
   <Story name="Error">
     {() => {
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       const [value, setValue] = useState(null);
       return (
-        <div style={{ height: '200px' }}>
+        <div style={{ height: "200px" }}>
           <SelectInputNative
             id="error"
             label="Label"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             isRequired
             error="Helpful validation message"
@@ -340,21 +340,21 @@ The `size` prop is also a `ResponsiveProp`, so it can be sized differently at ea
 <Canvas>
   <Story name="Size">
     {() => {
-      const [value, setValue] = useState('');
-      const [value1, setValue1] = useState('');
-      const [value2, setValue2] = useState('');
-      const [value3, setValue3] = useState('');
+      const [value, setValue] = useState("");
+      const [value1, setValue1] = useState("");
+      const [value2, setValue2] = useState("");
+      const [value3, setValue3] = useState("");
       const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
+        { value: "chocolate", label: "Chocolate" },
+        { value: "strawberry", label: "Strawberry" },
+        { value: "vanilla", label: "Vanilla" },
       ];
       return (
         <Box gap="md">
           <SelectInputNative
             id="smallSelect"
             label="Small"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             options={options}
             value={value}
             size="sm"
@@ -362,7 +362,7 @@ The `size` prop is also a `ResponsiveProp`, so it can be sized differently at ea
           <SelectInputNative
             id="mediumSelect"
             label="Medium"
-            onChange={event => setValue1(event.target.value)}
+            onChange={(event) => setValue1(event.target.value)}
             options={options}
             value={value1}
             size="md"
@@ -370,7 +370,7 @@ The `size` prop is also a `ResponsiveProp`, so it can be sized differently at ea
           <SelectInputNative
             id="largeSelect"
             label="Large"
-            onChange={event => setValue2(event.target.value)}
+            onChange={(event) => setValue2(event.target.value)}
             options={options}
             value={value2}
             size="lg"
@@ -378,10 +378,10 @@ The `size` prop is also a `ResponsiveProp`, so it can be sized differently at ea
           <SelectInputNative
             id="responsiveSelect"
             label="Responsive"
-            onChange={event => setValue3(event.target.value)}
+            onChange={(event) => setValue3(event.target.value)}
             options={options}
             value={value3}
-            size={{ base: 'sm', tablet: 'md', desktop: 'lg', hd: 'sm' }}
+            size={{ base: "sm", tablet: "md", desktop: "lg", hd: "sm" }}
           />
         </Box>
       );

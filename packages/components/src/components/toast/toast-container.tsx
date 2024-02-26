@@ -1,43 +1,34 @@
-import React from 'react';
-import { prefersReducedMotion } from '../../lib/prefers-reduced-motion';
-import { resolveValue } from '../../lib/resolve-value';
-import { Box } from '../box/box';
-import {
-  Toast,
-  ToastPosition,
-  ExtendedToastOptions,
-} from './toast.types';
-import { ToastNotification } from './toast-notification';
-import { useToasts } from './use-toasts';
-import { toast } from './toast';
+import React from "react";
+import { prefersReducedMotion } from "../../lib/prefers-reduced-motion";
+import { resolveValue } from "../../lib/resolve-value";
+import { Box } from "../box/box";
+import { Toast, ToastPosition, ExtendedToastOptions } from "./toast.types";
+import { ToastNotification } from "./toast-notification";
+import { useToasts } from "./use-toasts";
+import { toast } from "./toast";
 
-export const createRectRef = (onRect: (rect: DOMRect) => void) => (
-  el: HTMLElement | null,
-): void => {
-  if (el) {
-    const boundingRect = el.getBoundingClientRect();
-    onRect(boundingRect);
-  }
-};
+export const createRectRef =
+  (onRect: (rect: DOMRect) => void) =>
+  (el: HTMLElement | null): void => {
+    if (el) {
+      const boundingRect = el.getBoundingClientRect();
+      onRect(boundingRect);
+    }
+  };
 
-const getPositionStyle = (
-  position: ToastPosition,
-  offset: number,
-): React.CSSProperties => {
-  const top = position.includes('top');
+const getPositionStyle = (position: ToastPosition, offset: number): React.CSSProperties => {
+  const top = position.includes("top");
   const verticalStyle: React.CSSProperties = top ? { top: 0 } : { bottom: 0 };
   const horizontalStyle = {
-    ...position.includes('center') && { justifyContent: 'center' },
-    ...(!position.includes('center') && position.includes('right')) && { justifyContent: 'flex-end' },
+    ...(position.includes("center") && { justifyContent: "center" }),
+    ...(!position.includes("center") && position.includes("right") && { justifyContent: "flex-end" }),
   };
   return {
     left: 0,
     right: 0,
-    display: 'flex',
-    position: 'absolute',
-    transition: prefersReducedMotion()
-      ? undefined
-      : 'all 230ms cubic-bezier(.21,1.02,.73,1)',
+    display: "flex",
+    position: "absolute",
+    transition: prefersReducedMotion() ? undefined : "all 230ms cubic-bezier(.21,1.02,.73,1)",
     transform: `translateY(${offset * (top ? 1 : -1)}px)`,
     ...verticalStyle,
     ...horizontalStyle,
@@ -88,15 +79,14 @@ const DEFAULT_OFFSET = 16;
 
 const renderNotification = (
   currentToast: Toast,
-  children: ((
-    (t: Toast) => JSX.Element)
-    & (boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null)
-    ) | undefined,
-  containerPosition: ToastContainerProps['position'],
+  children:
+    | (((t: Toast) => JSX.Element) & (boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null))
+    | undefined,
+  containerPosition: ToastContainerProps["position"],
 ) => {
   const toastPosition = currentToast.position || containerPosition;
 
-  if (currentToast.type === 'custom') {
+  if (currentToast.type === "custom") {
     return resolveValue(currentToast.message, currentToast);
   }
 
@@ -105,11 +95,7 @@ const renderNotification = (
   }
 
   return (
-    <ToastNotification
-      toast={currentToast}
-      position={toastPosition}
-      onDismiss={() => toast.dismiss(currentToast.id)}
-    />
+    <ToastNotification toast={currentToast} position={toastPosition} onDismiss={() => toast.dismiss(currentToast.id)} />
   );
 };
 
@@ -118,7 +104,7 @@ export const ToastContainer: React.FC<ToastContainerProps> = ({
   containerStyle = undefined,
   containerClassName = undefined,
   gutter = 8,
-  position = 'top-center',
+  position = "top-center",
   reverseOrder = false,
   toastOptions,
   ...restProps
@@ -132,7 +118,7 @@ export const ToastContainer: React.FC<ToastContainerProps> = ({
         left: DEFAULT_OFFSET,
         right: DEFAULT_OFFSET,
         bottom: DEFAULT_OFFSET,
-        pointerEvents: 'none', // ensure background elements are clickable
+        pointerEvents: "none", // ensure background elements are clickable
         ...containerStyle,
       }}
       position="fixed"
@@ -142,7 +128,7 @@ export const ToastContainer: React.FC<ToastContainerProps> = ({
       onMouseLeave={handlers.endPause}
       {...restProps}
     >
-      {toasts.map(t => {
+      {toasts.map((t) => {
         const toastPosition = t.position || position;
         const offset = handlers.calculateOffset(t, {
           reverseOrder,
@@ -153,12 +139,14 @@ export const ToastContainer: React.FC<ToastContainerProps> = ({
 
         const ref = t.height
           ? undefined
-          : createRectRef(rect => { handlers.updateHeight(t.id, rect.height); });
+          : createRectRef((rect) => {
+              handlers.updateHeight(t.id, rect.height);
+            });
 
         return (
           <Box
             ref={ref}
-            zIndex={t.visible ? 'popover' : undefined}
+            zIndex={t.visible ? "popover" : undefined}
             key={t.id}
             style={{
               ...positionStyle,

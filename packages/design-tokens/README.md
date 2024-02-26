@@ -25,28 +25,28 @@ Ideally you'd want to import them into a file that exposes them to your entire a
 SASS Variables imported into a .scss file
 
 ```scss
-@import '~@rhino-ui/design-tokens/build/scss/tokens.scss'
+@import "~@rhino-ui/design-tokens/build/scss/tokens.scss";
 ```
 
 CSS Variables imported into a .css file
 
 ```css
-@import '~@rhino-ui/design-tokens/build/css/tokens.css'
+@import "~@rhino-ui/design-tokens/build/css/tokens.css";
 ```
 
 SASS Utility classes imported into a .scss file
 (NOTE: SCSS and CSS utility classes are the same, we provide both if you wish to maintain consistency in file formats)
 
 ```scss
-@import '~@rhino-ui/design-tokens/build/utilities/utilities-color.scss'
-@import '~@rhino-ui/design-tokens/build/utilities/utilities-size.scss'
+@import "~@rhino-ui/design-tokens/build/utilities/utilities-color.scss" @import
+  "~@rhino-ui/design-tokens/build/utilities/utilities-size.scss";
 ```
 
 CSS Utility Classes imported into a .css file
 
 ```css
-@import '~@rhino-ui/design-tokens/build/utilities/utilities-color.css'
-@import '~@rhino-ui/design-tokens/build/utilities/utilities-size.css'
+@import "~@rhino-ui/design-tokens/build/utilities/utilities-color.css" @import
+  "~@rhino-ui/design-tokens/build/utilities/utilities-size.css";
 ```
 
 ### Use variables as needed
@@ -54,14 +54,18 @@ CSS Utility Classes imported into a .css file
 SCSS
 
 ```scss
-.class-with-primary-text-color: { color: $color.brand.primary.base; }
+.class-with-primary-text-color: {
+  color: $color.brand.primary.base;
+}
 $my-own-shadow-variable: 1rem 1rem $color.base.black;
 ```
 
 CSS
 
 ```css
-.class-with-primary-text-color: { color: var(--color.brand.primary.base); }
+.class-with-primary-text-color: {
+  color: var(--color.brand.primary.base);
+}
 --my-own-shadow-variable: 1rem 1rem var(--color.base.black);
 ```
 
@@ -79,7 +83,7 @@ They can be pulled from the build here:
 USING RAW SVGs
 
 ```html
-<img src="../user.svg" alt="user">
+<img src="../user.svg" alt="user" />
 ```
 
 USING REACT COMPONENTS
@@ -101,22 +105,22 @@ import { IconName } from '@rhino-ui/design-tokens/build/types';
 
 ## Available Tokens
 
-* Color
-  * Brand
-  * Font
-  * Border
-* Size
-  * Border
-  * Border Radius
-  * Breakpoint
-  * Spacing
-  * Font
-  * Width
-  * Height
-  * Box Shadow
-  * Opacity
-  * Z-Index
-  * Line-Height
+- Color
+  - Brand
+  - Font
+  - Border
+- Size
+  - Border
+  - Border Radius
+  - Breakpoint
+  - Spacing
+  - Font
+  - Width
+  - Height
+  - Box Shadow
+  - Opacity
+  - Z-Index
+  - Line-Height
 
 ## Local Development
 
@@ -141,21 +145,21 @@ This will create a new version of the same file. The File ID will remain the sam
 
 The build process handles the following:
 
-* mapping any svg icons in the `/icons` folder into the appropriate build directory
-* updating the `IconName` type based on the file names in the directory.
-* Creating corresponding react components for each svg, and transpiling the resulting JSX with babel.
-* Regenerating the icons index map for use in react applications.
+- mapping any svg icons in the `/icons` folder into the appropriate build directory
+- updating the `IconName` type based on the file names in the directory.
+- Creating corresponding react components for each svg, and transpiling the resulting JSX with babel.
+- Regenerating the icons index map for use in react applications.
 
 As a developer, to update icons all that needs to be done is add them to the `/icons` folder with the name that you want the icon to have. Please follow
 these rules when exporting and adding icons:
 
-* SVGs should be exported with a size of 16x16px since this will be the size of our default viewbox.
-* SVGS should be exported with default width, height of `1em` so they will inherit their size from the adjacent element font sizes, or a class/style applied directly.
-* SVGs must not include fill or stroke color, instead being exported with a value of `'currentColor'` for both these attributes. This will ensure proper inheritance.
-* Remove any `classNames` or `title` that might be in the svg file
-* SVG files should be named using `kebab-case`.
-* Commit your changes using the following commit message format: 'feat(Icon): new-icon-name, new-icon-name2`
-* Open a pull request and get it approved for publishing
+- SVGs should be exported with a size of 16x16px since this will be the size of our default viewbox.
+- SVGS should be exported with default width, height of `1em` so they will inherit their size from the adjacent element font sizes, or a class/style applied directly.
+- SVGs must not include fill or stroke color, instead being exported with a value of `'currentColor'` for both these attributes. This will ensure proper inheritance.
+- Remove any `classNames` or `title` that might be in the svg file
+- SVG files should be named using `kebab-case`.
+- Commit your changes using the following commit message format: 'feat(Icon): new-icon-name, new-icon-name2`
+- Open a pull request and get it approved for publishing
 
 ## Releases
 
@@ -173,22 +177,22 @@ Must be one of the following:
 
 ### Major
 
-* **BREAKING CHANGE**: A set of breaking changes.
+- **BREAKING CHANGE**: A set of breaking changes.
 
 ### Minor
 
-* **feat**: A new feature
+- **feat**: A new feature
 
 ### Patch
 
-* **fix**: A bug fix
-* **perf**: A code change that improves performance
-* **ci**: A change to our CI pipelines/workflows.
-* **build**: A change to the library build process (That does not break the consumer API).
-* **test**: Added or improved testing in some area of the library.
-* **refactor**: Changed code structure without affecting features.
-* **docs**: Added to, or improved documentation.
-* **style**: Change in code style without affecting features.
+- **fix**: A bug fix
+- **perf**: A code change that improves performance
+- **ci**: A change to our CI pipelines/workflows.
+- **build**: A change to the library build process (That does not break the consumer API).
+- **test**: Added or improved testing in some area of the library.
+- **refactor**: Changed code structure without affecting features.
+- **docs**: Added to, or improved documentation.
+- **style**: Change in code style without affecting features.
 
 ### Prerelease
 

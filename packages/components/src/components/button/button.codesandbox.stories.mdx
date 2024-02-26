@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Components/Button/Codesandbox" />
 
@@ -9,17 +9,12 @@ They are used in forms, toolbars, modal dialogs and as stand-alone action trigge
 Actions almost always occur on the same page.
 
 ```js codesandbox=rhinolabs-components
-import React from 'react';
-import { Button } from '@rhino-ui/components';
+import React from "react";
+import { Button } from "@rhino-ui/components";
 
 export default () => (
-  <Button
-    onClick={() => alert('clicked')}
-    variant="primary"
-    size="sm"
-    iconPrefix="mail"
-  >
+  <Button onClick={() => alert("clicked")} variant="primary" size="sm" iconPrefix="mail">
     Button
   </Button>
-)
+);
 ```

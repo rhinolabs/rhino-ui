@@ -41,8 +41,8 @@
         "unit": "rem"
       },
       "base": {
-          "value": "{size.font.md.value}",
-          "unit": "rem"
+        "value": "{size.font.md.value}",
+        "unit": "rem"
       }
     }
   }

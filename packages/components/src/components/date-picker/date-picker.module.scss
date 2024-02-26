@@ -228,7 +228,10 @@
               font-weight: bold;
 
               &:hover {
-                background-color: var(--date-picker-item-background-color-selected-hover, var(--color-brand-primary-600));
+                background-color: var(
+                  --date-picker-item-background-color-selected-hover,
+                  var(--color-brand-primary-600)
+                );
               }
             }
 
@@ -513,7 +516,7 @@
       text-align: center;
       display: table-cell;
       vertical-align: middle;
-      content: '\00d7';
+      content: "\00d7";
     }
   }
 

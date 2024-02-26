@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Components/Box/Codesandbox" />
 
@@ -12,8 +12,8 @@ A `<Box>` is a layout component to build UIs with consistent padding and spacing
 - Many props accept `ResponsiveProp` that take an object with keys that correspond to <a href="?path=/story/design-tokens-design-tokens--page#breakpoints">breakpoint tokens</a>
 
 ```js codesandbox=rhinolabs-components
-import React from 'react';
-import { Box } from '@rhino-ui/components';
+import React from "react";
+import { Box } from "@rhino-ui/components";
 
 export default () => (
   <Box gap="md">
@@ -21,13 +21,13 @@ export default () => (
       padding="xl"
       background="primary-100"
       radius="md"
-      fontSize={{ base: 'sm', tablet: 'md', hd: 'lg' }}
+      fontSize={{ base: "sm", tablet: "md", hd: "lg" }}
       borderWidth="sm"
       borderColor="primary-200"
     >
       I am a box with a green background and border
     </Box>
-    <Box gap={{ base: 'sm', tablet: 'md', desktop: 'lg' }} direction="row">
+    <Box gap={{ base: "sm", tablet: "md", desktop: "lg" }} direction="row">
       <Box flex="auto" radius="md" background="secondary-100" height="lg" />
       <Box flex="auto" radius="md" background="secondary-100" height="lg" />
       <Box flex="auto" radius="md" background="secondary-100" height="lg" />

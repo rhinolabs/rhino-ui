@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
-import { Box, BoxProps } from '../box/box';
-import { FormLabel } from '../form-label/form-label';
-import { InputValidationMessage } from '../input-validation-message/input-validation-message';
+import React, { ReactNode } from "react";
+import { Box, BoxProps } from "../box/box";
+import { FormLabel } from "../form-label/form-label";
+import { InputValidationMessage } from "../input-validation-message/input-validation-message";
 
 export interface FormControlProps extends BoxProps {
   /**
@@ -39,36 +39,38 @@ export interface FormControlProps extends BoxProps {
   requiredIndicator?: ReactNode;
 }
 
-export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>((
-  {
-    label,
-    hideLabel,
-    children,
-    error,
-    id,
-    isRequired,
-    helpText,
-    isDisabled,
-    requiredIndicator,
-    width = '100',
-    ...restProps
-  },
-  ref,
-) => {
-  const labelProps = {
-    inputId: id,
-    helpText,
-    margin: '0 0 xs 0',
-    isDisabled,
-    isFieldRequired: isRequired,
-    requiredIndicator,
-  };
+export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
+  (
+    {
+      label,
+      hideLabel,
+      children,
+      error,
+      id,
+      isRequired,
+      helpText,
+      isDisabled,
+      requiredIndicator,
+      width = "100",
+      ...restProps
+    },
+    ref,
+  ) => {
+    const labelProps = {
+      inputId: id,
+      helpText,
+      margin: "0 0 xs 0",
+      isDisabled,
+      isFieldRequired: isRequired,
+      requiredIndicator,
+    };
 
-  return (
-    <Box width={width} ref={ref} {...restProps}>
-      {label && !hideLabel && <FormLabel {...labelProps}>{label}</FormLabel>}
-      {children}
-      {error && error !== true && <InputValidationMessage>{error}</InputValidationMessage>}
-    </Box>
-  );
-});
+    return (
+      <Box width={width} ref={ref} {...restProps}>
+        {label && !hideLabel && <FormLabel {...labelProps}>{label}</FormLabel>}
+        {children}
+        {error && error !== true && <InputValidationMessage>{error}</InputValidationMessage>}
+      </Box>
+    );
+  },
+);

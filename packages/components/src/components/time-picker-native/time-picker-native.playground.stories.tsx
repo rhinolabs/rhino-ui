@@ -1,82 +1,82 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { TimePickerNative, TimePickerNativeProps } from './time-picker-native';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { TimePickerNative, TimePickerNativeProps } from "./time-picker-native";
 
 const meta: Meta<typeof TimePickerNative> = {
-  title: 'Components/TimePickerNative/Playground',
+  title: "Components/TimePickerNative/Playground",
   component: TimePickerNative,
   argTypes: {
     startTime: {
-      control: 'object',
+      control: "object",
     },
     endTime: {
-      control: 'object',
+      control: "object",
     },
     locales: {
-      control: 'text',
+      control: "text",
     },
     interval: {
-      control: 'number',
+      control: "number",
     },
     autoComplete: {
-      control: 'boolean',
+      control: "boolean",
     },
     id: {
-      control: 'text',
+      control: "text",
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     name: {
-      control: 'text',
+      control: "text",
     },
     value: {
-      control: 'text',
+      control: "text",
     },
     autoFocus: {
-      control: 'boolean',
+      control: "boolean",
     },
     dateDisplayOptions: {
-      control: 'object',
+      control: "object",
     },
     error: {
-      control: 'text',
+      control: "text",
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     hideLabel: {
-      control: 'boolean',
+      control: "boolean",
     },
     isClearable: {
-      control: 'boolean',
+      control: "boolean",
     },
     isDisabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     isRequired: {
-      control: 'boolean',
+      control: "boolean",
     },
     className: {
-      control: 'text',
+      control: "text",
     },
     placeholder: {
-      control: 'text',
+      control: "text",
     },
     prefix: {
-      control: 'text',
+      control: "text",
     },
     suffix: {
-      control: 'text',
+      control: "text",
     },
     size: {
       control: {
-        type: 'radio',
-        options: ['sm', 'md', 'lg'],
+        type: "radio",
+        options: ["sm", "md", "lg"],
       },
     },
     menuPortalTarget: {
-      control: 'none',
+      control: "none",
     },
   },
 };
@@ -87,8 +87,8 @@ const Template: StoryFn<TimePickerNativeProps> = ({ ...args }) => <TimePickerNat
 
 export const Playground = Template.bind({});
 Playground.args = {
-  id: 'playgroundTimePickerNative',
-  label: 'Playground TimePickerNative',
-  name: 'playgroundTimePickerNative',
+  id: "playgroundTimePickerNative",
+  label: "Playground TimePickerNative",
+  name: "playgroundTimePickerNative",
   menuPortalTarget: document.body,
 };

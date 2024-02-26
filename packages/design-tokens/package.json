@@ -11,8 +11,8 @@
     "build": "node build.js",
     "clean": "rimraf build",
     "eslint": "eslint **/*.js --fix",
-    "stylelint": "stylelint '**/*.{css,scss,sass}'",
-    "format": "prettier --write **/src/** --cache "
+    "stylelint": "stylelint '**/*.{css,scss,sass}' --fix --ignore-path ../../.stylelintignore",
+    "format": "prettier --write . --cache "
   },
   "repository": "https://github.com/rhinolabs/rhino-ui.git",
   "author": "@rhinolabs",

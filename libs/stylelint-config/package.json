@@ -7,7 +7,7 @@
   "main": "src/index.js",
   "scripts": {
     "eslint": "eslint src --fix",
-    "format": "prettier --write **/src/** --cache "
+    "format": "prettier --write src/** --cache "
   },
   "dependencies": {
     "stylelint": "^15.11.0",

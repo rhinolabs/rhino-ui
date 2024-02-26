@@ -1,7 +1,7 @@
-import React, { FC, ReactNode } from 'react';
-import classNames from 'classnames';
-import { Box, BoxProps } from '../box/box';
-import styles from './form-label.module.scss';
+import React, { FC, ReactNode } from "react";
+import classNames from "classnames";
+import { Box, BoxProps } from "../box/box";
+import styles from "./form-label.module.scss";
 
 export interface FormLabelProps extends BoxProps {
   /**
@@ -45,27 +45,22 @@ export interface FormLabelProps extends BoxProps {
 export const FormLabel: FC<FormLabelProps> = ({
   children,
   inputId,
-  className = '',
-  display = 'block',
+  className = "",
+  display = "block",
   helpText,
   isDisabled = false,
   isFieldRequired = false,
   isRadioInputLabel = false,
-  requiredIndicator = ' *',
-  margin = '0',
-  padding = '0',
+  requiredIndicator = " *",
+  margin = "0",
+  padding = "0",
   ...restProps
 }) => {
-  const labelClasses = classNames(
-    'rhinolabs-components__variables__form-control',
-    styles.label,
-    className,
-    {
-      [styles.disabled]: isDisabled,
-      [styles.disabled]: isDisabled,
-      [styles['radio-input-label']]: isRadioInputLabel,
-    },
-  );
+  const labelClasses = classNames("rhinolabs-components__variables__form-control", styles.label, className, {
+    [styles.disabled]: isDisabled,
+    [styles.disabled]: isDisabled,
+    [styles["radio-input-label"]]: isRadioInputLabel,
+  });
 
   return (
     <Box
@@ -81,13 +76,7 @@ export const FormLabel: FC<FormLabelProps> = ({
       {children}
       {isFieldRequired && requiredIndicator && <span>{requiredIndicator}</span>}
       {helpText && (
-        <Box
-          as="p"
-          display="block"
-          fontSize="sm"
-          color="grey"
-          className={styles['help-text']}
-        >
+        <Box as="p" display="block" fontSize="sm" color="grey" className={styles["help-text"]}>
           {helpText}
         </Box>
       )}

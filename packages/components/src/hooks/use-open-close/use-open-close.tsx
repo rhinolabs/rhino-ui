@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState } from "react";
 
 export interface UseOpenCloseProps {
   /**
@@ -40,15 +40,8 @@ export interface UseOpenCloseState {
   handleToggle: () => void;
 }
 
-export const useOpenClose = (
-  props: UseOpenCloseProps = {},
-): UseOpenCloseState => {
-  const {
-    defaultIsOpen,
-    isOpen: isOpenProp,
-    onClose: onCloseProp,
-    onOpen: onOpenProp,
-  } = props;
+export const useOpenClose = (props: UseOpenCloseProps = {}): UseOpenCloseState => {
+  const { defaultIsOpen, isOpen: isOpenProp, onClose: onCloseProp, onOpen: onOpenProp } = props;
 
   const openCallback = useCallback(() => {
     onOpenProp?.();

@@ -1,15 +1,15 @@
-import React from 'react';
-import classNames from 'classnames';
-import { ResponsiveProp } from '../../../types';
-import { generateResponsiveClasses } from '../../../lib/generate-responsive-classes';
-import { Box, BoxProps } from '../../box/box';
-import { CheckboxIcon } from './checkbox-icon'; // eslint-disable-line import/no-cycle
-import styles from './checkbox.module.scss';
+import React from "react";
+import classNames from "classnames";
+import { ResponsiveProp } from "../../../types";
+import { generateResponsiveClasses } from "../../../lib/generate-responsive-classes";
+import { Box, BoxProps } from "../../box/box";
+import { CheckboxIcon } from "./checkbox-icon"; // eslint-disable-line import/no-cycle
+import styles from "./checkbox.module.scss";
 
-type BaseSize = 'sm' | 'md' | 'lg';
+type BaseSize = "sm" | "md" | "lg";
 export type CheckboxSize = BaseSize | ResponsiveProp<BaseSize>;
 
-export interface CheckboxProps extends Omit<BoxProps, 'radius' | 'background' | 'as' | 'height'> {
+export interface CheckboxProps extends Omit<BoxProps, "radius" | "background" | "as" | "height"> {
   /**
    * The id attribute of the input.
    */
@@ -77,8 +77,8 @@ export interface CheckboxProps extends Omit<BoxProps, 'radius' | 'background' | 
 export const Checkbox: React.FC<CheckboxProps> = React.forwardRef(
   (
     {
-      className = '',
-      display = 'inline',
+      className = "",
+      display = "inline",
       id,
       isChecked,
       label,
@@ -91,7 +91,7 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef(
       isRequired = false,
       onBlur = undefined,
       onFocus = undefined,
-      size = 'md',
+      size = "md",
       value = undefined,
       ...restProps
     },
@@ -118,10 +118,10 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef(
     };
 
     const inputProps = {
-      'aria-invalid': !!error,
-      'aria-label': label,
-      'aria-labelledby': labelledby,
-      'aria-required': isRequired,
+      "aria-invalid": !!error,
+      "aria-label": label,
+      "aria-labelledby": labelledby,
+      "aria-required": isRequired,
       id,
       checked: !!isChecked,
       disabled: isDisabled,
@@ -129,35 +129,26 @@ export const Checkbox: React.FC<CheckboxProps> = React.forwardRef(
       onChange: handleChange,
       onFocus: handleFocus,
       required: isRequired,
-      type: 'checkbox',
+      type: "checkbox",
       ref: inputRef,
-      ...value && { value },
+      ...(value && { value }),
     };
 
-    const responsiveClasses = generateResponsiveClasses('size', size);
+    const responsiveClasses = generateResponsiveClasses("size", size);
 
-    const containerClasses = classNames(
-      styles.checkbox,
-      className,
-      ...responsiveClasses.map(c => (styles[c])),
-      { [styles.hidden]: isHidden },
-    );
+    const containerClasses = classNames(styles.checkbox, className, ...responsiveClasses.map((c) => styles[c]), {
+      [styles.hidden]: isHidden,
+    });
 
-    const iconClasses = classNames(...responsiveClasses.map(c => (styles[c])));
+    const iconClasses = classNames(...responsiveClasses.map((c) => styles[c]));
 
     return (
-      <Box
-        display={display}
-        ref={ref}
-        style={{ position: 'relative' }}
-        className={containerClasses}
-        {...restProps}
-      >
+      <Box display={display} ref={ref} style={{ position: "relative" }} className={containerClasses} {...restProps}>
         <input
           {...inputProps}
           style={{
-            position: 'absolute',
-            opacity: '0',
+            position: "absolute",
+            opacity: "0",
           }}
         />
         {!isHidden && (

@@ -1,11 +1,11 @@
-import React from 'react';
-import { Meta, StoryFn, ComponentStory } from '@storybook/react';
-import { within } from '@storybook/testing-library';
-import { OptionTile, OptionTileProps } from './option-tile';
-import { Box } from '../box/box';
+import React from "react";
+import { Meta, StoryFn, ComponentStory } from "@storybook/react";
+import { within } from "@storybook/testing-library";
+import { OptionTile, OptionTileProps } from "./option-tile";
+import { Box } from "../box/box";
 
 const meta: Meta<typeof OptionTile> = {
-  title: 'Components/OptionTile/Visual Regression Tests',
+  title: "Components/OptionTile/Visual Regression Tests",
   component: OptionTile,
 };
 
@@ -80,7 +80,7 @@ export const States: ComponentStory<typeof OptionTile> = () => (
   </Box>
 );
 
-const Template: StoryFn<OptionTileProps> = args => (
+const Template: StoryFn<OptionTileProps> = (args) => (
   <OptionTile
     {...args}
     onChange={() => {}} // eslint-disable-line
@@ -92,29 +92,29 @@ const Template: StoryFn<OptionTileProps> = args => (
 export const FocusUnchecked = Template.bind({});
 FocusUnchecked.args = {
   isSelected: false,
-  children: 'radio unchecked',
-  id: 'radioUnchecked',
-  name: 'radioUnchecked',
-  value: 'radioUnchecked',
-  label: 'radioUnchecked',
+  children: "radio unchecked",
+  id: "radioUnchecked",
+  name: "radioUnchecked",
+  value: "radioUnchecked",
+  label: "radioUnchecked",
 };
 
 FocusUnchecked.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  canvas.getByRole('radio').focus();
+  canvas.getByRole("radio").focus();
 };
 
 export const FocusChecked = Template.bind({});
 FocusChecked.args = {
   isSelected: true,
-  children: 'radio selected',
-  id: 'radioSelected',
-  name: 'radioSelected',
-  value: 'radioSelected',
-  label: 'radioSelected',
+  children: "radio selected",
+  id: "radioSelected",
+  name: "radioSelected",
+  value: "radioSelected",
+  label: "radioSelected",
 };
 
 FocusChecked.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  canvas.getByRole('radio').focus();
+  canvas.getByRole("radio").focus();
 };

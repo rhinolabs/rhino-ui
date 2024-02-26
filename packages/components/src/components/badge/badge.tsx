@@ -1,27 +1,17 @@
-import React, { FC, ReactNode } from 'react';
-import classNames from 'classnames';
-import {
-  BrandColor, FontColor, FontSize, BaseSpacing, ResponsiveProp,
-} from '../../types';
-import { generateResponsiveClasses } from '../../lib/generate-responsive-classes';
-import styles from './badge.module.scss';
-import { Box } from '../box/box';
+import React, { FC, ReactNode } from "react";
+import classNames from "classnames";
+import { BrandColor, FontColor, FontSize, BaseSpacing, ResponsiveProp } from "../../types";
+import { generateResponsiveClasses } from "../../lib/generate-responsive-classes";
+import styles from "./badge.module.scss";
+import { Box } from "../box/box";
 
-export type BadgeSize = 'sm' | 'md' | 'lg' | 'xl';
+export type BadgeSize = "sm" | "md" | "lg" | "xl";
 
-export type BadgeVariant =
-  | 'info'
-  | 'primary'
-  | 'success'
-  | 'secondary'
-  | 'tertiary'
-  | 'warning'
-  | 'danger'
-  | 'default';
+export type BadgeVariant = "info" | "primary" | "success" | "secondary" | "tertiary" | "warning" | "danger" | "default";
 
-export type BadgeColorAttributes = { font: FontColor; background: BrandColor; };
+export type BadgeColorAttributes = { font: FontColor; background: BrandColor };
 
-export type BadgeSizeAttributes = { fontSize: FontSize; padding: BaseSpacing; };
+export type BadgeSizeAttributes = { fontSize: FontSize; padding: BaseSpacing };
 export interface BadgeProps {
   /**
    * Custom class to apply to the badge container div.
@@ -46,40 +36,31 @@ export interface BadgeProps {
 }
 
 export const BADGE_COLOR_MAP: { [key in BadgeVariant]: BadgeColorAttributes } = {
-  info: { font: 'dark-500', background: 'info-100' },
-  primary: { font: 'dark-500', background: 'primary-100' },
-  success: { font: 'dark-500', background: 'success-100' },
-  secondary: { font: 'dark-500', background: 'secondary-100' },
-  warning: { font: 'dark-500', background: 'warning-100' },
-  tertiary: { font: 'dark-500', background: 'tertiary-100' },
-  danger: { font: 'dark-500', background: 'danger-100' },
-  default: { font: 'dark-500', background: 'grey-100' },
+  info: { font: "dark-500", background: "info-100" },
+  primary: { font: "dark-500", background: "primary-100" },
+  success: { font: "dark-500", background: "success-100" },
+  secondary: { font: "dark-500", background: "secondary-100" },
+  warning: { font: "dark-500", background: "warning-100" },
+  tertiary: { font: "dark-500", background: "tertiary-100" },
+  danger: { font: "dark-500", background: "danger-100" },
+  default: { font: "dark-500", background: "grey-100" },
 };
 
 export const Badge: FC<BadgeProps> = ({
-  className = '',
-  message = '',
-  variant = 'default',
-  size = 'md',
+  className = "",
+  message = "",
+  variant = "default",
+  size = "md",
   ...restProps
 }) => {
-  const responsiveClasses = generateResponsiveClasses('size', size).map(c => styles[c]);
+  const responsiveClasses = generateResponsiveClasses("size", size).map((c) => styles[c]);
 
-  const badgeClasses: string = classNames(
-    styles.badge,
-    className,
-    responsiveClasses,
-    {
-      [styles[variant]]: variant,
-    },
-  );
+  const badgeClasses: string = classNames(styles.badge, className, responsiveClasses, {
+    [styles[variant]]: variant,
+  });
 
   return (
-    <Box
-      className={badgeClasses}
-      display="inline-block"
-      {...restProps}
-    >
+    <Box className={badgeClasses} display="inline-block" {...restProps}>
       {message}
     </Box>
   );

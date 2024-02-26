@@ -1,7 +1,10 @@
-@import '@rhino-ui/design-tokens/build/scss/variables-size';
+@import "@rhino-ui/design-tokens/build/scss/variables-size";
 
 %disabled-base {
-  background-color: var(--form-control-background-color-disabled, var(--INTERNAL_form-control-background-color-disabled));
+  background-color: var(
+    --form-control-background-color-disabled,
+    var(--INTERNAL_form-control-background-color-disabled)
+  );
   color: var(--form-control-font-color-disabled, var(--INTERNAL_form-control-font-color-disabled));
   opacity: 1;
 
@@ -139,7 +142,7 @@
   &::before,
   &::after {
     border-radius: 100px;
-    content: '';
+    content: "";
     position: absolute;
     background: var(--color-brand-grey-light);
     pointer-events: none;

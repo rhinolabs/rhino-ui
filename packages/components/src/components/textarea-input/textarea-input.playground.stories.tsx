@@ -1,62 +1,62 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { TextareaInput, TextareaInputProps } from './textarea-input';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { TextareaInput, TextareaInputProps } from "./textarea-input";
 
 const meta: Meta<typeof TextareaInput> = {
-  title: 'Components/TextareaInput/Playground',
+  title: "Components/TextareaInput/Playground",
   component: TextareaInput,
   argTypes: {
     id: {
-      control: 'text',
+      control: "text",
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     rows: {
-      control: 'number',
+      control: "number",
     },
     value: {
-      control: 'text',
+      control: "text",
     },
     autoFocus: {
-      control: 'boolean',
+      control: "boolean",
     },
     error: {
-      control: 'text',
+      control: "text",
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     hideLabel: {
-      control: 'boolean',
+      control: "boolean",
     },
     isClearable: {
-      control: 'boolean',
+      control: "boolean",
     },
     isDisabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     isMulti: {
-      control: 'boolean',
+      control: "boolean",
     },
     isRequired: {
-      control: 'boolean',
+      control: "boolean",
     },
     className: {
-      control: 'text',
+      control: "text",
     },
     placeholder: {
-      control: 'text',
+      control: "text",
     },
     resize: {
       control: {
-        type: 'radio',
-        options: ['vertical', 'horizontal', 'none', 'both'],
+        type: "radio",
+        options: ["vertical", "horizontal", "none", "both"],
       },
     },
 
     maxLength: {
-      control: 'number',
+      control: "number",
     },
   },
 };
@@ -67,9 +67,9 @@ const Template: StoryFn<TextareaInputProps> = ({ ...args }) => <TextareaInput {.
 
 export const Playground = Template.bind({});
 Playground.args = {
-  id: 'playgroundTextareaInput',
-  label: 'Playground TextareaInput',
-  helpText: 'Helpful text',
-  name: 'playgroundTextareaInput',
+  id: "playgroundTextareaInput",
+  label: "Playground TextareaInput",
+  helpText: "Helpful text",
+  name: "playgroundTextareaInput",
   rows: 5,
 };

@@ -1,44 +1,44 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { CheckboxInput, CheckboxInputProps } from './checkbox-input';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { CheckboxInput, CheckboxInputProps } from "./checkbox-input";
 
-const meta: Meta<typeof CheckboxInput> =  {
-  title: 'Components/CheckboxInput/Playground',
+const meta: Meta<typeof CheckboxInput> = {
+  title: "Components/CheckboxInput/Playground",
   component: CheckboxInput,
   argTypes: {
     id: {
-      control: 'text',
+      control: "text",
     },
     isChecked: {
-      control: 'boolean',
+      control: "boolean",
     },
     error: {
-      control: 'boolean',
+      control: "boolean",
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     hideLabel: {
-      control: 'boolean',
+      control: "boolean",
     },
     isDisabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     isRequired: {
-      control: 'boolean',
+      control: "boolean",
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     className: {
-      control: 'text',
+      control: "text",
     },
     size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
+      control: "select",
+      options: ["sm", "md", "lg"],
     },
     isIndeterminate: {
-      control: 'boolean',
+      control: "boolean",
     },
   },
 };
@@ -49,8 +49,8 @@ const Template: StoryFn<CheckboxInputProps> = ({ ...args }) => <CheckboxInput {.
 
 export const Playground = Template.bind({});
 Playground.args = {
-  id: 'playGroundCheckbox',
-  label: 'Playground Checkbox',
-  helpText: 'Helpful text',
+  id: "playGroundCheckbox",
+  label: "Playground Checkbox",
+  helpText: "Helpful text",
   isChecked: true,
 };

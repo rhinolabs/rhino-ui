@@ -1,15 +1,13 @@
-import React, {
-  FC, ChangeEvent, FocusEvent, ReactNode,
-} from 'react';
-import classNames from 'classnames';
-import { ResponsiveProp } from '../../types';
-import { generateResponsiveClasses } from '../../lib/generate-responsive-classes';
-import { InputValidationMessage } from '../input-validation-message/input-validation-message';
-import { FormLabel } from '../form-label/form-label';
-import { Box, BoxProps } from '../box/box';
-import styles from './toggle.module.scss';
+import React, { FC, ChangeEvent, FocusEvent, ReactNode } from "react";
+import classNames from "classnames";
+import { ResponsiveProp } from "../../types";
+import { generateResponsiveClasses } from "../../lib/generate-responsive-classes";
+import { InputValidationMessage } from "../input-validation-message/input-validation-message";
+import { FormLabel } from "../form-label/form-label";
+import { Box, BoxProps } from "../box/box";
+import styles from "./toggle.module.scss";
 
-export type ToggleSize = 'sm' | 'md' | 'lg';
+export type ToggleSize = "sm" | "md" | "lg";
 export interface ToggleProps {
   /**
    * The id attribute of the input.
@@ -76,7 +74,7 @@ export const Toggle: FC<ToggleProps> = ({
   isChecked,
   label,
   onChange,
-  className = '',
+  className = "",
   error = false,
   hideLabel = false,
   helpText,
@@ -84,8 +82,8 @@ export const Toggle: FC<ToggleProps> = ({
   isRequired = false,
   onBlur = undefined,
   onFocus = undefined,
-  requiredIndicator = ' *',
-  size = 'md',
+  requiredIndicator = " *",
+  size = "md",
 }) => {
   const handleBlur = (event: FocusEvent<HTMLInputElement>): void => {
     if (onBlur) onBlur(event);
@@ -99,24 +97,24 @@ export const Toggle: FC<ToggleProps> = ({
     if (onFocus) onFocus(event);
   };
 
-  const wrapperClasses = classNames('rhinolabs-components__variables__form-control', { [styles.disabled]: isDisabled });
+  const wrapperClasses = classNames("rhinolabs-components__variables__form-control", { [styles.disabled]: isDisabled });
   const trackClasses = classNames(
-    styles['toggle-track'],
-    ...generateResponsiveClasses('track-size', size).map(c => (styles[c])),
+    styles["toggle-track"],
+    ...generateResponsiveClasses("track-size", size).map((c) => styles[c]),
     {
       [styles.error]: error,
     },
   );
   const thumbClasses = classNames(
-    styles['toggle-thumb'],
-    ...generateResponsiveClasses('thumb-size', size).map(c => (styles[c])),
+    styles["toggle-thumb"],
+    ...generateResponsiveClasses("thumb-size", size).map((c) => styles[c]),
   );
 
   const inputProps = {
-    'aria-required': isRequired,
-    'aria-invalid': !!error,
-    'aria-label': label,
-    'aria-labelledby': label && !hideLabel ? `${id}Label` : undefined,
+    "aria-required": isRequired,
+    "aria-invalid": !!error,
+    "aria-label": label,
+    "aria-labelledby": label && !hideLabel ? `${id}Label` : undefined,
     id,
     checked: !!isChecked,
     disabled: isDisabled,
@@ -124,17 +122,17 @@ export const Toggle: FC<ToggleProps> = ({
     onChange: handleChange,
     onFocus: handleFocus,
     required: isRequired,
-    type: 'checkbox',
-    className: styles['toggle-input'],
+    type: "checkbox",
+    className: styles["toggle-input"],
   };
 
   const labelProps = {
     inputId: id,
     isDisabled,
-    display: 'flex' as BoxProps['display'],
-    direction: 'row' as BoxProps['direction'],
-    childGap: 'xs' as BoxProps['childGap'],
-    alignItems: helpText ? 'flex-start' : 'center' as BoxProps['alignItems'],
+    display: "flex" as BoxProps["display"],
+    direction: "row" as BoxProps["direction"],
+    childGap: "xs" as BoxProps["childGap"],
+    alignItems: helpText ? "flex-start" : ("center" as BoxProps["alignItems"]),
     isFieldRequired: isRequired,
     requiredIndicator,
   };
@@ -148,10 +146,7 @@ export const Toggle: FC<ToggleProps> = ({
             <span className={thumbClasses} data-testid="toggleThumb" />
           </span>
           {!hideLabel && (
-            <Box
-              gap="2xs"
-              className={helpText && (size === 'md' || size === 'lg') ? 'm-top-2xs' : ''}
-            >
+            <Box gap="2xs" className={helpText && (size === "md" || size === "lg") ? "m-top-2xs" : ""}>
               {label && <div>{label}</div>}
               {helpText && (
                 <Box as="p" display="block" fontSize="sm" fontWeight="regular" color="grey">

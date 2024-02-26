@@ -1,4 +1,5 @@
 .turbo
-dist/
+dist
+build
 node_modules
 coverage

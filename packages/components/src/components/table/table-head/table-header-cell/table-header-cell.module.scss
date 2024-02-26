@@ -38,7 +38,6 @@
     z-index: var(--size-z-index-sticky);
   }
 
-
   &.sticky-column-left {
     left: 0;
   }
@@ -53,7 +52,6 @@
     box-shadow: 5px 0 5px -2px rgb(0 0 0 / 10%), -5px 0 5px -2px rgb(0 0 0 / 10%);
     background-color: var(--table-header-background-color, var(--INTERNAL_table-header-background-color));
   }
-
 
   &.align-right {
     text-align: right;

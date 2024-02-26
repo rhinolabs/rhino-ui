@@ -1,22 +1,22 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-else-return */
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { Box, BoxProps } from './box';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { Box, BoxProps } from "./box";
 import {
   FONT_SIZE_OPTIONS,
   FONT_COLOR_OPTIONS,
   BRAND_COLOR_NAMES,
   SPACING_OPTIONS,
   FONT_FAMILY_OPTIONS,
-} from '../../lib/tokens';
-import { BrandColor } from '../../types';
-import { RESPONSIVE_STORY } from '../../docs/constants';
-import { ResponsiveProvider } from '../responsive-provider/responsive-provider';
-import { useBreakpoint } from '../../hooks/use-breakpoint/use-breakpoint';
+} from "../../lib/tokens";
+import { BrandColor } from "../../types";
+import { RESPONSIVE_STORY } from "../../docs/constants";
+import { ResponsiveProvider } from "../responsive-provider/responsive-provider";
+import { useBreakpoint } from "../../hooks/use-breakpoint/use-breakpoint";
 
 const meta: Meta<typeof Box> = {
-  title: 'Components/Box/Visual Regression Tests',
+  title: "Components/Box/Visual Regression Tests",
   component: Box,
 };
 
@@ -25,95 +25,50 @@ export default meta;
 export const AllBackgroundColors: React.FunctionComponent<BoxProps> = () => (
   <Box flex="auto" direction="row" fontSize="sm">
     {BRAND_COLOR_NAMES.map((color, index) => {
-      if (color.includes('inherit')) return null;
+      if (color.includes("inherit")) return null;
       else if (
-        color === 'dark'
-        || color === 'light'
-        || color === 'black'
-        || color === 'white'
-        || color === 'transparent'
+        color === "dark" ||
+        color === "light" ||
+        color === "black" ||
+        color === "white" ||
+        color === "transparent"
       ) {
         return (
-          <Box
-            flex="auto"
-            padding="xs"
-            background={color}
-            key={`${color}-${index}`}
-          >
+          <Box flex="auto" padding="xs" background={color} key={`${color}-${index}`}>
             {`${color}`}
           </Box>
         );
       } else {
         return (
           <Box flex="auto" key={`${color}-${index}`}>
-            <Box
-              flex="auto"
-              padding="xs"
-              background={`${color}-50` as BrandColor}
-            >
+            <Box flex="auto" padding="xs" background={`${color}-50` as BrandColor}>
               {`${color}-50`}
             </Box>
-            <Box
-              flex="auto"
-              padding="xs"
-              background={`${color}-100` as BrandColor}
-            >
+            <Box flex="auto" padding="xs" background={`${color}-100` as BrandColor}>
               {`${color}-100`}
             </Box>
-            <Box
-              flex="auto"
-              padding="xs"
-              background={`${color}-200` as BrandColor}
-            >
+            <Box flex="auto" padding="xs" background={`${color}-200` as BrandColor}>
               {`${color}-200`}
             </Box>
-            <Box
-              flex="auto"
-              padding="xs"
-              background={`${color}-300` as BrandColor}
-            >
+            <Box flex="auto" padding="xs" background={`${color}-300` as BrandColor}>
               {`${color}-300`}
             </Box>
-            <Box
-              flex="auto"
-              padding="xs"
-              background={`${color}-400` as BrandColor}
-            >
+            <Box flex="auto" padding="xs" background={`${color}-400` as BrandColor}>
               {`${color}-400`}
             </Box>
-            <Box
-              flex="auto"
-              padding="xs"
-              background={`${color}-500` as BrandColor}
-            >
+            <Box flex="auto" padding="xs" background={`${color}-500` as BrandColor}>
               {`${color}-500`}
             </Box>
-            <Box
-              flex="auto"
-              padding="xs"
-              background={`${color}-600` as BrandColor}
-            >
+            <Box flex="auto" padding="xs" background={`${color}-600` as BrandColor}>
               {`${color}-600`}
             </Box>
-            <Box
-              flex="auto"
-              padding="xs"
-              background={`${color}-700` as BrandColor}
-            >
+            <Box flex="auto" padding="xs" background={`${color}-700` as BrandColor}>
               {`${color}-700`}
             </Box>
-            <Box
-              flex="auto"
-              padding="xs"
-              background={`${color}-800` as BrandColor}
-            >
+            <Box flex="auto" padding="xs" background={`${color}-800` as BrandColor}>
               {`${color}-800`}
             </Box>
-            <Box
-              flex="auto"
-              padding="xs"
-              background={`${color}-900` as BrandColor}
-            >
+            <Box flex="auto" padding="xs" background={`${color}-900` as BrandColor}>
               {`${color}-900`}
             </Box>
           </Box>
@@ -126,105 +81,50 @@ export const AllBackgroundColors: React.FunctionComponent<BoxProps> = () => (
 export const AllBorderColors: React.FunctionComponent<BoxProps> = () => (
   <Box flex="auto" direction="row" fontSize="sm">
     {BRAND_COLOR_NAMES.map((color, index) => {
-      if (color.includes('inherit')) return null;
+      if (color.includes("inherit")) return null;
       else if (
-        color === 'dark'
-        || color === 'light'
-        || color === 'black'
-        || color === 'white'
-        || color === 'transparent'
+        color === "dark" ||
+        color === "light" ||
+        color === "black" ||
+        color === "white" ||
+        color === "transparent"
       ) {
         return (
-          <Box
-            borderColor={color}
-            borderWidth="sm"
-            padding="xs"
-            key={`${color}-${index}`}
-          >
+          <Box borderColor={color} borderWidth="sm" padding="xs" key={`${color}-${index}`}>
             {`${color}`}
           </Box>
         );
       } else {
         return (
           <Box flex="auto" key={`${color}-${index}`}>
-            <Box
-              flex="auto"
-              borderColor={`${color}-50` as BrandColor}
-              borderWidth="sm"
-              padding="xs"
-            >
+            <Box flex="auto" borderColor={`${color}-50` as BrandColor} borderWidth="sm" padding="xs">
               {`${color}-50`}
             </Box>
-            <Box
-              flex="auto"
-              borderColor={`${color}-100` as BrandColor}
-              borderWidth="sm"
-              padding="xs"
-            >
+            <Box flex="auto" borderColor={`${color}-100` as BrandColor} borderWidth="sm" padding="xs">
               {`${color}-100`}
             </Box>
-            <Box
-              flex="auto"
-              borderColor={`${color}-200` as BrandColor}
-              borderWidth="sm"
-              padding="xs"
-            >
+            <Box flex="auto" borderColor={`${color}-200` as BrandColor} borderWidth="sm" padding="xs">
               {`${color}-200`}
             </Box>
-            <Box
-              flex="auto"
-              borderColor={`${color}-300` as BrandColor}
-              borderWidth="sm"
-              padding="xs"
-            >
+            <Box flex="auto" borderColor={`${color}-300` as BrandColor} borderWidth="sm" padding="xs">
               {`${color}-300`}
             </Box>
-            <Box
-              flex="auto"
-              borderColor={`${color}-400` as BrandColor}
-              borderWidth="sm"
-              padding="xs"
-            >
+            <Box flex="auto" borderColor={`${color}-400` as BrandColor} borderWidth="sm" padding="xs">
               {`${color}-400`}
             </Box>
-            <Box
-              flex="auto"
-              borderColor={`${color}-500` as BrandColor}
-              borderWidth="sm"
-              padding="xs"
-            >
+            <Box flex="auto" borderColor={`${color}-500` as BrandColor} borderWidth="sm" padding="xs">
               {`${color}-500`}
             </Box>
-            <Box
-              flex="auto"
-              borderColor={`${color}-600` as BrandColor}
-              borderWidth="sm"
-              padding="xs"
-            >
+            <Box flex="auto" borderColor={`${color}-600` as BrandColor} borderWidth="sm" padding="xs">
               {`${color}-600`}
             </Box>
-            <Box
-              flex="auto"
-              borderColor={`${color}-700` as BrandColor}
-              borderWidth="sm"
-              padding="xs"
-            >
+            <Box flex="auto" borderColor={`${color}-700` as BrandColor} borderWidth="sm" padding="xs">
               {`${color}-700`}
             </Box>
-            <Box
-              flex="auto"
-              borderColor={`${color}-800` as BrandColor}
-              borderWidth="sm"
-              padding="xs"
-            >
+            <Box flex="auto" borderColor={`${color}-800` as BrandColor} borderWidth="sm" padding="xs">
               {`${color}-800`}
             </Box>
-            <Box
-              flex="auto"
-              borderColor={`${color}-900` as BrandColor}
-              borderWidth="sm"
-              padding="xs"
-            >
+            <Box flex="auto" borderColor={`${color}-900` as BrandColor} borderWidth="sm" padding="xs">
               {`${color}-900`}
             </Box>
           </Box>
@@ -427,12 +327,7 @@ export const AllPadding: React.FunctionComponent<BoxProps> = () => (
 export const AllHorizontalPadding: React.FunctionComponent<BoxProps> = () => (
   <>
     {[...SPACING_OPTIONS].map((spacing, i) => (
-      <Box
-        padding={`0 ${spacing}`}
-        background="primary-lighter"
-        margin="xs 0"
-        key={i}
-      >
+      <Box padding={`0 ${spacing}`} background="primary-lighter" margin="xs 0" key={i}>
         {`${spacing} horizontal padding`}
       </Box>
     ))}
@@ -442,12 +337,7 @@ export const AllHorizontalPadding: React.FunctionComponent<BoxProps> = () => (
 export const AllVerticalPadding: React.FunctionComponent<BoxProps> = () => (
   <>
     {[...SPACING_OPTIONS].map((spacing, i) => (
-      <Box
-        padding={`${spacing} 0`}
-        background="primary-lighter"
-        margin="xs 0"
-        key={i}
-      >
+      <Box padding={`${spacing} 0`} background="primary-lighter" margin="xs 0" key={i}>
         {`${spacing} vertical padding`}
       </Box>
     ))}
@@ -475,192 +365,192 @@ const BoxTemplate: StoryFn<BoxProps> = ({ propertyName, ...args }) => {
 
 export const ResponsiveFontSize = BoxTemplate.bind({});
 ResponsiveFontSize.args = {
-  propertyName: 'fontSize',
+  propertyName: "fontSize",
   fontSize: {
-    base: 'md',
-    tablet: 'lg',
-    desktop: 'xl',
-    hd: '4xl',
+    base: "md",
+    tablet: "lg",
+    desktop: "xl",
+    hd: "4xl",
   },
-  padding: 'sm',
+  padding: "sm",
 };
 ResponsiveFontSize.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveRadius = BoxTemplate.bind({});
 ResponsiveRadius.args = {
-  propertyName: 'radius',
+  propertyName: "radius",
   radius: {
-    base: 'circle',
-    tablet: 'sm sm 0 0',
-    desktop: '0 0 md md',
-    hd: 'lg',
+    base: "circle",
+    tablet: "sm sm 0 0",
+    desktop: "0 0 md md",
+    hd: "lg",
   },
-  background: 'info-100',
-  padding: 'sm',
+  background: "info-100",
+  padding: "sm",
 };
 ResponsiveRadius.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveShadow = BoxTemplate.bind({});
 ResponsiveShadow.args = {
-  propertyName: 'shadow',
+  propertyName: "shadow",
   shadow: {
-    base: '0',
-    tablet: 'lg',
-    desktop: 'xl',
-    hd: '2xl',
+    base: "0",
+    tablet: "lg",
+    desktop: "xl",
+    hd: "2xl",
   },
-  padding: 'sm',
-  background: 'white',
+  padding: "sm",
+  background: "white",
 };
 ResponsiveShadow.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveTextAlign = BoxTemplate.bind({});
 ResponsiveTextAlign.args = {
-  propertyName: 'textAlign',
+  propertyName: "textAlign",
   textAlign: {
-    base: 'right',
-    tablet: 'left',
-    desktop: 'center',
+    base: "right",
+    tablet: "left",
+    desktop: "center",
   },
-  padding: 'sm',
-  background: 'info-100',
+  padding: "sm",
+  background: "info-100",
 };
 ResponsiveTextAlign.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveBorderWidth = BoxTemplate.bind({});
 ResponsiveBorderWidth.args = {
-  propertyName: 'borderWidth',
+  propertyName: "borderWidth",
   borderWidth: {
-    base: 'sm',
-    tablet: 'xs',
-    desktop: 'sm xs 0 sm',
-    hd: '0 0 sm sm',
+    base: "sm",
+    tablet: "xs",
+    desktop: "sm xs 0 sm",
+    hd: "0 0 sm sm",
   },
-  borderColor: 'secondary-500',
-  padding: 'sm',
+  borderColor: "secondary-500",
+  padding: "sm",
 };
 ResponsiveBorderWidth.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveWidth = BoxTemplate.bind({});
 ResponsiveWidth.args = {
-  propertyName: 'width',
+  propertyName: "width",
   width: {
-    base: '2xl',
-    tablet: '60',
-    desktop: '5xl',
-    hd: '100',
+    base: "2xl",
+    tablet: "60",
+    desktop: "5xl",
+    hd: "100",
   },
-  height: '3xl',
-  background: 'info-100',
-  padding: 'sm',
+  height: "3xl",
+  background: "info-100",
+  padding: "sm",
 };
 ResponsiveWidth.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveMaxWidth = BoxTemplate.bind({});
 ResponsiveMaxWidth.args = {
-  propertyName: 'maxWidth',
+  propertyName: "maxWidth",
   maxWidth: {
-    base: '2xl',
-    tablet: '50',
-    desktop: '3xl',
-    hd: '100',
+    base: "2xl",
+    tablet: "50",
+    desktop: "3xl",
+    hd: "100",
   },
-  height: '3xl',
-  background: 'info-100',
-  padding: 'sm',
-  display: 'block',
+  height: "3xl",
+  background: "info-100",
+  padding: "sm",
+  display: "block",
 };
 ResponsiveMaxWidth.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveMinWidth = BoxTemplate.bind({});
 ResponsiveMinWidth.args = {
-  propertyName: 'minWidth',
+  propertyName: "minWidth",
   minWidth: {
-    base: '2xl',
-    tablet: '50',
-    desktop: '3xl',
-    hd: '100',
+    base: "2xl",
+    tablet: "50",
+    desktop: "3xl",
+    hd: "100",
   },
-  height: '3xl',
-  background: 'info-100',
-  padding: 'sm',
-  display: 'inline-block',
-  alignSelf: 'flex-start',
+  height: "3xl",
+  background: "info-100",
+  padding: "sm",
+  display: "inline-block",
+  alignSelf: "flex-start",
 };
 ResponsiveMinWidth.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveHeight = BoxTemplate.bind({});
 ResponsiveHeight.args = {
-  propertyName: 'height',
+  propertyName: "height",
   height: {
-    base: 'md',
-    tablet: 'lg',
-    desktop: 'xl',
-    hd: '2xl',
+    base: "md",
+    tablet: "lg",
+    desktop: "xl",
+    hd: "2xl",
   },
-  width: '3xl',
-  background: 'info-100',
-  padding: 'sm',
+  width: "3xl",
+  background: "info-100",
+  padding: "sm",
 };
 ResponsiveHeight.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveMaxHeight = BoxTemplate.bind({});
 ResponsiveMaxHeight.args = {
-  propertyName: 'maxHeight',
+  propertyName: "maxHeight",
   maxHeight: {
-    base: 'sm',
-    tablet: 'lg',
-    desktop: '2xl',
-    hd: '4xl',
+    base: "sm",
+    tablet: "lg",
+    desktop: "2xl",
+    hd: "4xl",
   },
-  height: '5xl',
-  width: '3xl',
-  background: 'info-100',
-  padding: 'sm',
+  height: "5xl",
+  width: "3xl",
+  background: "info-100",
+  padding: "sm",
 };
 ResponsiveMaxHeight.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveMinHeight = BoxTemplate.bind({});
 ResponsiveMinHeight.args = {
-  propertyName: 'minHeight',
+  propertyName: "minHeight",
   minHeight: {
-    base: 'sm',
-    tablet: 'lg',
-    desktop: '2xl',
-    hd: '4xl',
+    base: "sm",
+    tablet: "lg",
+    desktop: "2xl",
+    hd: "4xl",
   },
-  width: '3xl',
-  background: 'info-100',
-  padding: 'sm',
-  alignSelf: 'flex-start',
+  width: "3xl",
+  background: "info-100",
+  padding: "sm",
+  alignSelf: "flex-start",
 };
 ResponsiveMinHeight.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveMargin = BoxTemplate.bind({});
 ResponsiveMargin.args = {
-  propertyName: 'margin',
+  propertyName: "margin",
   margin: {
-    base: 'md',
-    tablet: '2xl lg',
-    desktop: '5xl 3xl sm',
-    hd: '3xl 0 2xl lg',
+    base: "md",
+    tablet: "2xl lg",
+    desktop: "5xl 3xl sm",
+    hd: "3xl 0 2xl lg",
   },
-  width: '3xl',
-  background: 'info-100',
+  width: "3xl",
+  background: "info-100",
 };
 ResponsiveMargin.parameters = RESPONSIVE_STORY;
 
 export const ResponsivePadding = BoxTemplate.bind({});
 ResponsivePadding.args = {
-  propertyName: 'padding',
+  propertyName: "padding",
   padding: {
-    base: '0',
-    tablet: '2xl lg',
-    desktop: '5xl 3xl 4xl',
-    hd: '3xl 0 2xl lg',
+    base: "0",
+    tablet: "2xl lg",
+    desktop: "5xl 3xl 4xl",
+    hd: "3xl 0 2xl lg",
   },
-  width: '3xl',
-  background: 'info-100',
+  width: "3xl",
+  background: "info-100",
 };
 ResponsivePadding.parameters = RESPONSIVE_STORY;
 
@@ -669,36 +559,15 @@ const BoxChildrenTemplate: Story<BoxProps> = ({ propertyName, ...args }) => {
     const { activeBreakpoint } = useBreakpoint();
     return (
       <Box background="grey-50" padding="lg" {...args}>
-        <Box
-          flex="auto"
-          radius="md"
-          background="info-100"
-          height="lg"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box flex="auto" radius="md" background="info-100" height="lg" justifyContent="center" alignItems="center">
           <p>{`Breakpoint: ${activeBreakpoint.name}`}</p>
           <p>{`${propertyName}: ${args[propertyName][activeBreakpoint.name]}`}</p>
         </Box>
-        <Box
-          flex="auto"
-          radius="md"
-          background="info-100"
-          height="lg"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box flex="auto" radius="md" background="info-100" height="lg" justifyContent="center" alignItems="center">
           <p>{`Breakpoint: ${activeBreakpoint.name}`}</p>
           <p>{`${propertyName}: ${args[propertyName][activeBreakpoint.name]}`}</p>
         </Box>
-        <Box
-          flex="auto"
-          radius="md"
-          background="info-100"
-          height="lg"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box flex="auto" radius="md" background="info-100" height="lg" justifyContent="center" alignItems="center">
           <p>{`Breakpoint: ${activeBreakpoint.name}`}</p>
           <p>{`${propertyName}: ${args[propertyName][activeBreakpoint.name]}`}</p>
         </Box>
@@ -715,73 +584,67 @@ const BoxChildrenTemplate: Story<BoxProps> = ({ propertyName, ...args }) => {
 
 export const ResponsiveDirection = BoxChildrenTemplate.bind({});
 ResponsiveDirection.args = {
-  propertyName: 'direction',
+  propertyName: "direction",
   direction: {
-    base: 'column',
-    tablet: 'row',
-    desktop: 'column-reverse',
-    hd: 'row-reverse',
+    base: "column",
+    tablet: "row",
+    desktop: "column-reverse",
+    hd: "row-reverse",
   },
 };
 ResponsiveDirection.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveChildGap = BoxChildrenTemplate.bind({});
 ResponsiveChildGap.args = {
-  propertyName: 'childGap',
+  propertyName: "childGap",
   childGap: {
-    base: 'xs',
-    tablet: 'lg',
-    desktop: '3xl',
-    hd: '5xl',
+    base: "xs",
+    tablet: "lg",
+    desktop: "3xl",
+    hd: "5xl",
   },
 };
 ResponsiveChildGap.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveGap = BoxChildrenTemplate.bind({});
 ResponsiveGap.args = {
-  propertyName: 'gap',
+  propertyName: "gap",
   gap: {
-    base: 'xs',
-    tablet: 'lg',
-    desktop: '3xl',
-    hd: '5xl',
+    base: "xs",
+    tablet: "lg",
+    desktop: "3xl",
+    hd: "5xl",
   },
 };
 ResponsiveGap.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveRowGap = BoxChildrenTemplate.bind({});
 ResponsiveRowGap.args = {
-  propertyName: 'rowGap',
+  propertyName: "rowGap",
   rowGap: {
-    base: 'xs',
-    tablet: 'lg',
-    desktop: '3xl',
-    hd: '5xl',
+    base: "xs",
+    tablet: "lg",
+    desktop: "3xl",
+    hd: "5xl",
   },
 };
 ResponsiveRowGap.parameters = RESPONSIVE_STORY;
 
 export const ResponsiveColumnGap = BoxChildrenTemplate.bind({});
 ResponsiveColumnGap.args = {
-  propertyName: 'columnGap',
+  propertyName: "columnGap",
   columnGap: {
-    base: 'xs',
-    tablet: 'lg',
-    desktop: '3xl',
-    hd: '5xl',
+    base: "xs",
+    tablet: "lg",
+    desktop: "3xl",
+    hd: "5xl",
   },
-  direction: 'row',
+  direction: "row",
 };
 ResponsiveColumnGap.parameters = RESPONSIVE_STORY;
 
 export const AllCursorOptions: React.FunctionComponent<BoxProps> = () => (
-  <Box
-    padding="md"
-    childGap="md"
-    flex="auto"
-    background="primary-lighter"
-    overflow="auto"
-  >
+  <Box padding="md" childGap="md" flex="auto" background="primary-lighter" overflow="auto">
     <Box cursor="auto" padding="md" background="primary-light">
       auto
     </Box>
@@ -894,13 +757,7 @@ export const AllCursorOptions: React.FunctionComponent<BoxProps> = () => (
 );
 
 export const AllPositionOptions: React.FunctionComponent<BoxProps> = () => (
-  <Box
-    padding="md"
-    childGap="md"
-    flex="auto"
-    background="primary-lighter"
-    overflow="auto"
-  >
+  <Box padding="md" childGap="md" flex="auto" background="primary-lighter" overflow="auto">
     <Box position="absolute" padding="md" background="primary-light">
       absolute
     </Box>
@@ -933,12 +790,12 @@ export const AllPositionOptions: React.FunctionComponent<BoxProps> = () => (
 
 export const ResponsivePosition = BoxChildrenTemplate.bind({});
 ResponsivePosition.args = {
-  propertyName: 'position',
+  propertyName: "position",
   position: {
-    base: 'sticky',
-    tablet: 'static',
-    desktop: 'absolute',
-    hd: 'relative',
+    base: "sticky",
+    tablet: "static",
+    desktop: "absolute",
+    hd: "relative",
   },
 };
 ResponsivePosition.parameters = RESPONSIVE_STORY;

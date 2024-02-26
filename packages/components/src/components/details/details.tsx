@@ -1,8 +1,8 @@
-import React from 'react';
-import classNames from 'classnames';
-import { DetailsSummary } from './details-summary';
-import styles from './details.module.scss';
-import { Box, BoxProps } from '../box/box';
+import React from "react";
+import classNames from "classnames";
+import { DetailsSummary } from "./details-summary";
+import styles from "./details.module.scss";
+import { Box, BoxProps } from "../box/box";
 
 export interface DetailsProps extends BoxProps {
   /**
@@ -11,35 +11,17 @@ export interface DetailsProps extends BoxProps {
   isOpen: boolean;
 }
 
-const DetailsBaseComponent: React.FC<DetailsProps> = React.forwardRef<HTMLDetailsElement, DetailsProps>((
-  {
-    children,
-    className,
-    display = 'block',
-    isOpen,
-    ...restProps
-  },
-  ref,
-) => {
-  const detailsClasses = classNames(
-    className,
-    styles['details-reset'],
-    styles.details,
-  );
+const DetailsBaseComponent: React.FC<DetailsProps> = React.forwardRef<HTMLDetailsElement, DetailsProps>(
+  ({ children, className, display = "block", isOpen, ...restProps }, ref) => {
+    const detailsClasses = classNames(className, styles["details-reset"], styles.details);
 
-  return (
-    <Box
-      as="details"
-      className={detailsClasses}
-      display={display}
-      open={isOpen}
-      ref={ref}
-      {...restProps}
-    >
-      {children}
-    </Box>
-  );
-});
+    return (
+      <Box as="details" className={detailsClasses} display={display} open={isOpen} ref={ref} {...restProps}>
+        {children}
+      </Box>
+    );
+  },
+);
 
 export interface DetailsStatic {
   Summary: typeof DetailsSummary;

@@ -1,39 +1,39 @@
-import { useState, useEffect } from 'react';
-import { Toast, ExtendedToastOptions, ToastType } from './toast.types';
+import { useState, useEffect } from "react";
+import { Toast, ExtendedToastOptions, ToastType } from "./toast.types";
 
 const TOAST_LIMIT = 20;
 
 // eslint-disable-next-line no-shadow
 export enum ToastStoreActionType {
-  ADD_TOAST = 'TOAST/ADD_TOAST',
-  UPDATE_TOAST = 'TOAST/UPDATE_TOAST',
-  UPSERT_TOAST = 'TOAST/UPSERT_TOAST',
-  DISMISS_TOAST = 'TOAST/DISMISS_TOAST',
-  REMOVE_TOAST = 'TOAST/REMOVE_TOAST',
-  START_PAUSE = 'TOAST/START_PAUSE',
-  END_PAUSE = 'TOAST/END_PAUSE',
+  ADD_TOAST = "TOAST/ADD_TOAST",
+  UPDATE_TOAST = "TOAST/UPDATE_TOAST",
+  UPSERT_TOAST = "TOAST/UPSERT_TOAST",
+  DISMISS_TOAST = "TOAST/DISMISS_TOAST",
+  REMOVE_TOAST = "TOAST/REMOVE_TOAST",
+  START_PAUSE = "TOAST/START_PAUSE",
+  END_PAUSE = "TOAST/END_PAUSE",
 }
 
 type GenericAction<TActionType extends PropertyKey, TPayload extends Record<string, unknown>> = {
   type: TActionType;
   payload: TPayload;
-}
+};
 
 type ToastStoreAction =
-  | GenericAction<ToastStoreActionType.ADD_TOAST, { toast: Toast; }>
-  | GenericAction<ToastStoreActionType.UPSERT_TOAST, { toast: Toast; }>
-  | GenericAction<ToastStoreActionType.UPDATE_TOAST, { toast: Partial<Toast>; }>
-  | GenericAction<ToastStoreActionType.DISMISS_TOAST, { toastId?: string; }>
-  | GenericAction<ToastStoreActionType.REMOVE_TOAST, { toastId?: string; }>
-  | GenericAction<ToastStoreActionType.START_PAUSE, { time: number; }>
-  | GenericAction<ToastStoreActionType.END_PAUSE, { time: number; }>
+  | GenericAction<ToastStoreActionType.ADD_TOAST, { toast: Toast }>
+  | GenericAction<ToastStoreActionType.UPSERT_TOAST, { toast: Toast }>
+  | GenericAction<ToastStoreActionType.UPDATE_TOAST, { toast: Partial<Toast> }>
+  | GenericAction<ToastStoreActionType.DISMISS_TOAST, { toastId?: string }>
+  | GenericAction<ToastStoreActionType.REMOVE_TOAST, { toastId?: string }>
+  | GenericAction<ToastStoreActionType.START_PAUSE, { time: number }>
+  | GenericAction<ToastStoreActionType.END_PAUSE, { time: number }>;
 
 interface ToastState {
   toasts: Toast[];
   pausedAt: number | undefined;
 }
 
-const toastTimeouts = new Map<Toast['id'], ReturnType<typeof setTimeout>>();
+const toastTimeouts = new Map<Toast["id"], ReturnType<typeof setTimeout>>();
 
 const addToDismissedQueue = (toastId: string) => {
   if (toastTimeouts.has(toastId)) {
@@ -42,7 +42,9 @@ const addToDismissedQueue = (toastId: string) => {
 
   const timeout = setTimeout(() => {
     toastTimeouts.delete(toastId);
-    dispatch({ // eslint-disable-line
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    dispatch({
+      // eslint-disable-line
       type: ToastStoreActionType.REMOVE_TOAST,
       payload: { toastId },
     });
@@ -62,33 +64,35 @@ type ReducerCallback<TState, TAction> = (state: TState, action: TAction) => TSta
 type HandlerMap<
   TActionTypes extends PropertyKey,
   TAction extends GenericAction<TActionTypes, Record<string, unknown>>,
-  TState
-> = {
-  [action in TActionTypes]: ReducerCallback<TState, TAction>
-};
-type ToastStoreHandlerMap = HandlerMap<ToastStoreActionType, ToastStoreAction, ToastState>
-
-const createReducer = <
-  TActionTypes extends PropertyKey,
-  TAction extends GenericAction<TActionTypes, Record<string, unknown>>,
   TState,
-  THandlers extends HandlerMap<TActionTypes, TAction, TState>,
->
-  (
+> = {
+  [action in TActionTypes]: ReducerCallback<TState, TAction>;
+};
+type ToastStoreHandlerMap = HandlerMap<ToastStoreActionType, ToastStoreAction, ToastState>;
+
+const createReducer =
+  <
+    TActionTypes extends PropertyKey,
+    TAction extends GenericAction<TActionTypes, Record<string, unknown>>,
+    TState,
+    THandlers extends HandlerMap<TActionTypes, TAction, TState>,
+  >(
     initialState: TState,
     handlers: THandlers,
-  ) => ((state: TState = initialState, action: TAction) => {
-    if (handlers.hasOwnProperty(action.type)) { // eslint-disable-line
+  ) =>
+  (state: TState = initialState, action: TAction) => {
+    if (handlers.hasOwnProperty(action.type)) {
+      // eslint-disable-line
       return handlers[action.type](state, action);
     }
 
     return state;
-  });
+  };
 
 type ToastStoreHandler = ReducerCallback<ToastState, ToastStoreAction>;
 
 const handleAddToast: ToastStoreHandler = (state, action) => {
-  if (!('toast' in action.payload)) return state;
+  if (!("toast" in action.payload)) return state;
 
   const { toast } = action.payload;
 
@@ -99,7 +103,7 @@ const handleAddToast: ToastStoreHandler = (state, action) => {
 };
 
 const handleUpdateToast: ToastStoreHandler = (state, action) => {
-  const { toast } = action.payload as { toast: Toast; };
+  const { toast } = action.payload as { toast: Toast };
 
   //  @TODO -- Side effects
   if (toast.id) {
@@ -108,26 +112,26 @@ const handleUpdateToast: ToastStoreHandler = (state, action) => {
 
   return {
     ...state,
-    toasts: state.toasts.map(t => t.id === toast.id ? { ...t, ...toast } : t), // eslint-disable-line
+    toasts: state.toasts.map((t) => (t.id === toast.id ? { ...t, ...toast } : t)), // eslint-disable-line
   };
 };
 
 const handleUpsertToast: ToastStoreHandler = (state, action) => {
-  const { toast } = action.payload as { toast: Toast; };
+  const { toast } = action.payload as { toast: Toast };
 
   // @TODO -- refactor to avoid using recursive function before 'reducer is declared'
-  return state.toasts.find(t => t.id === toast.id)
+  return state.toasts.find((t) => t.id === toast.id)
     ? reducer(state, { type: ToastStoreActionType.UPDATE_TOAST, payload: { toast } }) // eslint-disable-line
-    : reducer(state, { type: ToastStoreActionType.ADD_TOAST, payload: { toast } as { toast: Toast; } }); // eslint-disable-line
+    : reducer(state, { type: ToastStoreActionType.ADD_TOAST, payload: { toast } as { toast: Toast } }); // eslint-disable-line
 };
 
 const handleDismissToast: ToastStoreHandler = (state, action) => {
-  const { toastId } = action.payload as { toastId: string; };
+  const { toastId } = action.payload as { toastId: string };
 
   if (toastId) {
     addToDismissedQueue(toastId);
   } else {
-    state.toasts.forEach(toast => {
+    state.toasts.forEach((toast) => {
       addToDismissedQueue(toast.id);
     });
   }
@@ -135,12 +139,12 @@ const handleDismissToast: ToastStoreHandler = (state, action) => {
   return {
     ...state,
     // eslint-disable-next-line no-confusing-arrow
-    toasts: state.toasts.map(t => t.id === toastId || toastId === undefined ? { ...t, visible: false } : t),
+    toasts: state.toasts.map((t) => (t.id === toastId || toastId === undefined ? { ...t, visible: false } : t)),
   };
 };
 
 const handleRemoveToast: ToastStoreHandler = (state, action) => {
-  const { toastId } = action.payload as { toastId: string; };
+  const { toastId } = action.payload as { toastId: string };
 
   if (toastId === undefined) {
     return {
@@ -151,12 +155,12 @@ const handleRemoveToast: ToastStoreHandler = (state, action) => {
 
   return {
     ...state,
-    toasts: state.toasts.filter(t => t.id !== toastId),
+    toasts: state.toasts.filter((t) => t.id !== toastId),
   };
 };
 
 const handleStartPause: ToastStoreHandler = (state, action) => {
-  const { time } = action.payload as { time: number; };
+  const { time } = action.payload as { time: number };
 
   return {
     ...state,
@@ -165,14 +169,14 @@ const handleStartPause: ToastStoreHandler = (state, action) => {
 };
 
 const handleEndPause: ToastStoreHandler = (state, action) => {
-  const { time } = action.payload as { time: number; };
+  const { time } = action.payload as { time: number };
 
   const diff = time - (state.pausedAt || 0);
 
   return {
     ...state,
     pausedAt: undefined,
-    toasts: state.toasts.map(t => ({
+    toasts: state.toasts.map((t) => ({
       ...t,
       pauseDuration: t.pauseDuration + diff,
     })),
@@ -189,12 +193,7 @@ const actionHandlers: ToastStoreHandlerMap = {
   [ToastStoreActionType.END_PAUSE]: handleEndPause,
 };
 
-const toastReducer = createReducer<
-  ToastStoreActionType,
-  ToastStoreAction,
-  ToastState,
-  ToastStoreHandlerMap
->(
+const toastReducer = createReducer<ToastStoreActionType, ToastStoreAction, ToastState, ToastStoreHandlerMap>(
   { toasts: [], pausedAt: undefined },
   actionHandlers,
 );
@@ -207,7 +206,7 @@ let memoryState: ToastState = { toasts: [], pausedAt: undefined };
 
 export const dispatch = (action: ToastStoreAction): void => {
   memoryState = reducer(memoryState, action);
-  listeners.forEach(listener => {
+  listeners.forEach((listener) => {
     listener(memoryState);
   });
 };
@@ -234,15 +233,11 @@ export const useToastStore = (toastOptions: ExtendedToastOptions = {}): ToastSta
     };
   }, [state]);
 
-  const mergedToasts = state.toasts.map(t => ({
+  const mergedToasts = state.toasts.map((t) => ({
     ...toastOptions,
     ...toastOptions[t.type],
     ...t,
-    duration:
-      t.duration
-      || toastOptions[t.type]?.duration
-      || toastOptions?.duration
-      || defaultTimeouts[t.type],
+    duration: t.duration || toastOptions[t.type]?.duration || toastOptions?.duration || defaultTimeouts[t.type],
     style: {
       ...toastOptions.style,
       ...toastOptions[t.type]?.style,

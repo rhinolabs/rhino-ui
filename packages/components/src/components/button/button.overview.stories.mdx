@@ -1,9 +1,9 @@
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { BrowserRouter, Link } from 'react-router-dom';
-import { Alert } from '../alert/alert';
-import { Button } from './button';
-import { Box } from '../box/box';
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { BrowserRouter, Link } from "react-router-dom";
+import { Alert } from "../alert/alert";
+import { Button } from "./button";
+import { Box } from "../box/box";
 
 <Meta title="Components/Button/Overview" component={Button} />
 
@@ -14,7 +14,7 @@ They are used in forms, toolbars, modal dialogs and as stand-alone action trigge
 Actions almost always occur on the same page.
 
 <Canvas isExpanded>
-  <Button onClick={() => alert('clicked')}>Button</Button>
+  <Button onClick={() => alert("clicked")}>Button</Button>
 </Canvas>
 
 ## Props
@@ -30,8 +30,8 @@ The `variant` prop determines which color variant to render.
     name="Variants"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=2115%3A24829',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=2115%3A24829",
       },
     }}
   >
@@ -58,8 +58,8 @@ the color of the primary CTA but makes the hierarchy clear. The background is tr
     name="Outlined"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=2115%3A24829',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=2115%3A24829",
       },
     }}
   >
@@ -98,8 +98,8 @@ so it can have different sizes at different breakpoints.
     name="Size"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=2115%3A24829',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=2115%3A24829",
       },
     }}
   >
@@ -118,10 +118,10 @@ so it can have different sizes at different breakpoints.
       </Button>
       <Button
         size={{
-          base: 'xs',
-          tablet: 'sm',
-          desktop: 'md',
-          hd: 'lg',
+          base: "xs",
+          tablet: "sm",
+          desktop: "md",
+          hd: "lg",
         }}
         variant="light"
       >
@@ -173,18 +173,10 @@ Add an icon to the left or right inside the Button using the `iconPrefix` and `i
       </Button>
     </Box>
     <Box display="flex" direction="row" gap="xs" margin="lg 0 0 0">
-      <Button
-        onClick={() => alert('clicked')}
-        variant="light"
-        iconPrefix="caret-left"
-      >
+      <Button onClick={() => alert("clicked")} variant="light" iconPrefix="caret-left">
         Prev
       </Button>
-      <Button
-        onClick={() => alert('clicked')}
-        variant="light"
-        iconSuffix="caret-right"
-      >
+      <Button onClick={() => alert("clicked")} variant="light" iconSuffix="caret-right">
         Next
       </Button>
     </Box>
@@ -229,11 +221,7 @@ Callback functions can be passed to `onClick`, `onBlur`, and `onFocus` events.
 
 <Canvas>
   <Story name="Event Callbacks">
-    <Button
-      onBlur={action('blur')}
-      onClick={action('click')}
-      onFocus={action('focus')}
-    >
+    <Button onBlur={action("blur")} onClick={action("click")} onFocus={action("focus")}>
       click, focus, blur events
     </Button>
   </Story>
@@ -258,7 +246,7 @@ can render buttons as one of `button`, `a`, and `input`.
   <Story
     name="React Router Link"
     decorators={[
-      Story => (
+      (Story) => (
         <BrowserRouter>
           <Story />
         </BrowserRouter>
@@ -289,12 +277,12 @@ The Button component can be themed by base tokens, or component specific tokens.
       direction="row"
       alignItems="flex-start"
       style={{
-        '--button-font-family': 'var(--asset-fonts-brand)',
-        '--button-font-weight': 'var(--size-font-weight-regular)',
-        '--button-size-xs-border-radius': '0',
-        '--button-size-sm-border-radius': '0',
-        '--button-size-md-border-radius': '0',
-        '--button-size-lg-border-radius': '0',
+        "--button-font-family": "var(--asset-fonts-brand)",
+        "--button-font-weight": "var(--size-font-weight-regular)",
+        "--button-size-xs-border-radius": "0",
+        "--button-size-sm-border-radius": "0",
+        "--button-size-md-border-radius": "0",
+        "--button-size-lg-border-radius": "0",
       }}
     >
       <Button size="xs">Get Solar</Button>

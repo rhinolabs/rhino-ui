@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import classNames from 'classnames';
-import { ColorName } from '../../types';
-import styles from './spinner.module.scss';
+import React, { FC } from "react";
+import classNames from "classnames";
+import { ColorName } from "../../types";
+import styles from "./spinner.module.scss";
 
 export interface SpinnerProps {
   /**
@@ -15,18 +15,18 @@ export interface SpinnerProps {
   /**
    * Size of the spinner.
    */
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: "sm" | "md" | "lg" | "xl";
 }
 
-export const Spinner: FC<SpinnerProps> = ({ variant = 'dark', className, size = 'md' }) => {
+export const Spinner: FC<SpinnerProps> = ({ variant = "dark", className, size = "md" }) => {
   const classes = classNames(className, styles.spinner, `font-color-${variant}`);
 
   const sizeInPixels = () => {
     let pixels;
-    if (size === 'sm') pixels = '12';
-    if (size === 'md') pixels = '16';
-    if (size === 'lg') pixels = '24';
-    if (size === 'xl') pixels = '30';
+    if (size === "sm") pixels = "12";
+    if (size === "md") pixels = "16";
+    if (size === "lg") pixels = "24";
+    if (size === "xl") pixels = "30";
 
     return pixels;
   };

@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Components/SelectInput/Codesandbox" />
 
@@ -10,24 +10,24 @@ _NOTE:_ This component is build on top of `react-select` and as such you can use
 of react-select props, [Click Here](https://react-select.com/props).
 
 ```js codesandbox=rhinolabs-components
-import React, { useState } from 'react';
-import { SelectInput } from '@rhino-ui/components';
+import React, { useState } from "react";
+import { SelectInput } from "@rhino-ui/components";
 
 export default () => {
   const [value, setValue] = useState(null);
 
   const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
   ];
 
   return (
-    <div style={{ height: '200px' }}>
+    <div style={{ height: "200px" }}>
       <SelectInput
         id="singleSelectWithLabel"
         label="Label"
-        onChange={event => setValue(event.target.value)}
+        onChange={(event) => setValue(event.target.value)}
         options={options}
         value={value}
       />

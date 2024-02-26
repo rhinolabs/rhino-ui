@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Popover } from './popover';
-import { Card } from '../card/card';
-import { Button } from '../button/button';
-import { Box } from '../box/box';
-import { Heading } from '../heading/heading';
-import { Icon } from '../icon/icon';
-import { TextInput } from '../text-input/text-input';
-import { TextLink } from '../text-link/text-link';
-import { SelectInput } from '../select-input/select-input';
-import { useOpenClose } from '../../hooks/use-open-close/use-open-close';
+import { useState } from "react";
+import { BrowserRouter, Link } from "react-router-dom";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Popover } from "./popover";
+import { Card } from "../card/card";
+import { Button } from "../button/button";
+import { Box } from "../box/box";
+import { Heading } from "../heading/heading";
+import { Icon } from "../icon/icon";
+import { TextInput } from "../text-input/text-input";
+import { TextLink } from "../text-link/text-link";
+import { SelectInput } from "../select-input/select-input";
+import { useOpenClose } from "../../hooks/use-open-close/use-open-close";
 
 <Meta title="Components/Popover/Overview" component={Popover} />
 
@@ -32,11 +32,7 @@ of uses for a popover include:
     }}
   >
     {() => {
-      const {
-        isOpen: isPopoverOpen,
-        handleToggle: togglePopover,
-        handleClose: closePopover,
-      } = useOpenClose();
+      const { isOpen: isPopoverOpen, handleToggle: togglePopover, handleClose: closePopover } = useOpenClose();
       const popoverContent = <>Hello!</>;
       return (
         <>
@@ -45,7 +41,7 @@ of uses for a popover include:
             isOpen={isPopoverOpen}
             placement="right"
             contentContainerProps={{
-              padding: 'sm',
+              padding: "sm",
             }}
             onClickOutside={closePopover}
           >
@@ -82,11 +78,7 @@ You can apply a custom class to your popover with the `className` prop. Here we 
     }}
   >
     {() => {
-      const {
-        isOpen: isPopoverOpen,
-        handleToggle: togglePopover,
-        handleClose: closePopover,
-      } = useOpenClose();
+      const { isOpen: isPopoverOpen, handleToggle: togglePopover, handleClose: closePopover } = useOpenClose();
       const popoverContent = <>Hello!</>;
       return (
         <div>
@@ -95,7 +87,7 @@ You can apply a custom class to your popover with the `className` prop. Here we 
             isOpen={isPopoverOpen}
             placement="right"
             contentContainerProps={{
-              padding: 'sm',
+              padding: "sm",
             }}
             className="font-color-danger"
             onClickOutside={closePopover}
@@ -124,37 +116,36 @@ the entire gamut of styling options.
     }}
   >
     {() => {
-      const { isOpen: isPopoverOpen, handleToggle: togglePopover } =
-        useOpenClose();
+      const { isOpen: isPopoverOpen, handleToggle: togglePopover } = useOpenClose();
       const [popoverBackground, setPopoverBackground] = useState({
-        value: 'white',
-        label: 'White',
+        value: "white",
+        label: "White",
       });
       const [popoverFontColor, setPopoverFontColor] = useState({
-        value: 'dark',
-        label: 'Dark',
+        value: "dark",
+        label: "Dark",
       });
       const [popoverRadius, setPopoverRadius] = useState({
-        value: 'sm',
-        label: 'Small',
+        value: "sm",
+        label: "Small",
       });
       const backgroundOptions = [
-        { value: 'white', label: 'White' },
-        { value: 'primary', label: 'Primary' },
-        { value: 'secondary', label: 'Secondary' },
-        { value: 'tertiary', label: 'Tertiary' },
-        { value: 'warning', label: 'Warning' },
-        { value: 'grey-light', label: 'Grey Light' },
-        { value: 'grey-dark', label: 'Grey Dark' },
+        { value: "white", label: "White" },
+        { value: "primary", label: "Primary" },
+        { value: "secondary", label: "Secondary" },
+        { value: "tertiary", label: "Tertiary" },
+        { value: "warning", label: "Warning" },
+        { value: "grey-light", label: "Grey Light" },
+        { value: "grey-dark", label: "Grey Dark" },
       ];
       const fontColorOptions = [
-        { value: 'white', label: 'White' },
-        { value: 'dark', label: 'Dark' },
+        { value: "white", label: "White" },
+        { value: "dark", label: "Dark" },
       ];
       const borderRadiusOptions = [
-        { value: 'sm', label: 'Small' },
-        { value: 'md', label: 'Medium' },
-        { value: 'lg', label: 'Large' },
+        { value: "sm", label: "Small" },
+        { value: "md", label: "Medium" },
+        { value: "lg", label: "Large" },
       ];
       return (
         <Box height="400px">
@@ -167,9 +158,9 @@ the entire gamut of styling options.
                 </>
               }
               isOpen={isPopoverOpen}
-              placement={'right'}
+              placement={"right"}
               contentContainerProps={{
-                padding: 'sm',
+                padding: "sm",
                 background: popoverBackground.value,
                 color: popoverFontColor.value,
                 radius: popoverRadius.value,
@@ -184,7 +175,7 @@ the entire gamut of styling options.
             <Box width="200px">
               <SelectInput
                 options={backgroundOptions}
-                onChange={event => {
+                onChange={(event) => {
                   setPopoverBackground(event.target.value);
                 }}
                 value={popoverBackground}
@@ -194,7 +185,7 @@ the entire gamut of styling options.
             <Box width="200px">
               <SelectInput
                 options={fontColorOptions}
-                onChange={event => {
+                onChange={(event) => {
                   setPopoverFontColor(event.target.value);
                 }}
                 value={popoverFontColor}
@@ -204,7 +195,7 @@ the entire gamut of styling options.
             <Box width="200px">
               <SelectInput
                 options={borderRadiusOptions}
-                onChange={event => {
+                onChange={(event) => {
                   setPopoverRadius(event.target.value);
                 }}
                 value={popoverRadius}
@@ -234,64 +225,56 @@ prevent the content from getting cut off.
     {() => {
       const [isPopoverOpen, setPopoverOpen] = useState({
         auto: false,
-        'auto-start': false,
-        'auto-end': false,
+        "auto-start": false,
+        "auto-end": false,
         top: false,
         bottom: false,
         right: false,
         left: false,
-        'top-start': false,
-        'top-end': false,
-        'bottom-start': false,
-        'bottom-end': false,
-        'right-start': false,
-        'right-end': false,
-        'left-start': false,
-        'left-end': false,
+        "top-start": false,
+        "top-end": false,
+        "bottom-start": false,
+        "bottom-end": false,
+        "right-start": false,
+        "right-end": false,
+        "left-start": false,
+        "left-end": false,
       });
-      const handleOpenPopover = key => {
+      const handleOpenPopover = (key) => {
         setPopoverOpen({ ...isPopoverOpen, [key]: !isPopoverOpen[key] });
       };
       const positions = [
-        'auto',
-        'auto-start',
-        'auto-end',
-        'top',
-        'bottom',
-        'right',
-        'left',
-        'top-start',
-        'top-end',
-        'bottom-start',
-        'bottom-end',
-        'right-start',
-        'right-end',
-        'left-start',
-        'left-end',
+        "auto",
+        "auto-start",
+        "auto-end",
+        "top",
+        "bottom",
+        "right",
+        "left",
+        "top-start",
+        "top-end",
+        "bottom-start",
+        "bottom-end",
+        "right-start",
+        "right-end",
+        "left-start",
+        "left-end",
       ];
       return (
         <Box direction="row" gap="md" wrap>
-          {positions.map(position => (
-            <Box
-              height="100px"
-              padding="5xl"
-              display="inline-block"
-              key={position}
-            >
+          {positions.map((position) => (
+            <Box height="100px" padding="5xl" display="inline-block" key={position}>
               <Popover
                 content={<>{position}</>}
                 isOpen={isPopoverOpen[position]}
                 placement={position}
                 contentContainerProps={{
-                  padding: 'sm',
-                  background: 'secondary',
-                  color: 'white',
+                  padding: "sm",
+                  background: "secondary",
+                  color: "white",
                 }}
               >
-                <Button
-                  onClick={() => handleOpenPopover(position)}
-                  variant="light"
-                >
+                <Button onClick={() => handleOpenPopover(position)} variant="light">
                   {position}
                 </Button>
               </Popover>
@@ -323,19 +306,11 @@ in order to render the element anywhere on the page.
     }}
   >
     {() => {
-      const {
-        isOpen: isPopoverOpen,
-        handleToggle: togglePopover,
-        handleClose: closePopover,
-      } = useOpenClose();
+      const { isOpen: isPopoverOpen, handleToggle: togglePopover, handleClose: closePopover } = useOpenClose();
       const popoverContent = (
         <>
-          <Heading style={{ marginBottom: '0.5rem' }}>
-            I am living in the body element!
-          </Heading>
-          <p>
-            That's why I can break out of my container without getting cut off
-          </p>
+          <Heading style={{ marginBottom: "0.5rem" }}>I am living in the body element!</Heading>
+          <p>That's why I can break out of my container without getting cut off</p>
         </>
       );
       return (
@@ -345,9 +320,9 @@ in order to render the element anywhere on the page.
             isOpen={isPopoverOpen}
             placement="right-start"
             contentContainerProps={{
-              padding: 'md',
-              background: 'secondary',
-              color: 'white',
+              padding: "md",
+              background: "secondary",
+              color: "white",
             }}
             withPortal
             portalTarget={document.body}
@@ -379,20 +354,11 @@ NOTE: this should be use sparingly since context dependent on hover, isn't an op
     }}
   >
     {() => {
-      const {
-        isOpen: isPopoverOpen,
-        handleClose: closePopover,
-        handleOpen: openPopover,
-      } = useOpenClose();
+      const { isOpen: isPopoverOpen, handleClose: closePopover, handleOpen: openPopover } = useOpenClose();
       const popoverContent = (
         <>
-          <Heading style={{ marginBottom: '0.5rem' }}>
-            I just appeared on hover!
-          </Heading>
-          <p>
-            My visibility can easily be managed by attaching listeners to the
-            trigger element
-          </p>
+          <Heading style={{ marginBottom: "0.5rem" }}>I just appeared on hover!</Heading>
+          <p>My visibility can easily be managed by attaching listeners to the trigger element</p>
         </>
       );
       return (
@@ -402,15 +368,11 @@ NOTE: this should be use sparingly since context dependent on hover, isn't an op
             isOpen={isPopoverOpen}
             placement="right-start"
             contentContainerProps={{
-              padding: 'md',
-              background: 'primary-light',
+              padding: "md",
+              background: "primary-light",
             }}
           >
-            <Button
-              onMouseOver={openPopover}
-              onMouseOut={closePopover}
-              variant="light"
-            >
+            <Button onMouseOver={openPopover} onMouseOut={closePopover} variant="light">
               Hover Me
             </Button>
           </Popover>
@@ -441,16 +403,10 @@ in cases where the click target includes the Popover trigger or content nodes.
     }}
   >
     {() => {
-      const {
-        isOpen: isPopoverOpen,
-        handleClose: closePopover,
-        handleToggle: togglePopover,
-      } = useOpenClose();
+      const { isOpen: isPopoverOpen, handleClose: closePopover, handleToggle: togglePopover } = useOpenClose();
       const popoverContent = (
         <>
-          <Heading style={{ marginBottom: '0.5rem' }}>
-            I will close if you click outside!
-          </Heading>
+          <Heading style={{ marginBottom: "0.5rem" }}>I will close if you click outside!</Heading>
           <p>The event listener is attached to the document body.</p>
         </>
       );
@@ -464,8 +420,8 @@ in cases where the click target includes the Popover trigger or content nodes.
             portalTarget={document.body}
             onClickOutside={closePopover}
             contentContainerProps={{
-              padding: 'md',
-              background: 'primary-light',
+              padding: "md",
+              background: "primary-light",
             }}
           >
             <Button onClick={togglePopover} variant="light">
@@ -494,21 +450,15 @@ Use the `trapFocus` prop to constrain focus to popover content elements.
     }}
   >
     {() => {
-      const [inputValue, setInputValue] = useState('');
-      const {
-        isOpen: isPopoverOpen,
-        handleClose: closePopover,
-        handleToggle: togglePopover,
-      } = useOpenClose();
-      const handleInputChange = event => {
+      const [inputValue, setInputValue] = useState("");
+      const { isOpen: isPopoverOpen, handleClose: closePopover, handleToggle: togglePopover } = useOpenClose();
+      const handleInputChange = (event) => {
         setInputValue(event.target.value);
       };
       const popoverContent = (
         <>
           <Box direction="column" gap="sm">
-            <Heading>
-              Only the elements on this Popover can be tabbed into
-            </Heading>
+            <Heading>Only the elements on this Popover can be tabbed into</Heading>
             <TextInput onChange={handleInputChange} value={inputValue} />
             <Button>Submit</Button>
           </Box>
@@ -521,8 +471,8 @@ Use the `trapFocus` prop to constrain focus to popover content elements.
             isOpen={isPopoverOpen}
             placement="right-start"
             contentContainerProps={{
-              padding: 'md',
-              background: 'grey-lightest',
+              padding: "md",
+              background: "grey-lightest",
             }}
             withPortal
             portalTarget={document.body}
@@ -551,11 +501,7 @@ Render the popover with no arrow by passing `hasArrow` false.
     }}
   >
     {() => {
-      const {
-        isOpen: isPopoverOpen,
-        handleToggle: togglePopover,
-        handleClose: closePopover,
-      } = useOpenClose();
+      const { isOpen: isPopoverOpen, handleToggle: togglePopover, handleClose: closePopover } = useOpenClose();
       const popoverContent = (
         <>
           <Box direction="column" gap="sm">
@@ -571,7 +517,7 @@ Render the popover with no arrow by passing `hasArrow` false.
             isOpen={isPopoverOpen}
             placement="right"
             contentContainerProps={{
-              padding: 'sm',
+              padding: "sm",
             }}
             onClickOutside={closePopover}
           >
@@ -598,9 +544,8 @@ Place the popover closer or farther from its trigger with the `offsetFromTarget`
   >
     {() => {
       const [offset, setOffset] = useState(12);
-      const { isOpen: isPopoverOpen, handleToggle: togglePopover } =
-        useOpenClose();
-      const handleInputChange = event => {
+      const { isOpen: isPopoverOpen, handleToggle: togglePopover } = useOpenClose();
+      const handleInputChange = (event) => {
         setInputValue(event.target.value);
       };
       const popoverContent = (
@@ -619,8 +564,8 @@ Place the popover closer or farther from its trigger with the `offsetFromTarget`
               isOpen={isPopoverOpen}
               placement="right-start"
               contentContainerProps={{
-                padding: 'md',
-                background: 'grey-lightest',
+                padding: "md",
+                background: "grey-lightest",
               }}
               withPortal
               portalTarget={document.body}
@@ -633,10 +578,7 @@ Place the popover closer or farther from its trigger with the `offsetFromTarget`
             </Popover>
           </Box>
           <Box margin="2xl 0 0 0" maxWidth="300px">
-            <label
-              htmlFor="offset"
-              style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}
-            >
+            <label htmlFor="offset" style={{ fontWeight: "bold", marginBottom: "0.25rem" }}>
               Offset
             </label>
             <input
@@ -647,12 +589,12 @@ Place the popover closer or farther from its trigger with the `offsetFromTarget`
               max="24"
               step="1"
               value={offset}
-              onChange={event => {
+              onChange={(event) => {
                 setOffset(event.target.value);
               }}
-              style={{ marginBottom: '0.25rem' }}
+              style={{ marginBottom: "0.25rem" }}
             />
-            <span style={{ display: 'inline' }}>Value: {offset}</span>
+            <span style={{ display: "inline" }}>Value: {offset}</span>
           </Box>
         </>
       );

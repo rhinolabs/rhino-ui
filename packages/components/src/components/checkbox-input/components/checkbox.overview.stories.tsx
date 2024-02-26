@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Checkbox } from './checkbox';
-import { Box } from '../../box/box';
+import React, { useState } from "react";
+import { Checkbox } from "./checkbox";
+import { Box } from "../../box/box";
 
 export default {
-  title: 'Components/CheckboxInput/Components/Checkbox',
+  title: "Components/CheckboxInput/Components/Checkbox",
   component: Checkbox,
 };
 
@@ -15,13 +15,13 @@ export const BasicExample: React.ReactNode = () => {
       <Checkbox
         id="checkbox"
         label="checked checkbox"
-        onChange={event => setChecked(event.target.checked)}
+        onChange={(event) => setChecked(event.target.checked)}
         isChecked={checked}
       />
       <Checkbox
         id="unchecked"
         label="unchecked checkbox"
-        onChange={event => setUnchecked(event.target.checked)}
+        onChange={(event) => setUnchecked(event.target.checked)}
         isChecked={unchecked}
       />
     </Box>
@@ -38,34 +38,34 @@ export const Sizes: React.ReactNode = () => {
       <Checkbox
         id="sm"
         label="small"
-        onChange={event => setSmCheckbox(event.target.checked)}
+        onChange={(event) => setSmCheckbox(event.target.checked)}
         isChecked={smCheckbox}
         size="sm"
       />
       <Checkbox
         id="md"
         label="medium"
-        onChange={event => setMdCheckbox(event.target.checked)}
+        onChange={(event) => setMdCheckbox(event.target.checked)}
         isChecked={mdCheckbox}
         size="md"
       />
       <Checkbox
         id="lg"
         label="large"
-        onChange={event => setLgCheckbox(event.target.checked)}
+        onChange={(event) => setLgCheckbox(event.target.checked)}
         isChecked={lgCheckbox}
         size="lg"
       />
       <Checkbox
         id="lg"
         label="responsive"
-        onChange={event => setResponsiveCheckbox(event.target.checked)}
+        onChange={(event) => setResponsiveCheckbox(event.target.checked)}
         isChecked={responsiveCheckbox}
         size={{
-          base: 'sm',
-          tablet: 'md',
-          desktop: 'lg',
-          hd: 'sm',
+          base: "sm",
+          tablet: "md",
+          desktop: "lg",
+          hd: "sm",
         }}
       />
     </Box>
@@ -80,14 +80,14 @@ export const Disabled: React.ReactNode = () => {
       <Checkbox
         id="checkbox"
         label="Label"
-        onChange={event => setChecked(event.target.checked)}
+        onChange={(event) => setChecked(event.target.checked)}
         isChecked={checked}
         isDisabled
       />
       <Checkbox
         id="unchecked"
         label="unchecked"
-        onChange={event => setUnchecked(event.target.checked)}
+        onChange={(event) => setUnchecked(event.target.checked)}
         isChecked={unchecked}
         isDisabled
       />
@@ -102,7 +102,7 @@ export const Error: React.ReactNode = () => {
       <Checkbox
         id="checkbox"
         label="Label"
-        onChange={event => setChecked(event.target.checked)}
+        onChange={(event) => setChecked(event.target.checked)}
         isChecked={checked}
         error
       />

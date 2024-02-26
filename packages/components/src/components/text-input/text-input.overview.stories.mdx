@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { TextInput } from './text-input';
-import { Box } from '../box/box';
-import { Icon } from '../icon/icon';
+import { useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { TextInput } from "./text-input";
+import { Box } from "../box/box";
+import { Icon } from "../icon/icon";
 
 <Meta
   title="Components/TextInput/Overview"
@@ -34,19 +34,19 @@ All that is required to render a basic version of the TextInput is a unique `id`
     name="Default"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=403%3A0',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=403%3A0",
       },
     }}
   >
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextInput
           id="default"
           value={value}
           label="TextInput Label"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
         />
       );
     }}
@@ -60,13 +60,13 @@ Use the `isRequired` prop to set the `required` and `aria-required` on the under
 <Canvas>
   <Story name="Required">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextInput
           id="required"
           value={value}
           label="Required Text Input"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           isRequired
         />
       );
@@ -79,15 +79,15 @@ You can remove or customize the required indicator using the `requiredIndicator`
 <Canvas>
   <Story name="Custom Required Indicator">
     {() => {
-      const [value, setValue] = useState('');
-      const [value2, setValue2] = useState('');
+      const [value, setValue] = useState("");
+      const [value2, setValue2] = useState("");
       return (
         <Box gap="md">
           <TextInput
             id="requiredWithoutIndicator"
             label="Required Without Indicator"
             value={value}
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
             isRequired
             requiredIndicator={null}
           />
@@ -95,7 +95,7 @@ You can remove or customize the required indicator using the `requiredIndicator`
             id="requiredCustomIndicator"
             label="Required Custom Indicator"
             value={value2}
-            onChange={event => setValue2(event.target.value)}
+            onChange={(event) => setValue2(event.target.value)}
             isRequired
             requiredIndicator=" (required)"
           />
@@ -112,14 +112,14 @@ Use the `helpText` prop to add clarifying text beneath the input label.
 <Canvas>
   <Story name="Help Text">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextInput
           id="helpText"
           value={value}
           label="Mobile Phone"
           helpText="We willl use this phone number to contact you via text"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
         />
       );
     }}
@@ -133,13 +133,13 @@ Use the `placeholder` prop to add a custom placeholder.
 <Canvas>
   <Story name="Placeholder">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextInput
           id="placeholder"
           value={value}
           label="TextInput with placeholder"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           placeholder="Custom placeholder..."
         />
       );
@@ -154,13 +154,13 @@ Use the `autoFocus` prop to autofocus the input.
 <Canvas>
   <Story name="Autofocus">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextInput
           id="autofocus"
           value={value}
           label="Label"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           autoFocus
         />
       );
@@ -175,13 +175,13 @@ Use the `hideLabel` prop to not render the label.
 <Canvas>
   <Story name="Hidden Label">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextInput
           id="hiddenLabel"
           value={value}
           label="Hidden Label"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           hideLabel
         />
       );
@@ -196,24 +196,24 @@ All that is required to render a basic version of the TextInput is a unique `id`
 <Canvas>
   <Story name="With Prefix and Suffix">
     {() => {
-      const [prefixValue1, setPrefixValue1] = useState('rhinolabssolar');
-      const [prefixValue2, setPrefixValue2] = useState('49');
-      const [prefixValue3, setPrefixValue3] = useState('');
-      const [prefixValue4, setPrefixValue4] = useState('Pre-populated Value');
+      const [prefixValue1, setPrefixValue1] = useState("rhinolabssolar");
+      const [prefixValue2, setPrefixValue2] = useState("49");
+      const [prefixValue3, setPrefixValue3] = useState("");
+      const [prefixValue4, setPrefixValue4] = useState("Pre-populated Value");
       return (
         <Box gap="md">
           <TextInput
             id="prefixSuffix1"
             value={prefixValue1}
             label="Prefix"
-            onChange={event => setPrefixValue1(event.target.value)}
+            onChange={(event) => setPrefixValue1(event.target.value)}
             prefix="@"
           />
           <TextInput
             id="prefixSuffix2"
             value={prefixValue2}
             label="Prefix and Suffix"
-            onChange={event => setPrefixValue2(event.target.value)}
+            onChange={(event) => setPrefixValue2(event.target.value)}
             prefix="$"
             suffix="per watt"
           />
@@ -222,7 +222,7 @@ All that is required to render a basic version of the TextInput is a unique `id`
             value={prefixValue3}
             label="Suffix"
             placeholder="Contact name"
-            onChange={event => setPrefixValue3(event.target.value)}
+            onChange={(event) => setPrefixValue3(event.target.value)}
             suffix={<Icon name="book" />}
           />
           <TextInput
@@ -230,8 +230,8 @@ All that is required to render a basic version of the TextInput is a unique `id`
             value={prefixValue4}
             label="Suffix with Clear"
             placeholder="Contact name"
-            onChange={event => setPrefixValue4(event.target.value)}
-            onClear={event => setPrefixValue4('')}
+            onChange={(event) => setPrefixValue4(event.target.value)}
+            onClear={(event) => setPrefixValue4("")}
             suffix={<Icon name="search" />}
           />
         </Box>
@@ -247,13 +247,13 @@ Use the `isDisabled` prop to mark the input as disabled.
 <Canvas>
   <Story name="Disabled with Value">
     {() => {
-      const [value, setValue] = useState('Preset value');
+      const [value, setValue] = useState("Preset value");
       return (
         <TextInput
           id="disabledWithValue"
           value={value}
           label="Label"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           isDisabled
         />
       );
@@ -269,14 +269,14 @@ a callback function when the clear icon is clicked, which can then be handled to
 <Canvas>
   <Story name="Clearable">
     {() => {
-      const [value, setValue] = useState('clear me');
+      const [value, setValue] = useState("clear me");
       return (
         <TextInput
           id="required"
           value={value}
           label="Label"
-          onChange={event => setValue(event.target.value)}
-          onClear={event => setValue('')}
+          onChange={(event) => setValue(event.target.value)}
+          onClear={(event) => setValue("")}
           isRequired
         />
       );
@@ -291,20 +291,20 @@ Set the `size` of the input to `sm`, `md` or `lg`. The `size` prop is also a `Re
 <Canvas>
   <Story name="Size">
     {() => {
-      const [value, setValue] = useState('');
-      const [value1, setValue1] = useState('');
-      const [value2, setValue2] = useState('');
-      const [valueResponsive, setValueResponsive] = useState('');
+      const [value, setValue] = useState("");
+      const [value1, setValue1] = useState("");
+      const [value2, setValue2] = useState("");
+      const [valueResponsive, setValueResponsive] = useState("");
       return (
         <Box
           direction={{
-            base: 'column',
+            base: "column",
           }}
           gap={{
-            base: 'sm',
-            tablet: 'md',
-            desktop: 'lg',
-            hd: 'lg',
+            base: "sm",
+            tablet: "md",
+            desktop: "lg",
+            hd: "lg",
           }}
           width="100%"
         >
@@ -313,27 +313,27 @@ Set the `size` of the input to `sm`, `md` or `lg`. The `size` prop is also a `Re
             value={value}
             label="Small Size"
             size="sm"
-            onChange={event => setValue(event.target.value)}
+            onChange={(event) => setValue(event.target.value)}
           />
           <TextInput
             id="sizeMedium"
             value={value1}
             label="Medium Size"
-            onChange={event => setValue1(event.target.value)}
+            onChange={(event) => setValue1(event.target.value)}
           />
           <TextInput
             id="sizeLarge"
             value={value2}
             label="Large Size"
             size="lg"
-            onChange={event => setValue2(event.target.value)}
+            onChange={(event) => setValue2(event.target.value)}
           />
           <TextInput
             id="responsiveSize"
             value={valueResponsive}
             label="Responsive Size"
-            size={{ base: 'sm', tablet: 'md', desktop: 'lg' }}
-            onChange={event => setValueResponsive(event.target.value)}
+            size={{ base: "sm", tablet: "md", desktop: "lg" }}
+            onChange={(event) => setValueResponsive(event.target.value)}
           />
         </Box>
       );
@@ -348,13 +348,13 @@ Use the `type` prop to mark the input type as "tel". Use the `inputMask` prop to
 <Canvas>
   <Story name="With Phone Mask">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextInput
           id="withPhoneMask"
           value={value}
           label="Label"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           type="tel"
           inputMask="phone"
         />
@@ -370,13 +370,13 @@ Use the `type` prop to mark the input type as "tel". Use the `inputMask` prop to
 <Canvas>
   <Story name="With Credit Card Mask">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextInput
           id="withCreditCardMask"
           value={value}
           label="Label"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           type="tel"
           inputMask="creditCard"
         />
@@ -392,13 +392,13 @@ Use the `type` prop to mark the input type as "tel". Use the `inputMask` prop to
 <Canvas>
   <Story name="With Date Mask">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextInput
           id="withDateMask"
           value={value}
           label="Date of Birth"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           inputMask="date"
           type="tel"
           placeholder="MM-DD-YYYY"
@@ -415,14 +415,14 @@ Use the `maxLength` prop to limit the number of characters that can be entered i
 <Canvas>
   <Story name="Max Length">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextInput
           id="maxLength"
           value={value}
           label="Label"
           maxLength="5"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           placeholder="Can't enter more than 5 characters..."
         />
       );
@@ -437,13 +437,13 @@ Use the `error` prop to mark the input as invalid. `error` accepts a `boolean`, 
 <Canvas>
   <Story name="Required with Error and Validation Message">
     {() => {
-      const [value, setValue] = useState('');
+      const [value, setValue] = useState("");
       return (
         <TextInput
           id="requiredWithValidationMessage"
           value={value}
           label="Label"
-          onChange={event => setValue(event.target.value)}
+          onChange={(event) => setValue(event.target.value)}
           isRequired
           error="Helpful validation message"
         />

@@ -1,14 +1,7 @@
-import {
-  ResponsiveProp,
-  BreakpointSizeWithBase,
-} from '../types';
+import { ResponsiveProp, BreakpointSizeWithBase } from "../types";
 
 export function isValidSpacingValue(value?: string | ResponsiveProp<string | undefined>): boolean {
-  if (
-    value === undefined
-    || value === null
-    || (typeof value !== 'string' && typeof value !== 'object')
-  ) {
+  if (value === undefined || value === null || (typeof value !== "string" && typeof value !== "object")) {
     return false;
   }
 
@@ -19,7 +12,7 @@ export function generateBaseClasses(
   attribute: string | undefined,
   value?: string | ResponsiveProp<string | undefined>,
 ): string[] {
-  if (typeof value !== 'string') return [];
+  if (typeof value !== "string") return [];
 
   const trimmedValue = value.trim();
 
@@ -37,28 +30,28 @@ export function generateBaseClasses(
   }
 
   const classes: string[] = [];
-  let shorthand: { [key: number]: string[]; };
+  let shorthand: { [key: number]: string[] };
 
-  if (attribute === 'br') {
+  if (attribute === "br") {
     shorthand = {
       /* top-left-and-bottom-right | top-right-and-bottom-left */
-      2: ['top-left', 'top-right'],
+      2: ["top-left", "top-right"],
       /* top-left | top-right-and-bottom-left | bottom-right */
-      3: ['top-left', 'top-right', 'bottom-right'],
-      4: ['top-left', 'top-right', 'bottom-right', 'bottom-left'],
+      3: ["top-left", "top-right", "bottom-right"],
+      4: ["top-left", "top-right", "bottom-right", "bottom-left"],
     };
-  } else if (attribute === 'g') {
-    shorthand = { 2: ['rg', 'cg'] };
+  } else if (attribute === "g") {
+    shorthand = { 2: ["rg", "cg"] };
   } else {
     shorthand = {
-      2: ['v', 'h'],
-      3: ['top', 'h', 'bottom'],
-      4: ['top', 'right', 'bottom', 'left'],
+      2: ["v", "h"],
+      3: ["top", "h", "bottom"],
+      4: ["top", "right", "bottom", "left"],
     };
   }
 
-  if (trimmedValue.includes(' ') && trimmedValue.split(' ').length > 1) {
-    const sides = trimmedValue.split(' ');
+  if (trimmedValue.includes(" ") && trimmedValue.split(" ").length > 1) {
+    const sides = trimmedValue.split(" ");
 
     if (sides.length > 4) {
       // eslint-disable-next-line no-console
@@ -75,7 +68,7 @@ export function generateBaseClasses(
     const trimmedSides = sides.slice(0, 4);
 
     // br = border radius -- the corner logic is different than sides.
-    if (attribute === 'br') {
+    if (attribute === "br") {
       trimmedSides.forEach((v, index) => {
         classes.push(`${attribute}-${shorthand[trimmedSides.length][index]}-${v}`);
 
@@ -87,7 +80,7 @@ export function generateBaseClasses(
           classes.push(`${attribute}-bottom-left-${trimmedSides[index]}`);
         }
       });
-    } else if (attribute === 'g') {
+    } else if (attribute === "g") {
       trimmedSides.forEach((v, index) => {
         classes.push(`${shorthand[trimmedSides.length][index]}-${v}`);
       });
@@ -111,13 +104,13 @@ export function cssShorthandToClasses(
 
   const classes: string[] = [];
 
-  if (typeof value === 'object') {
-    Object.keys(value).forEach(key => {
+  if (typeof value === "object") {
+    Object.keys(value).forEach((key) => {
       const baseClasses = generateBaseClasses(attribute, value[key as BreakpointSizeWithBase]);
-      const responsiveClasses = baseClasses?.map(baseClass => (key === 'base' ? baseClass : `${baseClass}-${key}`));
+      const responsiveClasses = baseClasses?.map((baseClass) => (key === "base" ? baseClass : `${baseClass}-${key}`));
       classes.push(...responsiveClasses);
     });
-  } else if (typeof value === 'string') {
+  } else if (typeof value === "string") {
     classes.push(...generateBaseClasses(attribute, value));
   }
 

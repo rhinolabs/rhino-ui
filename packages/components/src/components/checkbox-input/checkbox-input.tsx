@@ -1,26 +1,29 @@
-import React from 'react';
-import classNames from 'classnames';
-import { cssShorthandToClasses } from '../../lib/css-shorthand-to-classes';
-import { InputValidationMessage } from '../input-validation-message/input-validation-message';
-import { FormLabel } from '../form-label/form-label';
-import { Box } from '../box/box';
-import { Checkbox, CheckboxSize, CheckboxProps } from './components/checkbox';
+import React from "react";
+import classNames from "classnames";
+import { cssShorthandToClasses } from "../../lib/css-shorthand-to-classes";
+import { InputValidationMessage } from "../input-validation-message/input-validation-message";
+import { FormLabel } from "../form-label/form-label";
+import { Box } from "../box/box";
+import { Checkbox, CheckboxSize, CheckboxProps } from "./components/checkbox";
 
 const labelMarginSizeMap = {
-  sm: '0',
-  md: '2xs 0 0 0',
-  lg: 'xs 0 0 0',
+  sm: "0",
+  md: "2xs 0 0 0",
+  lg: "xs 0 0 0",
 };
 
-const computedResponsiveSize = ( // eslint-disable-line @typescript-eslint/explicit-module-boundary-types
-  size: CheckboxInputProps['size'],
+const computedResponsiveSize = (
+  // eslint-disable-line @typescript-eslint/explicit-module-boundary-types
+  size: CheckboxInputProps["size"],
 ) => {
-  if (size && !(typeof size === 'string') && typeof size === 'object') {
-    return Object.entries(size)
-      .reduce((acc, [key, value]) => ({ ...acc, [key]: labelMarginSizeMap[value || 'md'] }), {});
+  if (size && !(typeof size === "string") && typeof size === "object") {
+    return Object.entries(size).reduce(
+      (acc, [key, value]) => ({ ...acc, [key]: labelMarginSizeMap[value || "md"] }),
+      {},
+    );
   }
 
-  return labelMarginSizeMap[size || 'md'] as string;
+  return labelMarginSizeMap[size || "md"] as string;
 };
 export interface CheckboxInputProps {
   /**
@@ -65,7 +68,7 @@ export interface CheckboxInputProps {
    * Whether the checkbox is rendered in an indeterminate state.
    * NOTE: this change is only visual and it does not affect the checked or unchecked state of the checkbox.
    */
-  isIndeterminate?: CheckboxProps['isIndeterminate'];
+  isIndeterminate?: CheckboxProps["isIndeterminate"];
   /**
    * The required and aria-required attributes on the input
    */
@@ -97,7 +100,7 @@ export const CheckboxInput: React.FC<CheckboxInputProps> = ({
   isChecked,
   label,
   onChange,
-  className = '',
+  className = "",
   error = false,
   hideLabel = false,
   helpText,
@@ -106,8 +109,8 @@ export const CheckboxInput: React.FC<CheckboxInputProps> = ({
   isRequired = false,
   onBlur = undefined,
   onFocus = undefined,
-  requiredIndicator = ' *',
-  size = 'md',
+  requiredIndicator = " *",
+  size = "md",
   ...restProps
 }) => {
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>): void => {
@@ -133,7 +136,7 @@ export const CheckboxInput: React.FC<CheckboxInputProps> = ({
     isRequired,
     size,
     label,
-    className: classNames('rhinolabs-components__variables__form-control', 'm-right-xs'),
+    className: classNames("rhinolabs-components__variables__form-control", "m-right-xs"),
     error,
   };
 
@@ -143,15 +146,12 @@ export const CheckboxInput: React.FC<CheckboxInputProps> = ({
     isDisabled,
     isFieldRequired: isRequired,
     requiredIndicator,
-    className: classNames(...cssShorthandToClasses('m', computedResponsiveSize(size))),
+    className: classNames(...cssShorthandToClasses("m", computedResponsiveSize(size))),
   };
 
   return (
     <Box className={className} {...restProps}>
-      <Box
-        alignItems="flex-start"
-        direction="row"
-      >
+      <Box alignItems="flex-start" direction="row">
         <Checkbox {...checkboxProps} labelledby={`${id}Label`} />
         {label && !hideLabel && <FormLabel {...labelProps}>{label}</FormLabel>}
       </Box>

@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
-import classNames from 'classnames';
-import { Column, Row, EventWithColumnKey } from '../../types';
-import { Spinner } from '../spinner/spinner';
-import styles from './table.module.scss';
-import { TableBody } from './table-body/table-body';
-import { TableHead } from './table-head/table-head';
+import React, { FC } from "react";
+import classNames from "classnames";
+import { Column, Row, EventWithColumnKey } from "../../types";
+import { Spinner } from "../spinner/spinner";
+import styles from "./table.module.scss";
+import { TableBody } from "./table-body/table-body";
+import { TableHead } from "./table-head/table-head";
 
 export interface TableProps {
   /**
@@ -28,7 +28,7 @@ export interface TableProps {
    * Text alignment for all table cells. Can be superseded by passing the same prop into the `Column` object
    * for a specific column.
    */
-  align?: 'left' | 'right' | 'center';
+  align?: "left" | "right" | "center";
   /**
    * Global placeholder for empty cells. Can be overwritten by setting the same attribute
    * in the `Column` config.
@@ -42,7 +42,7 @@ export interface TableProps {
    * Remove borders around table, thead, tbody, td, etc.
    */
   isBorderless?: boolean;
-   /**
+  /**
    * Make Table more compact by cutting cell padding in half.
    */
   isCompact?: boolean;
@@ -77,7 +77,7 @@ export interface TableProps {
    */
   sortedColumn?: {
     dataKey: string | undefined;
-    sortDirection: 'none' | 'ascending' | 'descending' | undefined;
+    sortDirection: "none" | "ascending" | "descending" | undefined;
   };
   /**
    * Control the `table-layout` css property for the table.
@@ -94,7 +94,7 @@ export const Table: FC<TableProps> = ({
   columns,
   rows,
   rowKey,
-  align = 'left',
+  align = "left",
   className = undefined,
   emptyCellPlaceholder = undefined,
   hoverableRows = false,
@@ -109,37 +109,31 @@ export const Table: FC<TableProps> = ({
   useFixedTableLayout = false,
   truncateOverflow = false,
 }) => {
-  const containerClasses = classNames(
-    styles.container,
-    {
-      [styles['full-height']]: !!isScrollable?.y,
-    },
-  );
+  const containerClasses = classNames(styles.container, {
+    [styles["full-height"]]: !!isScrollable?.y,
+  });
 
   const scrollContainerClasses = classNames(
-    styles['scroll-container'],
+    styles["scroll-container"],
     {
       [styles.scrollable]: !!isScrollable?.x || !!isScrollable?.y,
-      [styles['scrollable-x']]: !!isScrollable?.x,
-      [styles['scrollable-y']]: !!isScrollable?.y,
+      [styles["scrollable-x"]]: !!isScrollable?.x,
+      [styles["scrollable-y"]]: !!isScrollable?.y,
     },
     className,
   );
 
-  const tableClasses = classNames(
-    styles.table,
-    {
-      [styles.fixed]: useFixedTableLayout,
-      [styles.striped]: isStriped,
-      [styles.borderless]: isBorderless,
-      [styles.compact]: isCompact,
-    },
-  );
+  const tableClasses = classNames(styles.table, {
+    [styles.fixed]: useFixedTableLayout,
+    [styles.striped]: isStriped,
+    [styles.borderless]: isBorderless,
+    [styles.compact]: isCompact,
+  });
 
   return (
     <div className={containerClasses}>
       {isLoading && (
-        <div className={styles['loading-mask']}>
+        <div className={styles["loading-mask"]}>
           <Spinner size="xl" />
         </div>
       )}

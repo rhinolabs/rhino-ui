@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Components/FileUpload/Codesandbox" />
 
@@ -7,13 +7,13 @@ import { Meta } from '@storybook/addon-docs';
 Use FileUpload to capture files for upload in forms or elsewhere.
 
 ```js codesandbox=rhinolabs-components
-import React, { useState } from 'react';
-import { FileUpload } from '@rhino-ui/components';
+import React, { useState } from "react";
+import { FileUpload } from "@rhino-ui/components";
 
 export default () => {
   const [files, setFiles] = useState(null);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setFiles(event.target.files);
   };
 

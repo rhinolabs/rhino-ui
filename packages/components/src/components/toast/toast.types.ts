@@ -1,14 +1,8 @@
-import { ValueOrFunction } from '../../types';
+import { ValueOrFunction } from "../../types";
 
-export type ToastType = 'success' | 'error' | 'loading' | 'blank' | 'custom';
+export type ToastType = "success" | "error" | "loading" | "blank" | "custom";
 
-export type ToastPosition =
-  'top-left' |
-  'top-center' |
-  'top-right' |
-  'bottom-left' |
-  'bottom-center' |
-  'bottom-right';
+export type ToastPosition = "top-left" | "top-center" | "top-right" | "bottom-left" | "bottom-center" | "bottom-right";
 
 export interface Toast {
   /**
@@ -44,8 +38,8 @@ export interface Toast {
    * Accessibility options
    */
   ariaProps: {
-    role: 'status' | 'alert';
-    'aria-live': 'assertive' | 'off' | 'polite';
+    role: "status" | "alert";
+    "aria-live": "assertive" | "off" | "polite";
   };
   /**
    * Whether the toast can be dismissed (if true, the toast will include a close button)
@@ -75,21 +69,11 @@ export interface Toast {
 }
 
 export type ToastOptions = Partial<
-  Pick<
-    Toast,
-    | 'id'
-    | 'duration'
-    | 'ariaProps'
-    | 'className'
-    | 'style'
-    | 'position'
-    | 'canDismiss'
-    | 'isCompact'
-  >
+  Pick<Toast, "id" | "duration" | "ariaProps" | "className" | "style" | "position" | "canDismiss" | "isCompact">
 >;
 
 /**
  * Extends toast options so that you can include options for each type of toast in the options.
  * e.g: { duration: 1000, success: { duration: 2000 } }
  */
-export type ExtendedToastOptions = ToastOptions & { [key in ToastType]?: ToastOptions; };
+export type ExtendedToastOptions = ToastOptions & { [key in ToastType]?: ToastOptions };

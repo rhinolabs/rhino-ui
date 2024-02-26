@@ -1,8 +1,8 @@
-import React, { FC, useState } from 'react';
-import format from 'date-fns/format';
-import { DatePicker, DatePickerProps } from '../date-picker/date-picker';
-import { TextInput, TextInputProps } from '../text-input/text-input';
-import { Popover, PopoverProps } from '../popover/popover';
+import React, { FC, useState } from "react";
+import format from "date-fns/format";
+import { DatePicker, DatePickerProps } from "../date-picker/date-picker";
+import { TextInput, TextInputProps } from "../text-input/text-input";
+import { Popover, PopoverProps } from "../popover/popover";
 
 export interface DateInputProps {
   /**
@@ -12,7 +12,7 @@ export interface DateInputProps {
   /**
    * Props object for TextInput component.
    */
-  textInputProps: Omit<TextInputProps, 'onChange'>;
+  textInputProps: Omit<TextInputProps, "onChange">;
   /**
    * Format for final date to be displayed.
    * Relies on date-fns/format --> https://date-fns.org/v1.9.0/docs/format
@@ -48,30 +48,30 @@ export interface DateInputProps {
   /**
    * Props to pass down to the Popover component.
    */
-  popoverProps?: Omit<PopoverProps, 'children' | 'content' | 'isOpen'>;
+  popoverProps?: Omit<PopoverProps, "children" | "content" | "isOpen">;
   /**
    * Additional props to be spread to the `TextInput` element.
    */
   [x: string]: any; // eslint-disable-line
 }
 
-const defaultDatePickerProps: Omit<DatePickerProps, 'onChange'> = {
+const defaultDatePickerProps: Omit<DatePickerProps, "onChange"> = {
   selected: null,
   selectsRange: false,
 };
 
-const defaultPopoverProps: Omit<PopoverProps, 'children' | 'content' | 'isOpen'> = {
-  placement: 'bottom',
+const defaultPopoverProps: Omit<PopoverProps, "children" | "content" | "isOpen"> = {
+  placement: "bottom",
 };
 
-const defaultTextInputProps: Omit<TextInputProps, 'id'> = {
-  label: 'Select Date',
+const defaultTextInputProps: Omit<TextInputProps, "id"> = {
+  label: "Select Date",
 };
 
 export const DateInput: FC<DateInputProps> = ({
   datePickerProps,
   textInputProps,
-  dateFormat = 'MM/dd/yyyy',
+  dateFormat = "MM/dd/yyyy",
   dateOptions = undefined,
   popoverProps = { ...defaultPopoverProps },
   ...restProps
@@ -92,19 +92,14 @@ export const DateInput: FC<DateInputProps> = ({
   };
 
   const getTextInputValue = () => {
-    const {
-      selectsRange,
-      startDate,
-      endDate,
-      selected,
-    } = mergedDatePickerProps;
+    const { selectsRange, startDate, endDate, selected } = mergedDatePickerProps;
 
-    const formattedStartDate = startDate ? format(startDate, dateFormat, dateOptions) : '';
-    const formattedEndDate = endDate ? format(endDate, dateFormat, dateOptions) : '';
-    const formattedSelectedDate = selected ? format(selected, dateFormat, dateOptions) : '';
+    const formattedStartDate = startDate ? format(startDate, dateFormat, dateOptions) : "";
+    const formattedEndDate = endDate ? format(endDate, dateFormat, dateOptions) : "";
+    const formattedSelectedDate = selected ? format(selected, dateFormat, dateOptions) : "";
 
     if (selectsRange) {
-      return `${formattedStartDate}${formattedStartDate || formattedEndDate ? ' - ' : ''}${formattedEndDate}`;
+      return `${formattedStartDate}${formattedStartDate || formattedEndDate ? " - " : ""}${formattedEndDate}`;
     }
 
     return formattedSelectedDate;
@@ -139,7 +134,7 @@ export const DateInput: FC<DateInputProps> = ({
   const handleOnClickOutside = (event: MouseEvent | KeyboardEvent) => {
     const target = event.target as Element;
 
-    if (target.className.includes('react-datepicker__navigation')) {
+    if (target.className.includes("react-datepicker__navigation")) {
       return;
     }
 

@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { FileUpload } from './file-upload';
-import { Box } from '../box/box';
-import { Button } from '../button/button';
+import { useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { FileUpload } from "./file-upload";
+import { Box } from "../box/box";
+import { Button } from "../button/button";
 
 <Meta
   title="Components/FileUpload/Overview"
@@ -31,17 +31,10 @@ Use FileUpload to capture files for upload in forms or elsewhere.
   <Story name="Default">
     {() => {
       const [files, setFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
-      return (
-        <FileUpload
-          labelText="My File"
-          id="myFile"
-          onChange={handleChange}
-          files={files}
-        />
-      );
+      return <FileUpload labelText="My File" id="myFile" onChange={handleChange} files={files} />;
     }}
   </Story>
 </Canvas>
@@ -54,7 +47,7 @@ Customize the button text with `buttonText`.
   <Story name="Button text">
     {() => {
       const [files, setFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
       return (
@@ -78,7 +71,7 @@ Use the `helpText` prop to add clarifying text adjacent to the file upload butto
   <Story name="Help Text">
     {() => {
       const [files, setFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
       return (
@@ -103,7 +96,7 @@ Customize the icon to communicate the button's intended use using `iconName`. Fo
   <Story name="Custom Icon">
     {() => {
       const [files, setFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
       return (
@@ -130,18 +123,10 @@ Remove the icon on the button with the handy `hasIcon` boolean.
   <Story name="Without Icon">
     {() => {
       const [files, setFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
-      return (
-        <FileUpload
-          labelText="My File"
-          id="myFile"
-          onChange={handleChange}
-          files={files}
-          hasIcon={false}
-        />
-      );
+      return <FileUpload labelText="My File" id="myFile" onChange={handleChange} files={files} hasIcon={false} />;
     }}
   </Story>
 </Canvas>
@@ -154,18 +139,10 @@ The default button text for `FileUpload` is 'Upload File'. However, you can expl
   <Story name="Without Button Text">
     {() => {
       const [files, setFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
-      return (
-        <FileUpload
-          labelText="My File"
-          id="myFile"
-          onChange={handleChange}
-          files={files}
-          buttonText={null}
-        />
-      );
+      return <FileUpload labelText="My File" id="myFile" onChange={handleChange} files={files} buttonText={null} />;
     }}
   </Story>
 </Canvas>
@@ -181,13 +158,13 @@ Light, dark, primary and white variations are available.
       const [lightFiles, setLightFiles] = useState(null);
       const [primaryFiles, setPrimaryFiles] = useState(null);
       const [whiteFiles, setWhiteFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
-      const handleLightChange = event => {
+      const handleLightChange = (event) => {
         setLightFiles(event.target.files);
       };
-      const handlePrimaryChange = event => {
+      const handlePrimaryChange = (event) => {
         setPrimaryFiles(event.target.files);
       };
       return (
@@ -243,13 +220,13 @@ Use `isOutlined` to render an outline button.
       const [lightFiles, setLightFiles] = useState(null);
       const [primaryFiles, setPrimaryFiles] = useState(null);
       const [whiteFiles, setWhiteFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
-      const handleLightChange = event => {
+      const handleLightChange = (event) => {
         setLightFiles(event.target.files);
       };
-      const handlePrimaryChange = event => {
+      const handlePrimaryChange = (event) => {
         setPrimaryFiles(event.target.files);
       };
       return (
@@ -306,19 +283,19 @@ Set the size of the FileUpload button to `xs`, `sm`, `md` or `lg`. `md` is the d
   <Story name="Sizes">
     {() => {
       const sizes = [
-        { label: 'Extra Small', value: 'xs' },
-        { label: 'Small', value: 'sm' },
-        { label: 'Medium', value: 'md' },
-        { label: 'Large', value: 'lg' },
+        { label: "Extra Small", value: "xs" },
+        { label: "Small", value: "sm" },
+        { label: "Medium", value: "md" },
+        { label: "Large", value: "lg" },
       ];
-      const handleChange = event => {
+      const handleChange = (event) => {
         alert(`You picked this file: ${event.target.files[0].name}`);
       };
       return (
         <Box gap="lg" direction="row">
           <Box gap="md">
             <Box gap="sm">
-              {sizes.map(size => (
+              {sizes.map((size) => (
                 <FileUpload
                   key={size.label}
                   labelText={size.label}
@@ -347,10 +324,10 @@ they are cleared at the top level where the `files` prop is emptied.
   <Story name="Clear">
     {() => {
       const [files, setFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
-      const handleClear = event => {
+      const handleClear = (event) => {
         setFiles(null);
       };
       return (
@@ -378,7 +355,7 @@ window in one go, if they simply click the button numerous times, the file input
   <Story name="Multiple Files">
     {() => {
       const [files, setFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
       return (
@@ -406,7 +383,7 @@ The example below only accepts image files.
   <Story name="File Types">
     {() => {
       const [files, setFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
       return (
@@ -434,17 +411,11 @@ To accomplish this we simply truncate excess characters in the middle of the fil
   <Story name="Truncated File Names">
     {() => {
       const [files, setFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
       return (
-        <FileUpload
-          labelText="My File"
-          id="myFile"
-          onChange={handleChange}
-          files={files}
-          fileNameMaxLength={16}
-        />
+        <FileUpload labelText="My File" id="myFile" onChange={handleChange} files={files} fileNameMaxLength={16} />
       );
     }}
   </Story>
@@ -458,18 +429,10 @@ Pass the `fullWidth` prop to have your FileUpload button take up the entire widt
   <Story name="Full Width">
     {() => {
       const [files, setFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
-      return (
-        <FileUpload
-          labelText="My File"
-          id="myFile"
-          onChange={handleChange}
-          files={files}
-          fullWidth
-        />
-      );
+      return <FileUpload labelText="My File" id="myFile" onChange={handleChange} files={files} fullWidth />;
     }}
   </Story>
 </Canvas>
@@ -482,18 +445,10 @@ Pass the `isDisabled` prop to render a disabled FileUpload.
   <Story name="Disabled">
     {() => {
       const [files, setFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
-      return (
-        <FileUpload
-          labelText="My File"
-          id="myFile"
-          onChange={handleChange}
-          files={files}
-          isDisabled
-        />
-      );
+      return <FileUpload labelText="My File" id="myFile" onChange={handleChange} files={files} isDisabled />;
     }}
   </Story>
 </Canvas>
@@ -508,17 +463,17 @@ display a proper error when necessary.
     {() => {
       const [files, setFiles] = useState(null);
       const [error, setError] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
         if (event.target.files.length > 0) {
           setError(null);
         }
       };
-      const handleSubmit = event => {
+      const handleSubmit = (event) => {
         if (!files || files.length === 0) {
-          setError('This field is required');
+          setError("This field is required");
         } else {
-          alert('submitted successfully!');
+          alert("submitted successfully!");
         }
       };
       return (
@@ -533,9 +488,7 @@ display a proper error when necessary.
             fileNameMaxLength={14}
           />
           <div>
-            <Button onClick={handleSubmit}>
-              Submit with no files to see error.
-            </Button>
+            <Button onClick={handleSubmit}>Submit with no files to see error.</Button>
           </div>
         </Box>
       );
@@ -549,7 +502,7 @@ You can remove or customize the required indicator using the `requiredIndicator`
   <Story name="Custom Required Indicator">
     {() => {
       const [files, setFiles] = useState(null);
-      const handleChange = event => {
+      const handleChange = (event) => {
         setFiles(event.target.files);
       };
       return (

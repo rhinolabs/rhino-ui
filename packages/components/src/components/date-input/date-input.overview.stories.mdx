@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { DateInput } from './date-input';
-import { Box } from '../box/box';
-import { Heading } from '../heading/heading';
+import { useState } from "react";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { DateInput } from "./date-input";
+import { Box } from "../box/box";
+import { Heading } from "../heading/heading";
 
 <Meta title="Components/DateInput/Overview" component={DateInput} />
 
@@ -16,10 +16,10 @@ For entering these types of dates we recommend using the `TextInput` component w
 <Canvas isExpanded>
   <DateInput
     textInputProps={{
-      id: 'exampleDateInput',
-      name: 'selectDate',
-      label: 'Select a Date',
-      placeholder: 'e.g. 11/02/2020',
+      id: "exampleDateInput",
+      name: "selectDate",
+      label: "Select a Date",
+      placeholder: "e.g. 11/02/2020",
     }}
   />
 </Canvas>
@@ -53,11 +53,11 @@ select dates with minimal work.
             onChange: setSelectedDate,
           }}
           textInputProps={{
-            placeholder: 'e.g. 11/02/2020',
+            placeholder: "e.g. 11/02/2020",
             onClear: handleClear,
-            id: 'defaultDatePicker',
-            name: 'selectDate',
-            label: 'Select Date',
+            id: "defaultDatePicker",
+            name: "selectDate",
+            label: "Select Date",
           }}
         />
       );
@@ -91,9 +91,9 @@ select dates with minimal work.
           }}
           textInputProps={{
             onClear: handleClear,
-            id: 'myDateRangePicker',
-            name: 'myDateRangePicker',
-            label: 'Select Date Range',
+            id: "myDateRangePicker",
+            name: "myDateRangePicker",
+            label: "Select Date Range",
           }}
         />
       );
@@ -123,18 +123,17 @@ select dates with minimal work.
             onChange: setSelectedDate,
           }}
           textInputProps={{
-            placeholder: 'e.g. 11/02/2020',
+            placeholder: "e.g. 11/02/2020",
             onClear: handleClear,
-            id: 'defaultDatePicker',
-            name: 'selectDate',
-            label: 'Select Date',
+            id: "defaultDatePicker",
+            name: "selectDate",
+            label: "Select Date",
           }}
         />
       );
     }}
   </Story>
 </Canvas>
-
 
 ## Custom Date Format
 
@@ -145,24 +144,24 @@ to generate a string based on these options.
 <Canvas>
   <Story name="Custom Date Format">
     {() => {
-      const [selectedDate, setSelectedDate] = useState(new Date('2020, 11, 3'));
-      const [inputValue, setInputValue] = useState('');
+      const [selectedDate, setSelectedDate] = useState(new Date("2020, 11, 3"));
+      const [inputValue, setInputValue] = useState("");
       const handleClear = () => {
         setSelectedDate(null);
       };
       return (
         <Box gap="md">
           <DateInput
-            dateFormat={'MMMM dd, yyyy'}
+            dateFormat={"MMMM dd, yyyy"}
             datePickerProps={{
               selected: selectedDate,
               onChange: setSelectedDate,
             }}
             textInputProps={{
               onClear: handleClear,
-              id: 'withCustomDateFormat',
-              name: 'selectDate',
-              label: 'Select Date',
+              id: "withCustomDateFormat",
+              name: "selectDate",
+              label: "Select Date",
             }}
           />
           <Box>
@@ -185,23 +184,23 @@ Make sure to pass the `onBlur` prop to the input via `textInputProps`.
 <Canvas>
   <Story name="Input Blur Event">
     {() => {
-      const [selectedDate, setSelectedDate] = useState(new Date('2020, 11, 3'));
-      const [inputValue, setInputValue] = useState('');
+      const [selectedDate, setSelectedDate] = useState(new Date("2020, 11, 3"));
+      const [inputValue, setInputValue] = useState("");
       const handleTextInputBlur = () => {
-        alert('TextInput Blur Event');
+        alert("TextInput Blur Event");
       };
       return (
         <Box gap="md">
           <DateInput
-            dateFormat={'MMMM dd, yyyy'}
+            dateFormat={"MMMM dd, yyyy"}
             datePickerProps={{
               selected: selectedDate,
               onChange: setSelectedDate,
             }}
             textInputProps={{
-              id: 'withCustomDateFormat',
-              name: 'selectDate',
-              label: 'Select Date',
+              id: "withCustomDateFormat",
+              name: "selectDate",
+              label: "Select Date",
               onBlur: handleTextInputBlur,
             }}
           />

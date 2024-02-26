@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { TabsSlider } from './tabs-slider';
-import { TabPanels } from '../tab-panels/tab-panels';
-import { Box } from '../box/box';
-import { Button } from '../button/button';
+import { useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { TabsSlider } from "./tabs-slider";
+import { TabPanels } from "../tab-panels/tab-panels";
+import { Box } from "../box/box";
+import { Button } from "../button/button";
 
 <Meta title="Components/TabsSlider/Overview" component={TabsSlider} />
 
@@ -23,8 +23,8 @@ transition is complete with `onTransitionEnd` or `onAnimationEnd` before renderi
     name="Default"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=620%3A8083',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=620%3A8083",
       },
     }}
   >
@@ -101,15 +101,13 @@ and even make it responsive using the same `ResponsiveProp` pattern as the box, 
             <TabsSlider.Item>Tab 3</TabsSlider.Item>
             <TabsSlider.Item>Tab 4</TabsSlider.Item>
           </TabsSlider>
-          <Box>
-            This one is responsive. Change your screen size to see it in action.
-          </Box>
+          <Box>This one is responsive. Change your screen size to see it in action.</Box>
           <TabsSlider
             value={responsive}
             onChange={(event, index) => {
               setResponsive(index);
             }}
-            size={{ base: 'sm', tablet: 'md', desktop: 'lg' }}
+            size={{ base: "sm", tablet: "md", desktop: "lg" }}
           >
             <TabsSlider.Item>Tab 1</TabsSlider.Item>
             <TabsSlider.Item>Tab 2</TabsSlider.Item>
@@ -163,7 +161,7 @@ The only other likely use case is to render each tab as an anchor. See example m
   <Story name="Anchor Elements">
     {() => {
       const [selectedTab, setSelectedTab] = useState(0);
-      const handleClick = event => {
+      const handleClick = (event) => {
         event.preventDefault();
       };
       return (
@@ -179,7 +177,7 @@ The only other likely use case is to render each tab as an anchor. See example m
               href="#firstPanel"
               id="tabOneAnchor"
               aria-controls="firstPanel"
-              style={{ textDecoration: 'none' }}
+              style={{ textDecoration: "none" }}
               onClick={handleClick}
             >
               Tab 1
@@ -189,7 +187,7 @@ The only other likely use case is to render each tab as an anchor. See example m
               href="#secondPanel"
               id="tabTwoAnchor"
               aria-controls="secondPanel"
-              style={{ textDecoration: 'none' }}
+              style={{ textDecoration: "none" }}
               onClick={handleClick}
             >
               Tab 2
@@ -221,8 +219,8 @@ The only other likely use case is to render each tab as an anchor. See example m
   <tbody>
     {(() => {
       const tokens = {
-        '--tabs-slider-font-family': '--button-font-family',
-        '--tabs-slider-font-weight': '--button-font-weight',
+        "--tabs-slider-font-family": "--button-font-family",
+        "--tabs-slider-font-weight": "--button-font-weight",
       };
       return Object.entries(tokens).map(([name, entry], i) => (
         <tr key={i}>

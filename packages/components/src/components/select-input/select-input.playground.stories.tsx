@@ -1,61 +1,61 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { SelectInput, SelectInputProps } from './select-input';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { SelectInput, SelectInputProps } from "./select-input";
 
 const meta: Meta<typeof SelectInput> = {
-  title: 'Components/SelectInput/Playground',
+  title: "Components/SelectInput/Playground",
   component: SelectInput,
   argTypes: {
     id: {
-      control: 'text',
+      control: "text",
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     value: {
-      control: 'text',
+      control: "text",
     },
     autoFocus: {
-      control: 'boolean',
+      control: "boolean",
     },
     error: {
-      control: 'text',
+      control: "text",
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     hideLabel: {
-      control: 'boolean',
+      control: "boolean",
     },
     isClearable: {
-      control: 'boolean',
+      control: "boolean",
     },
     isDisabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     isMulti: {
-      control: 'boolean',
+      control: "boolean",
     },
     isRequired: {
-      control: 'boolean',
+      control: "boolean",
     },
     className: {
-      control: 'text',
+      control: "text",
     },
     size: {
       control: {
-        type: 'radio',
-        options: ['sm', 'md', 'lg'],
+        type: "radio",
+        options: ["sm", "md", "lg"],
       },
     },
     placeholder: {
-      control: 'text',
+      control: "text",
     },
     options: {
-      control: 'object',
+      control: "object",
     },
     menuPortalTarget: {
-      control: 'none',
+      control: "none",
     },
   },
 };
@@ -66,14 +66,14 @@ const Template: StoryFn<SelectInputProps> = ({ ...args }) => <SelectInput {...ar
 
 export const Playground = Template.bind({});
 Playground.args = {
-  id: 'playgroundSelectInput',
-  label: 'Playground SelectInput',
-  description: 'Helpful text',
-  name: 'playgroundSelectInput',
+  id: "playgroundSelectInput",
+  label: "Playground SelectInput",
+  description: "Helpful text",
+  name: "playgroundSelectInput",
   menuPortalTarget: document.body,
   options: [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
   ],
 };

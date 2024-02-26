@@ -1,8 +1,8 @@
-import React, { FC, ReactNode } from 'react';
-import classNames from 'classnames';
-import { Box, BoxProps } from '../../../box/box';
-import { BrandColor } from '../../../../types';
-import styles from '../../card.module.scss';
+import React, { FC, ReactNode } from "react";
+import classNames from "classnames";
+import { Box, BoxProps } from "../../../box/box";
+import { BrandColor } from "../../../../types";
+import styles from "../../card.module.scss";
 
 export interface CardFooterProps extends BoxProps {
   /**
@@ -29,17 +29,17 @@ export interface CardFooterProps extends BoxProps {
 export const CardFooter: FC<CardFooterProps> = ({
   background = undefined,
   borderColor = undefined,
-  borderWidth = 'xs 0 0 0',
+  borderWidth = "xs 0 0 0",
   children = null,
   className,
-  display = 'block',
-  padding = 'md lg',
+  display = "block",
+  padding = "md lg",
   ...restProps
 }) => {
   const classes = classNames(
     {
-      [styles['card-footer-background']]: background === undefined,
-      [styles['card-footer-border-color']]: borderColor === undefined,
+      [styles["card-footer-background"]]: background === undefined,
+      [styles["card-footer-border-color"]]: borderColor === undefined,
     },
     className,
   );

@@ -1,7 +1,7 @@
-import { Box } from './box';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Alert } from '../alert/alert';
-import { RESPONSIVE_STORY } from '../../docs/constants';
+import { Box } from "./box";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Alert } from "../alert/alert";
+import { RESPONSIVE_STORY } from "../../docs/constants";
 import {
   FONT_SIZE_OPTIONS,
   FONT_FAMILY_OPTIONS,
@@ -9,7 +9,7 @@ import {
   FONT_COLOR_OPTIONS,
   BRAND_COLOR_NAMES,
   SPACING_OPTIONS,
-} from '../../lib/tokens';
+} from "../../lib/tokens";
 
 <Meta title="Components/Box/Overview" component={Box} />
 
@@ -28,13 +28,13 @@ A `<Box>` is a layout component to build UIs with consistent padding and spacing
       padding="xl"
       background="primary-100"
       radius="md"
-      fontSize={{ base: 'sm', tablet: 'md', hd: 'lg' }}
+      fontSize={{ base: "sm", tablet: "md", hd: "lg" }}
       borderWidth="sm"
       borderColor="primary-200"
     >
       I am a box with a green background and border
     </Box>
-    <Box gap={{ base: 'sm', tablet: 'md', desktop: 'lg' }} direction="row">
+    <Box gap={{ base: "sm", tablet: "md", desktop: "lg" }} direction="row">
       <Box flex="auto" radius="md" background="secondary-100" height="lg" />
       <Box flex="auto" radius="md" background="secondary-100" height="lg" />
       <Box flex="auto" radius="md" background="secondary-100" height="lg" />
@@ -85,7 +85,6 @@ Use the `borderColor` prop to set the color of the border and the borderWidth to
     </Box>
   </Story>
 </Canvas>
-
 
 ## Gap
 
@@ -162,7 +161,6 @@ For block layouts, you can use `childGap` to set the spacing between children of
   </Story>
 </Canvas>
 
-
 ## Flex Properties
 
 ### Flex
@@ -178,49 +176,19 @@ passing using a standard `style` object with the `flex` shorthand you need.
   <Story name="Flex Auto">
     <Box gap="md">
       <Box gap="md" direction="row">
-        <Box
-          flex="auto"
-          background="primary-light"
-          height="lg"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box flex="auto" background="primary-light" height="lg" justifyContent="center" alignItems="center">
           auto
         </Box>
-        <Box
-          flex="auto"
-          background="primary-light"
-          height="lg"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box flex="auto" background="primary-light" height="lg" justifyContent="center" alignItems="center">
           auto
         </Box>
-        <Box
-          flex="auto"
-          background="primary-light"
-          height="lg"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box flex="auto" background="primary-light" height="lg" justifyContent="center" alignItems="center">
           auto
         </Box>
-        <Box
-          flex="auto"
-          background="primary-light"
-          height="lg"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box flex="auto" background="primary-light" height="lg" justifyContent="center" alignItems="center">
           auto
         </Box>
-        <Box
-          flex="auto"
-          background="primary-light"
-          height="lg"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box flex="auto" background="primary-light" height="lg" justifyContent="center" alignItems="center">
           auto
         </Box>
       </Box>
@@ -321,36 +289,16 @@ Set direction of child elements in a flex container.
       <Box width="20%" background="primary-light" padding="sm">
         1
       </Box>
-      <Box
-        width="20%"
-        background="primary-light"
-        padding="sm"
-        margin="0 md 0 0"
-      >
+      <Box width="20%" background="primary-light" padding="sm" margin="0 md 0 0">
         2
       </Box>
-      <Box
-        width="20%"
-        background="primary-light"
-        padding="sm"
-        margin="0 md 0 0"
-      >
+      <Box width="20%" background="primary-light" padding="sm" margin="0 md 0 0">
         3
       </Box>
-      <Box
-        width="20%"
-        background="primary-light"
-        padding="sm"
-        margin="0 md 0 0"
-      >
+      <Box width="20%" background="primary-light" padding="sm" margin="0 md 0 0">
         4
       </Box>
-      <Box
-        width="20%"
-        background="primary-light"
-        padding="sm"
-        margin="0 md 0 0"
-      >
+      <Box width="20%" background="primary-light" padding="sm" margin="0 md 0 0">
         5
       </Box>
     </Box>
@@ -361,36 +309,16 @@ Set direction of child elements in a flex container.
       <Box width="20%" background="primary-light" padding="sm">
         1
       </Box>
-      <Box
-        width="20%"
-        background="primary-light"
-        padding="sm"
-        margin="0 0 md 0"
-      >
+      <Box width="20%" background="primary-light" padding="sm" margin="0 0 md 0">
         2
       </Box>
-      <Box
-        width="20%"
-        background="primary-light"
-        padding="sm"
-        margin="0 0 md 0"
-      >
+      <Box width="20%" background="primary-light" padding="sm" margin="0 0 md 0">
         3
       </Box>
-      <Box
-        width="20%"
-        background="primary-light"
-        padding="sm"
-        margin="0 0 md 0"
-      >
+      <Box width="20%" background="primary-light" padding="sm" margin="0 0 md 0">
         4
       </Box>
-      <Box
-        width="20%"
-        background="primary-light"
-        padding="sm"
-        margin="0 0 md 0"
-      >
+      <Box width="20%" background="primary-light" padding="sm" margin="0 0 md 0">
         5
       </Box>
     </Box>
@@ -401,49 +329,19 @@ Set direction of child elements in a flex container.
   <Story name="Flex Grow and Shrink">
     <Box gap="md">
       <Box gap="md" direction="row">
-        <Box
-          style={{ flex: '3' }}
-          background="primary-light"
-          height="lg"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box style={{ flex: "3" }} background="primary-light" height="lg" justifyContent="center" alignItems="center">
           3
         </Box>
-        <Box
-          style={{ flex: '1' }}
-          background="primary-light"
-          height="lg"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box style={{ flex: "1" }} background="primary-light" height="lg" justifyContent="center" alignItems="center">
           1
         </Box>
-        <Box
-          style={{ flex: '1' }}
-          background="primary-light"
-          height="lg"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box style={{ flex: "1" }} background="primary-light" height="lg" justifyContent="center" alignItems="center">
           1
         </Box>
-        <Box
-          style={{ flex: '2' }}
-          background="primary-light"
-          height="lg"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box style={{ flex: "2" }} background="primary-light" height="lg" justifyContent="center" alignItems="center">
           2
         </Box>
-        <Box
-          style={{ flex: '1' }}
-          background="primary-light"
-          height="lg"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Box style={{ flex: "1" }} background="primary-light" height="lg" justifyContent="center" alignItems="center">
           1
         </Box>
       </Box>
@@ -460,13 +358,7 @@ Set content alignment along the main axis
     <Box flex="auto" gap="md">
       <Box direction="row" alignItems="center" gap="md">
         <Box width="70px">start</Box>
-        <Box
-          flex="auto"
-          background="primary-lighter"
-          justifyContent="flex-start"
-          direction="row"
-          gap="md"
-        >
+        <Box flex="auto" background="primary-lighter" justifyContent="flex-start" direction="row" gap="md">
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
@@ -474,13 +366,7 @@ Set content alignment along the main axis
       </Box>
       <Box direction="row" alignItems="center" gap="md">
         <Box width="70px">center</Box>
-        <Box
-          flex="auto"
-          background="primary-lighter"
-          justifyContent="center"
-          direction="row"
-          gap="md"
-        >
+        <Box flex="auto" background="primary-lighter" justifyContent="center" direction="row" gap="md">
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
@@ -488,13 +374,7 @@ Set content alignment along the main axis
       </Box>
       <Box direction="row" alignItems="center" gap="md">
         <Box width="70px">end</Box>
-        <Box
-          flex="auto"
-          background="primary-lighter"
-          justifyContent="flex-end"
-          direction="row"
-          gap="md"
-        >
+        <Box flex="auto" background="primary-lighter" justifyContent="flex-end" direction="row" gap="md">
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
@@ -502,13 +382,7 @@ Set content alignment along the main axis
       </Box>
       <Box direction="row" alignItems="center" gap="md">
         <Box width="70px">between</Box>
-        <Box
-          flex="auto"
-          background="primary-lighter"
-          justifyContent="space-between"
-          direction="row"
-          gap="md"
-        >
+        <Box flex="auto" background="primary-lighter" justifyContent="space-between" direction="row" gap="md">
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
@@ -516,13 +390,7 @@ Set content alignment along the main axis
       </Box>
       <Box direction="row" alignItems="center" gap="md">
         <Box width="70px">around</Box>
-        <Box
-          flex="auto"
-          background="primary-lighter"
-          justifyContent="space-around"
-          direction="row"
-          gap="md"
-        >
+        <Box flex="auto" background="primary-lighter" justifyContent="space-around" direction="row" gap="md">
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
@@ -530,13 +398,7 @@ Set content alignment along the main axis
       </Box>
       <Box direction="row" alignItems="center" gap="md">
         <Box width="70px">evenly</Box>
-        <Box
-          flex="auto"
-          background="primary-lighter"
-          justifyContent="space-evenly"
-          direction="row"
-          gap="md"
-        >
+        <Box flex="auto" background="primary-lighter" justifyContent="space-evenly" direction="row" gap="md">
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
@@ -555,14 +417,7 @@ Set content alignment along the cross axis.
     <Box flex="auto" gap="md">
       <Box direction="row" alignItems="center" gap="md">
         <Box width="70px">start</Box>
-        <Box
-          flex="auto"
-          height="100px"
-          background="primary-lighter"
-          alignItems="flex-start"
-          direction="row"
-          gap="md"
-        >
+        <Box flex="auto" height="100px" background="primary-lighter" alignItems="flex-start" direction="row" gap="md">
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
@@ -570,14 +425,7 @@ Set content alignment along the cross axis.
       </Box>
       <Box direction="row" alignItems="center" gap="md">
         <Box width="70px">center</Box>
-        <Box
-          flex="auto"
-          height="100px"
-          background="primary-lighter"
-          alignItems="center"
-          direction="row"
-          gap="md"
-        >
+        <Box flex="auto" height="100px" background="primary-lighter" alignItems="center" direction="row" gap="md">
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
@@ -585,14 +433,7 @@ Set content alignment along the cross axis.
       </Box>
       <Box direction="row" alignItems="center" gap="md">
         <Box width="70px">end</Box>
-        <Box
-          flex="auto"
-          height="100px"
-          background="primary-lighter"
-          alignItems="flex-end"
-          direction="row"
-          gap="md"
-        >
+        <Box flex="auto" height="100px" background="primary-lighter" alignItems="flex-end" direction="row" gap="md">
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
@@ -600,14 +441,7 @@ Set content alignment along the cross axis.
       </Box>
       <Box direction="row" alignItems="center" gap="md">
         <Box width="70px">baseline</Box>
-        <Box
-          flex="auto"
-          height="100px"
-          background="primary-lighter"
-          alignItems="baseline"
-          direction="row"
-          gap="md"
-        >
+        <Box flex="auto" height="100px" background="primary-lighter" alignItems="baseline" direction="row" gap="md">
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
           <Box width="md" height="md" background="primary" />
@@ -615,14 +449,7 @@ Set content alignment along the cross axis.
       </Box>
       <Box direction="row" alignItems="center" gap="md">
         <Box width="70px">stretch</Box>
-        <Box
-          flex="auto"
-          height="100px"
-          background="primary-lighter"
-          alignItems="stretch"
-          direction="row"
-          gap="md"
-        >
+        <Box flex="auto" height="100px" background="primary-lighter" alignItems="stretch" direction="row" gap="md">
           <Box width="md" background="primary" />
           <Box width="md" background="primary" />
           <Box width="md" background="primary" />
@@ -720,7 +547,7 @@ This property has no effect when there is only one line of flex items.
           <Box width="2xl" background="primary" />
         </Box>
       </Box>
-      <Box direction="row" alignItems="center"  gap="md">
+      <Box direction="row" alignItems="center" gap="md">
         <Box flex="auto" width="70px">
           between
         </Box>
@@ -796,15 +623,15 @@ Set the `fontSize` prop with a [font size](?path=/story/design-tokens-design-tok
   <Story name="Font Family">
     <Box fontFamily="body" margin="0 0 md 0" fontSize="xl">
       Body font
-      <Box fontSize="sm">{FONT_FAMILY_VALUES['body'].value}</Box>
+      <Box fontSize="sm">{FONT_FAMILY_VALUES["body"].value}</Box>
     </Box>
     <Box fontFamily="brand" margin="0 0 md 0" fontSize="xl">
       Brand Font
-      <Box fontSize="sm">{FONT_FAMILY_VALUES['brand'].value}</Box>
+      <Box fontSize="sm">{FONT_FAMILY_VALUES["brand"].value}</Box>
     </Box>
     <Box fontFamily="monospace" margin="0 0 md 0" fontSize="xl">
       Monospace Font
-      <Box fontSize="sm">{FONT_FAMILY_VALUES['monospace'].value}</Box>
+      <Box fontSize="sm">{FONT_FAMILY_VALUES["monospace"].value}</Box>
     </Box>
   </Story>
 </Canvas>
@@ -940,12 +767,7 @@ Set the `shadow` prop with a [shadow token](?path=/story/design-tokens-design-to
 
 <Canvas>
   <Story name="Shadow">
-    <Box
-      direction="row"
-      background="grey-50"
-      padding="2xl"
-      justifyContent="space-between"
-    >
+    <Box direction="row" background="grey-50" padding="2xl" justifyContent="space-between">
       <Box
         shadow="0"
         alignItems="center"
@@ -1192,28 +1014,13 @@ Height can be set to any CSS unit value (px, rem, em, %).
 <Canvas>
   <Story name="Height">
     <Box background="primary-lightest" gap="xs">
-      <Box
-        background="primary-light"
-        height="227px"
-        justifyContent="center"
-        alignItems="center"
-      >
+      <Box background="primary-light" height="227px" justifyContent="center" alignItems="center">
         227px
       </Box>
-      <Box
-        background="primary-light"
-        height="10rem"
-        justifyContent="center"
-        alignItems="center"
-      >
+      <Box background="primary-light" height="10rem" justifyContent="center" alignItems="center">
         10rem
       </Box>
-      <Box
-        background="primary-light"
-        height="4em"
-        justifyContent="center"
-        alignItems="center"
-      >
+      <Box background="primary-light" height="4em" justifyContent="center" alignItems="center">
         4em
       </Box>
     </Box>
@@ -1224,82 +1031,29 @@ Height can be set to any CSS unit value (px, rem, em, %).
 
 <Canvas>
   <Story name="Height standards">
-    <Box
-      background="primary-lightest"
-      gap="xs"
-      height="5xl"
-      direction="row"
-    >
-      <Box
-        flex="auto"
-        background="primary-light"
-        justifyContent="center"
-        alignItems="center"
-        height="sm"
-      >
+    <Box background="primary-lightest" gap="xs" height="5xl" direction="row">
+      <Box flex="auto" background="primary-light" justifyContent="center" alignItems="center" height="sm">
         sm
       </Box>
-      <Box
-        flex="auto"
-        background="primary-light"
-        justifyContent="center"
-        alignItems="center"
-        height="md"
-      >
+      <Box flex="auto" background="primary-light" justifyContent="center" alignItems="center" height="md">
         md
       </Box>
-      <Box
-        flex="auto"
-        background="primary-light"
-        justifyContent="center"
-        alignItems="center"
-        height="lg"
-      >
+      <Box flex="auto" background="primary-light" justifyContent="center" alignItems="center" height="lg">
         lg
       </Box>
-      <Box
-        flex="auto"
-        background="primary-light"
-        justifyContent="center"
-        alignItems="center"
-        height="xl"
-      >
+      <Box flex="auto" background="primary-light" justifyContent="center" alignItems="center" height="xl">
         xl
       </Box>
-      <Box
-        flex="auto"
-        background="primary-light"
-        justifyContent="center"
-        alignItems="center"
-        height="2xl"
-      >
+      <Box flex="auto" background="primary-light" justifyContent="center" alignItems="center" height="2xl">
         2xl
       </Box>
-      <Box
-        flex="auto"
-        background="primary-light"
-        justifyContent="center"
-        alignItems="center"
-        height="3xl"
-      >
+      <Box flex="auto" background="primary-light" justifyContent="center" alignItems="center" height="3xl">
         3xl
       </Box>
-      <Box
-        flex="auto"
-        background="primary-light"
-        justifyContent="center"
-        alignItems="center"
-        height="4xl"
-      >
+      <Box flex="auto" background="primary-light" justifyContent="center" alignItems="center" height="4xl">
         4xl
       </Box>
-      <Box
-        flex="auto"
-        background="primary-light"
-        justifyContent="center"
-        alignItems="center"
-        height="5xl"
-      >
+      <Box flex="auto" background="primary-light" justifyContent="center" alignItems="center" height="5xl">
         5xl
       </Box>
     </Box>
@@ -1310,145 +1064,50 @@ Set the height to a common percentage of the Box's parent.
 
 <Canvas>
   <Story name="Height Percentage">
-    <Box
-      height="400px"
-      gap="xs"
-      direction="row"
-      background="primary-lightest"
-    >
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="10"
-      >
+    <Box height="400px" gap="xs" direction="row" background="primary-lightest">
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="10">
         10%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="15"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="15">
         15%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="20"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="20">
         20%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="25"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="25">
         25%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="30"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="30">
         30%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="33"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="33">
         33%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="34"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="34">
         34%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="40"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="40">
         40%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="50"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="50">
         50%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="60"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="60">
         60%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="70"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="70">
         70%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="75"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="75">
         75%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="80"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="80">
         80%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="90"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="90">
         90%
       </Box>
-      <Box
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-        height="100"
-      >
+      <Box flex="auto" justifyContent="center" alignItems="center" background="primary-light" height="100">
         100%
       </Box>
     </Box>
@@ -1461,37 +1120,14 @@ Set the maximum width of the Box by setting `maxHeight` to a [height token](?pat
 
 <Canvas>
   <Story name="Max Height">
-    <Box
-      height="300px"
-      background="primary-lightest"
-      direction="row"
-      gap="xs"
-    >
-      <Box
-        maxHeight="lg"
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-      >
+    <Box height="300px" background="primary-lightest" direction="row" gap="xs">
+      <Box maxHeight="lg" flex="auto" justifyContent="center" alignItems="center" background="primary-light">
         lg
       </Box>
-      <Box
-        maxHeight="50px"
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-      >
+      <Box maxHeight="50px" flex="auto" justifyContent="center" alignItems="center" background="primary-light">
         50px
       </Box>
-      <Box
-        maxHeight="50%"
-        flex="auto"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-      >
+      <Box maxHeight="50%" flex="auto" justifyContent="center" alignItems="center" background="primary-light">
         50%
       </Box>
     </Box>
@@ -1504,38 +1140,14 @@ Set the minimum width of the Box by setting `minHeight` to a [height token](?pat
 
 <Canvas>
   <Story name="Min Height">
-    <Box
-      height="300px"
-      background="primary-lightest"
-      alignItems="flex-start"
-      direction="row"
-      gap="xs"
-    >
-      <Box
-        width="33"
-        minHeight="3xl"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-      >
+    <Box height="300px" background="primary-lightest" alignItems="flex-start" direction="row" gap="xs">
+      <Box width="33" minHeight="3xl" justifyContent="center" alignItems="center" background="primary-light">
         3xl
       </Box>
-      <Box
-        width="33"
-        minHeight="50px"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-      >
+      <Box width="33" minHeight="50px" justifyContent="center" alignItems="center" background="primary-light">
         50px
       </Box>
-      <Box
-        width="33"
-        minHeight="50%"
-        justifyContent="center"
-        alignItems="center"
-        background="primary-light"
-      >
+      <Box width="33" minHeight="50%" justifyContent="center" alignItems="center" background="primary-light">
         50%
       </Box>
     </Box>
@@ -1558,24 +1170,19 @@ Set the overflow behavior of the Box with `overflow`
       height="100px"
     >
       <p>
-        Most homeowners are stuck with a single option for their power company,
-        and that utility just keeps increasing rates year after year. With
-        solar, you take back control over where your energy comes from, how much
-        it costs, and what you can do with it. Use it, store it, or sell it, all
-        on your own terms.
+        Most homeowners are stuck with a single option for their power company, and that utility just keeps increasing
+        rates year after year. With solar, you take back control over where your energy comes from, how much it costs,
+        and what you can do with it. Use it, store it, or sell it, all on your own terms.
       </p>
       <p>
-        Solar can be complicated, but Rhinolabs makes it easy. We have solar,
-        storage, and maintenance, all under one roof. Plus, you can monitor your
-        entire system from the palm of your hand, and we have an award-winning
-        customer service team standing by to help you with anything you might
-        need.
+        Solar can be complicated, but Rhinolabs makes it easy. We have solar, storage, and maintenance, all under one
+        roof. Plus, you can monitor your entire system from the palm of your hand, and we have an award-winning customer
+        service team standing by to help you with anything you might need.
       </p>
       <p>
-        Switching to solar saves the average Rhinolabs customer $18,471 over 25
-        years. Add in national tax credits and local rebates and incentives, and
-        you can save even more. Like many things in life though, these discounts
-        won’t be around forever, so take advantage of them while you can.
+        Switching to solar saves the average Rhinolabs customer $18,471 over 25 years. Add in national tax credits and
+        local rebates and incentives, and you can save even more. Like many things in life though, these discounts won’t
+        be around forever, so take advantage of them while you can.
       </p>
     </Box>
   </Story>
@@ -1587,13 +1194,7 @@ Set the cursor for value for the element in question. Use any valid [CSS cursor 
 
 <Canvas>
   <Story name="Cursor">
-    <Box
-      padding="md"
-      gap="md"
-      flex="auto"
-      background="primary-lighter"
-      overflow="auto"
-    >
+    <Box padding="md" gap="md" flex="auto" background="primary-lighter" overflow="auto">
       <Box cursor="pointer" padding="md" background="primary-light">
         pointer
       </Box>
@@ -1623,14 +1224,7 @@ responsive object prop with said values. Example with `fixed` position not inclu
 
 <Canvas>
   <Story name="Position">
-    <Box
-      padding="md"
-      childGap="md"
-      display="block"
-      background="primary-lighter"
-      overflow="scroll"
-      height="300px"
-    >
+    <Box padding="md" childGap="md" display="block" background="primary-lighter" overflow="scroll" height="300px">
       <Box
         position="absolute"
         padding="md"
@@ -1641,13 +1235,7 @@ responsive object prop with said values. Example with `fixed` position not inclu
       >
         absolute
       </Box>
-      <Box
-        position="relative"
-        padding="md"
-        background="primary-light"
-        textAlign="right"
-        height="200px"
-      >
+      <Box position="relative" padding="md" background="primary-light" textAlign="right" height="200px">
         relative
       </Box>
       <Box
@@ -1660,12 +1248,7 @@ responsive object prop with said values. Example with `fixed` position not inclu
       >
         sticky
       </Box>
-      <Box
-        position="static"
-        padding="md"
-        background="primary-light"
-        height="400px"
-      >
+      <Box position="static" padding="md" background="primary-light" height="400px">
         static
       </Box>
     </Box>
@@ -1695,7 +1278,7 @@ Currently our library supports hover states for:
         color="white"
         shadow="xs"
         hover={{
-          background: 'primary-dark',
+          background: "primary-dark",
         }}
         cursor="pointer"
       >
@@ -1712,8 +1295,8 @@ Currently our library supports hover states for:
         direction="row"
         justifyContent="center"
         hover={{
-          background: 'primary',
-          color: 'white',
+          background: "primary",
+          color: "white",
         }}
         cursor="pointer"
       >
@@ -1727,7 +1310,7 @@ Currently our library supports hover states for:
         borderWidth="xs"
         borderColor="grey-lightest"
         hover={{
-          shadow: 'lg',
+          shadow: "lg",
         }}
         cursor="grab"
       >
@@ -1737,7 +1320,7 @@ Currently our library supports hover states for:
         padding="md"
         background="white"
         hover={{
-          fontSize: 'xl',
+          fontSize: "xl",
         }}
       >
         growing text
@@ -1748,8 +1331,8 @@ Currently our library supports hover states for:
         borderWidth="xs"
         borderColor="transparent"
         hover={{
-          borderWidth: 'xs',
-          borderColor: 'primary-500',
+          borderWidth: "xs",
+          borderColor: "primary-500",
         }}
       >
         adding a border
@@ -1760,7 +1343,7 @@ Currently our library supports hover states for:
         borderColor="grey-light"
         borderWidth="xs"
         hover={{
-          borderWidth: 'md',
+          borderWidth: "md",
         }}
       >
         changing a border width
@@ -1795,9 +1378,9 @@ Currently our library supports hover states for:
         borderWidth="xs"
         borderColor="grey-lighter"
         radius="md"
-        style={{ outline: 'none' }}
+        style={{ outline: "none" }}
         focus={{
-          borderColor: 'grey',
+          borderColor: "grey",
         }}
         placeholder="useful for form inputs..."
       />
@@ -1806,10 +1389,10 @@ Currently our library supports hover states for:
         shadow="xs"
         padding="md"
         focus={{
-          shadow: 'lg',
+          shadow: "lg",
         }}
         tabIndex="0"
-        style={{ outline: 'none' }}
+        style={{ outline: "none" }}
       >
         Card focus effect
       </Box>
@@ -1856,10 +1439,10 @@ Try resizing the browser to see the responsive properties in action.
     <Box
       background="primary-100"
       borderColor="grey-300"
-      padding={{ base: 'sm', tablet: 'md', desktop: 'lg', hd: 'xl' }}
-      fontSize={{ base: 'md', tablet: 'lg', desktop: 'xl', hd: '3xl' }}
-      borderWidth={{ base: 'sm', tablet: 'xs', desktop: 'md', hd: '0' }}
-      textAlign={{ base: 'center', tablet: 'right', desktop: 'left' }}
+      padding={{ base: "sm", tablet: "md", desktop: "lg", hd: "xl" }}
+      fontSize={{ base: "md", tablet: "lg", desktop: "xl", hd: "3xl" }}
+      borderWidth={{ base: "sm", tablet: "xs", desktop: "md", hd: "0" }}
+      textAlign={{ base: "center", tablet: "right", desktop: "left" }}
     >
       <p>Resize the viewport to see how my appearance changes.</p>
     </Box>
@@ -1873,11 +1456,8 @@ For example the following has padding at the `desktop` breakpoint and wider.
 
 <Canvas>
   <Story name="Omitting Responsive Keys" parameters={{ ...RESPONSIVE_STORY }}>
-    <Box padding={{ desktop: 'lg' }} background="primary-lighter">
-      <p>
-        This box will have no padding until the viewport reaches the desktop
-        breakpoint.{' '}
-      </p>
+    <Box padding={{ desktop: "lg" }} background="primary-lighter">
+      <p>This box will have no padding until the viewport reaches the desktop breakpoint. </p>
     </Box>
   </Story>
 </Canvas>

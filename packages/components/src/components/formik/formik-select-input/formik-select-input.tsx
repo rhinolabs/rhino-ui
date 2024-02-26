@@ -1,37 +1,25 @@
-import React from 'react';
-import {
-  FormikTouched,
-  FormikErrors,
-  FieldAttributes,
-  FormikValues, getIn,
-} from 'formik';
-import { SelectInput, SelectInputProps } from '../../select-input/select-input';
+import React from "react";
+import { FormikTouched, FormikErrors, FieldAttributes, FormikValues, getIn } from "formik";
+import { SelectInput, SelectInputProps } from "../../select-input/select-input";
 
-export interface FormikSelectInputProps extends Omit<SelectInputProps, 'onChange'> {
+export interface FormikSelectInputProps extends Omit<SelectInputProps, "onChange"> {
   field: FieldAttributes<HTMLSelectElement>;
   form: {
     touched: FormikTouched<FormikValues>;
     errors: FormikErrors<FormikValues>;
   };
-  onChange?: SelectInputProps['onChange'];
+  onChange?: SelectInputProps["onChange"];
 }
 
-export const FormikSelectInput: React.FC<FormikSelectInputProps> = (
-  {
-    field: {
-      name,
-      onBlur,
-      onChange: formikOnChange,
-      value,
-    },
-    form: { touched, errors },
-    onChange,
-    id,
-    label,
-    options,
-    ...props
-  },
-) => (
+export const FormikSelectInput: React.FC<FormikSelectInputProps> = ({
+  field: { name, onBlur, onChange: formikOnChange, value },
+  form: { touched, errors },
+  onChange,
+  id,
+  label,
+  options,
+  ...props
+}) => (
   <SelectInput
     {...props}
     id={id}

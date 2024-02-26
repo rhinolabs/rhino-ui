@@ -1,51 +1,51 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { boxPropsKeys } from '../box/box';
-import { OptionTileGroup, OptionTileGroupProps } from './option-tile-group';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { boxPropsKeys } from "../box/box";
+import { OptionTileGroup, OptionTileGroupProps } from "./option-tile-group";
 
 const meta: Meta<typeof OptionTileGroup> = {
-  title: 'Components/OptionTileGroup/Playground',
+  title: "Components/OptionTileGroup/Playground",
   component: OptionTileGroup,
   argTypes: {
     value: {
       control: {
-        type: 'select',
-        options: ['chocolate', 'strawberry', 'vanilla'],
+        type: "select",
+        options: ["chocolate", "strawberry", "vanilla"],
       },
     },
     isFullWidth: {
       control: {
-        type: 'boolean',
+        type: "boolean",
       },
     },
     isMulti: {
       control: {
-        type: 'boolean',
+        type: "boolean",
       },
     },
     hideInput: {
       control: {
-        type: 'boolean',
+        type: "boolean",
       },
     },
     error: {
       control: {
-        type: 'text',
+        type: "text",
       },
     },
     title: {
       control: {
-        type: 'text',
+        type: "text",
       },
     },
     description: {
       control: {
-        type: 'text',
+        type: "text",
       },
     },
     isRequired: {
       control: {
-        type: 'boolean',
+        type: "boolean",
       },
     },
     onChange: {
@@ -56,8 +56,8 @@ const meta: Meta<typeof OptionTileGroup> = {
     ...boxPropsKeys.reduce((acc, curr) => ({ ...acc, [curr]: { table: { disable: true } } }), {}),
     direction: {
       control: {
-        type: 'select',
-        options: ['row', 'column'],
+        type: "select",
+        options: ["row", "column"],
       },
     },
   },
@@ -65,18 +65,13 @@ const meta: Meta<typeof OptionTileGroup> = {
 
 export default meta;
 
-const Template: StoryFn<OptionTileGroupProps> = ({
-  value,
-  onChange,
-  name,
-  ...args
-}) => (
+const Template: StoryFn<OptionTileGroupProps> = ({ value, onChange, name, ...args }) => (
   <OptionTileGroup
     {...args}
     options={[
-      { value: 'chocolate', label: 'chocolate', id: 'chocolate' },
-      { value: 'strawberry', label: 'strawberry', id: 'strawberry' },
-      { value: 'vanilla', label: 'vanilla', id: 'vanilla' },
+      { value: "chocolate", label: "chocolate", id: "chocolate" },
+      { value: "strawberry", label: "strawberry", id: "strawberry" },
+      { value: "vanilla", label: "vanilla", id: "vanilla" },
     ]}
     value={value}
     onChange={onChange}
@@ -89,5 +84,5 @@ export const Playground = Template.bind({});
 Playground.args = {
   value: null,
   onChange: () => {}, // eslint-disable-line
-  name: 'optionTilesPlayground',
+  name: "optionTilesPlayground",
 };

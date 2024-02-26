@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { SelectInput, SelectInputProps } from '../select-input/select-input';
+import React, { FC } from "react";
+import { SelectInput, SelectInputProps } from "../select-input/select-input";
 
-export type TimePickerProps = Omit<SelectInputProps, 'options'> & {
+export type TimePickerProps = Omit<SelectInputProps, "options"> & {
   /**
    * Options to govern the display of the option labels in the select.
    * This is a direct passthrough to the second argument of JS `toLocaleTimeString`.
@@ -11,7 +11,7 @@ export type TimePickerProps = Omit<SelectInputProps, 'options'> & {
   /**
    * End hour and minute
    */
-  endTime?: { hour: number; minute: number; };
+  endTime?: { hour: number; minute: number };
   /**
    * Interval of displayed times (in seconds). Defaults to 900 seconds (15 minutes).
    */
@@ -25,8 +25,8 @@ export type TimePickerProps = Omit<SelectInputProps, 'options'> & {
   /**
    * Start hour and minute
    */
-  startTime?: { hour: number; minute: number; };
-}
+  startTime?: { hour: number; minute: number };
+};
 
 export const TimePicker: FC<TimePickerProps> = ({
   id,
@@ -34,11 +34,11 @@ export const TimePicker: FC<TimePickerProps> = ({
   label,
   onChange,
   value,
-  dateDisplayOptions = { hour: '2-digit', minute: '2-digit' },
+  dateDisplayOptions = { hour: "2-digit", minute: "2-digit" },
   endTime = undefined,
   interval = 900,
-  locales = 'en-US',
-  placeholder = 'HH:MM',
+  locales = "en-US",
+  placeholder = "HH:MM",
   startTime = undefined,
   ...restProps
 }) => {

@@ -1,6 +1,6 @@
-import React, { MouseEvent, KeyboardEvent } from 'react';
-import { ENTER, SPACE } from '../../constants/key-codes';
-import { Box, BoxProps } from '../box/box';
+import React, { MouseEvent, KeyboardEvent } from "react";
+import { ENTER, SPACE } from "../../constants/key-codes";
+import { Box, BoxProps } from "../box/box";
 
 export interface DetailsSummaryProps extends BoxProps {
   isDetailsOpen: boolean;
@@ -9,7 +9,7 @@ export interface DetailsSummaryProps extends BoxProps {
 
 export const DetailsSummary: React.FC<DetailsSummaryProps> = ({
   children,
-  display = 'block',
+  display = "block",
   isDetailsOpen,
   onToggle,
   ...restProps

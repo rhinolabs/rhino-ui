@@ -1,15 +1,15 @@
-import React, { FC, useState } from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { Placement as PlacementType } from '@popperjs/core';
-import { Popover } from './popover';
-import { Button } from '../button/button';
-import { Box } from '../box/box';
-import { Heading } from '../heading/heading';
-import { Icon, IconProps } from '../icon/icon';
-import { useOpenClose } from '../../hooks/use-open-close/use-open-close';
+import React, { FC, useState } from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { Placement as PlacementType } from "@popperjs/core";
+import { Popover } from "./popover";
+import { Button } from "../button/button";
+import { Box } from "../box/box";
+import { Heading } from "../heading/heading";
+import { Icon, IconProps } from "../icon/icon";
+import { useOpenClose } from "../../hooks/use-open-close/use-open-close";
 
 const meta: Meta<typeof Popover> = {
-  title: 'Components/Popover/Visual Regression Tests',
+  title: "Components/Popover/Visual Regression Tests",
   component: Popover,
   parameters: {
     chromatic: { delay: 2000, pauseAnimationAtEnd: true },
@@ -22,11 +22,7 @@ export const Demo: StoryFn = () => {
   const { isOpen: isPopoverOpen, handleToggle: togglePopover } = useOpenClose({
     defaultIsOpen: true,
   });
-  const NavItem: FC<{ className?: string; iconName?: IconProps['name']; }> = ({
-    children,
-    className,
-    iconName,
-  }) => (
+  const NavItem: FC<{ className?: string; iconName?: IconProps["name"] }> = ({ children, className, iconName }) => (
     <Box
       as="li"
       color="grey-500"
@@ -57,8 +53,8 @@ export const Demo: StoryFn = () => {
         className="main-nav"
         background="white"
         padding={{
-          base: '3xl 0 0 0',
-          desktop: '0',
+          base: "3xl 0 0 0",
+          desktop: "0",
         }}
         style={{
           flexShrink: 0,
@@ -66,13 +62,7 @@ export const Demo: StoryFn = () => {
       >
         <Box as="ul" gap="xs" padding="md md sm md">
           <Box direction="row" gap="sm" alignItems="center">
-            <Box
-              fontSize="xs"
-              color="white"
-              radius="sm"
-              background="primary-light"
-              padding="2xs"
-            >
+            <Box fontSize="xs" color="white" radius="sm" background="primary-light" padding="2xs">
               JC
             </Box>
             <Box display="block" className="truncate">
@@ -94,13 +84,7 @@ export const Demo: StoryFn = () => {
             <NavItem iconName="book">Certifications</NavItem>
             <NavItem iconName="settings">Settings</NavItem>
           </Box>
-          <Box
-            gap="sm"
-            padding="lg 0 0 0"
-            borderWidth="xs 0 0 0"
-            borderColor="grey-lighter"
-            style={{ flexShrink: 0 }}
-          >
+          <Box gap="sm" padding="lg 0 0 0" borderWidth="xs 0 0 0" borderColor="grey-lighter" style={{ flexShrink: 0 }}>
             <Heading size="sm" as="h4" variant="grey">
               Favorites
             </Heading>
@@ -115,7 +99,7 @@ export const Demo: StoryFn = () => {
             padding="lg 0 0 0"
             borderWidth="xs 0 0 0"
             borderColor="grey-lighter"
-            style={{ flex: '1 0 auto' }}
+            style={{ flex: "1 0 auto" }}
           >
             <Box as="ul" gap="sm">
               <NavItem iconName="c-question">Feedback</NavItem>
@@ -132,8 +116,8 @@ export const Demo: StoryFn = () => {
         isOpen={isPopoverOpen}
         placement="bottom-start"
         contentContainerProps={{
-          padding: 'md',
-          direction: 'column',
+          padding: "md",
+          direction: "column",
         }}
         withPortal
         portalTarget={document.body}
@@ -159,7 +143,7 @@ export const Default: StoryFn = () => {
         isOpen={isPopoverOpen}
         placement="right"
         contentContainerProps={{
-          padding: 'sm',
+          padding: "sm",
         }}
       >
         <Button onClick={togglePopover} variant="light">
@@ -173,59 +157,53 @@ export const Default: StoryFn = () => {
 export const Placement: StoryFn = () => {
   const [isPopoverOpen, setPopoverOpen] = useState<Record<string, boolean>>({
     auto: true,
-    'auto-start': true,
-    'auto-end': true,
+    "auto-start": true,
+    "auto-end": true,
     top: true,
     bottom: true,
     right: true,
     left: true,
-    'top-start': true,
-    'top-end': true,
-    'bottom-start': true,
-    'bottom-end': true,
-    'right-start': true,
-    'right-end': true,
-    'left-start': true,
-    'left-end': true,
+    "top-start": true,
+    "top-end": true,
+    "bottom-start": true,
+    "bottom-end": true,
+    "right-start": true,
+    "right-end": true,
+    "left-start": true,
+    "left-end": true,
   });
   const handleOpenPopover = (key: string) => {
     setPopoverOpen({ ...isPopoverOpen, [key]: !isPopoverOpen[key] });
   };
   const positions: PlacementType[] = [
-    'auto',
-    'auto-start',
-    'auto-end',
-    'top',
-    'bottom',
-    'right',
-    'left',
-    'top-start',
-    'top-end',
-    'bottom-start',
-    'bottom-end',
-    'right-start',
-    'right-end',
-    'left-start',
-    'left-end',
+    "auto",
+    "auto-start",
+    "auto-end",
+    "top",
+    "bottom",
+    "right",
+    "left",
+    "top-start",
+    "top-end",
+    "bottom-start",
+    "bottom-end",
+    "right-start",
+    "right-end",
+    "left-start",
+    "left-end",
   ];
   return (
     <Box direction="row" gap="xs" width="100" wrap>
-      {positions.map(position => (
-        <Box
-          height="100px"
-          width="300px"
-          alignItems="center"
-          justifyContent="center"
-          key={position}
-        >
+      {positions.map((position) => (
+        <Box height="100px" width="300px" alignItems="center" justifyContent="center" key={position}>
           <Popover
             content={<>{position}</>}
             isOpen={isPopoverOpen[position]}
             placement={position}
             contentContainerProps={{
-              padding: 'sm',
-              background: 'secondary',
-              color: 'white',
+              padding: "sm",
+              background: "secondary",
+              color: "white",
             }}
           >
             <Button onClick={() => handleOpenPopover(position)} variant="light">
@@ -261,8 +239,8 @@ export const HideArrow: StoryFn = () => {
         isOpen={isPopoverOpen}
         placement="right-start"
         contentContainerProps={{
-          padding: 'md',
-          background: 'grey-lightest',
+          padding: "md",
+          background: "grey-lightest",
         }}
         withPortal
         portalTarget={document.body}
@@ -297,8 +275,8 @@ export const Offset: StoryFn = () => {
           isOpen={isPopoverOpen}
           placement="right-start"
           contentContainerProps={{
-            padding: 'md',
-            background: 'grey-lightest',
+            padding: "md",
+            background: "grey-lightest",
           }}
           withPortal
           portalTarget={document.body}

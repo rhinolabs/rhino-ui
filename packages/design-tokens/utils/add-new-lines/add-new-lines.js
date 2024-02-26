@@ -3,7 +3,7 @@ const addNewLines = (string, numberOfLines) => {
     return string;
   }
 
-  return `${string}${'\n'.repeat(numberOfLines)}`;
+  return `${string}${"\n".repeat(numberOfLines)}`;
 };
 
 module.exports = addNewLines;

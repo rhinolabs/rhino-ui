@@ -1,11 +1,9 @@
-import React, {
-  FC, ChangeEvent, FocusEvent, ReactNode,
-} from 'react';
-import classNames from 'classnames';
-import { Box } from '../box/box';
-import { InputValidationMessage } from '../input-validation-message/input-validation-message';
-import { RadioInput, RadioInputProps } from './radio-input/radio-input'; // eslint-disable-line import/no-cycle
-import styles from './radio-group.module.scss';
+import React, { FC, ChangeEvent, FocusEvent, ReactNode } from "react";
+import classNames from "classnames";
+import { Box } from "../box/box";
+import { InputValidationMessage } from "../input-validation-message/input-validation-message";
+import { RadioInput, RadioInputProps } from "./radio-input/radio-input"; // eslint-disable-line import/no-cycle
+import styles from "./radio-group.module.scss";
 
 export interface RadioGroupProps {
   /**
@@ -36,7 +34,7 @@ export interface RadioGroupProps {
   /**
    * Whether the radios should be aligned in a row or in a column
    */
-  direction?: 'row' | 'column';
+  direction?: "row" | "column";
   /**
    * Mark the radio group as invalid and display a validation message.
    * Pass a string or node to render a validation message below the input.
@@ -65,7 +63,7 @@ export interface RadioGroupProps {
   /**
    * Size of the radio icons in the group.
    */
-  size?: RadioInputProps['size'];
+  size?: RadioInputProps["size"];
   /**
    * Title to be displayed above the RadioGroup.
    */
@@ -84,30 +82,26 @@ export const RadioGroup: FC<RadioGroupProps> = ({
   name,
   onChange,
   options,
-  className = '',
+  className = "",
   description = undefined,
-  direction = 'column',
+  direction = "column",
   error = false,
   isDisabled = false,
   isRequired = false,
   onBlur = undefined,
   onFocus = undefined,
-  requiredIndicator = ' *',
-  size = 'md',
+  requiredIndicator = " *",
+  size = "md",
   title = undefined,
   value = undefined,
   ...restProps
 }) => {
-  const groupClasses = classNames(
-    'rhinolabs-components__variables__form-control',
-    className,
-    {
-      [styles.loading]: error,
-    },
-  );
+  const groupClasses = classNames("rhinolabs-components__variables__form-control", className, {
+    [styles.loading]: error,
+  });
 
   return (
-    <div className={classNames(styles['radio-group'], groupClasses)} {...restProps}>
+    <div className={classNames(styles["radio-group"], groupClasses)} {...restProps}>
       <fieldset className={styles.fieldset}>
         {(title || description) && (
           <legend className={styles.legend}>
@@ -117,8 +111,8 @@ export const RadioGroup: FC<RadioGroupProps> = ({
           </legend>
         )}
         <Box direction={direction} gap="sm" className={styles.options}>
-          {options
-            && options.map(option => (
+          {options &&
+            options.map((option) => (
               <RadioInput
                 key={option.id}
                 name={name}
@@ -134,9 +128,7 @@ export const RadioGroup: FC<RadioGroupProps> = ({
             ))}
         </Box>
       </fieldset>
-      {error && typeof error !== 'boolean' && (
-        <InputValidationMessage>{error}</InputValidationMessage>
-      )}
+      {error && typeof error !== "boolean" && <InputValidationMessage>{error}</InputValidationMessage>}
     </div>
   );
 };

@@ -1,8 +1,8 @@
-import React, { FC, Key } from 'react';
-import classNames from 'classnames';
-import styles from './table-body.module.scss';
-import { Column, Row } from '../../../types';
-import { TableRow } from '../common/table-row/table-row';
+import React, { FC, Key } from "react";
+import classNames from "classnames";
+import styles from "./table-body.module.scss";
+import { Column, Row } from "../../../types";
+import { TableRow } from "../common/table-row/table-row";
 
 export interface TableBodyProps {
   /**
@@ -21,7 +21,7 @@ export interface TableBodyProps {
    * Text alignment for all table cells. Can be superseded by passing the same prop into the `Column` object
    * for a specific column.
    */
-  align?: 'left' | 'right' | 'center';
+  align?: "left" | "right" | "center";
   /**
    * A custom class to apply to the table body.
    */
@@ -58,9 +58,9 @@ export const TableBody: FC<TableBodyProps> = ({
   columns,
   rowKey,
   rows,
-  align = 'left',
-  className = '',
-  emptyCellPlaceholder = '',
+  align = "left",
+  className = "",
+  emptyCellPlaceholder = "",
   hoverableRows = false,
   isBorderless = false,
   isCompact = false,
@@ -68,7 +68,7 @@ export const TableBody: FC<TableBodyProps> = ({
   truncateOverflow = false,
 }) => {
   const tableBodyClasses = classNames(
-    styles['table-body'],
+    styles["table-body"],
     {
       [styles.striped]: isStriped,
       [styles.hover]: hoverableRows,

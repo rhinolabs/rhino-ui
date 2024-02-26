@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Tabs } from './tabs';
-import { TabPanels } from '../tab-panels/tab-panels';
-import { Box } from '../box/box';
-import { Button } from '../button/button';
+import { useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Tabs } from "./tabs";
+import { TabPanels } from "../tab-panels/tab-panels";
+import { Box } from "../box/box";
+import { Button } from "../button/button";
 
 <Meta title="Components/Tabs/Overview" component={Tabs} />
 
@@ -17,8 +17,8 @@ The Tabs component allows a user to flip amongst different views within the same
     name="Default"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=277%3A2705',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=277%3A2705",
       },
     }}
   >
@@ -151,9 +151,7 @@ By default, tabs will overflow when the content is wider than the container. The
             isCentered
           >
             {tabs.map((tab, index) => (
-              <Tabs.Item key={index}>{`Overflowing Tab ${
-                index + 1
-              }`}</Tabs.Item>
+              <Tabs.Item key={index}>{`Overflowing Tab ${index + 1}`}</Tabs.Item>
             ))}
           </Tabs>
         </>
@@ -208,7 +206,7 @@ The only other likely use case is to render each tab as an anchor. See example m
   <Story name="Anchor Elements">
     {() => {
       const [selectedTab, setSelectedTab] = useState(0);
-      const handleClick = event => {
+      const handleClick = (event) => {
         event.preventDefault();
       };
       return (
@@ -224,7 +222,7 @@ The only other likely use case is to render each tab as an anchor. See example m
               href="#firstPanel"
               id="tabOneAnchor"
               aria-controls="firstPanel"
-              style={{ textDecoration: 'none' }}
+              style={{ textDecoration: "none" }}
               onClick={handleClick}
             >
               Tab 1
@@ -234,7 +232,7 @@ The only other likely use case is to render each tab as an anchor. See example m
               href="#secondPanel"
               id="tabTwoAnchor"
               aria-controls="secondPanel"
-              style={{ textDecoration: 'none' }}
+              style={{ textDecoration: "none" }}
               onClick={handleClick}
             >
               Tab 2
@@ -266,11 +264,11 @@ The only other likely use case is to render each tab as an anchor. See example m
   <tbody>
     {(() => {
       const tokens = {
-        '--tabs-font-weight': '--size-font-weight-bold',
-        '--tabs-font-color-hover': '--color-brand-primary-500',
-        '--tabs-selected-border-color': '--color-brand-primary-500',
-        '--tabs-selected-font-color': '--color-brand-primary-500',
-        '--tabs-selected-font-color-hover': '--color-brand-primary-600',
+        "--tabs-font-weight": "--size-font-weight-bold",
+        "--tabs-font-color-hover": "--color-brand-primary-500",
+        "--tabs-selected-border-color": "--color-brand-primary-500",
+        "--tabs-selected-font-color": "--color-brand-primary-500",
+        "--tabs-selected-font-color-hover": "--color-brand-primary-600",
       };
       return Object.entries(tokens).map(([name, entry], i) => (
         <tr key={i}>

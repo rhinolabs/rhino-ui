@@ -1,15 +1,15 @@
-import { Key } from 'react';
-import { Column } from '../types';
+import { Key } from "react";
+import { Column } from "../types";
 
 // eslint-disable-next-line import/prefer-default-export
 export const getColumnKeys = (columns: Column[]): Key[] => {
-  const INTERNAL_KEY_PREFIX = 'columnKeyPrefix';
+  const INTERNAL_KEY_PREFIX = "columnKeyPrefix";
   const columnKeys: React.Key[] = [];
   const keys: Record<React.Key, boolean> = {};
 
-  columns.forEach(column => {
+  columns.forEach((column) => {
     const { key, dataKey } = column || {};
-    const shapedDataKey = dataKey?.includes(' ') ? dataKey.split(' ').join('-') : dataKey;
+    const shapedDataKey = dataKey?.includes(" ") ? dataKey.split(" ").join("-") : dataKey;
 
     let mergedKey = key || shapedDataKey || INTERNAL_KEY_PREFIX;
 

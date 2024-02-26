@@ -1,10 +1,10 @@
 const useSizeUnit = {
-  name: 'size/use-unit',
-  type: 'value',
-  matcher: function(prop) {
-    return prop.attributes.category === 'size';
+  name: "size/use-unit",
+  type: "value",
+  matcher(prop) {
+    return prop.attributes.category === "size";
   },
-  transformer: function(prop) {
+  transformer(prop) {
     if (!prop.original.unit) {
       return prop.original.value;
     }

@@ -1,56 +1,56 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { boxPropsKeys } from '../box/box';
-import { SelectInputNative, SelectInputNativeProps } from './select-input-native';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { boxPropsKeys } from "../box/box";
+import { SelectInputNative, SelectInputNativeProps } from "./select-input-native";
 
 const meta: Meta<typeof SelectInputNative> = {
-  title: 'Components/SelectInputNative/Playground',
+  title: "Components/SelectInputNative/Playground",
   component: SelectInputNative,
   argTypes: {
     id: {
-      control: 'text',
+      control: "text",
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     value: {
       control: {
-        type: 'radio',
-        options: ['chocolate', 'strawberry', 'vanilla'],
+        type: "radio",
+        options: ["chocolate", "strawberry", "vanilla"],
       },
     },
     autoFocus: {
-      control: 'boolean',
+      control: "boolean",
     },
     error: {
-      control: 'text',
+      control: "text",
     },
     helpText: {
-      control: 'text',
+      control: "text",
     },
     hideLabel: {
-      control: 'boolean',
+      control: "boolean",
     },
     isDisabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     isRequired: {
-      control: 'boolean',
+      control: "boolean",
     },
     className: {
-      control: 'text',
+      control: "text",
     },
     size: {
       control: {
-        type: 'radio',
-        options: ['sm', 'md', 'lg'],
+        type: "radio",
+        options: ["sm", "md", "lg"],
       },
     },
     placeholder: {
-      control: 'text',
+      control: "text",
     },
     options: {
-      control: 'object',
+      control: "object",
     },
     ...boxPropsKeys.reduce((acc, curr) => ({ ...acc, [curr]: { table: { disable: true } } }), {}),
   },
@@ -62,12 +62,12 @@ const Template: StoryFn<SelectInputNativeProps> = ({ ...args }) => <SelectInputN
 
 export const Playground = Template.bind({});
 Playground.args = {
-  id: 'playgroundSelectInputNative',
-  label: 'Playground SelectInputNative',
-  name: 'playgroundSelectInputNative',
+  id: "playgroundSelectInputNative",
+  label: "Playground SelectInputNative",
+  name: "playgroundSelectInputNative",
   options: [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
   ],
 };

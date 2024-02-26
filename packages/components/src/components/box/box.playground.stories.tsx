@@ -1,6 +1,6 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { Box, BoxProps } from './box';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { Box, BoxProps } from "./box";
 import {
   BORDER_SIZE_OPTIONS,
   BORDER_RADIUS_OPTIONS,
@@ -13,366 +13,332 @@ import {
   BRAND_COLOR_OPTIONS,
   WIDTH_OPTIONS,
   HEIGHT_OPTIONS,
-} from '../../lib/tokens';
+} from "../../lib/tokens";
 
 const meta: Meta<typeof Box> = {
-  title: 'Components/Box/Playground',
+  title: "Components/Box/Playground",
   component: Box,
   argTypes: {
     childCount: {
       control: {
-        type: 'range',
+        type: "range",
         min: 1,
         max: 10,
         step: 1,
       },
-      description: 'number of child Boxes to render within the parent Box',
+      description: "number of child Boxes to render within the parent Box",
       defaultValue: 5,
     },
     gap: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...SPACING_OPTIONS],
       },
     },
     columnGap: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...SPACING_OPTIONS],
       },
     },
     rowGap: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...SPACING_OPTIONS],
       },
     },
     display: {
       control: {
-        type: 'select',
-        options: [
-          'none',
-          'flex',
-          'inline-flex',
-          'block',
-          'inline-block',
-          'inline',
-          'inherit',
-          'grid',
-        ],
+        type: "select",
+        options: ["none", "flex", "inline-flex", "block", "inline-block", "inline", "inherit", "grid"],
       },
     },
     direction: {
       control: {
-        type: 'select',
-        options: [null, 'column', 'row', 'row-reverse', 'column-reverse'],
+        type: "select",
+        options: [null, "column", "row", "row-reverse", "column-reverse"],
       },
     },
     alignContent: {
       control: {
-        type: 'select',
-        options: [
-          null,
-          'flex-start',
-          'flex-end',
-          'center',
-          'stretch',
-          'space-between',
-          'space-around',
-        ],
+        type: "select",
+        options: [null, "flex-start", "flex-end", "center", "stretch", "space-between", "space-around"],
       },
     },
     alignItems: {
       control: {
-        type: 'select',
-        options: [null, 'flex-start', 'flex-end', 'center', 'baseline', 'stretch'],
+        type: "select",
+        options: [null, "flex-start", "flex-end", "center", "baseline", "stretch"],
       },
     },
     justifyContent: {
       control: {
-        type: 'select',
-        options: [
-          'flex-start',
-          'flex-end',
-          'center',
-          'space-between',
-          'space-around',
-          'space-evenly',
-        ],
+        type: "select",
+        options: ["flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly"],
       },
     },
     margin: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...SPACING_OPTIONS],
       },
     },
     padding: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...SPACING_OPTIONS],
       },
     },
     width: {
       control: {
-        type: 'select',
+        type: "select",
         options: [undefined, ...WIDTH_OPTIONS],
       },
     },
     maxWidth: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...WIDTH_OPTIONS],
       },
     },
     minWidth: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...WIDTH_OPTIONS],
       },
     },
     height: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...HEIGHT_OPTIONS],
       },
     },
     maxHeight: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...WIDTH_OPTIONS],
       },
     },
     minHeight: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...WIDTH_OPTIONS],
       },
     },
     position: {
       control: {
-        type: 'select',
-        options: [null, 'absolute', 'relative', 'sticky', 'fixed', 'static'],
+        type: "select",
+        options: [null, "absolute", "relative", "sticky", "fixed", "static"],
       },
     },
     cursor: {
       control: {
-        type: 'select',
+        type: "select",
         options: [
           null,
-          'auto',
-          'default',
-          'none',
-          'context-menu',
-          'help',
-          'pointer',
-          'progress',
-          'wait',
-          'cell',
-          'crosshair',
-          'text',
-          'vertical-text',
-          'alias',
-          'copy',
-          'move',
-          'no-drop',
-          'not-allowed',
-          'grab',
-          'grabbing',
-          'all-scroll',
-          'col-resize',
-          'row-resize',
-          'n-resize',
-          'e-resize',
-          's-resize',
-          'w-resize',
-          'ne-resize',
-          'nw-resize',
-          'se-resize',
-          'sw-resize',
-          'ew-resize',
-          'ns-resize',
-          'nesw-resize',
-          'nwse-resize',
-          'zoom-in',
-          'zoom-out',
+          "auto",
+          "default",
+          "none",
+          "context-menu",
+          "help",
+          "pointer",
+          "progress",
+          "wait",
+          "cell",
+          "crosshair",
+          "text",
+          "vertical-text",
+          "alias",
+          "copy",
+          "move",
+          "no-drop",
+          "not-allowed",
+          "grab",
+          "grabbing",
+          "all-scroll",
+          "col-resize",
+          "row-resize",
+          "n-resize",
+          "e-resize",
+          "s-resize",
+          "w-resize",
+          "ne-resize",
+          "nw-resize",
+          "se-resize",
+          "sw-resize",
+          "ew-resize",
+          "ns-resize",
+          "nesw-resize",
+          "nwse-resize",
+          "zoom-in",
+          "zoom-out",
         ],
       },
     },
     hoverBackground: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BRAND_COLOR_OPTIONS],
       },
     },
     hoverBorderColor: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BRAND_COLOR_OPTIONS],
       },
     },
     hoverBorderWidth: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BORDER_SIZE_OPTIONS],
       },
     },
     hoverShadowSize: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BOX_SHADOW_OPTIONS],
       },
     },
     hoverFontSize: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...FONT_SIZE_OPTIONS],
       },
     },
     hoverFontColor: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...FONT_COLOR_OPTIONS],
       },
     },
     focusBackground: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BRAND_COLOR_OPTIONS],
       },
     },
     focusBorderColor: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BRAND_COLOR_OPTIONS],
       },
     },
     focusBorderWidth: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BORDER_SIZE_OPTIONS],
       },
     },
     focusShadowSize: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BOX_SHADOW_OPTIONS],
       },
     },
     focusFontColor: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...FONT_COLOR_OPTIONS],
       },
     },
     overflow: {
       control: {
-        type: 'select',
-        options: [
-          null,
-          'inherit',
-          'auto',
-          'initial',
-          'unset',
-          'visible',
-          'hidden',
-          'clip',
-          'scroll',
-        ],
+        type: "select",
+        options: [null, "inherit", "auto", "initial", "unset", "visible", "hidden", "clip", "scroll"],
       },
     },
     wrap: {
-      control: 'boolean',
+      control: "boolean",
     },
     background: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BRAND_COLOR_OPTIONS],
       },
     },
     radius: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BORDER_RADIUS_OPTIONS],
       },
     },
     borderWidth: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BORDER_SIZE_OPTIONS],
       },
     },
     borderColor: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BRAND_COLOR_OPTIONS],
       },
     },
     shadow: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BOX_SHADOW_OPTIONS],
       },
     },
     color: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...FONT_COLOR_OPTIONS],
       },
     },
     fontSize: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...FONT_SIZE_OPTIONS],
       },
     },
     fontFamily: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...FONT_FAMILY_OPTIONS],
       },
     },
     fontWeight: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...FONT_WEIGHT_OPTIONS],
       },
     },
     childTextAlign: {
       control: {
-        type: 'inline-radio',
-        options: [null, 'left', 'center', 'right'],
+        type: "inline-radio",
+        options: [null, "left", "center", "right"],
       },
-      defaultValue: 'center',
+      defaultValue: "center",
     },
     childWidth: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...WIDTH_OPTIONS],
       },
     },
     childHeight: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...HEIGHT_OPTIONS],
       },
     },
     childBackground: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...BRAND_COLOR_OPTIONS],
       },
     },
     className: {
-      control: 'text',
+      control: "text",
     },
     as: {
-      control: 'text',
-      defaultValue: 'div',
+      control: "text",
+      defaultValue: "div",
     },
     style: {
       control: {
-        type: 'object',
+        type: "object",
       },
     },
     textAlign: { control: false },
@@ -449,12 +415,12 @@ const Template: StoryFn<BoxProps> = ({
 
 export const Playground = Template.bind({});
 Playground.args = {
-  background: 'info-300',
-  direction: 'row',
-  childWidth: 'lg',
-  childHeight: 'lg',
-  gap: 'sm',
-  padding: 'lg',
-  width: '100',
-  childBackground: 'white',
+  background: "info-300",
+  direction: "row",
+  childWidth: "lg",
+  childHeight: "lg",
+  gap: "sm",
+  padding: "lg",
+  width: "100",
+  childBackground: "white",
 };

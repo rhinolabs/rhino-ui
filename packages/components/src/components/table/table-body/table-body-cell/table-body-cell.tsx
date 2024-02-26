@@ -1,14 +1,14 @@
-import React, { FC, ReactNode } from 'react';
-import classNames from 'classnames';
-import { Box } from '../../../box/box';
-import styles from './table-body-cell.module.scss';
+import React, { FC, ReactNode } from "react";
+import classNames from "classnames";
+import { Box } from "../../../box/box";
+import styles from "./table-body-cell.module.scss";
 
 export interface TableBodyCellProps {
   /**
    * Text alignment for all table cells. Can be superseded by passing the same prop into the `Column` object
    * for a specific column.
    */
-  align?: 'left' | 'right' | 'center';
+  align?: "left" | "right" | "center";
   /**
    * Children node to be rendered.
    */
@@ -28,7 +28,7 @@ export interface TableBodyCellProps {
   /**
    * Will stick to either the left or right side of a table during horizontal scroll.
    */
-  sticky?: 'left' | 'right';
+  sticky?: "left" | "right";
   /**
    * Truncates the cell contents based on width established by `Column`
    * NOTE: Truncate only on cells with primitive data types.
@@ -47,9 +47,9 @@ export interface TableBodyCellProps {
 }
 
 const TableBodyCell: FC<TableBodyCellProps> = ({
-  align = 'left',
+  align = "left",
   children = null,
-  className = '',
+  className = "",
   emptyCellPlaceholder = null,
   isBorderless = false,
   isCompact = false,
@@ -57,37 +57,34 @@ const TableBodyCell: FC<TableBodyCellProps> = ({
   truncateOverflow = false,
   width = undefined,
 }) => {
-  const columnIsSticky = sticky === 'left' || sticky === 'right';
+  const columnIsSticky = sticky === "left" || sticky === "right";
   const tableCellClasses = classNames(
-    'rhinolabs-components__variables__table',
-    styles['table-cell'],
+    "rhinolabs-components__variables__table",
+    styles["table-cell"],
     {
       [styles.truncated]: truncateOverflow,
       [styles.compact]: isCompact,
       [styles.borderless]: isBorderless,
-      [styles['sticky-column']]: columnIsSticky,
-      [styles['sticky-column-left']]: sticky === 'left',
-      [styles['sticky-column-right']]: sticky === 'right',
-      [styles['align-right']]: align === 'right',
-      [styles['align-center']]: align === 'center',
+      [styles["sticky-column"]]: columnIsSticky,
+      [styles["sticky-column-left"]]: sticky === "left",
+      [styles["sticky-column-right"]]: sticky === "right",
+      [styles["align-right"]]: align === "right",
+      [styles["align-center"]]: align === "center",
     },
     className,
   );
 
   return (
     <Box
-      as={columnIsSticky ? 'th' : 'td'}
+      as={columnIsSticky ? "th" : "td"}
       className={tableCellClasses}
       display="table-cell"
       width={`${width}px`}
-      style={{ ...width && { minWidth: `${width}px`, maxWidth: `${width}px` } }}
+      style={{ ...(width && { minWidth: `${width}px`, maxWidth: `${width}px` }) }}
       scope="row"
     >
-      {(children === null || typeof children === 'undefined' || children === '')
-        ? emptyCellPlaceholder
-        : children}
+      {children === null || typeof children === "undefined" || children === "" ? emptyCellPlaceholder : children}
     </Box>
-
   );
 };
 

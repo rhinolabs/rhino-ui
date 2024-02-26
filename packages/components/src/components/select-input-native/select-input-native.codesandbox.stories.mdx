@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Components/SelectInputNative/Codesandbox" />
 
@@ -10,16 +10,16 @@ _NOTE:_ This is an alternative to the `SelectInput` component, but leveraging th
 when a custom UI is not needed for a select, or the native UI is preferred (this is recommended for most cases except multi-selects).
 
 ```js codesandbox=rhinolabs-components
-import React, { useState } from 'react';
-import { SelectInputNative } from '@rhino-ui/components';
+import React, { useState } from "react";
+import { SelectInputNative } from "@rhino-ui/components";
 
 export default () => {
   const [value, setValue] = useState(null);
 
   const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
   ];
 
   return (
@@ -27,7 +27,9 @@ export default () => {
       <SelectInputNative
         id="default Select"
         label="Label"
-        onChange={event => { setValue(event.target.value) }}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
         options={options}
         value={value}
       />

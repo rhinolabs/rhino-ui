@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from "@storybook/addon-docs";
 
 <Meta title="Components/DateInput/Codesandbox" />
 
@@ -19,8 +19,8 @@ The `DateInput` uses sensible defaults for these to allow for very straightforwa
 select dates with minimal work.
 
 ```js codesandbox=rhinolabs-components
-import React, { useState } from 'react';
-import { DateInput } from '@rhino-ui/components';
+import React, { useState } from "react";
+import { DateInput } from "@rhino-ui/components";
 
 export default () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -34,11 +34,11 @@ export default () => {
         onChange: setSelectedDate,
       }}
       textInputProps={{
-        placeholder: 'e.g. 11/02/2020',
+        placeholder: "e.g. 11/02/2020",
         onClear: handleClear,
-        id: 'defaultDatePicker',
-        name: 'selectDate',
-        label: 'Select Date',
+        id: "defaultDatePicker",
+        name: "selectDate",
+        label: "Select Date",
       }}
     />
   );

@@ -1,13 +1,8 @@
-import React, { FC, ReactNode, useMemo } from 'react';
-import classNames from 'classnames';
-import { Box } from '../box/box';
-import { Button } from '../button/button';
-import {
-  generatePages,
-  generatePageRange,
-  generatePageTotal,
-  generateActiveListRange,
-} from './pagination.utilities';
+import React, { FC, ReactNode, useMemo } from "react";
+import classNames from "classnames";
+import { Box } from "../box/box";
+import { Button } from "../button/button";
+import { generatePages, generatePageRange, generatePageTotal, generateActiveListRange } from "./pagination.utilities";
 
 export interface PaginationProps {
   /**
@@ -68,14 +63,11 @@ export const Pagination: FC<PaginationProps> = ({
   className = undefined,
   isCompact = false,
   isTotalVisible = true,
-  nextPageText = 'Next',
+  nextPageText = "Next",
   numberOfPagesDisplayed = 5,
-  prevPageText = 'Previous',
+  prevPageText = "Previous",
 }) => {
-  const pageTotal = useMemo(
-    () => generatePageTotal(totalItemsCount, itemsPerPage),
-    [totalItemsCount, itemsPerPage],
-  );
+  const pageTotal = useMemo(() => generatePageTotal(totalItemsCount, itemsPerPage), [totalItemsCount, itemsPerPage]);
 
   const pageRange = useMemo(
     () => generatePageRange(numberOfPagesDisplayed, pageTotal),
@@ -103,13 +95,13 @@ export const Pagination: FC<PaginationProps> = ({
     >
       <Box
         direction="row"
-        justifyContent={{ base: 'space-between' }}
-        flex={{ base: 'auto', tablet: 'none' }}
-        gap={isCompact ? 'xs' : 'sm'}
+        justifyContent={{ base: "space-between" }}
+        flex={{ base: "auto", tablet: "none" }}
+        gap={isCompact ? "xs" : "sm"}
       >
         <Button
           variant="light"
-          size={isCompact ? 'sm' : 'md'}
+          size={isCompact ? "sm" : "md"}
           isDisabled={activePage === 1}
           onClick={() => onChange(activePage - 1)}
         >
@@ -122,21 +114,21 @@ export const Pagination: FC<PaginationProps> = ({
                 key={pageNumber}
                 onClick={() => onChange(pageNumber)}
                 isOutlined={activePage !== pageNumber}
-                size={isCompact ? 'sm' : 'md'}
+                size={isCompact ? "sm" : "md"}
                 style={{
-                  minWidth: isCompact ? '33px' : '42px',
+                  minWidth: isCompact ? "33px" : "42px",
                   border: 0,
                 }}
                 className={className}
               >
-                {isPage ? pageNumber : '...'}
+                {isPage ? pageNumber : "..."}
               </Button>
             ))}
           </Box>
         )}
         <Button
           variant="light"
-          size={isCompact ? 'sm' : 'md'}
+          size={isCompact ? "sm" : "md"}
           isDisabled={activePage === pageTotal}
           onClick={() => onChange(activePage + 1)}
         >
@@ -146,14 +138,12 @@ export const Pagination: FC<PaginationProps> = ({
       <Box
         as="p"
         display={{
-          base: 'none',
-          tablet: 'block',
+          base: "none",
+          tablet: "block",
         }}
-        fontSize={isCompact ? 'sm' : 'md'}
+        fontSize={isCompact ? "sm" : "md"}
       >
-        {isTotalVisible && (
-          `Showing ${activeListRange.first}-${activeListRange.last} of ${totalItemsCount}`
-        )}
+        {isTotalVisible && `Showing ${activeListRange.first}-${activeListRange.last} of ${totalItemsCount}`}
       </Box>
     </Box>
   );

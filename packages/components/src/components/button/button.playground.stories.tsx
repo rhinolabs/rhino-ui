@@ -1,78 +1,78 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { ICON_NAMES } from '../../lib/tokens';
-import { Button, ButtonProps } from './button';
-import { BUTTON_SIZES, BUTTON_VARIANTS } from './button.constants';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { ICON_NAMES } from "../../lib/tokens";
+import { Button, ButtonProps } from "./button";
+import { BUTTON_SIZES, BUTTON_VARIANTS } from "./button.constants";
 
-const meta: Meta<typeof Button> =  {
-  title: 'Components/Button/Playground',
+const meta: Meta<typeof Button> = {
+  title: "Components/Button/Playground",
   component: Button,
   argTypes: {
     children: {
-      control: 'text',
+      control: "text",
     },
     variant: {
       control: {
-        type: 'select',
+        type: "select",
         options: BUTTON_VARIANTS,
       },
     },
     size: {
       control: {
-        type: 'select',
+        type: "select",
         options: BUTTON_SIZES,
       },
     },
     isNaked: {
-      control: 'boolean',
+      control: "boolean",
     },
     isOutlined: {
-      control: 'boolean',
+      control: "boolean",
     },
     fullWidth: {
-      control: 'boolean',
+      control: "boolean",
     },
     isDisabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     isLoading: {
-      control: 'boolean',
+      control: "boolean",
     },
     id: {
-      control: 'text',
+      control: "text",
     },
     className: {
-      control: 'text',
+      control: "text",
     },
     tabIndex: {
-      control: 'number',
+      control: "number",
     },
     type: {
       control: {
-        type: 'select',
-        options: ['button', 'submit', 'reset'],
+        type: "select",
+        options: ["button", "submit", "reset"],
       },
     },
     iconPrefix: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...ICON_NAMES],
       },
     },
     iconSuffix: {
       control: {
-        type: 'select',
+        type: "select",
         options: [null, ...ICON_NAMES],
       },
     },
     as: {
       control: {
-        type: 'select',
-        options: ['button', 'a'],
+        type: "select",
+        options: ["button", "a"],
       },
     },
     href: {
-      control: 'text',
+      control: "text",
     },
   },
 };
@@ -83,6 +83,6 @@ const Template: StoryFn<ButtonProps> = ({ ...args }) => <Button {...args} />;
 
 export const Playground = Template.bind({});
 Playground.args = {
-  variant: 'primary',
-  children: 'Playground Button',
+  variant: "primary",
+  children: "Playground Button",
 };

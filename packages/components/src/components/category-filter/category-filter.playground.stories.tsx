@@ -1,20 +1,20 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import { CategoryFilter, CategoryFilterProps } from './category-filter';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import { CategoryFilter, CategoryFilterProps } from "./category-filter";
 
 const meta: Meta<typeof CategoryFilter> = {
-  title: 'Components/CategoryFilter/Playground',
+  title: "Components/CategoryFilter/Playground",
   component: CategoryFilter,
   argTypes: {
     isSelected: {
-      control: 'boolean',
+      control: "boolean",
     },
     isDisabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     size: {
-      control: 'select',
-      options: ['xs', 'sm', 'md', 'lg'],
+      control: "select",
+      options: ["xs", "sm", "md", "lg"],
     },
   },
 };
@@ -27,5 +27,5 @@ export const Playground = Template.bind({});
 Playground.args = {
   isSelected: false,
   isDisabled: false,
-  size: 'md',
+  size: "md",
 };

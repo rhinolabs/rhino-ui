@@ -1,5 +1,6 @@
 module.exports = {
   extends: ["stylelint-config-standard", "stylelint-config-sass-guidelines", "stylelint-config-css-modules"],
+  allowEmptyInput: true,
   rules: {
     "declaration-property-value-disallowed-list": null,
     "max-nesting-depth": null,

@@ -1,5 +1,5 @@
-import React, { FC, FocusEvent, ReactNode } from 'react';
-import classNames from 'classnames';
+import React, { FC, FocusEvent, ReactNode } from "react";
+import classNames from "classnames";
 import Select, {
   components,
   FocusEventHandler,
@@ -8,15 +8,15 @@ import Select, {
   ValueType,
   GroupedOptionsType,
   OptionsType,
-} from 'react-select';
-import { SimulatedEventPayloadType, ResponsiveProp } from '../../types';
-import { Z_INDEX_VALUES } from '../../lib/tokens';
-import { generateResponsiveClasses } from '../../lib/generate-responsive-classes';
-import { Box } from '../box/box';
-import { Icon } from '../icon/icon';
-import { FormLabel } from '../form-label/form-label';
-import { InputValidationMessage } from '../input-validation-message/input-validation-message';
-import styles from './select-input.module.scss';
+} from "react-select";
+import { SimulatedEventPayloadType, ResponsiveProp } from "../../types";
+import { Z_INDEX_VALUES } from "../../lib/tokens";
+import { generateResponsiveClasses } from "../../lib/generate-responsive-classes";
+import { Box } from "../box/box";
+import { Icon } from "../icon/icon";
+import { FormLabel } from "../form-label/form-label";
+import { InputValidationMessage } from "../input-validation-message/input-validation-message";
+import styles from "./select-input.module.scss";
 
 export type SelectInputOptions = GroupedOptionsType<OptionTypeBase> | OptionsType<OptionTypeBase>;
 
@@ -106,7 +106,7 @@ export interface SelectInputProps {
   /**
    * The size of the text input.
    */
-  size?: 'sm' | 'md' | 'lg' | ResponsiveProp<'sm' | 'md' | 'lg'>;
+  size?: "sm" | "md" | "lg" | ResponsiveProp<"sm" | "md" | "lg">;
   /**
    * Additional props to be spread. These will be applied specifically to
    * the `react-select` component that powers the select. For full docs on
@@ -122,7 +122,7 @@ export const SelectInput: FC<SelectInputProps> = ({
   options,
   value,
   autoFocus = false,
-  className = '',
+  className = "",
   error = false,
   helpText,
   hideLabel = false,
@@ -131,12 +131,12 @@ export const SelectInput: FC<SelectInputProps> = ({
   isMulti = false,
   isRequired = false,
   menuPortalTarget = null,
-  name = '',
+  name = "",
   onFocus = null,
   onBlur = null,
   placeholder = undefined,
-  requiredIndicator = ' *',
-  size = 'md',
+  requiredIndicator = " *",
+  size = "md",
   ...restProps
 }) => {
   const handleChange = (values: ValueType<OptionTypeBase, boolean>) => {
@@ -150,32 +150,32 @@ export const SelectInput: FC<SelectInputProps> = ({
     onChange(simulatedEventPayloadType);
   };
 
-  const handleFocus: FocusEventHandler = e => {
+  const handleFocus: FocusEventHandler = (e) => {
     if (onFocus) onFocus(e);
   };
 
-  const handleBlur: FocusEventHandler = e => {
+  const handleBlur: FocusEventHandler = (e) => {
     if (onBlur) onBlur(e);
   };
 
-  const responsiveClasses = generateResponsiveClasses('size', size);
+  const responsiveClasses = generateResponsiveClasses("size", size);
 
   const wrapperClasses = classNames(
-    'rhinolabs-components__variables__form-control',
-    'select-input-wrapper',
+    "rhinolabs-components__variables__form-control",
+    "select-input-wrapper",
     className,
-    ...responsiveClasses.map(c => (styles[c])),
+    ...responsiveClasses.map((c) => styles[c]),
     {
       [styles.disabled]: isDisabled,
     },
   );
 
-  const inputClasses = classNames('react-select', { [styles.error]: error });
+  const inputClasses = classNames("react-select", { [styles.error]: error });
 
   const labelProps = {
     inputId: id,
     helpText,
-    className: styles['select-input-label'],
+    className: styles["select-input-label"],
     isDisabled,
     isFieldRequired: isRequired,
     requiredIndicator,
@@ -209,12 +209,10 @@ export const SelectInput: FC<SelectInputProps> = ({
         onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        styles={{ menuPortal: base => ({ ...base, zIndex: Number(Z_INDEX_VALUES.popover) }) }}
+        styles={{ menuPortal: (base) => ({ ...base, zIndex: Number(Z_INDEX_VALUES.popover) }) }}
         value={value}
       />
-      {error && typeof error !== 'boolean' && (
-        <InputValidationMessage>{error}</InputValidationMessage>
-      )}
+      {error && typeof error !== "boolean" && <InputValidationMessage>{error}</InputValidationMessage>}
     </Box>
   );
 };

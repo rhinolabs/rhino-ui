@@ -1,11 +1,11 @@
-import React, { ReactElement } from 'react';
-import { Meta } from '@storybook/react';
-import { SelectInput } from './select-input';
-import { Box } from '../box/box';
-import { RESPONSIVE_STORY } from '../../docs/constants';
+import React, { ReactElement } from "react";
+import { Meta } from "@storybook/react";
+import { SelectInput } from "./select-input";
+import { Box } from "../box/box";
+import { RESPONSIVE_STORY } from "../../docs/constants";
 
 const meta: Meta<typeof SelectInput> = {
-  title: 'Components/SelectInput/Visual Regression Tests',
+  title: "Components/SelectInput/Visual Regression Tests",
   component: SelectInput,
 };
 
@@ -43,10 +43,10 @@ export const Sizes = (): ReactElement => (
       options={[]}
       value={null}
       size={{
-        base: 'sm',
-        tablet: 'md',
-        desktop: 'lg',
-        hd: 'sm',
+        base: "sm",
+        tablet: "md",
+        desktop: "lg",
+        hd: "sm",
       }}
       onChange={() => {}} // eslint-disable-line
     />

@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Box } from '../box/box';
-import { CategoryFilter } from './category-filter';
+import { useState } from "react";
+import { action } from "@storybook/addon-actions";
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Box } from "../box/box";
+import { CategoryFilter } from "./category-filter";
 
 <Meta title="Components/CategoryFilter/Overview" component={CategoryFilter} />
 
@@ -25,8 +25,8 @@ The CategoryFilter component consists of a button with text, typically used in a
     name="Default"
     parameters={{
       design: {
-        type: 'figma',
-        url: 'https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=1294%3A20507',
+        type: "figma",
+        url: "https://www.figma.com/file/k1kOsplTGXvSSMQQCzhCND/Rhinolabs-Design-System?node-id=1294%3A20507",
       },
     }}
   >
@@ -36,30 +36,21 @@ The CategoryFilter component consists of a button with text, typically used in a
         vanilla: true,
         strawberry: false,
       });
-      const handleSelect = selectedKey => {
-        setIsSelected(prevIsSelected => ({
+      const handleSelect = (selectedKey) => {
+        setIsSelected((prevIsSelected) => ({
           ...prevIsSelected,
           [selectedKey]: !prevIsSelected[selectedKey],
         }));
       };
       return (
         <Box direction="row" gap="xs">
-          <CategoryFilter
-            isSelected={isSelected.chocolate}
-            onClick={() => handleSelect('chocolate')}
-          >
+          <CategoryFilter isSelected={isSelected.chocolate} onClick={() => handleSelect("chocolate")}>
             chocolate
           </CategoryFilter>
-          <CategoryFilter
-            isSelected={isSelected.vanilla}
-            onClick={() => handleSelect('vanilla')}
-          >
+          <CategoryFilter isSelected={isSelected.vanilla} onClick={() => handleSelect("vanilla")}>
             vanilla
           </CategoryFilter>
-          <CategoryFilter
-            isSelected={isSelected.strawberry}
-            onClick={() => handleSelect('strawberry')}
-          >
+          <CategoryFilter isSelected={isSelected.strawberry} onClick={() => handleSelect("strawberry")}>
             strawberry
           </CategoryFilter>
         </Box>
@@ -86,46 +77,30 @@ The CategoryFilter can be sized with one of `xs`, `sm`, `md`, `lg`, or a `Respon
         lg: false,
         responsive: false,
       });
-      const handleSelect = selectedKey => {
-        setIsSelected(prevIsSelected => ({
+      const handleSelect = (selectedKey) => {
+        setIsSelected((prevIsSelected) => ({
           ...prevIsSelected,
           [selectedKey]: !prevIsSelected[selectedKey],
         }));
       };
       return (
         <Box direction="row" gap="sm" wrap>
-          <CategoryFilter
-            isSelected={isSelected.xs}
-            onClick={() => handleSelect('xs')}
-            size="xs"
-          >
+          <CategoryFilter isSelected={isSelected.xs} onClick={() => handleSelect("xs")} size="xs">
             Extra Small
           </CategoryFilter>
-          <CategoryFilter
-            isSelected={isSelected.sm}
-            onClick={() => handleSelect('sm')}
-            size="sm"
-          >
+          <CategoryFilter isSelected={isSelected.sm} onClick={() => handleSelect("sm")} size="sm">
             Small
           </CategoryFilter>
-          <CategoryFilter
-            isSelected={isSelected.md}
-            onClick={() => handleSelect('md')}
-            size="md"
-          >
+          <CategoryFilter isSelected={isSelected.md} onClick={() => handleSelect("md")} size="md">
             Medium
           </CategoryFilter>
-          <CategoryFilter
-            isSelected={isSelected.lg}
-            onClick={() => handleSelect('lg')}
-            size="lg"
-          >
+          <CategoryFilter isSelected={isSelected.lg} onClick={() => handleSelect("lg")} size="lg">
             Large
           </CategoryFilter>
           <CategoryFilter
             isSelected={isSelected.responsive}
-            onClick={() => handleSelect('responsive')}
-            size={{ base: 'xs', tablet: 'sm', desktop: 'md', hd: 'lg' }}
+            onClick={() => handleSelect("responsive")}
+            size={{ base: "xs", tablet: "sm", desktop: "md", hd: "lg" }}
           >
             Responsive
           </CategoryFilter>
