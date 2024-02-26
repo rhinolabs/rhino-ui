@@ -1,2 +1,3 @@
 {
+  "extends": ["@rhino-ui/ts-config"],
 }

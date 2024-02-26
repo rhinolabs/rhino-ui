@@ -9,7 +9,10 @@
   ],
   "scripts": {
     "build": "node build.js",
-    "clean": "rm -rf build"
+    "clean": "rimraf build",
+    "eslint": "eslint **/*.js --fix",
+    "stylelint": "stylelint '**/*.{css,scss,sass}'",
+    "format": "prettier --write **/src/** --cache "
   },
   "repository": "https://github.com/rhinolabs/rhino-ui.git",
   "author": "@rhinolabs",

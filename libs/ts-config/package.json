@@ -1,0 +1,14 @@
+{
+  "name": "@rhino-ui/ts-config",
+  "author": "@rhinolabs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Typescript configuration for Rhino UI",
+  "main": "src/base.json",
+  "scripts": {
+    "eslint": "eslint src --fix",
+    "format": "prettier --write **/src/** --cache "
+  },
+  "dependencies": {
+  }
+}

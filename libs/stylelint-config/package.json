@@ -1,0 +1,19 @@
+{
+  "name": "@rhino-ui/stylelint-config",
+  "author": "@rhinolabs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Stylelint configuration for Rhino UI",
+  "main": "src/index.js",
+  "scripts": {
+    "eslint": "eslint src --fix",
+    "format": "prettier --write **/src/** --cache "
+  },
+  "dependencies": {
+    "stylelint": "^15.11.0",
+    "stylelint-config-concentric-order": "^4.0.1",
+    "stylelint-config-css-modules": "^2.3.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-sass-guidelines": "^10.0.0"
+  }
+}

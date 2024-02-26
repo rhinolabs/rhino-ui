@@ -4,10 +4,24 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint"
+    "eslint": "turbo eslint",
+    "format": "turbo format",
+    "stylelint": "turbo stylelint",
+    "clean:node-modules": "rimraf packages/**/node_modules && rimraf libs/**/node_modules && rm -rf node_modules"
   },
   "devDependencies": {
-    "turbo": "latest"
+    "@rhino-ui/eslint-config": "workspace:^",
+    "@rhino-ui/stylelint-config": "workspace:^",
+    "@rhino-ui/ts-config": "workspace:^",
+    "@types/node": "^20.11.19",
+    "crossenv": "0.0.2-security",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "stylelint": "^15.11.0",
+    "ts-loader": "^8.4.0",
+    "tslib": "^2.6.2",
+    "turbo": "latest",
+    "typescript": "^5.3.3"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {
