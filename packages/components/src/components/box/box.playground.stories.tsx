@@ -394,17 +394,35 @@ export default meta;
 type Story = StoryObj<BoxProps>;
 
 export const Playground: Story = {
-  render: (args) => {
+  render: ({
+    childCount,
+    childBackground,
+    childWidth,
+    childHeight,
+    childTextAlign,
+    hoverBackground,
+    hoverBorderColor,
+    hoverBorderWidth,
+    hoverShadowSize,
+    hoverFontColor,
+    hoverFontSize,
+    focusBackground,
+    focusBorderColor,
+    focusBorderWidth,
+    focusShadowSize,
+    focusFontColor,
+    ...args
+  }) => {
     const childBoxes = [];
 
-    for (let i = 0; i < args.childCount; i += 1) {
+    for (let i = 0; i < childCount; i += 1) {
       childBoxes.push(
         <Box
-          width={args.childWidth}
-          height={args.childHeight}
-          textAlign={args.childTextAlign}
+          width={childWidth}
+          height={childHeight}
+          textAlign={childTextAlign}
           justifyContent="center"
-          background={args.childBackground}
+          background={childBackground}
           radius="md"
           key={i}
           padding="sm"
@@ -418,19 +436,19 @@ export const Playground: Story = {
       <Box
         {...args}
         hover={{
-          background: args.hoverBackground,
-          borderColor: args.hoverBorderColor,
-          borderWidth: args.hoverBorderWidth,
-          shadow: args.hoverShadowSize,
-          fontSize: args.hoverFontSize,
-          color: args.hoverFontColor,
+          background: hoverBackground,
+          borderColor: hoverBorderColor,
+          borderWidth: hoverBorderWidth,
+          shadow: hoverShadowSize,
+          fontSize: hoverFontSize,
+          color: hoverFontColor,
         }}
         focus={{
-          background: args.focusBackground,
-          borderColor: args.focusBorderColor,
-          borderWidth: args.focusBorderWidth,
-          shadow: args.focusShadowSize,
-          color: args.focusFontColor,
+          background: focusBackground,
+          borderColor: focusBorderColor,
+          borderWidth: focusBorderWidth,
+          shadow: focusShadowSize,
+          color: focusFontColor,
         }}
         tabIndex="0"
       >

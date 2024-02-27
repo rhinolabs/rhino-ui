@@ -10,7 +10,7 @@ export default {
 
 type Story = StoryObj<CheckboxProps>;
 export const BasicExample: Story = {
-  render: () => {
+  render: (_args) => {
     const [checked, setChecked] = useState(true);
     const [unchecked, setUnchecked] = useState(false);
     return (
@@ -33,7 +33,7 @@ export const BasicExample: Story = {
 };
 
 export const Sizes: Story = {
-  render: () => {
+  render: (_args) => {
     const [smCheckbox, setSmCheckbox] = useState(true);
     const [mdCheckbox, setMdCheckbox] = useState(true);
     const [lgCheckbox, setLgCheckbox] = useState(true);
@@ -79,7 +79,7 @@ export const Sizes: Story = {
 };
 
 export const Disabled: Story = {
-  render: () => {
+  render: (_args) => {
     const [checked, setChecked] = useState(true);
     const [unchecked, setUnchecked] = useState(false);
     return (
@@ -104,7 +104,7 @@ export const Disabled: Story = {
 };
 
 export const Error: Story = {
-  render: () => {
+  render: (_args) => {
     const [checked, setChecked] = useState(false);
     return (
       <Box gap="lg" direction="row">

@@ -21,7 +21,7 @@ export default meta;
 type Story = StoryObj<typeof Popover>;
 
 export const Demo: Story = {
-  render: () => {
+  render: (_args) => {
     const { isOpen: isPopoverOpen, handleToggle: togglePopover } = useOpenClose(
       {
         defaultIsOpen: true,
@@ -154,7 +154,7 @@ export const Demo: Story = {
 };
 
 export const Default: Story = {
-  render: () => {
+  render: (_args) => {
     const { isOpen: isPopoverOpen, handleToggle: togglePopover } = useOpenClose(
       {
         defaultIsOpen: true,
@@ -181,7 +181,7 @@ export const Default: Story = {
 };
 
 export const Placement: Story = {
-  render: () => {
+  render: (_args) => {
     const [isPopoverOpen, setPopoverOpen] = useState<Record<string, boolean>>({
       auto: true,
       'auto-start': true,
@@ -254,7 +254,7 @@ export const Placement: Story = {
 };
 
 export const HideArrow: Story = {
-  render: () => {
+  render: (_args) => {
     const {
       isOpen: isPopoverOpen,
       handleClose: closePopover,
@@ -295,7 +295,7 @@ export const HideArrow: Story = {
 };
 
 export const Offset: Story = {
-  render: () => {
+  render: (_args) => {
     const { isOpen: isPopoverOpen, handleToggle: togglePopover } = useOpenClose(
       {
         defaultIsOpen: true,

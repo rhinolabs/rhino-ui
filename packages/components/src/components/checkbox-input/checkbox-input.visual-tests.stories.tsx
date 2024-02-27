@@ -2,7 +2,6 @@ import { Meta, StoryObj } from '@storybook/react';
 import { within } from '@storybook/testing-library';
 import { RESPONSIVE_STORY } from '../../docs/constants';
 import { CheckboxInput, CheckboxInputProps } from './checkbox-input';
-import { CheckboxSize } from './components/checkbox';
 
 const meta: Meta<typeof CheckboxInput> = {
   title: 'Components/CheckboxInput/Visual Regression Tests',
@@ -61,20 +60,6 @@ const Checked: Story = {
 const Unchecked: Story = {
   args: {
     isChecked: false,
-  },
-};
-
-const ResponsiveUnchecked: Story = {
-  ...Responsive,
-  args: {
-    ...Unchecked.args,
-  },
-};
-
-const ResponsiveChecked: Story = {
-  ...Responsive,
-  args: {
-    ...Checked.args,
   },
 };
 
@@ -199,22 +184,12 @@ export const FocusUnchecked: Story = {
   },
 };
 
-export const FocusError: Story = {
+const FocusError: Story = {
   ...Focus,
   args: {
     id: 'FocusError',
     label: 'Focus Error',
     error: true,
-  },
-};
-
-export const FocusErrorUnchecked: Story = {
-  ...Focus,
-  args: {
-    ...FocusError.args,
-    ...Unchecked.args,
-    id: 'FocusErrorUnchecked',
-    label: 'Focus Error Unchecked',
   },
 };
 
@@ -225,5 +200,15 @@ export const FocusErrorChecked: Story = {
     ...Checked.args,
     id: 'FocusErrorChecked',
     label: 'Focus Error Checked',
+  },
+};
+
+export const FocusErrorUnchecked: Story = {
+  ...Focus,
+  args: {
+    ...FocusError.args,
+    ...Unchecked.args,
+    id: 'FocusErrorUnchecked',
+    label: 'Focus Error Unchecked',
   },
 };

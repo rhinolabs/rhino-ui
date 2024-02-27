@@ -26,7 +26,7 @@ export default meta;
 
 type Story = StoryObj<typeof toast>;
 export const Default: Story = {
-  render: () => {
+  render: (_args) => {
     setTimeout(() => {
       toast('default toast');
     }, 1);
@@ -35,7 +35,7 @@ export const Default: Story = {
 };
 
 export const Dismissable: Story = {
-  render: () => {
+  render: (_args) => {
     setTimeout(() => {
       toast('dismissable toast', { canDismiss: true });
     }, 1);
@@ -43,7 +43,7 @@ export const Dismissable: Story = {
   },
 };
 export const Success: Story = {
-  render: () => {
+  render: (_args) => {
     setTimeout(() => {
       toast.success('success toast');
     }, 1);
@@ -51,7 +51,7 @@ export const Success: Story = {
   },
 };
 export const Error: Story = {
-  render: () => {
+  render: (_args) => {
     setTimeout(() => {
       toast.error('error toast');
     }, 1);
@@ -60,7 +60,7 @@ export const Error: Story = {
 };
 
 export const Loading: Story = {
-  render: () => {
+  render: (_args) => {
     setTimeout(() => {
       toast.loading('loading toast');
     }, 1);
@@ -69,7 +69,7 @@ export const Loading: Story = {
 };
 
 export const Compact: Story = {
-  render: () => {
+  render: (_args) => {
     setTimeout(() => {
       toast('compact toast', { isCompact: true });
     }, 1);
@@ -78,7 +78,7 @@ export const Compact: Story = {
 };
 
 export const CannotDismiss: Story = {
-  render: () => {
+  render: (_args) => {
     setTimeout(() => {
       toast('cannot dismiss toast', { canDismiss: false });
     }, 1);
@@ -87,7 +87,7 @@ export const CannotDismiss: Story = {
 };
 
 export const TopLeft: Story = {
-  render: () => {
+  render: (_args) => {
     setTimeout(() => {
       toast('top left', { position: 'top-left' });
     }, 1);
@@ -96,7 +96,7 @@ export const TopLeft: Story = {
 };
 
 export const TopCenter: Story = {
-  render: () => {
+  render: (_args) => {
     setTimeout(() => {
       toast('top center', { position: 'top-center' });
     }, 1);
@@ -105,7 +105,7 @@ export const TopCenter: Story = {
 };
 
 export const TopRight: Story = {
-  render: () => {
+  render: (_args) => {
     setTimeout(() => {
       toast('top right', { position: 'top-right' });
     }, 1);
@@ -114,7 +114,7 @@ export const TopRight: Story = {
 };
 
 export const BottomLeft: Story = {
-  render: () => {
+  render: (_args) => {
     setTimeout(() => {
       toast('bottom left', { position: 'bottom-left' });
     }, 1);
@@ -123,7 +123,7 @@ export const BottomLeft: Story = {
 };
 
 export const BottomCenter: Story = {
-  render: () => {
+  render: (_args) => {
     setTimeout(() => {
       toast('bottom center', { position: 'bottom-center' });
     }, 1);
@@ -132,7 +132,7 @@ export const BottomCenter: Story = {
 };
 
 export const BottomRight: Story = {
-  render: () => {
+  render: (_args) => {
     setTimeout(() => {
       toast('bottom-right', { position: 'bottom-right' });
     }, 1);

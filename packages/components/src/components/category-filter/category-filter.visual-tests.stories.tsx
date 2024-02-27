@@ -59,7 +59,7 @@ export const SizeAndStates: Story = {
 };
 
 export const ResponsiveSize: Story = {
-  render: () => (
+  render: (_args) => (
     <CategoryFilter
       isSelected
       size={{ base: 'xs', tablet: 'sm', desktop: 'md', hd: 'lg' }}

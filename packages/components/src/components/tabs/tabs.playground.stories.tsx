@@ -53,14 +53,14 @@ export default meta;
 type Story = StoryObj<TabsProps>;
 
 export const Playground: Story = {
-  render: (args) => (
+  render: ({value, size, disabledTabs, ...args}) => (
     <Box gap="md">
-      <Tabs {...args} value={args.value} size={args.size}>
-        <Tabs.Item isDisabled={args.disabledTabs.includes(0)}>Tab 0</Tabs.Item>
-        <Tabs.Item isDisabled={args.disabledTabs.includes(1)}>Tab 1</Tabs.Item>
-        <Tabs.Item isDisabled={args.disabledTabs.includes(2)}>Tab 2</Tabs.Item>
+      <Tabs {...args} value={value} size={size}>
+        <Tabs.Item isDisabled={disabledTabs.includes(0)}>Tab 0</Tabs.Item>
+        <Tabs.Item isDisabled={disabledTabs.includes(1)}>Tab 1</Tabs.Item>
+        <Tabs.Item isDisabled={disabledTabs.includes(2)}>Tab 2</Tabs.Item>
       </Tabs>
-      <TabPanels value={args.value}>
+      <TabPanels value={value}>
         <Box padding="md" background="grey-50">
           Panel 0
         </Box>

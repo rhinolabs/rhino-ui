@@ -13,7 +13,7 @@ export default meta;
 
 type Story = StoryObj<SelectInputProps>;
 export const Sizes: Story = {
-  render: () => (
+  render: (_args) => (
     <Box gap="xl">
       <SelectInput
         id="smallSelect"

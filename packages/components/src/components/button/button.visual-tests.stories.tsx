@@ -17,7 +17,7 @@ type StoryWithIcon = StoryObj<ButtonProps & { showIconButton: boolean }>;
 type Story = StoryObj<typeof Button>;
 
 const Default: StoryWithIcon = {
-  render: (args: ButtonProps & { showIconButton: boolean }) => (
+  render: ({ showIconButton, ...args }: { showIconButton: boolean }) => (
     <Box gap="xl">
       {BUTTON_SIZES.map((size) => (
         <Box gap="sm" key={size}>
@@ -32,7 +32,7 @@ const Default: StoryWithIcon = {
                 {`${size} ${variant}`}
               </Button>
             ))}
-            {args.showIconButton && (
+            {showIconButton && (
               <Button
                 {...args}
                 iconPrefix="circle"
@@ -57,7 +57,7 @@ const Default: StoryWithIcon = {
                 {`${size} ${variant}`}
               </Button>
             ))}
-            {args.showIconButton && (
+            {showIconButton && (
               <Button
                 {...args}
                 iconPrefix="circle"
@@ -137,9 +137,7 @@ const Focus: Story = {
 
 export const PrimaryFocus: Story = {
   ...Focus,
-  args: {
-    variant: 'primary',
-  },
+  args: {},
 };
 
 export const SuccessFocus: Story = {
@@ -187,7 +185,6 @@ export const PrimaryOutlinedFocus: Story = {
   ...Focus,
   args: {
     ...OutlinedFocus.args,
-    variant: 'primary',
   },
 };
 

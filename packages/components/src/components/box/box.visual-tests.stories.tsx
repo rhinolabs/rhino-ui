@@ -24,7 +24,7 @@ export default meta;
 
 type Story = StoryObj<BoxProps>;
 export const AllBackgroundColors: Story = {
-  render: () => (
+  render: (_args) => (
     <Box flex="auto" direction="row" fontSize="sm">
       {BRAND_COLOR_NAMES.map((color, index) => {
         if (color.includes('inherit')) return null;
@@ -127,7 +127,7 @@ export const AllBackgroundColors: Story = {
 };
 
 export const AllBorderColors: Story = {
-  render: () => (
+  render: (_args) => (
     <Box flex="auto" direction="row" fontSize="sm">
       {BRAND_COLOR_NAMES.map((color, index) => {
         if (color.includes('inherit')) return null;
@@ -240,7 +240,7 @@ export const AllBorderColors: Story = {
 };
 
 export const AllGap: Story = {
-  render: () => (
+  render: (_args) => (
     <Box maxWidth="5xl" gap="lg">
       {[...SPACING_OPTIONS].map((spacing, i) => (
         <Box gap={spacing} direction="row" key={i}>
@@ -266,7 +266,7 @@ export const AllGap: Story = {
 };
 
 export const AllRowGap: Story = {
-  render: () => (
+  render: (_args) => (
     <Box maxWidth="5xl" gap="lg" direction="row">
       {[...SPACING_OPTIONS].map((spacing, i) => (
         <Box rowGap={spacing} direction="column" key={i}>
@@ -292,7 +292,7 @@ export const AllRowGap: Story = {
 };
 
 export const AllColumnGap: Story = {
-  render: () => (
+  render: (_args) => (
     <Box maxWidth="5xl" gap="lg">
       {[...SPACING_OPTIONS].map((spacing, i) => (
         <Box columnGap={spacing} direction="row" key={i}>
@@ -318,7 +318,7 @@ export const AllColumnGap: Story = {
 };
 
 export const AllRowChildGap: Story = {
-  render: () => (
+  render: (_args) => (
     <Box maxWidth="5xl" display="block" childGap="xs">
       {[...SPACING_OPTIONS].map((spacing, i) => (
         <Box childGap={spacing} direction="row" key={i}>
@@ -344,7 +344,7 @@ export const AllRowChildGap: Story = {
 };
 
 export const AllColumnChildGap: Story = {
-  render: () => (
+  render: (_args) => (
     <Box maxWidth="5xl" childGap="xs" direction="row">
       {[...SPACING_OPTIONS].map((spacing, i) => (
         <Box flex="auto" childGap={spacing} direction="column" key={i}>
@@ -370,7 +370,7 @@ export const AllColumnChildGap: Story = {
 };
 
 export const AllFontColors: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       {[...FONT_COLOR_OPTIONS].map((color, i) => (
         <Box color={color} key={i}>
@@ -382,7 +382,7 @@ export const AllFontColors: Story = {
 };
 
 export const AllFontSizes: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       {[...FONT_SIZE_OPTIONS].reverse().map((fontSize, i) => (
         <Box fontSize={fontSize} key={i}>
@@ -394,7 +394,7 @@ export const AllFontSizes: Story = {
 };
 
 export const AllFontFamilies: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       {[...FONT_FAMILY_OPTIONS].map((fontFamily, i) => (
         <Box fontFamily={fontFamily} key={i}>
@@ -406,7 +406,7 @@ export const AllFontFamilies: Story = {
 };
 
 export const AllMargin: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       {[...SPACING_OPTIONS].map((spacing, i) => (
         <Box margin={spacing} background="primary-lighter" key={i}>
@@ -418,7 +418,7 @@ export const AllMargin: Story = {
 };
 
 export const AllHorizontalMargin: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       {[...SPACING_OPTIONS].map((spacing, i) => (
         <Box margin={`0 ${spacing}`} background="primary-lighter" key={i}>
@@ -430,7 +430,7 @@ export const AllHorizontalMargin: Story = {
 };
 
 export const AllVerticalMargin: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       {[...SPACING_OPTIONS].map((spacing, i) => (
         <Box margin={`${spacing} 0`} background="primary-lighter" key={i}>
@@ -442,7 +442,7 @@ export const AllVerticalMargin: Story = {
 };
 
 export const AllPadding: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       {[...SPACING_OPTIONS].map((spacing, i) => (
         <Box
@@ -459,7 +459,7 @@ export const AllPadding: Story = {
 };
 
 export const AllHorizontalPadding: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       {[...SPACING_OPTIONS].map((spacing, i) => (
         <Box
@@ -476,7 +476,7 @@ export const AllHorizontalPadding: Story = {
 };
 
 export const AllVerticalPadding: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       {[...SPACING_OPTIONS].map((spacing, i) => (
         <Box
@@ -493,15 +493,15 @@ export const AllVerticalPadding: Story = {
 };
 
 const Default: Story = {
-  render: (args) => {
+  render: ({ propertyName, ...args }) => {
     const Component = () => {
       const { activeBreakpoint } = useBreakpoint();
       return (
         <Box padding="lg" background="grey-50">
           <Box {...args}>
             <p>{`Breakpoint: ${activeBreakpoint.name}`}</p>
-            <p>{`${args.propertyName}: ${
-              args[args.propertyName][activeBreakpoint.name]
+            <p>{`${propertyName}: ${
+              args[propertyName][activeBreakpoint.name]
             }`}</p>
           </Box>
         </Box>
@@ -724,7 +724,7 @@ export const ResponsivePadding: Story = {
 };
 
 const ResponsiveBoxChildren: Story = {
-  render: (args) => {
+  render: ({ propertyName, ...args }) => {
     const Template: React.FC<Record<string, unknown>> = () => {
       const { activeBreakpoint } = useBreakpoint();
       return (
@@ -738,8 +738,8 @@ const ResponsiveBoxChildren: Story = {
             alignItems="center"
           >
             <p>{`Breakpoint: ${activeBreakpoint.name}`}</p>
-            <p>{`${args.propertyName}: ${
-              args[args.propertyName][activeBreakpoint.name]
+            <p>{`${propertyName}: ${
+              args[propertyName][activeBreakpoint.name]
             }`}</p>
           </Box>
           <Box
@@ -751,8 +751,8 @@ const ResponsiveBoxChildren: Story = {
             alignItems="center"
           >
             <p>{`Breakpoint: ${activeBreakpoint.name}`}</p>
-            <p>{`${args.propertyName}: ${
-              args[args.propertyName][activeBreakpoint.name]
+            <p>{`${propertyName}: ${
+              args[propertyName][activeBreakpoint.name]
             }`}</p>
           </Box>
           <Box
@@ -764,8 +764,8 @@ const ResponsiveBoxChildren: Story = {
             alignItems="center"
           >
             <p>{`Breakpoint: ${activeBreakpoint.name}`}</p>
-            <p>{`${args.propertyName}: ${
-              args[args.propertyName][activeBreakpoint.name]
+            <p>{`${propertyName}: ${
+              args[propertyName][activeBreakpoint.name]
             }`}</p>
           </Box>
         </Box>
@@ -848,7 +848,7 @@ export const ResponsiveColumnGap: Story = {
 };
 
 export const AllCursorOptions: Story = {
-  render: () => (
+  render: (_args) => (
     <Box
       padding="md"
       childGap="md"
@@ -969,7 +969,7 @@ export const AllCursorOptions: Story = {
 };
 
 export const AllPositionOptions: Story = {
-  render: () => (
+  render: (_args) => (
     <Box
       padding="md"
       childGap="md"

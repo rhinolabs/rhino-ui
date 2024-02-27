@@ -31,30 +31,30 @@ export default meta;
 type Story = StoryObj<AccordionProps>;
 
 export const Playground: Story = {
-  render: (args) => (
+  render: ({ hasCaret, openPanels, ...args }) => (
     <Accordion {...args}>
-      <Accordion.Panel isOpen={args.openPanels.includes(0)}>
+      <Accordion.Panel isOpen={openPanels.includes(0)}>
         <Accordion.PanelSummary
-          isDetailsOpen={args.openPanels.includes(0)}
-          hasCaret={args.hasCaret}
+          isDetailsOpen={openPanels.includes(0)}
+          hasCaret={hasCaret}
         >
           Question 0
         </Accordion.PanelSummary>
         <Accordion.PanelDetails>Answer 0</Accordion.PanelDetails>
       </Accordion.Panel>
-      <Accordion.Panel isOpen={args.openPanels.includes(1)}>
+      <Accordion.Panel isOpen={openPanels.includes(1)}>
         <Accordion.PanelSummary
-          isDetailsOpen={args.openPanels.includes(1)}
-          hasCaret={args.hasCaret}
+          isDetailsOpen={openPanels.includes(1)}
+          hasCaret={hasCaret}
         >
           Question 1
         </Accordion.PanelSummary>
         <Accordion.PanelDetails>Answer 1</Accordion.PanelDetails>
       </Accordion.Panel>
-      <Accordion.Panel isOpen={args.openPanels.includes(2)}>
+      <Accordion.Panel isOpen={openPanels.includes(2)}>
         <Accordion.PanelSummary
-          isDetailsOpen={args.openPanels.includes(2)}
-          hasCaret={args.hasCaret}
+          isDetailsOpen={openPanels.includes(2)}
+          hasCaret={hasCaret}
         >
           Question 2
         </Accordion.PanelSummary>

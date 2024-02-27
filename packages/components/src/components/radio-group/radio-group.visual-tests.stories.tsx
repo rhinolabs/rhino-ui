@@ -137,8 +137,8 @@ export const AllSizesTitleDisabledErrorChecked: Story = {
 export const AllSizesTitleDisabledOption: Story = {
   ...Default,
   args: {
-    ...AllSizesTitleDisabled.args,
     id: 'AllSizesTitleDisabledOption',
+    value: 'one',
     options: [
       ...options,
       {

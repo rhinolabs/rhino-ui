@@ -11,7 +11,7 @@ const meta: Meta<typeof FileUpload> = {
 export default meta;
 
 type Story = StoryObj<FileUploadProps>;
-export const Default: Story = {
+const Default: Story = {
   render: (args) => <FileUpload {...args}>File Uploader</FileUpload>,
 };
 

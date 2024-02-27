@@ -16,7 +16,7 @@ export default meta;
 type Story = StoryObj<IconProps>;
 
 export const SizeAndColor: Story = {
-  render: () => (
+  render: (_args) => (
     <Box direction="row" gap="sm" background="grey-50">
       {FONT_SIZE_OPTIONS.map((size) => (
         <Box gap="sm">

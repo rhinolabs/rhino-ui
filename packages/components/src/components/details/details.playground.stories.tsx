@@ -23,13 +23,13 @@ export default meta;
 type Story = StoryObj<DetailsProps>;
 
 export const Playground: Story = {
-  render: (args) => (
-    <Details {...args} isOpen={args.isOpen}>
-      <Details.Summary isDetailsOpen={args.isOpen}>
-        <Button>{args.summaryText}</Button>
+  render: ({ isOpen, summaryText, detailsText, ...args }) => (
+    <Details {...args} isOpen={isOpen}>
+      <Details.Summary isDetailsOpen={isOpen}>
+        <Button>{summaryText}</Button>
       </Details.Summary>
       <Box padding="lg" background="grey-50" margin="sm 0 0 0">
-        {args.detailsText}
+        {detailsText}
       </Box>
     </Details>
   ),

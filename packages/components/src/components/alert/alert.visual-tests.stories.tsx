@@ -40,33 +40,34 @@ const Default: Story = {
   ),
 };
 
-export const TitleOnly: Story = {
+const TitleOnly: Story = {
   ...Default,
   args: {
     title: 'Title Text Only',
   },
 };
 
-export const MessageOnly: Story = {
+const MessageOnly: Story = {
   ...Default,
   args: {
     message: 'Message text only',
   },
 };
 
-export const hasIcon: Story = {
+const hasIcon: Story = {
   ...Default,
   args: {
     hasIcon: true,
   },
 };
 
-export const isClosable: Story = {
+const isClosable: Story = {
   ...Default,
   args: {
     isClosable: true,
   },
 };
+
 export const AllProps: Story = {
   ...Default,
   args: {
@@ -76,3 +77,6 @@ export const AllProps: Story = {
     ...isClosable.args,
   },
 };
+
+export { TitleOnly };
+export { MessageOnly };

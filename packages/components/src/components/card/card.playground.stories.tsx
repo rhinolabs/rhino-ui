@@ -28,22 +28,30 @@ export default meta;
 type Story = StoryObj<CardProps>;
 
 export const Playground: Story = {
-  render: (args) => {
+  render: ({
+    cardTitle,
+    footerContent,
+    sectionTitle,
+    sectionContent,
+    renderFooter,
+    sectionCount,
+    ...args
+  }) => {
     const sections = [];
 
-    for (let i = 0; i < args.sectionCount; i += 1) {
+    for (let i = 0; i < sectionCount; i += 1) {
       sections.push(
-        <Card.Section title={args.sectionTitle} key={i}>
-          {args.sectionContent}
+        <Card.Section title={sectionTitle} key={i}>
+          {sectionContent}
         </Card.Section>
       );
     }
 
     return (
       <Card {...args}>
-        <Card.Header title={args.cardTitle} />
+        <Card.Header title={cardTitle} />
         {sections}
-        {args.renderFooter && <Card.Footer>{args.footerContent}</Card.Footer>}
+        {renderFooter && <Card.Footer>{footerContent}</Card.Footer>}
       </Card>
     );
   },

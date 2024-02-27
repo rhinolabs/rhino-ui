@@ -25,7 +25,7 @@ const Default: Story = {
 };
 
 export const PrefixSuffixSizes: Story = {
-  render: () => {
+  render: (_args) => {
     const [prefixValue, setPrefixValue] = useState('rhinolabssolar');
     const [prefixValue2, setPrefixValue2] = useState('49');
     const [prefixValue3, setPrefixValue3] = useState('');

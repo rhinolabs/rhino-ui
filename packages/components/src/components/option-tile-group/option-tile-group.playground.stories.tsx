@@ -71,7 +71,7 @@ export default meta;
 type Story = StoryObj<OptionTileGroupProps>;
 
 export const Playground: Story = {
-  render: (args) => (
+  render: ({ value, onChange, name, ...args }) => (
     <OptionTileGroup
       {...args}
       options={[
@@ -79,9 +79,9 @@ export const Playground: Story = {
         { value: 'strawberry', label: 'strawberry', id: 'strawberry' },
         { value: 'vanilla', label: 'vanilla', id: 'vanilla' },
       ]}
-      value={args.value}
-      onChange={args.onChange}
-      name={args.name}
+      value={value}
+      onChange={onChange}
+      name={name}
     />
   ),
   args: {

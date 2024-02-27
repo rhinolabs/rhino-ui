@@ -40,7 +40,7 @@ const Default: Story = {
   },
 };
 
-export const Radio: Story = {
+export const DefaultRadio: Story = {
   ...Default,
   args: {
     ...Default.args,
@@ -51,20 +51,20 @@ export const Radio: Story = {
 export const RadioOptionSelected: Story = {
   ...Default,
   args: {
-    ...Radio.args,
+    ...DefaultRadio.args,
     value: 'chocolate',
     name: 'optionSelected',
   },
 };
 
-export const Checkbox: Story = {
+const Checkbox: Story = {
   ...Default,
   args: {
-    ...Radio.args,
+    ...DefaultRadio.args,
     isMulti: true,
   },
 };
-export const CheckboxNoneSelected: Story = {
+export const MultipleOptionsNoneSelected: Story = {
   ...Default,
   args: {
     ...Checkbox.args,
@@ -72,7 +72,7 @@ export const CheckboxNoneSelected: Story = {
   },
 };
 
-export const CheckboxOneSelected: Story = {
+export const MultipleOptionsOneSelected: Story = {
   ...Default,
   args: {
     ...Checkbox.args,
@@ -81,7 +81,7 @@ export const CheckboxOneSelected: Story = {
   },
 };
 
-export const CheckboxAllSelected: Story = {
+export const MultipleOptionsAllSelected: Story = {
   ...Default,
   args: {
     ...Checkbox.args,
@@ -95,7 +95,7 @@ const RadioWithDisabledOption: Story = {
   ...Default,
   args: {
     options: [
-      ...Radio.args?.options!,
+      ...DefaultRadio.args?.options!,
       {
         label: 'Cookies and Cream',
         value: 'cookies',
@@ -145,7 +145,7 @@ export const CheckboxWithDisabledOptionSelected: Story = {
 export const RadioWithTitle: Story = {
   ...Default,
   args: {
-    ...Radio.args,
+    ...DefaultRadio.args,
     name: 'radioWithTitle',
     title: 'Ice cream flavors',
   },
@@ -172,7 +172,7 @@ export const RadioWithTitleAndDescription: Story = {
 export const RadioWithDescriptionOnly: Story = {
   ...Default,
   args: {
-    ...Radio.args,
+    ...DefaultRadio.args,
     name: 'radioOneWithDescriptionOnly',
     description: 'Only if you finish your dinner',
   },
@@ -183,6 +183,7 @@ export const CheckboxWithTitle: Story = {
   args: {
     ...Checkbox.args,
     name: 'checkboxWithTitle',
+    title: 'Ice cream flavors',
   },
 };
 
@@ -207,7 +208,7 @@ export const CheckboxWithDescriptionOnly: Story = {
 export const RadioWithError: Story = {
   ...Default,
   args: {
-    ...Radio.args,
+    ...DefaultRadio.args,
     name: 'radioWithError',
     error: true,
   },
@@ -271,14 +272,14 @@ export const RadioWithErrorAndSelectedOption: Story = {
 export const RadioWithErrorAndSelectedDisabledOption: Story = {
   ...Default,
   args: {
-    ...RadioWithDisabledOptionSelected.args,
     ...RadioWithError.args,
+    ...RadioWithDisabledOptionSelected.args,
     name: 'radioWithErrorAndSelectedDisabledOption',
-    value: 'cookie',
+    value: 'cookies',
   },
 };
 
-export const CheckboxWithError: Story = {
+const CheckboxWithError: Story = {
   ...Default,
   args: {
     ...Checkbox.args,
@@ -306,7 +307,7 @@ export const CheckboxWithErrorAndSelectedDisabledOption: Story = {
 export const RadioWithHorizontalDirection: Story = {
   ...Default,
   args: {
-    ...Radio.args,
+    ...DefaultRadio.args,
     name: 'radioWithHorizontalDirection',
     direction: 'row',
   },
@@ -315,7 +316,7 @@ export const RadioWithHorizontalDirection: Story = {
 export const RadioWithContentWidthVertical: Story = {
   ...Default,
   args: {
-    ...Radio.args,
+    ...DefaultRadio.args,
     name: 'radioWithContentWidthVertical',
     isFullWidth: false,
   },
@@ -334,12 +335,12 @@ export const RadioWithCustomContent: Story = {
   ...Default,
   args: {
     options: [
-      ...Radio.args?.options!,
+      ...DefaultRadio.args?.options!,
       {
         label: 'custom',
         value: 'custom',
         id: 'custom',
-        render: () => <div>hello world, I am a custom node!</div>,
+        render: (_args) => <div>hello world, I am a custom node!</div>,
       },
     ],
     name: 'radioWithCustomContent',
@@ -357,7 +358,7 @@ export const CheckboxWithCustomContent: Story = {
 export const RadioWithHiddenRadio: Story = {
   ...Default,
   args: {
-    ...Radio.args,
+    ...DefaultRadio.args,
     hideInput: true,
     name: 'radioWithHiddenRadio',
   },
@@ -375,7 +376,7 @@ export const CheckboxWithHiddenCheckbox: Story = {
 export const ResponsiveDirection: Story = {
   ...Default,
   args: {
-    ...Radio.args,
+    ...DefaultRadio.args,
     direction: {
       base: 'column',
       tablet: 'row',

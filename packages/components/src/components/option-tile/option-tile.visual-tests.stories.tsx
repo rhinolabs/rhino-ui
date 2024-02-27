@@ -13,7 +13,7 @@ export default meta;
 
 type Story = StoryObj<OptionTileProps>;
 export const States: Story = {
-  render: () => (
+  render: (_args) => (
     <Box gap="lg">
       <OptionTile
         isSelected={false}

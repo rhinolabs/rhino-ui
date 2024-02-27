@@ -16,7 +16,7 @@ export default meta;
 
 type Story = StoryObj<SelectInputNativeProps>;
 export const Sizes: Story = {
-  render: () => (
+  render: (_args) => (
     <Box gap="xl">
       <SelectInputNative
         id="smallSelect"
