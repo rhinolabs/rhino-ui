@@ -35,27 +35,27 @@ const Template: StoryFn<OptionTileGroupProps> = (args) => (
   />
 );
 
-export const DefaultRadio = Template.bind({});
+export const DefaultRadio: StoryFn<OptionTileGroupProps> = Template.bind({});
 DefaultRadio.args = {
   options,
   name: "default",
 };
 
-export const RadioOptionSelected = Template.bind({});
+export const RadioOptionSelected: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioOptionSelected.args = {
   options,
   value: "chocolate",
   name: "optionSelected",
 };
 
-export const MultipleOptionsNoneSelected = Template.bind({});
+export const MultipleOptionsNoneSelected: StoryFn<OptionTileGroupProps> = Template.bind({});
 MultipleOptionsNoneSelected.args = {
   options,
   name: "multiNone",
   isMulti: true,
 };
 
-export const MultipleOptionsOneSelected = Template.bind({});
+export const MultipleOptionsOneSelected: StoryFn<OptionTileGroupProps> = Template.bind({});
 MultipleOptionsOneSelected.args = {
   options,
   name: "multiOne",
@@ -63,7 +63,7 @@ MultipleOptionsOneSelected.args = {
   value: ["chocolate"],
 };
 
-export const MultipleOptionsAllSelected = Template.bind({});
+export const MultipleOptionsAllSelected: StoryFn<OptionTileGroupProps> = Template.bind({});
 MultipleOptionsAllSelected.args = {
   options,
   name: "multiAll",
@@ -71,7 +71,7 @@ MultipleOptionsAllSelected.args = {
   value: ["chocolate", "vanilla", "strawberry"],
 };
 
-export const RadioWithDisabledOption = Template.bind({});
+export const RadioWithDisabledOption: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithDisabledOption.args = {
   options: [
     ...options,
@@ -85,7 +85,7 @@ RadioWithDisabledOption.args = {
   name: "radioOneDisabled",
 };
 
-export const RadioWithDisabledOptionSelected = Template.bind({});
+export const RadioWithDisabledOptionSelected: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithDisabledOptionSelected.args = {
   options: [
     ...options,
@@ -100,7 +100,7 @@ RadioWithDisabledOptionSelected.args = {
   value: "cookies",
 };
 
-export const CheckboxWithDisabledOption = Template.bind({});
+export const CheckboxWithDisabledOption: StoryFn<OptionTileGroupProps> = Template.bind({});
 CheckboxWithDisabledOption.args = {
   options: [
     ...options,
@@ -115,7 +115,7 @@ CheckboxWithDisabledOption.args = {
   isMulti: true,
 };
 
-export const CheckboxWithDisabledOptionSelected = Template.bind({});
+export const CheckboxWithDisabledOptionSelected: StoryFn<OptionTileGroupProps> = Template.bind({});
 CheckboxWithDisabledOptionSelected.args = {
   options: [
     ...options,
@@ -131,14 +131,14 @@ CheckboxWithDisabledOptionSelected.args = {
   isMulti: true,
 };
 
-export const RadioWithTitle = Template.bind({});
+export const RadioWithTitle: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithTitle.args = {
   options: [...options],
   name: "radioWithTitle",
   title: "Ice cream flavors",
 };
 
-export const RadioWithTitleRequired = Template.bind({});
+export const RadioWithTitleRequired: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithTitleRequired.args = {
   options: [...options],
   name: "radioWithTitleRequired",
@@ -146,7 +146,7 @@ RadioWithTitleRequired.args = {
   isRequired: true,
 };
 
-export const RadioWithTitleAndDescription = Template.bind({});
+export const RadioWithTitleAndDescription: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithTitleAndDescription.args = {
   options: [...options],
   name: "radioOneWithTitleAndDescription",
@@ -154,14 +154,14 @@ RadioWithTitleAndDescription.args = {
   description: "Only if you finish your dinner",
 };
 
-export const RadioWithDescriptionOnly = Template.bind({});
+export const RadioWithDescriptionOnly: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithDescriptionOnly.args = {
   options: [...options],
   name: "radioOneWithDescriptionOnly",
   description: "Only if you finish your dinner",
 };
 
-export const CheckboxWithTitle = Template.bind({});
+export const CheckboxWithTitle: StoryFn<OptionTileGroupProps> = Template.bind({});
 CheckboxWithTitle.args = {
   options: [...options],
   name: "checkboxWithTitle",
@@ -169,7 +169,7 @@ CheckboxWithTitle.args = {
   isMulti: true,
 };
 
-export const CheckboxWithTitleAndDescription = Template.bind({});
+export const CheckboxWithTitleAndDescription: StoryFn<OptionTileGroupProps> = Template.bind({});
 CheckboxWithTitleAndDescription.args = {
   options: [...options],
   name: "checkboxOneWithTitleAndDescription",
@@ -178,7 +178,7 @@ CheckboxWithTitleAndDescription.args = {
   isMulti: true,
 };
 
-export const CheckboxWithDescriptionOnly = Template.bind({});
+export const CheckboxWithDescriptionOnly: StoryFn<OptionTileGroupProps> = Template.bind({});
 CheckboxWithDescriptionOnly.args = {
   options: [...options],
   name: "checkboxOneWithDescriptionOnly",
@@ -186,14 +186,14 @@ CheckboxWithDescriptionOnly.args = {
   isMulti: true,
 };
 
-export const RadioWithError = Template.bind({});
+export const RadioWithError: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithError.args = {
   options: [...options],
   name: "radioWithError",
   error: true,
 };
 
-export const RadioWithErrorTitleAndDescription = Template.bind({});
+export const RadioWithErrorTitleAndDescription: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithErrorTitleAndDescription.args = {
   options: [...options],
   name: "radioWithErrorTitleAndDescription",
@@ -202,7 +202,7 @@ RadioWithErrorTitleAndDescription.args = {
   description: "Only if you finish your dinner",
 };
 
-export const RadioRequiredWithErrorTitleAndDescription = Template.bind({});
+export const RadioRequiredWithErrorTitleAndDescription: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioRequiredWithErrorTitleAndDescription.args = {
   options: [...options],
   name: "radioWithErrorTitleAndDescription",
@@ -212,14 +212,14 @@ RadioRequiredWithErrorTitleAndDescription.args = {
   isRequired: true,
 };
 
-export const RadioWithErrorMessage = Template.bind({});
+export const RadioWithErrorMessage: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithErrorMessage.args = {
   options: [...options],
   name: "radioWithErrorMessage",
   error: "something is wrong",
 };
 
-export const RadioWithErrorMessageTitleAndDescription = Template.bind({});
+export const RadioWithErrorMessageTitleAndDescription: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithErrorMessageTitleAndDescription.args = {
   options: [...options],
   name: "radioWithErrorMessageTitleAndDescription",
@@ -228,7 +228,7 @@ RadioWithErrorMessageTitleAndDescription.args = {
   error: "something is wrong",
 };
 
-export const RadioRequiredWithErrorMessageTitleAndDescription = Template.bind({});
+export const RadioRequiredWithErrorMessageTitleAndDescription: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioRequiredWithErrorMessageTitleAndDescription.args = {
   options: [...options],
   name: "radioWithErrorMessageTitleAndDescription",
@@ -238,7 +238,7 @@ RadioRequiredWithErrorMessageTitleAndDescription.args = {
   error: "something is wrong",
 };
 
-export const RadioWithErrorAndSelectedOption = Template.bind({});
+export const RadioWithErrorAndSelectedOption: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithErrorAndSelectedOption.args = {
   options: [...options],
   name: "radioWithErrorAndSelectedOption",
@@ -246,7 +246,7 @@ RadioWithErrorAndSelectedOption.args = {
   value: "chocolate",
 };
 
-export const RadioWithErrorAndSelectedDisabledOption = Template.bind({});
+export const RadioWithErrorAndSelectedDisabledOption: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithErrorAndSelectedDisabledOption.args = {
   options: [
     ...options,
@@ -262,7 +262,7 @@ RadioWithErrorAndSelectedDisabledOption.args = {
   value: "cookies",
 };
 
-export const CheckboxWithErrorAndSelectedOption = Template.bind({});
+export const CheckboxWithErrorAndSelectedOption: StoryFn<OptionTileGroupProps> = Template.bind({});
 CheckboxWithErrorAndSelectedOption.args = {
   options: [...options],
   name: "checkboxWithErrorAndSelectedOption",
@@ -271,7 +271,7 @@ CheckboxWithErrorAndSelectedOption.args = {
   isMulti: true,
 };
 
-export const CheckboxWithErrorAndSelectedDisabledOption = Template.bind({});
+export const CheckboxWithErrorAndSelectedDisabledOption: StoryFn<OptionTileGroupProps> = Template.bind({});
 CheckboxWithErrorAndSelectedDisabledOption.args = {
   options: [
     ...options,
@@ -288,21 +288,21 @@ CheckboxWithErrorAndSelectedDisabledOption.args = {
   value: ["cookies"],
 };
 
-export const RadioWithHorizontalDirection = Template.bind({});
+export const RadioWithHorizontalDirection: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithHorizontalDirection.args = {
   options: [...options],
   name: "radioWithHorizontalDirection",
   direction: "row",
 };
 
-export const RadioWithContentWidthVertical = Template.bind({});
+export const RadioWithContentWidthVertical: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithContentWidthVertical.args = {
   options: [...options],
   name: "radioWithContentWidthVertical",
   isFullWidth: false,
 };
 
-export const RadioWithContentWidthHorizontal = Template.bind({});
+export const RadioWithContentWidthHorizontal: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithContentWidthHorizontal.args = {
   options: [...options],
   name: "radioWithContentWidthHorizontal",
@@ -310,7 +310,7 @@ RadioWithContentWidthHorizontal.args = {
   direction: "row",
 };
 
-export const RadioWithCustomContent = Template.bind({});
+export const RadioWithCustomContent: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithCustomContent.args = {
   options: [
     ...options,
@@ -324,7 +324,7 @@ RadioWithCustomContent.args = {
   name: "radioWithCustomContent",
 };
 
-export const CheckboxWithCustomContent = Template.bind({});
+export const CheckboxWithCustomContent: StoryFn<OptionTileGroupProps> = Template.bind({});
 CheckboxWithCustomContent.args = {
   options: [
     ...options,
@@ -339,14 +339,14 @@ CheckboxWithCustomContent.args = {
   isMulti: true,
 };
 
-export const RadioWithHiddenRadio = Template.bind({});
+export const RadioWithHiddenRadio: StoryFn<OptionTileGroupProps> = Template.bind({});
 RadioWithHiddenRadio.args = {
   options: [...options],
   hideInput: true,
   name: "radioWithHiddenRadio",
 };
 
-export const CheckboxWithHiddenCheckbox = Template.bind({});
+export const CheckboxWithHiddenCheckbox: StoryFn<OptionTileGroupProps> = Template.bind({});
 CheckboxWithHiddenCheckbox.args = {
   options: [...options],
   hideInput: true,
@@ -354,7 +354,7 @@ CheckboxWithHiddenCheckbox.args = {
   isMulti: true,
 };
 
-export const ResponsiveDirection = Template.bind({});
+export const ResponsiveDirection: StoryFn<OptionTileGroupProps> = Template.bind({});
 ResponsiveDirection.args = {
   options: [...options],
   direction: {

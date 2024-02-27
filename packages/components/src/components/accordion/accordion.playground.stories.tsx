@@ -48,7 +48,7 @@ const Template: StoryFn<AccordionProps> = ({ hasCaret, openPanels, ...args }) =>
   </Accordion>
 );
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<AccordionProps> = Template.bind({});
 
 Playground.args = {
   openPanels: [],

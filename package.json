@@ -5,7 +5,6 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "eslint": "turbo eslint",
-    "format": "turbo format",
     "stylelint": "turbo stylelint",
     "clean:node-modules": "rimraf packages/**/node_modules && rimraf libs/**/node_modules && rm -rf node_modules"
   },

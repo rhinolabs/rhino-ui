@@ -363,7 +363,7 @@ const BoxTemplate: StoryFn<BoxProps> = ({ propertyName, ...args }) => {
   );
 };
 
-export const ResponsiveFontSize = BoxTemplate.bind({});
+export const ResponsiveFontSize: StoryFn<BoxProps> = BoxTemplate.bind({});
 ResponsiveFontSize.args = {
   propertyName: "fontSize",
   fontSize: {
@@ -376,7 +376,7 @@ ResponsiveFontSize.args = {
 };
 ResponsiveFontSize.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveRadius = BoxTemplate.bind({});
+export const ResponsiveRadius: StoryFn<BoxProps> = BoxTemplate.bind({});
 ResponsiveRadius.args = {
   propertyName: "radius",
   radius: {
@@ -390,7 +390,7 @@ ResponsiveRadius.args = {
 };
 ResponsiveRadius.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveShadow = BoxTemplate.bind({});
+export const ResponsiveShadow: StoryFn<BoxProps> = BoxTemplate.bind({});
 ResponsiveShadow.args = {
   propertyName: "shadow",
   shadow: {
@@ -404,7 +404,7 @@ ResponsiveShadow.args = {
 };
 ResponsiveShadow.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveTextAlign = BoxTemplate.bind({});
+export const ResponsiveTextAlign: StoryFn<BoxProps> = BoxTemplate.bind({});
 ResponsiveTextAlign.args = {
   propertyName: "textAlign",
   textAlign: {
@@ -417,7 +417,7 @@ ResponsiveTextAlign.args = {
 };
 ResponsiveTextAlign.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveBorderWidth = BoxTemplate.bind({});
+export const ResponsiveBorderWidth: StoryFn<BoxProps> = BoxTemplate.bind({});
 ResponsiveBorderWidth.args = {
   propertyName: "borderWidth",
   borderWidth: {
@@ -431,7 +431,7 @@ ResponsiveBorderWidth.args = {
 };
 ResponsiveBorderWidth.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveWidth = BoxTemplate.bind({});
+export const ResponsiveWidth: StoryFn<BoxProps> = BoxTemplate.bind({});
 ResponsiveWidth.args = {
   propertyName: "width",
   width: {
@@ -446,7 +446,7 @@ ResponsiveWidth.args = {
 };
 ResponsiveWidth.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveMaxWidth = BoxTemplate.bind({});
+export const ResponsiveMaxWidth: StoryFn<BoxProps> = BoxTemplate.bind({});
 ResponsiveMaxWidth.args = {
   propertyName: "maxWidth",
   maxWidth: {
@@ -462,7 +462,7 @@ ResponsiveMaxWidth.args = {
 };
 ResponsiveMaxWidth.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveMinWidth = BoxTemplate.bind({});
+export const ResponsiveMinWidth: StoryFn<BoxProps> = BoxTemplate.bind({});
 ResponsiveMinWidth.args = {
   propertyName: "minWidth",
   minWidth: {
@@ -479,7 +479,7 @@ ResponsiveMinWidth.args = {
 };
 ResponsiveMinWidth.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveHeight = BoxTemplate.bind({});
+export const ResponsiveHeight: StoryFn<BoxProps> = BoxTemplate.bind({});
 ResponsiveHeight.args = {
   propertyName: "height",
   height: {
@@ -494,7 +494,7 @@ ResponsiveHeight.args = {
 };
 ResponsiveHeight.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveMaxHeight = BoxTemplate.bind({});
+export const ResponsiveMaxHeight: StoryFn<BoxProps> = BoxTemplate.bind({});
 ResponsiveMaxHeight.args = {
   propertyName: "maxHeight",
   maxHeight: {
@@ -510,7 +510,7 @@ ResponsiveMaxHeight.args = {
 };
 ResponsiveMaxHeight.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveMinHeight = BoxTemplate.bind({});
+export const ResponsiveMinHeight: StoryFn<BoxProps> = BoxTemplate.bind({});
 ResponsiveMinHeight.args = {
   propertyName: "minHeight",
   minHeight: {
@@ -526,7 +526,7 @@ ResponsiveMinHeight.args = {
 };
 ResponsiveMinHeight.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveMargin = BoxTemplate.bind({});
+export const ResponsiveMargin: StoryFn<BoxProps> = BoxTemplate.bind({});
 ResponsiveMargin.args = {
   propertyName: "margin",
   margin: {
@@ -540,7 +540,7 @@ ResponsiveMargin.args = {
 };
 ResponsiveMargin.parameters = RESPONSIVE_STORY;
 
-export const ResponsivePadding = BoxTemplate.bind({});
+export const ResponsivePadding: StoryFn<BoxProps> = BoxTemplate.bind({});
 ResponsivePadding.args = {
   propertyName: "padding",
   padding: {
@@ -554,7 +554,7 @@ ResponsivePadding.args = {
 };
 ResponsivePadding.parameters = RESPONSIVE_STORY;
 
-const BoxChildrenTemplate: Story<BoxProps> = ({ propertyName, ...args }) => {
+const BoxChildrenTemplate: StoryFn<BoxProps> = ({ propertyName, ...args }) => {
   const Template: React.FC<Record<string, unknown>> = () => {
     const { activeBreakpoint } = useBreakpoint();
     return (
@@ -582,7 +582,7 @@ const BoxChildrenTemplate: Story<BoxProps> = ({ propertyName, ...args }) => {
   );
 };
 
-export const ResponsiveDirection = BoxChildrenTemplate.bind({});
+export const ResponsiveDirection: StoryFn<BoxProps> = BoxChildrenTemplate.bind({});
 ResponsiveDirection.args = {
   propertyName: "direction",
   direction: {
@@ -594,7 +594,7 @@ ResponsiveDirection.args = {
 };
 ResponsiveDirection.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveChildGap = BoxChildrenTemplate.bind({});
+export const ResponsiveChildGap: StoryFn<BoxProps> = BoxChildrenTemplate.bind({});
 ResponsiveChildGap.args = {
   propertyName: "childGap",
   childGap: {
@@ -606,7 +606,7 @@ ResponsiveChildGap.args = {
 };
 ResponsiveChildGap.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveGap = BoxChildrenTemplate.bind({});
+export const ResponsiveGap: StoryFn<BoxProps> = BoxChildrenTemplate.bind({});
 ResponsiveGap.args = {
   propertyName: "gap",
   gap: {
@@ -618,7 +618,7 @@ ResponsiveGap.args = {
 };
 ResponsiveGap.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveRowGap = BoxChildrenTemplate.bind({});
+export const ResponsiveRowGap: StoryFn<BoxProps> = BoxChildrenTemplate.bind({});
 ResponsiveRowGap.args = {
   propertyName: "rowGap",
   rowGap: {
@@ -630,7 +630,7 @@ ResponsiveRowGap.args = {
 };
 ResponsiveRowGap.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveColumnGap = BoxChildrenTemplate.bind({});
+export const ResponsiveColumnGap: StoryFn<BoxProps> = BoxChildrenTemplate.bind({});
 ResponsiveColumnGap.args = {
   propertyName: "columnGap",
   columnGap: {
@@ -788,7 +788,7 @@ export const AllPositionOptions: React.FunctionComponent<BoxProps> = () => (
   </Box>
 );
 
-export const ResponsivePosition = BoxChildrenTemplate.bind({});
+export const ResponsivePosition: StoryFn<BoxProps> = BoxChildrenTemplate.bind({});
 ResponsivePosition.args = {
   propertyName: "position",
   position: {

@@ -40,8 +40,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "eslint": "eslint src --fix",
-    "stylelint": "stylelint '**/*.{css,scss,sass}' --fix --ignore-path ../../.stylelintignore",
-    "format": "prettier --write src  --cache ",
+    "stylelint": "stylelint '**/*.{css,scss,sass}' --fix",
     "build": "cross-env-shell BABEL_ENV=build IS_PUBLISHING=true \"vite build --config vite.config.ts\"",
     "test": "dts test --passWithNoTests",
     "storybook": "storybook dev -p 6006",

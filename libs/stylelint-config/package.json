@@ -6,8 +6,7 @@
   "description": "Stylelint configuration for Rhino UI",
   "main": "src/index.js",
   "scripts": {
-    "eslint": "eslint src --fix",
-    "format": "prettier --write src/** --cache "
+    "eslint": "eslint src --fix"
   },
   "dependencies": {
     "stylelint": "^15.11.0",

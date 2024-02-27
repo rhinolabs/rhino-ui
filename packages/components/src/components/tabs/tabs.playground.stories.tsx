@@ -68,7 +68,7 @@ const Template: StoryFn<TabsProps> = ({ value, size, disabledTabs, ...args }) =>
   </Box>
 );
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<TabsProps> = Template.bind({});
 
 Playground.args = {
   value: 0,

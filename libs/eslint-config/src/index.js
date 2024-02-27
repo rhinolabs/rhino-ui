@@ -1,6 +1,7 @@
 module.exports = {
   root: true,
   parser: "@typescript-eslint/parser",
+  ignorePatterns: [".turbo", "dist", "coverage", "node_modules", "build"],
   extends: [
     "airbnb",
     "airbnb/hooks",
@@ -8,6 +9,7 @@ module.exports = {
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:json/recommended",
   ],
   plugins: ["jsx-a11y", "@typescript-eslint"],
   env: {
@@ -19,10 +21,18 @@ module.exports = {
     "import/prefer-default-export": "off",
     "object-curly-spacing": ["error", "always"],
     "no-prototype-builtins": "off",
-    "import/no-extraneous-dependencies": [
+    "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
+    "prettier/prettier": [
       "error",
       {
-        devDependencies: true,
+        tabWidth: 2,
+        printWidth: 120,
+        semi: true,
+        useTabs: false,
+        singleQuote: false,
+        endOfLine: "auto",
+        arrowParens: "always",
+        trailingComma: "all",
       },
     ],
     "react/jsx-filename-extension": [
@@ -32,7 +42,6 @@ module.exports = {
       },
     ],
     "react/jsx-props-no-spreading": [0],
-    "max-len": [1, 120],
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
     "no-use-before-define": "off",

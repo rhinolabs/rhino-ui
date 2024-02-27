@@ -79,7 +79,7 @@ const Template: StoryFn<OptionTileGroupProps> = ({ value, onChange, name, ...arg
   />
 );
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<OptionTileGroupProps> = Template.bind({});
 
 Playground.args = {
   value: null,

@@ -9,9 +9,6 @@
     "eslint": {
       "dependsOn": ["^eslint"]
     },
-    "format": {
-      "outputs": []
-    },
     "stylelint": {
       "outputs": []
     },

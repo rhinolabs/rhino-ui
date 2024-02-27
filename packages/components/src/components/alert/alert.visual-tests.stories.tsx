@@ -26,7 +26,7 @@ const Template: StoryFn<AlertProps> = (args) => (
   </Box>
 );
 
-export const AllProps = Template.bind({});
+export const AllProps: StoryFn<AlertProps> = Template.bind({});
 AllProps.args = {
   title: "Title Text",
   message: "Message text",
@@ -34,12 +34,12 @@ AllProps.args = {
   isClosable: true,
 };
 
-export const TitleOnly = Template.bind({});
+export const TitleOnly: StoryFn<AlertProps> = Template.bind({});
 TitleOnly.args = {
   title: "Title Text Only",
 };
 
-export const MessageOnly = Template.bind({});
+export const MessageOnly: StoryFn<AlertProps> = Template.bind({});
 MessageOnly.args = {
   message: "Message text only",
 };

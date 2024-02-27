@@ -31,7 +31,7 @@ const Template: StoryFn<DetailsProps> = ({ isOpen, summaryText, detailsText, ...
 /**
  * Use the playground to see different results
  */
-export const Playground = Template.bind({});
+export const Playground: StoryFn<DetailsProps> = Template.bind({});
 
 Playground.args = {
   isOpen: false,

@@ -43,7 +43,7 @@ export default meta;
 
 const Template: StoryFn<DurationProps> = ({ ...args }) => <Duration {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<DurationProps> = Template.bind({});
 
 Playground.args = {
   milliseconds: 6000000,

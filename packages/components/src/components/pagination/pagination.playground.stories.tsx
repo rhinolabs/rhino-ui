@@ -33,7 +33,7 @@ const meta: Meta<typeof Pagination> = {
 export default meta;
 
 const Template: StoryFn<PaginationProps> = ({ ...args }) => <Pagination {...args} />;
-export const Playground = Template.bind({});
+export const Playground: StoryFn<PaginationProps> = Template.bind({});
 Playground.args = {
   arePagesVisible: true,
   activePage: 1,

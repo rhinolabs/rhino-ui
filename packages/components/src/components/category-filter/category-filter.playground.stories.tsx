@@ -23,7 +23,7 @@ export default meta;
 
 const Template: StoryFn<CategoryFilterProps> = ({ ...args }) => <CategoryFilter {...args}>My Category</CategoryFilter>;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<CategoryFilterProps> = Template.bind({});
 Playground.args = {
   isSelected: false,
   isDisabled: false,

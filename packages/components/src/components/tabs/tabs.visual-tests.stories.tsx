@@ -23,13 +23,13 @@ const Template: StoryFn<TabsProps> = ({ ...args }) => (
   </Tabs>
 );
 
-export const ManyTabs = Template.bind({});
+export const ManyTabs: StoryFn<TabsProps> = Template.bind({});
 ManyTabs.args = {
   value: 0,
 };
 ManyTabs.parameters = RESPONSIVE_STORY;
 
-export const ManyTabsLastSelected = Template.bind({});
+export const ManyTabsLastSelected: StoryFn<TabsProps> = Template.bind({});
 ManyTabsLastSelected.args = {
   value: 7,
 };
