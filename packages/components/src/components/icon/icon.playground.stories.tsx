@@ -32,7 +32,7 @@ export default meta;
 
 const Template: StoryFn<IconProps> = ({ ...args }) => <Icon {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<IconProps> = Template.bind({});
 Playground.args = {
   name: 'home',
   size: '5xl',

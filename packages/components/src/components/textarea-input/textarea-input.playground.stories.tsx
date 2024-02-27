@@ -65,7 +65,7 @@ export default meta;
 
 const Template: StoryFn<TextareaInputProps> = ({ ...args }) => <TextareaInput {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<TextareaInputProps> = Template.bind({});
 Playground.args = {
   id: 'playgroundTextareaInput',
   label: 'Playground TextareaInput',

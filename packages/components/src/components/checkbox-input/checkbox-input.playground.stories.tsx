@@ -47,7 +47,7 @@ export default meta;
 
 const Template: StoryFn<CheckboxInputProps> = ({ ...args }) => <CheckboxInput {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<CheckboxInputProps> = Template.bind({});
 Playground.args = {
   id: 'playGroundCheckbox',
   label: 'Playground Checkbox',

@@ -57,7 +57,7 @@ const Template: StoryFn<CardProps> = ({
  * Use the playground to see different results
  */
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<CardProps> = Template.bind({});
 Playground.args = {
   cardTitle: 'Title',
   sectionContent: 'Section content',

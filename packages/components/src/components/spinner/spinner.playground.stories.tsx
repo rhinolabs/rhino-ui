@@ -30,7 +30,7 @@ export default meta;
 
 const Template: StoryFn<SpinnerProps> = ({ ...args }) => <Spinner {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<SpinnerProps> = Template.bind({});
 Playground.args = {
   variant: 'primary',
 };

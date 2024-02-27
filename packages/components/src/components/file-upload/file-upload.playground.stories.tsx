@@ -77,7 +77,7 @@ const Template: StoryFn<FileUploadProps> = ({ ...args }) => (
   <FileUpload {...args} />
 );
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<FileUploadProps> = Template.bind({});
 Playground.args = {
   id: 'playGroundFileUpload',
   buttonText: 'Playground FileUpload',

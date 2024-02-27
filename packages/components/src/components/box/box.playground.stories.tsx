@@ -447,7 +447,7 @@ const Template: StoryFn<BoxProps> = ({
   );
 };
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<BoxProps> = Template.bind({});
 Playground.args = {
   background: 'info-300',
   direction: 'row',

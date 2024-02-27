@@ -36,7 +36,7 @@ const Template: StoryFn<BadgeProps> = ({ ...args }) => <Badge {...args} />;
  * Use the playground to see different results
  */
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<BadgeProps> = Template.bind({});
 Playground.args = {
   variant: 'primary',
   message: 'install ready',

@@ -33,12 +33,12 @@ const VariantTemplate: StoryFn<HeadingProps> = args => (
   </Box>
 );
 
-export const Size = SizeTemplate.bind({});
+export const Size: StoryFn<HeadingProps> = SizeTemplate.bind({});
 Size.args = {
   children: 'Hello world!',
 };
 
-export const Variant = VariantTemplate.bind({});
+export const Variant: StoryFn<HeadingProps> = VariantTemplate.bind({});
 Variant.args = {
   children: 'Hello world!',
 };

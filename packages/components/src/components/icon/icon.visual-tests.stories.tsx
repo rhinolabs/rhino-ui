@@ -32,7 +32,7 @@ export const SizeAndColor: React.FunctionComponent<IconProps> = () => (
 
 const IconTemplate: StoryFn<IconProps> = ({ ...args }) => <Icon {...args} />;
 
-export const ResponsiveSize = IconTemplate.bind({});
+export const ResponsiveSize: StoryFn<IconProps> = IconTemplate.bind({});
 ResponsiveSize.args = {
   name: 'home',
   size: {

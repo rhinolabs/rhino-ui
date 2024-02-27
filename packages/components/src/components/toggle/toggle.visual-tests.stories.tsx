@@ -64,42 +64,42 @@ const Template: StoryFn<ToggleProps> = ({ ...args }) => (
   </Box>
 );
 
-export const AllSizes = Template.bind({});
+export const AllSizes: StoryFn<ToggleProps> = Template.bind({});
 AllSizes.args = { id: 'AllSizes' };
 
-export const AllSizesRequired = Template.bind({});
+export const AllSizesRequired: StoryFn<ToggleProps> = Template.bind({});
 AllSizesRequired.args = { id: 'AllSizesRequired', isRequired: true };
 
-export const AllSizesError = Template.bind({});
+export const AllSizesError: StoryFn<ToggleProps> = Template.bind({});
 AllSizesError.args = { id: 'AllSizesError', error: 'Agreement is required' };
 
-export const AllSizesDisabled = Template.bind({});
+export const AllSizesDisabled: StoryFn<ToggleProps> = Template.bind({});
 AllSizesDisabled.args = { id: 'AllSizesDisabled', isDisabled: true };
 
-export const AllSizesHideLabel = Template.bind({});
+export const AllSizesHideLabel: StoryFn<ToggleProps> = Template.bind({});
 AllSizesHideLabel.args = { id: 'AllSizesHideLabel', hideLabel: true };
 
-export const AllSizesHideLabelError = Template.bind({});
+export const AllSizesHideLabelError: StoryFn<ToggleProps> = Template.bind({});
 AllSizesHideLabelError.args = {
   id: 'AllSizesHideLabelError',
   hideLabel: true,
   error: 'Agreement is required',
 };
 
-export const AllSizesWithHelpText = Template.bind({});
+export const AllSizesWithHelpText: StoryFn<ToggleProps> = Template.bind({});
 AllSizesWithHelpText.args = {
   id: 'AllSizesWithHelpText',
   helpText: 'This is helpful text',
 };
 
-export const AllSizesWithHelpTextRequired = Template.bind({});
+export const AllSizesWithHelpTextRequired: StoryFn<ToggleProps> = Template.bind({});
 AllSizesWithHelpTextRequired.args = {
   id: 'AllSizesWithHelpTextRequired',
   helpText: 'This is helpful text',
   isRequired: true,
 };
 
-export const AllSizesWithHelpTextRequiredError = Template.bind({});
+export const AllSizesWithHelpTextRequiredError: StoryFn<ToggleProps> = Template.bind({});
 AllSizesWithHelpTextRequiredError.args = {
   id: 'AllSizesWithHelpTextRequired',
   helpText: 'This is helpful text',

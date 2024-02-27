@@ -39,7 +39,7 @@ export default meta;
 
 const Template: StoryFn<HeadingProps> = ({ ...args }) => <Heading {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<HeadingProps> = Template.bind({});
 Playground.args = {
   as: 'h4',
   children: 'Lead the world towards a clean energy future',

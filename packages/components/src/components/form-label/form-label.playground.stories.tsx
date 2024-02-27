@@ -28,7 +28,7 @@ export default meta;
 
 const Template: StoryFn<FormLabelProps> = ({ ...args }) => <FormLabel {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<FormLabelProps> = Template.bind({});
 Playground.args = {
   inputId: 'playgroundInput',
   children: 'Playground Form Label',

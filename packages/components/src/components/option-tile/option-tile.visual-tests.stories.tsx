@@ -89,7 +89,7 @@ const Template: StoryFn<OptionTileProps> = args => (
   </OptionTile>
 );
 
-export const FocusUnchecked = Template.bind({});
+export const FocusUnchecked: StoryFn<OptionTileProps> = Template.bind({});
 FocusUnchecked.args = {
   isSelected: false,
   children: 'radio unchecked',
@@ -104,7 +104,7 @@ FocusUnchecked.play = async ({ canvasElement }) => {
   canvas.getByRole('radio').focus();
 };
 
-export const FocusChecked = Template.bind({});
+export const FocusChecked: StoryFn<OptionTileProps> = Template.bind({});
 FocusChecked.args = {
   isSelected: true,
   children: 'radio selected',

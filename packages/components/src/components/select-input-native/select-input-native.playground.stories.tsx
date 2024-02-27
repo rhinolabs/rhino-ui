@@ -60,7 +60,7 @@ export default meta;
 
 const Template: StoryFn<SelectInputNativeProps> = ({ ...args }) => <SelectInputNative {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<SelectInputNativeProps> = Template.bind({});
 Playground.args = {
   id: 'playgroundSelectInputNative',
   label: 'Playground SelectInputNative',

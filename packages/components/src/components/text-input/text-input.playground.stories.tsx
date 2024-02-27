@@ -82,7 +82,7 @@ export default meta;
 
 const Template: StoryFn<TextInputProps> = ({ ...args }) => <TextInput {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<TextInputProps> = Template.bind({});
 Playground.args = {
   id: 'playgroundTextInput',
   label: 'Playground TextInput',

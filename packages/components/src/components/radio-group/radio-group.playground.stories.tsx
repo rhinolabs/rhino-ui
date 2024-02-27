@@ -50,7 +50,7 @@ export default meta;
 
 const Template: StoryFn<RadioGroupProps> = ({ ...args }) => <RadioGroup {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<RadioGroupProps> = Template.bind({});
 Playground.args = {
   title: 'Playground Radiogroup',
   description: 'Choose your favorite flavor',
