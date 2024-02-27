@@ -1,10 +1,6 @@
-{
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-sass-guidelines",
-    "stylelint-config-css-modules"
-  ],
-  "rules": {
+module.exports = {
+  extends: ["stylelint-config-standard", "stylelint-config-sass-guidelines", "stylelint-config-css-modules"],
+  rules: {
     "declaration-property-value-disallowed-list": null,
     "max-nesting-depth": null,
     "selector-max-compound-selectors": 4,
@@ -15,6 +11,6 @@
     "declaration-block-no-redundant-longhand-properties": null,
     "media-query-no-invalid": null,
     "keyframes-name-pattern": null,
-    "import-notation": null
-  }
-}
+    "import-notation": null,
+  },
+};

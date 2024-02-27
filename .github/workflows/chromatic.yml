@@ -1,0 +1,33 @@
+name: "[@rhino-ui/components] Chromatic"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v3
+      - uses: actions/setup-node@v4
+        name: 🔧 Setup Node.js
+
+      - run: pnpm install
+        name: 🔍 Install dependencies
+
+      - run: pnpm run build
+        name: 🛠 Build
+
+      - uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          onlyChanged: true
+          workingDir: packages/components
+        name: 🚀 Publish to Chromatic
