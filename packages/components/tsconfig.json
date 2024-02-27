@@ -1,9 +1,9 @@
 {
-  "extends": ["../../tsconfig.json"],
+  "extends": ["@rhino-ui/ts-config/base.json"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@rhinolabs/rhinolabs-design/tokens": ["./node_modules/@rhino-ui/design-tokens"] // This mapping is relative to "baseUrl"
+      "@rhino-ui/design-tokens": ["./node_modules/@rhino-ui/design-tokens"]
     }
   },
   "include": ["src"],

@@ -3,8 +3,8 @@
   "author": "@rhinolabs",
   "version": "1.0.0",
   "private": true,
+  "files": ["base.json"],
   "description": "Typescript configuration for Rhino UI",
-  "main": "src/base.json",
   "scripts": {
     "eslint": "eslint src --fix",
     "format": "prettier --write **/src/** --cache "
