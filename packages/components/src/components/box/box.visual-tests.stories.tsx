@@ -664,7 +664,7 @@ ResponsivePadding.args = {
 };
 ResponsivePadding.parameters = RESPONSIVE_STORY;
 
-const BoxChildrenTemplate: Story<BoxProps> = ({ propertyName, ...args }) => {
+const BoxChildrenTemplate: StoryFn<BoxProps> = ({ propertyName, ...args }) => {
   const Template: React.FC<Record<string, unknown>> = () => {
     const { activeBreakpoint } = useBreakpoint();
     return (
@@ -713,7 +713,7 @@ const BoxChildrenTemplate: Story<BoxProps> = ({ propertyName, ...args }) => {
   );
 };
 
-export const ResponsiveDirection: Story<BoxProps> = BoxChildrenTemplate.bind({});
+export const ResponsiveDirection: StoryFn<BoxProps> = BoxChildrenTemplate.bind({});
 ResponsiveDirection.args = {
   propertyName: 'direction',
   direction: {
@@ -725,7 +725,7 @@ ResponsiveDirection.args = {
 };
 ResponsiveDirection.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveChildGap: Story<BoxProps> = BoxChildrenTemplate.bind({});
+export const ResponsiveChildGap: StoryFn<BoxProps> = BoxChildrenTemplate.bind({});
 ResponsiveChildGap.args = {
   propertyName: 'childGap',
   childGap: {
@@ -737,7 +737,7 @@ ResponsiveChildGap.args = {
 };
 ResponsiveChildGap.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveGap: Story<BoxProps> = BoxChildrenTemplate.bind({});
+export const ResponsiveGap: StoryFn<BoxProps> = BoxChildrenTemplate.bind({});
 ResponsiveGap.args = {
   propertyName: 'gap',
   gap: {
@@ -749,7 +749,7 @@ ResponsiveGap.args = {
 };
 ResponsiveGap.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveRowGap: Story<BoxProps> = BoxChildrenTemplate.bind({});
+export const ResponsiveRowGap: StoryFn<BoxProps> = BoxChildrenTemplate.bind({});
 ResponsiveRowGap.args = {
   propertyName: 'rowGap',
   rowGap: {
@@ -761,7 +761,7 @@ ResponsiveRowGap.args = {
 };
 ResponsiveRowGap.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveColumnGap: Story<BoxProps> = BoxChildrenTemplate.bind({});
+export const ResponsiveColumnGap: StoryFn<BoxProps> = BoxChildrenTemplate.bind({});
 ResponsiveColumnGap.args = {
   propertyName: 'columnGap',
   columnGap: {
@@ -931,7 +931,7 @@ export const AllPositionOptions: React.FunctionComponent<BoxProps> = () => (
   </Box>
 );
 
-export const ResponsivePosition: Story<BoxProps> = BoxChildrenTemplate.bind({});
+export const ResponsivePosition: StoryFn<BoxProps> = BoxChildrenTemplate.bind({});
 ResponsivePosition.args = {
   propertyName: 'position',
   position: {
