@@ -81,7 +81,7 @@ export default meta;
 
 const Template: StoryFn<ButtonProps> = ({ ...args }) => <Button {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<ButtonProps> = Template.bind({});
 Playground.args = {
   variant: 'primary',
   children: 'Playground Button',

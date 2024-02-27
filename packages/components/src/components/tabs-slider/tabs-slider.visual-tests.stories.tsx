@@ -19,7 +19,7 @@ const Template: StoryFn<TabsSliderProps> = ({ ...args }) => (
   </TabsSlider>
 );
 
-export const ResponsiveSize = Template.bind({});
+export const ResponsiveSize: StoryFn<TabsSliderProps> = Template.bind({});
 ResponsiveSize.args = {
   value: 0,
   size: {

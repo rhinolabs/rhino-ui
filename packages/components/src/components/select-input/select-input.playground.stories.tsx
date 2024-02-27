@@ -64,7 +64,7 @@ export default meta;
 
 const Template: StoryFn<SelectInputProps> = ({ ...args }) => <SelectInput {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<SelectInputProps> = Template.bind({});
 Playground.args = {
   id: 'playgroundSelectInput',
   label: 'Playground SelectInput',

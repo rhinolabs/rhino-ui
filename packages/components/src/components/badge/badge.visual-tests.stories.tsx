@@ -36,4 +36,4 @@ const Template: StoryFn<BadgeProps> = args => (
   </Box>
 );
 
-export const VariantsAndSizes = Template.bind({});
+export const VariantsAndSizes: StoryFn<BadgeProps> = Template.bind({});

@@ -41,7 +41,7 @@ export default meta;
 
 const Template: StoryFn<AlertProps> = ({ ...args }) => <Alert {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<AlertProps> = Template.bind({});
 Playground.args = {
   variant: 'default',
   message: 'default',

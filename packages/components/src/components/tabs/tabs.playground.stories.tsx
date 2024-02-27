@@ -79,7 +79,7 @@ const Template: StoryFn<TabsProps> = ({
   </Box>
 );
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<TabsProps> = Template.bind({});
 
 Playground.args = {
   value: 0,

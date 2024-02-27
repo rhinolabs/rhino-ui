@@ -46,7 +46,7 @@ export default meta;
 
 const Template: StoryFn<ToggleProps> = ({ ...args }) => <Toggle {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<ToggleProps> = Template.bind({});
 Playground.args = {
   id: 'togglePlayground',
   size: 'md',

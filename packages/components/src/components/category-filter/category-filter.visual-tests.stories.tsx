@@ -54,7 +54,7 @@ const Template: StoryFn<CategoryFilterProps> = ({ ...args }) => (
   </Box>
 );
 
-export const SizesAndStates = Template.bind({});
+export const SizesAndStates: StoryFn<CategoryFilterProps> = Template.bind({});
 
 export const ResponsiveSize: ComponentStory<typeof CategoryFilter> = () => (
   <CategoryFilter

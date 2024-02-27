@@ -54,10 +54,10 @@ const Template: StoryFn<RadioGroupProps> = ({ ...args }) => (
   </Box>
 );
 
-export const AllSizes = Template.bind({});
+export const AllSizes: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizes.args = { id: 'AllSizes' };
 
-export const AllSizesChecked = Template.bind({});
+export const AllSizesChecked: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesChecked.args = {
   id: 'AllSizesChecked',
   isRequired: true,
@@ -66,30 +66,30 @@ AllSizesChecked.args = {
 };
 AllSizesChecked.parameters = RESPONSIVE_STORY;
 
-export const AllSizesError = Template.bind({});
+export const AllSizesError: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesError.args = { id: 'AllSizesError', error: 'Agreement is required' };
 
-export const AllSizesDisabled = Template.bind({});
+export const AllSizesDisabled: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesDisabled.args = { id: 'AllSizesDisabled', isDisabled: true };
 
-export const AllSizesDisabledChecked = Template.bind({});
+export const AllSizesDisabledChecked: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesDisabledChecked.args = {
   id: 'AllSizesDisabledChecked',
   isDisabled: true,
   value: 'one',
 };
 
-export const AllSizesTitle = Template.bind({});
+export const AllSizesTitle: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesTitle.args = { id: 'AllSizesTitle', title: 'title' };
 
-export const AllSizesTitleDisabled = Template.bind({});
+export const AllSizesTitleDisabled: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesTitleDisabled.args = {
   id: 'AllSizesTitleDisabled',
   title: 'title',
   isDisabled: true,
 };
 
-export const AllSizesTitleDisabledError = Template.bind({});
+export const AllSizesTitleDisabledError: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesTitleDisabledError.args = {
   id: 'AllSizesTitleDisabledError',
   title: 'title',
@@ -97,7 +97,7 @@ AllSizesTitleDisabledError.args = {
   error: 'this is required',
 };
 
-export const AllSizesTitleDisabledErrorChecked = Template.bind({});
+export const AllSizesTitleDisabledErrorChecked: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesTitleDisabledErrorChecked.args = {
   id: 'AllSizesTitleDisabledErrorChecked',
   title: 'title',
@@ -106,7 +106,7 @@ AllSizesTitleDisabledErrorChecked.args = {
   value: 'one',
 };
 
-export const AllSizesTitleDisabledOption = Template.bind({});
+export const AllSizesTitleDisabledOption: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesTitleDisabledOption.args = {
   id: 'AllSizesTitleDisabledOption',
   title: 'title',
@@ -122,7 +122,7 @@ AllSizesTitleDisabledOption.args = {
   ],
 };
 
-export const AllSizesTitleDisabledOptionSelected = Template.bind({});
+export const AllSizesTitleDisabledOptionSelected: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesTitleDisabledOptionSelected.args = {
   id: 'AllSizesTitleDisabledOptionSelected',
   title: 'title',
@@ -138,10 +138,10 @@ AllSizesTitleDisabledOptionSelected.args = {
   ],
 };
 
-export const AllSizesHorizontal = Template.bind({});
+export const AllSizesHorizontal: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesHorizontal.args = { id: 'AllSizesHorizontal', direction: 'row' };
 
-export const AllSizesHorizontalChecked = Template.bind({});
+export const AllSizesHorizontalChecked: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesHorizontalChecked.args = {
   id: 'AllSizesHorizontalRequired',
   isRequired: true,
@@ -150,21 +150,21 @@ AllSizesHorizontalChecked.args = {
   direction: 'row',
 };
 
-export const AllSizesHorizontalError = Template.bind({});
+export const AllSizesHorizontalError: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesHorizontalError.args = {
   id: 'AllSizesHorizontalError',
   error: 'Agreement is required',
   direction: 'row',
 };
 
-export const AllSizesHorizontalDisabled = Template.bind({});
+export const AllSizesHorizontalDisabled: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesHorizontalDisabled.args = {
   id: 'AllSizesHorizontalDisabled',
   isDisabled: true,
   direction: 'row',
 };
 
-export const AllSizesHorizontalDisabledChecked = Template.bind({});
+export const AllSizesHorizontalDisabledChecked: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesHorizontalDisabledChecked.args = {
   id: 'AllSizesHorizontalDisabled',
   isDisabled: true,
@@ -172,14 +172,14 @@ AllSizesHorizontalDisabledChecked.args = {
   direction: 'row',
 };
 
-export const AllSizesHorizontalTitle = Template.bind({});
+export const AllSizesHorizontalTitle: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesHorizontalTitle.args = {
   id: 'AllSizesHorizontalTitle',
   title: 'title',
   direction: 'row',
 };
 
-export const AllSizesHorizontalTitleDisabled = Template.bind({});
+export const AllSizesHorizontalTitleDisabled: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesHorizontalTitleDisabled.args = {
   id: 'AllSizesHorizontalTitleDisabled',
   title: 'title',
@@ -187,7 +187,7 @@ AllSizesHorizontalTitleDisabled.args = {
   direction: 'row',
 };
 
-export const AllSizesHorizontalTitleDisabledError = Template.bind({});
+export const AllSizesHorizontalTitleDisabledError: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesHorizontalTitleDisabledError.args = {
   id: 'AllSizesHorizontalTitleDisabledError',
   title: 'title',
@@ -196,7 +196,7 @@ AllSizesHorizontalTitleDisabledError.args = {
   direction: 'row',
 };
 
-export const AllSizesHorizontalTitleDisabledErrorChecked = Template.bind({});
+export const AllSizesHorizontalTitleDisabledErrorChecked: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesHorizontalTitleDisabledErrorChecked.args = {
   id: 'AllSizesHorizontalTitleDisabledErrorChecked',
   title: 'title',
@@ -206,7 +206,7 @@ AllSizesHorizontalTitleDisabledErrorChecked.args = {
   direction: 'row',
 };
 
-export const AllSizesHorizontalTitleDisabledOption = Template.bind({});
+export const AllSizesHorizontalTitleDisabledOption: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesHorizontalTitleDisabledOption.args = {
   id: 'AllSizesHorizontalTitleDisabledOption',
   title: 'title',
@@ -223,7 +223,7 @@ AllSizesHorizontalTitleDisabledOption.args = {
   direction: 'row',
 };
 
-export const AllSizesHorizontalTitleDisabledOptionSelected = Template.bind({});
+export const AllSizesHorizontalTitleDisabledOptionSelected: StoryFn<RadioGroupProps> = Template.bind({});
 AllSizesHorizontalTitleDisabledOptionSelected.args = {
   id: 'AllSizesHorizontalTitleDisabledOptionSelected',
   title: 'title',
@@ -244,7 +244,7 @@ const SimpleTemplate: StoryFn<RadioGroupProps> = ({ ...args }) => (
   <RadioGroup {...args} options={options} />
 );
 
-export const FocusSelected = SimpleTemplate.bind({});
+export const FocusSelected: StoryFn<RadioGroupProps> = SimpleTemplate.bind({});
 FocusSelected.args = {
   id: 'FocusSelected',
   isRequired: true,
@@ -259,7 +259,7 @@ FocusSelected.play = async ({ canvasElement }) => {
   radios[0].focus();
 };
 
-export const FocusUnselected = SimpleTemplate.bind({});
+export const FocusUnselected: StoryFn<RadioGroupProps> = SimpleTemplate.bind({});
 FocusUnselected.args = {
   id: 'AllSizesChecked',
   isRequired: true,

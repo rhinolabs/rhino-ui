@@ -15,7 +15,7 @@ const Template: StoryFn<CheckboxInputProps> = ({ ...args }) => (
   <CheckboxInput {...args} onChange={() => {}} /> // eslint-disable-line @typescript-eslint/no-empty-function
 );
 
-export const ResponsiveSizeOneUnchecked = Template.bind({});
+export const ResponsiveSizeOneUnchecked: StoryFn<CheckboxInputProps> = Template.bind({});
 ResponsiveSizeOneUnchecked.args = {
   id: 'ResponsiveSizeOneUnchecked',
   label: 'ResponsiveSizeOneUnchecked',
@@ -29,7 +29,7 @@ ResponsiveSizeOneUnchecked.args = {
 };
 ResponsiveSizeOneUnchecked.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveSizeTwoUnchecked = Template.bind({});
+export const ResponsiveSizeTwoUnchecked: StoryFn<CheckboxInputProps> = Template.bind({});
 ResponsiveSizeTwoUnchecked.args = {
   id: 'ResponsiveSizeTwoUnchecked',
   label: 'ResponsiveSizeTwoUnchecked',
@@ -43,7 +43,7 @@ ResponsiveSizeTwoUnchecked.args = {
 };
 ResponsiveSizeTwoUnchecked.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveSizeThreeUnchecked = Template.bind({});
+export const ResponsiveSizeThreeUnchecked: StoryFn<CheckboxInputProps> = Template.bind({});
 ResponsiveSizeThreeUnchecked.args = {
   id: 'ResponsiveSizeThreeUnchecked',
   label: 'ResponsiveSizeThreeUnchecked',
@@ -57,7 +57,7 @@ ResponsiveSizeThreeUnchecked.args = {
 };
 ResponsiveSizeThreeUnchecked.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveSizeOneChecked = Template.bind({});
+export const ResponsiveSizeOneChecked: StoryFn<CheckboxInputProps> = Template.bind({});
 ResponsiveSizeOneChecked.args = {
   id: 'ResponsiveSizeOneChecked',
   label: 'ResponsiveSizeOneChecked',
@@ -71,7 +71,7 @@ ResponsiveSizeOneChecked.args = {
 };
 ResponsiveSizeOneChecked.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveSizeTwoChecked = Template.bind({});
+export const ResponsiveSizeTwoChecked: StoryFn<CheckboxInputProps> = Template.bind({});
 ResponsiveSizeTwoChecked.args = {
   id: 'ResponsiveSizeTwoChecked',
   label: 'ResponsiveSizeTwoChecked',
@@ -85,7 +85,7 @@ ResponsiveSizeTwoChecked.args = {
 };
 ResponsiveSizeTwoChecked.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveSizeThreeChecked = Template.bind({});
+export const ResponsiveSizeThreeChecked: StoryFn<CheckboxInputProps> = Template.bind({});
 ResponsiveSizeThreeChecked.args = {
   id: 'ResponsiveSizeThreeChecked',
   label: 'ResponsiveSizeThreeChecked',
@@ -99,7 +99,7 @@ ResponsiveSizeThreeChecked.args = {
 };
 ResponsiveSizeThreeChecked.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveSizeOneIndeterminate = Template.bind({});
+export const ResponsiveSizeOneIndeterminate: StoryFn<CheckboxInputProps> = Template.bind({});
 ResponsiveSizeOneIndeterminate.args = {
   id: 'ResponsiveSizeOneIndeterminate',
   label: 'ResponsiveSizeOneIndeterminate',
@@ -114,7 +114,7 @@ ResponsiveSizeOneIndeterminate.args = {
 };
 ResponsiveSizeOneIndeterminate.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveSizeTwoIndeterminate = Template.bind({});
+export const ResponsiveSizeTwoIndeterminate: StoryFn<CheckboxInputProps> = Template.bind({});
 ResponsiveSizeTwoIndeterminate.args = {
   id: 'ResponsiveSizeTwoIndeterminate',
   label: 'ResponsiveSizeTwoIndeterminate',
@@ -129,7 +129,7 @@ ResponsiveSizeTwoIndeterminate.args = {
 };
 ResponsiveSizeTwoIndeterminate.parameters = RESPONSIVE_STORY;
 
-export const ResponsiveSizeThreeIndeterminate = Template.bind({});
+export const ResponsiveSizeThreeIndeterminate: StoryFn<CheckboxInputProps> = Template.bind({});
 ResponsiveSizeThreeIndeterminate.args = {
   id: 'ResponsiveSizeThreeIndeterminate',
   label: 'ResponsiveSizeThreeIndeterminate',
@@ -144,7 +144,7 @@ ResponsiveSizeThreeIndeterminate.args = {
 };
 ResponsiveSizeThreeIndeterminate.parameters = RESPONSIVE_STORY;
 
-export const FocusChecked = Template.bind({});
+export const FocusChecked: StoryFn<CheckboxInputProps> = Template.bind({});
 FocusChecked.args = {
   id: 'FocusUnchecked',
   label: 'Focus Checked',
@@ -156,7 +156,7 @@ FocusChecked.play = async ({ canvasElement }) => {
   canvas.getByRole('checkbox').focus();
 };
 
-export const FocusUnchecked = Template.bind({});
+export const FocusUnchecked: StoryFn<CheckboxInputProps> = Template.bind({});
 FocusUnchecked.args = {
   id: 'FocusUnchecked',
   label: 'Focus Unchecked',
@@ -168,7 +168,7 @@ FocusUnchecked.play = async ({ canvasElement }) => {
   canvas.getByRole('checkbox').focus();
 };
 
-export const FocusErrorChecked = Template.bind({});
+export const FocusErrorChecked: StoryFn<CheckboxInputProps> = Template.bind({});
 FocusErrorChecked.args = {
   id: 'FocusErrorChecked',
   label: 'Focus Error Checked',
@@ -181,7 +181,7 @@ FocusErrorChecked.play = async ({ canvasElement }) => {
   canvas.getByRole('checkbox').focus();
 };
 
-export const FocusErrorUnchecked = Template.bind({});
+export const FocusErrorUnchecked: StoryFn<CheckboxInputProps> = Template.bind({});
 FocusErrorUnchecked.args = {
   id: 'FocusErrorUnchecked',
   label: 'Focus Error Unchecked',

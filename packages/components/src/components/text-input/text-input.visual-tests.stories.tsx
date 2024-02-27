@@ -141,7 +141,7 @@ export const PrefixSuffixSizes: React.FC = (): ReactElement => {
   );
 };
 
-export const ResponsiveSize = Template.bind({});
+export const ResponsiveSize: StoryFn<TextInputProps> = Template.bind({});
 ResponsiveSize.args = {
   size: {
     base: 'sm',
@@ -155,46 +155,46 @@ ResponsiveSize.args = {
 };
 ResponsiveSize.parameters = RESPONSIVE_STORY;
 
-export const Disabled = Template.bind({});
+export const Disabled: StoryFn<TextInputProps> = Template.bind({});
 Disabled.args = {
   label: 'Disabled TextInput',
   isDisabled: true,
 };
 
-export const DisabledPlaceholder = Template.bind({});
+export const DisabledPlaceholder: StoryFn<TextInputProps> = Template.bind({});
 DisabledPlaceholder.args = {
   label: 'Disabled TextInput',
   isDisabled: true,
   placeholder: 'placeholder text',
 };
 
-export const Error = Template.bind({});
+export const Error: StoryFn<TextInputProps> = Template.bind({});
 Error.args = {
   label: 'Error TextInput',
   error: true,
 };
 
-export const ErrorValidationMessageRequired = Template.bind({});
+export const ErrorValidationMessageRequired: StoryFn<TextInputProps> = Template.bind({});
 ErrorValidationMessageRequired.args = {
   label: 'Error TextInput',
   isRequired: true,
   error: 'Helpful validation message',
 };
 
-export const ErrorValidationMessage = Template.bind({});
+export const ErrorValidationMessage: StoryFn<TextInputProps> = Template.bind({});
 ErrorValidationMessage.args = {
   label: 'Error TextInput',
   error: 'Helpful validation message',
 };
 
-export const ErrorHiddenLabelValidationMessage = Template.bind({});
+export const ErrorHiddenLabelValidationMessage: StoryFn<TextInputProps> = Template.bind({});
 ErrorHiddenLabelValidationMessage.args = {
   label: 'Error TextInput',
   hideLabel: true,
   error: 'Helpful validation message',
 };
 
-export const DefaultFocus = Template.bind({});
+export const DefaultFocus: StoryFn<TextInputProps> = Template.bind({});
 
 DefaultFocus.args = {
   label: 'Default Focus',
@@ -205,7 +205,7 @@ DefaultFocus.play = async ({ canvasElement }) => {
   canvas.getByLabelText('Default Focus').focus();
 };
 
-export const ErrorFocus = Template.bind({});
+export const ErrorFocus: StoryFn<TextInputProps> = Template.bind({});
 
 ErrorFocus.args = {
   label: 'Error Focus',

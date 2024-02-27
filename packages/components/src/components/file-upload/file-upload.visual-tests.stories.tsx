@@ -14,7 +14,7 @@ const Template: StoryFn<FileUploadProps> = ({ ...args }) => (
   <FileUpload {...args}>category filter</FileUpload> // eslint-disable-line @typescript-eslint/no-empty-function
 );
 
-export const ResponsiveHelpText = Template.bind({});
+export const ResponsiveHelpText: StoryFn<FileUploadProps> = Template.bind({});
 ResponsiveHelpText.args = {
   helpText: 'image files only (jpg, png, gif)',
   accept: 'image/*',

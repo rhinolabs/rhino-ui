@@ -85,7 +85,7 @@ export default meta;
 
 const Template: StoryFn<TimePickerNativeProps> = ({ ...args }) => <TimePickerNative {...args} />;
 
-export const Playground = Template.bind({});
+export const Playground: StoryFn<TimePickerNativeProps> = Template.bind({});
 Playground.args = {
   id: 'playgroundTimePickerNative',
   label: 'Playground TimePickerNative',

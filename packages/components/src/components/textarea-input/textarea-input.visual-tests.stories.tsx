@@ -17,7 +17,7 @@ const Template: StoryFn<TextareaInputProps> = args => (
   />
 );
 
-export const ResponsiveSize = Template.bind({});
+export const ResponsiveSize: StoryFn<TextareaInputProps> = Template.bind({});
 ResponsiveSize.args = {
   size: {
     base: 'sm',
