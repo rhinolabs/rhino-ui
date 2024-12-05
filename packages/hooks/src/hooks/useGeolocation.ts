@@ -5,7 +5,7 @@ interface Payload {
 	lng: number;
 }
 
-export function useGeolocation(defaultPosition: Payload | null = null) {
+export const useGeolocation = (defaultPosition: Payload | null = null) => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const [position, setPosition] = useState<Payload | null>(defaultPosition);
 	const [error, setError] = useState<string | null>(null);
@@ -33,4 +33,4 @@ export function useGeolocation(defaultPosition: Payload | null = null) {
 	}
 
 	return { isLoading, position, error, getPosition };
-}
+};

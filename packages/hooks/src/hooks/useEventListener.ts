@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function useEventListener(
+export const useEventListener = (
 	eventName: string,
 	callback: EventListener,
 	element:
@@ -8,7 +8,7 @@ export default function useEventListener(
 		| (Window & typeof globalThis)
 		| Document
 		| null = window,
-) {
+) => {
 	const callbackRef = useRef<EventListener>(callback);
 
 	useEffect(() => {
@@ -28,4 +28,4 @@ export default function useEventListener(
 			element.removeEventListener(eventName, eventListener);
 		};
 	}, [eventName, element]);
-}
+};
