@@ -7,7 +7,7 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"scripts": {
-		"build": "tsc && tailwindcss build src/index.css -o dist/styles.css",
+		"build": "tsc",
 		"lint": "biome format && biome lint",
 		"lint:fix": "biome format --write && biome lint --fix"
 	},
